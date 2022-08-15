@@ -1,0 +1,54 @@
+{
+    "name": "PlayerController",
+    "maps": [
+        {
+            "name": "Player1",
+            "id": "18b2d364-6e65-40b8-932b-ecfa53e4b677",
+            "actions": [
+                {
+                    "name": "MainShoot",
+                    "type": "Button",
+                    "id": "9f38fb21-947d-465c-8523-32919f290173",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "movment",
+                    "type": "Value",
+                    "id": "6b95cfbc-5f51-43e3-8efa-3fcf00f85f50",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a63b33c2-6688-437e-90d9-1b926965b635",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MainShoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "858ed4bc-da8c-4b9d-98c4-8829d2d5483b",
+                    "path": "<XInputController>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "movment",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
