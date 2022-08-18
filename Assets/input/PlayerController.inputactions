@@ -22,13 +22,22 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "looking",
+                    "type": "PassThrough",
+                    "id": "81960c00-a0b6-49ac-b3da-2292714f30d5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "a63b33c2-6688-437e-90d9-1b926965b635",
-                    "path": "<XInputController>/buttonWest",
+                    "path": "<XInputController>/rightShoulder",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
@@ -44,6 +53,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "movment",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "181e1797-4b56-422f-a166-8e2e86e84af1",
+                    "path": "<XInputController>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "looking",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -44,13 +44,22 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""looking"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""81960c00-a0b6-49ac-b3da-2292714f30d5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""a63b33c2-6688-437e-90d9-1b926965b635"",
-                    ""path"": ""<XInputController>/buttonWest"",
+                    ""path"": ""<XInputController>/rightShoulder"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
@@ -68,6 +77,17 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""action"": ""movment"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""181e1797-4b56-422f-a166-8e2e86e84af1"",
+                    ""path"": ""<XInputController>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""looking"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +98,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
         m_Player1_MainShoot = m_Player1.FindAction("MainShoot", throwIfNotFound: true);
         m_Player1_movment = m_Player1.FindAction("movment", throwIfNotFound: true);
+        m_Player1_looking = m_Player1.FindAction("looking", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -139,12 +160,14 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     private IPlayer1Actions m_Player1ActionsCallbackInterface;
     private readonly InputAction m_Player1_MainShoot;
     private readonly InputAction m_Player1_movment;
+    private readonly InputAction m_Player1_looking;
     public struct Player1Actions
     {
         private @PlayerController m_Wrapper;
         public Player1Actions(@PlayerController wrapper) { m_Wrapper = wrapper; }
         public InputAction @MainShoot => m_Wrapper.m_Player1_MainShoot;
         public InputAction @movment => m_Wrapper.m_Player1_movment;
+        public InputAction @looking => m_Wrapper.m_Player1_looking;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -160,6 +183,9 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @movment.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovment;
                 @movment.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovment;
                 @movment.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovment;
+                @looking.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnLooking;
+                @looking.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnLooking;
+                @looking.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnLooking;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -170,6 +196,9 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @movment.started += instance.OnMovment;
                 @movment.performed += instance.OnMovment;
                 @movment.canceled += instance.OnMovment;
+                @looking.started += instance.OnLooking;
+                @looking.performed += instance.OnLooking;
+                @looking.canceled += instance.OnLooking;
             }
         }
     }
@@ -178,5 +207,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     {
         void OnMainShoot(InputAction.CallbackContext context);
         void OnMovment(InputAction.CallbackContext context);
+        void OnLooking(InputAction.CallbackContext context);
     }
 }

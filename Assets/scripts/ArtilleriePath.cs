@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(LineRenderer))]
 public class ArtilleriePath : MonoBehaviour
 {
-    [SerializeField]
-    float speed;
+    public PlayersControlls Controll;
+    public float Power;
     [SerializeField]
     float lengthLimit;
     [SerializeField]
@@ -24,7 +25,16 @@ public class ArtilleriePath : MonoBehaviour
         lr.positionCount = resulution;
         points = new Vector3[resulution];
         rotations = new Quaternion[resulution];
+
+        Controll.OnLookStateSwitch += Controll_OnLookStateSwitch;
     }
+
+    private void Controll_OnLookStateSwitch(bool state)
+    {
+        lr.enabled = state;
+        enabled = state;
+    }
+
     public ArtilleriePathPointData GetArtilleriePathData()
     {
         return new ArtilleriePathPointData(points, rotations, lengthLimit / resulution);
@@ -41,7 +51,7 @@ public class ArtilleriePath : MonoBehaviour
             var t = (lengthLimit / resulution) * i;
 
             //Positions
-            var powerStraight = transform.up * speed * t;
+            var powerStraight = transform.up * Power * t;
             var gravityLost = (Mathf.Pow(t, 2) * 9.8f) / 2;
             points[i] = new Vector3(powerStraight.x, powerStraight.y - gravityLost, powerStraight.z) + point;
 

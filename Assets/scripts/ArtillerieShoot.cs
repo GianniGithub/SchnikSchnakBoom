@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ArtillerieShoot : MonoBehaviour
 {
+	public Projectile bullet;
+	public PlayersControlls Controlls;
 	public Transform BulletPrefap;
 	public float speed;
     [SerializeField]
 	ArtilleriePathPointData pathData;
 	ArtilleriePath aPath;
 	private float trackCounter = 0f;
+	bool lookLock;
 
 	int i = 0;
 
@@ -17,9 +21,12 @@ public class ArtillerieShoot : MonoBehaviour
     {
         enabled = false;
         aPath = GetComponentInChildren<ArtilleriePath>();
+        Controlls.OnLookStateSwitch += Controlls_OnLookStateSwitch;
 	}
 
-    void Update()
+	private void Controlls_OnLookStateSwitch(bool state) => lookLock = state;
+
+	void Update()
     {
 		trackCounter += speed * Time.deltaTime;
 
@@ -41,10 +48,12 @@ public class ArtillerieShoot : MonoBehaviour
 		var t = trackCounter / pathData.PointsDistanzToEacheuser;
 		BulletPrefap.SetPositionAndRotation(Vector3.Lerp(pathData.points[i], pathData.points[i+1], t), Quaternion.Lerp(pathData.rotations[i], pathData.rotations[i+1], t));
 	}
-    public void ShootBullet()
-    {
-		if (enabled)
+	public void OnShootBullet(InputAction.CallbackContext context)
+	{
+		if(!lookLock || enabled || context.phase != InputActionPhase.Started)
 			return;
+
+		bullet.gameObject.SetActive(true);
 		trackCounter = 0f;
 		i = 0;
 		pathData = aPath.GetArtilleriePathData();
