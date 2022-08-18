@@ -7,12 +7,11 @@ using static PlayerController;
 
 public class PlayersControlls : MonoBehaviour, IPlayer1Actions
 {
-    public event Action<bool> OnLookStateSwitch;
+    public event Action<bool, Vector2> OnLookStateSwitch;
     public float Speed;
-    public Vector2 PowerRange;
     Vector3 nextMove;
     Rigidbody rb;
-    ArtilleriePath aPath;
+    public PlayerController ControllEvents;
 
     public void OnMainShoot(InputAction.CallbackContext context)
     {
@@ -24,14 +23,18 @@ public class PlayersControlls : MonoBehaviour, IPlayer1Actions
         var moveInput = context.ReadValue<Vector2>();
         nextMove = new Vector3(moveInput.x, 0, moveInput.y);
     }
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        ControllEvents = new PlayerController();
+        ControllEvents.Player1.Enable();
+        ControllEvents.Player1.movment.performed += OnMovment;
+        ControllEvents.Player1.looking.performed += OnLooking;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        aPath = GetComponentInChildren<ArtilleriePath>();
-        var test = new @PlayerController();
-        test.Player1.MainShoot.performed += OnMainShoot;
 
     }
 
@@ -45,18 +48,17 @@ public class PlayersControlls : MonoBehaviour, IPlayer1Actions
         var dPad = context.ReadValue<Vector2>();
         if (dPad == Vector2.zero)
         {
-            OnLookStateSwitch(false);
+            OnLookStateSwitch(false, dPad);
             return;
         }
         else
         {
-            OnLookStateSwitch(true);
+            OnLookStateSwitch(true, dPad);
         }
 
         float heading = Mathf.Atan2(dPad.x, dPad.y);
         transform.rotation = Quaternion.Euler(0f, heading * Mathf.Rad2Deg, 0f);
 
-        var t = Mathf.Abs(dPad.x) + Mathf.Abs(dPad.y);
-        aPath.Power = Mathf.Lerp(PowerRange.x, PowerRange.y, t);
+
     }
 }

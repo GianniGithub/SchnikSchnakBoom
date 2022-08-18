@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class ArtilleriePath : MonoBehaviour
 {
+    public Vector2 PowerRange;
     public PlayersControlls Controll;
     public float Power;
     [SerializeField]
@@ -29,10 +30,16 @@ public class ArtilleriePath : MonoBehaviour
         Controll.OnLookStateSwitch += Controll_OnLookStateSwitch;
     }
 
-    private void Controll_OnLookStateSwitch(bool state)
+    private void Controll_OnLookStateSwitch(bool state, Vector2 axes)
     {
-        lr.enabled = state;
-        enabled = state;
+        if (enabled != state)
+        {
+            lr.enabled = state;
+            enabled = state;
+        }
+
+        var t = Mathf.Abs(axes.x) + Mathf.Abs(axes.y);
+        Power = Mathf.Lerp(PowerRange.x, PowerRange.y, t);
     }
 
     public ArtilleriePathPointData GetArtilleriePathData()

@@ -12,19 +12,23 @@ public class ArtillerieShoot : MonoBehaviour
     [SerializeField]
 	ArtilleriePathPointData pathData;
 	ArtilleriePath aPath;
-	private float trackCounter = 0f;
+    private float trackCounter = 0f;
 	bool lookLock;
 
 	int i = 0;
 
 	void Start()
     {
+
+		Controlls.OnLookStateSwitch += Controlls_OnLookStateSwitch;
         enabled = false;
-        aPath = GetComponentInChildren<ArtilleriePath>();
-        Controlls.OnLookStateSwitch += Controlls_OnLookStateSwitch;
+        aPath = GetComponent<ArtilleriePath>();
+
+		Controlls.ControllEvents.Player1.MainShoot.performed += OnShootBullet;
 	}
 
-	private void Controlls_OnLookStateSwitch(bool state) => lookLock = state;
+    private void Controlls_OnLookStateSwitch(bool arg1, Vector2 arg2) => lookLock = arg1;
+
 
 	void Update()
     {
@@ -50,7 +54,7 @@ public class ArtillerieShoot : MonoBehaviour
 	}
 	public void OnShootBullet(InputAction.CallbackContext context)
 	{
-		if(!lookLock || enabled || context.phase != InputActionPhase.Started)
+		if(!lookLock || enabled || context.phase != InputActionPhase.Performed)
 			return;
 
 		bullet.gameObject.SetActive(true);
@@ -59,4 +63,5 @@ public class ArtillerieShoot : MonoBehaviour
 		pathData = aPath.GetArtilleriePathData();
 		enabled = true;
 	}
+
 }
