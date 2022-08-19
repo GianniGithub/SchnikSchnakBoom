@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class MiniGun : MonoBehaviour
 {
+    public AnimationCurve ExpolisonCurv;
+    public Transform PrefapExplosion;
     public PlayersControlls Controlls;
     LineRenderer lr;
     Vector3[] points;
@@ -23,8 +25,22 @@ public class MiniGun : MonoBehaviour
         lr.positionCount = 2;
         points = new Vector3[2];
 
-        Controlls.ControllEvents.Player1.MainShoot.performed += OnShootBullet;
-        Controlls.OnLookStateSwitch += Controlls_OnLookStateSwitch;
+    }
+
+    private void MainShoot_performed(InputAction.CallbackContext context)
+    {
+        FireOn = true;
+        lr.enabled = true;
+    }
+
+    private void MainShoot_canceled(InputAction.CallbackContext context)
+    {
+        FireOn = false;
+        lr.enabled = false;
+
+        points[0] = Vector3.zero;
+        points[1] = Vector3.zero;
+        lr.SetPositions(points);
     }
 
     private void Controlls_OnLookStateSwitch(bool arg1, Vector2 arg2)
@@ -48,6 +64,7 @@ public class MiniGun : MonoBehaviour
                 points[0] = transform.position;
                 points[1] = hit.point;
                 lr.SetPositions(points);
+                Projectile.CreateExplosion(hit.point, ExpolisonCurv, PrefapExplosion, 0.5f);
 
             }
             else
@@ -58,22 +75,18 @@ public class MiniGun : MonoBehaviour
         }
 
     }
-
-    public void OnShootBullet(InputAction.CallbackContext context)
+    private void OnEnable()
     {
-        Debug.Log("Testsdsdsdsd");
-        switch (context.phase)
-        {
-            case InputActionPhase.Performed:
-                FireOn = true;
-                lr.enabled = true;
-                break;
-            case InputActionPhase.Canceled:
-                FireOn = false;
-                lr.enabled = false;
-                break;
-            default:
-                return;
-        }
+
+        Controlls.ControllEvents.Player1.MainShoot.performed += MainShoot_performed;
+        Controlls.ControllEvents.Player1.MainShoot.canceled += MainShoot_canceled;
+        Controlls.OnLookStateSwitch += Controlls_OnLookStateSwitch;
+    }
+    private void OnDisable()
+    {
+
+        Controlls.ControllEvents.Player1.MainShoot.performed -= MainShoot_performed;
+        Controlls.ControllEvents.Player1.MainShoot.canceled -= MainShoot_canceled;
+        Controlls.OnLookStateSwitch -= Controlls_OnLookStateSwitch;
     }
 }

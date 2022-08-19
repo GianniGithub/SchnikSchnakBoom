@@ -19,15 +19,13 @@ public class ArtillerieShoot : MonoBehaviour
 
 	void Start()
     {
-
-		Controlls.OnLookStateSwitch += Controlls_OnLookStateSwitch;
         enabled = false;
         aPath = GetComponent<ArtilleriePath>();
-
-		Controlls.ControllEvents.Player1.MainShoot.performed += OnShootBullet;
+		pathData = aPath.GetArtilleriePathData();
+		
 	}
 
-    private void Controlls_OnLookStateSwitch(bool arg1, Vector2 arg2) => lookLock = arg1;
+    public void Controlls_OnLookStateSwitch(bool arg1, Vector2 arg2) => lookLock = arg1;
 
 
 	void Update()
@@ -54,9 +52,10 @@ public class ArtillerieShoot : MonoBehaviour
 	}
 	public void OnShootBullet(InputAction.CallbackContext context)
 	{
-		if(!lookLock || enabled || context.phase != InputActionPhase.Performed)
+		Debug.Log("bbb");
+		if (!lookLock || enabled)
 			return;
-
+		Debug.Log("cccc	");
 		bullet.gameObject.SetActive(true);
 		trackCounter = 0f;
 		i = 0;

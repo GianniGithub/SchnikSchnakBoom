@@ -12,7 +12,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "movment",
@@ -31,6 +31,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MiniGun",
+                    "type": "Button",
+                    "id": "4cb5c39b-380a-4148-9091-4b28762f4ead",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Artillery",
+                    "type": "Button",
+                    "id": "95e2545c-05bd-45e2-a2c0-beaeef6dc24d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -38,7 +56,7 @@
                     "name": "",
                     "id": "a63b33c2-6688-437e-90d9-1b926965b635",
                     "path": "<XInputController>/rightShoulder",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "MainShoot",
@@ -64,6 +82,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "looking",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b7d8f4f5-dee8-41b5-9d6e-912e44b10020",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MiniGun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1849b93d-2b69-4b9d-9962-09ddf5ddec23",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Artillery",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

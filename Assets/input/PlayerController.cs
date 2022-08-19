@@ -34,7 +34,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""movment"",
@@ -53,6 +53,24 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MiniGun"",
+                    ""type"": ""Button"",
+                    ""id"": ""4cb5c39b-380a-4148-9091-4b28762f4ead"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Artillery"",
+                    ""type"": ""Button"",
+                    ""id"": ""95e2545c-05bd-45e2-a2c0-beaeef6dc24d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -60,7 +78,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""a63b33c2-6688-437e-90d9-1b926965b635"",
                     ""path"": ""<XInputController>/rightShoulder"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MainShoot"",
@@ -88,6 +106,28 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""action"": ""looking"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b7d8f4f5-dee8-41b5-9d6e-912e44b10020"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MiniGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1849b93d-2b69-4b9d-9962-09ddf5ddec23"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Artillery"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -99,6 +139,8 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         m_Player1_MainShoot = m_Player1.FindAction("MainShoot", throwIfNotFound: true);
         m_Player1_movment = m_Player1.FindAction("movment", throwIfNotFound: true);
         m_Player1_looking = m_Player1.FindAction("looking", throwIfNotFound: true);
+        m_Player1_MiniGun = m_Player1.FindAction("MiniGun", throwIfNotFound: true);
+        m_Player1_Artillery = m_Player1.FindAction("Artillery", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -161,6 +203,8 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player1_MainShoot;
     private readonly InputAction m_Player1_movment;
     private readonly InputAction m_Player1_looking;
+    private readonly InputAction m_Player1_MiniGun;
+    private readonly InputAction m_Player1_Artillery;
     public struct Player1Actions
     {
         private @PlayerController m_Wrapper;
@@ -168,6 +212,8 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         public InputAction @MainShoot => m_Wrapper.m_Player1_MainShoot;
         public InputAction @movment => m_Wrapper.m_Player1_movment;
         public InputAction @looking => m_Wrapper.m_Player1_looking;
+        public InputAction @MiniGun => m_Wrapper.m_Player1_MiniGun;
+        public InputAction @Artillery => m_Wrapper.m_Player1_Artillery;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -186,6 +232,12 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @looking.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnLooking;
                 @looking.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnLooking;
                 @looking.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnLooking;
+                @MiniGun.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMiniGun;
+                @MiniGun.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMiniGun;
+                @MiniGun.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMiniGun;
+                @Artillery.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnArtillery;
+                @Artillery.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnArtillery;
+                @Artillery.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnArtillery;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -199,6 +251,12 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @looking.started += instance.OnLooking;
                 @looking.performed += instance.OnLooking;
                 @looking.canceled += instance.OnLooking;
+                @MiniGun.started += instance.OnMiniGun;
+                @MiniGun.performed += instance.OnMiniGun;
+                @MiniGun.canceled += instance.OnMiniGun;
+                @Artillery.started += instance.OnArtillery;
+                @Artillery.performed += instance.OnArtillery;
+                @Artillery.canceled += instance.OnArtillery;
             }
         }
     }
@@ -208,5 +266,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         void OnMainShoot(InputAction.CallbackContext context);
         void OnMovment(InputAction.CallbackContext context);
         void OnLooking(InputAction.CallbackContext context);
+        void OnMiniGun(InputAction.CallbackContext context);
+        void OnArtillery(InputAction.CallbackContext context);
     }
 }
