@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
             Rigidbody rb = hit.GetComponent<Rigidbody>();
 
             if (rb != null)
-                rb.AddExplosionForce(150f * explosionSize, hitPoint, 1.5f * explosionSize, 3.0F);
+                rb.AddExplosionForce(150f * explosionSize, hitPoint, 1.5f * explosionSize, 0f);
         }
     }
 }

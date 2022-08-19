@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &555449510
 Transform:
   m_ObjectHideFlags: 0
@@ -97,6 +97,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9f36496bf23d449a7d8222602b0e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExpolisonCurv:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.40833333
+      value: 0.97171694
+      inSlope: 0.4482512
+      outSlope: 0.4482512
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.42742163
+    - serializedVersion: 3
+      time: 0.937501
+      value: 0.9410783
+      inSlope: -0.5393554
+      outSlope: -0.5393554
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.9834142
+      value: 0.010263093
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  PrefapExplosion: {fileID: 4403779710155534262, guid: 0ef22c2fa913ce047be87551d7b91bdb,
+    type: 3}
   Controlls: {fileID: 762154510}
   shootTime: 0.2
 --- !u!120 &555449514
@@ -212,6 +256,7 @@ GameObject:
   - component: {fileID: 8011452882331539807}
   - component: {fileID: 732545786}
   - component: {fileID: 732545791}
+  - component: {fileID: 1681330567}
   m_Layer: 0
   m_Name: Artillery
   m_TagString: Untagged
@@ -415,6 +460,19 @@ MonoBehaviour:
   Controlls: {fileID: 762154510}
   BulletPrefap: {fileID: 0}
   speed: 1
+--- !u!114 &1681330567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5469159881432683529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e419f23d06f028745ac10e380cbbd953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Controlls: {fileID: 762154510}
 --- !u!1 &8467141586697716094
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +584,7 @@ Rigidbody:
   m_GameObject: {fileID: 8467141586697716094}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 3.42
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -545,4 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e92f13ad7ebeb449f15e54db2a35a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 9
+  Weapons:
+  - {fileID: 555449509}
+  - {fileID: 5469159881432683529}
+  Speed: 20
