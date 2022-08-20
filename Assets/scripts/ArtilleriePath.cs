@@ -20,12 +20,13 @@ public class ArtilleriePath : MonoBehaviour
     private void Awake()
     {
         lr = GetComponent<LineRenderer>();
-    }
-    void Start()
-    {
         lr.positionCount = resulution;
         points = new Vector3[resulution];
         rotations = new Quaternion[resulution];
+    }
+    void Start()
+    {
+
 
         Controll.OnLookStateSwitch += Controll_OnLookStateSwitch;
     }

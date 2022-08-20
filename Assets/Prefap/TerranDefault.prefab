@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 495066096960568051}
   - component: {fileID: 495066096960568050}
   - component: {fileID: 495066096960568053}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 3x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066096960568052
 Transform:
@@ -123,12 +123,12 @@ GameObject:
   - component: {fileID: 495066096975318851}
   - component: {fileID: 495066096975318850}
   - component: {fileID: 495066096975318853}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 4x11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066096975318852
 Transform:
@@ -233,12 +233,12 @@ GameObject:
   - component: {fileID: 495066096982028449}
   - component: {fileID: 495066096982028448}
   - component: {fileID: 495066096982028451}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 9x11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066096982028450
 Transform:
@@ -343,12 +343,12 @@ GameObject:
   - component: {fileID: 495066096997719923}
   - component: {fileID: 495066096997719922}
   - component: {fileID: 495066096997719925}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 4x0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066096997719924
 Transform:
@@ -453,12 +453,12 @@ GameObject:
   - component: {fileID: 495066097021259792}
   - component: {fileID: 495066097021259795}
   - component: {fileID: 495066097021259794}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 7x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097021259797
 Transform:
@@ -563,12 +563,12 @@ GameObject:
   - component: {fileID: 495066097037510129}
   - component: {fileID: 495066097037510128}
   - component: {fileID: 495066097037510131}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 8x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097037510130
 Transform:
@@ -673,12 +673,12 @@ GameObject:
   - component: {fileID: 495066097054535712}
   - component: {fileID: 495066097054535715}
   - component: {fileID: 495066097054535714}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 1x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097054535717
 Transform:
@@ -783,12 +783,12 @@ GameObject:
   - component: {fileID: 495066097106641665}
   - component: {fileID: 495066097106641664}
   - component: {fileID: 495066097106641667}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 0x7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097106641666
 Transform:
@@ -893,12 +893,12 @@ GameObject:
   - component: {fileID: 495066097107003443}
   - component: {fileID: 495066097107003442}
   - component: {fileID: 495066097107003445}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 10x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097107003444
 Transform:
@@ -1003,12 +1003,12 @@ GameObject:
   - component: {fileID: 495066097157526855}
   - component: {fileID: 495066097157526854}
   - component: {fileID: 495066097157526857}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 6x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097157526856
 Transform:
@@ -1113,12 +1113,12 @@ GameObject:
   - component: {fileID: 495066097162018257}
   - component: {fileID: 495066097162018256}
   - component: {fileID: 495066097162018259}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 4x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097162018258
 Transform:
@@ -1223,12 +1223,12 @@ GameObject:
   - component: {fileID: 495066097168217792}
   - component: {fileID: 495066097168217795}
   - component: {fileID: 495066097168217794}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 5x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097168217797
 Transform:
@@ -1333,12 +1333,12 @@ GameObject:
   - component: {fileID: 495066097171425657}
   - component: {fileID: 495066097171425656}
   - component: {fileID: 495066097171425659}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 9x0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097171425658
 Transform:
@@ -1443,12 +1443,12 @@ GameObject:
   - component: {fileID: 495066097182274422}
   - component: {fileID: 495066097182274425}
   - component: {fileID: 495066097182274424}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 7x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097182274427
 Transform:
@@ -1553,12 +1553,12 @@ GameObject:
   - component: {fileID: 495066097184010016}
   - component: {fileID: 495066097184010019}
   - component: {fileID: 495066097184010018}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 3x7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097184010021
 Transform:
@@ -1663,12 +1663,12 @@ GameObject:
   - component: {fileID: 495066097190262679}
   - component: {fileID: 495066097190262678}
   - component: {fileID: 495066097190262681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 4x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097190262680
 Transform:
@@ -1773,12 +1773,12 @@ GameObject:
   - component: {fileID: 495066097212145292}
   - component: {fileID: 495066097212145295}
   - component: {fileID: 495066097212145294}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 4x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097212145297
 Transform:
@@ -1883,12 +1883,12 @@ GameObject:
   - component: {fileID: 495066097216314030}
   - component: {fileID: 495066097216314033}
   - component: {fileID: 495066097216314032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 11x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097216314035
 Transform:
@@ -1993,12 +1993,12 @@ GameObject:
   - component: {fileID: 495066097231473511}
   - component: {fileID: 495066097231473510}
   - component: {fileID: 495066097231473513}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 3x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097231473512
 Transform:
@@ -2103,12 +2103,12 @@ GameObject:
   - component: {fileID: 495066097236913492}
   - component: {fileID: 495066097236913495}
   - component: {fileID: 495066097236913494}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 0x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097236913497
 Transform:
@@ -2213,12 +2213,12 @@ GameObject:
   - component: {fileID: 495066097259322246}
   - component: {fileID: 495066097259322249}
   - component: {fileID: 495066097259322248}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 7x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097259322251
 Transform:
@@ -2323,12 +2323,12 @@ GameObject:
   - component: {fileID: 495066097261770542}
   - component: {fileID: 495066097261770545}
   - component: {fileID: 495066097261770544}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 2x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097261770547
 Transform:
@@ -2433,12 +2433,12 @@ GameObject:
   - component: {fileID: 495066097267742596}
   - component: {fileID: 495066097267742599}
   - component: {fileID: 495066097267742598}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 11x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097267742601
 Transform:
@@ -2543,12 +2543,12 @@ GameObject:
   - component: {fileID: 495066097280488256}
   - component: {fileID: 495066097280488259}
   - component: {fileID: 495066097280488258}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 10x11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097280488261
 Transform:
@@ -2653,12 +2653,12 @@ GameObject:
   - component: {fileID: 495066097281467223}
   - component: {fileID: 495066097281467222}
   - component: {fileID: 495066097281467225}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 10x7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097281467224
 Transform:
@@ -2763,12 +2763,12 @@ GameObject:
   - component: {fileID: 495066097292097487}
   - component: {fileID: 495066097292097486}
   - component: {fileID: 495066097292097489}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 3x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097292097488
 Transform:
@@ -2873,12 +2873,12 @@ GameObject:
   - component: {fileID: 495066097307198691}
   - component: {fileID: 495066097307198690}
   - component: {fileID: 495066097307198693}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 11x7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097307198692
 Transform:
@@ -2983,12 +2983,12 @@ GameObject:
   - component: {fileID: 495066097307314431}
   - component: {fileID: 495066097307314430}
   - component: {fileID: 495066097307314177}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 9x7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097307314176
 Transform:
@@ -3093,12 +3093,12 @@ GameObject:
   - component: {fileID: 495066097310903279}
   - component: {fileID: 495066097310903278}
   - component: {fileID: 495066097310903281}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 8x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097310903280
 Transform:
@@ -3203,12 +3203,12 @@ GameObject:
   - component: {fileID: 495066097343013402}
   - component: {fileID: 495066097343013405}
   - component: {fileID: 495066097343013404}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 6x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097343013407
 Transform:
@@ -3313,12 +3313,12 @@ GameObject:
   - component: {fileID: 495066097355780932}
   - component: {fileID: 495066097355780935}
   - component: {fileID: 495066097355780934}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 1x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097355780937
 Transform:
@@ -3423,12 +3423,12 @@ GameObject:
   - component: {fileID: 495066097382193007}
   - component: {fileID: 495066097382193006}
   - component: {fileID: 495066097382193009}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 1x7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097382193008
 Transform:
@@ -3533,12 +3533,12 @@ GameObject:
   - component: {fileID: 495066097388578977}
   - component: {fileID: 495066097388578976}
   - component: {fileID: 495066097388578979}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 5x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097388578978
 Transform:
@@ -3643,12 +3643,12 @@ GameObject:
   - component: {fileID: 495066097411299409}
   - component: {fileID: 495066097411299408}
   - component: {fileID: 495066097411299411}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 3x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097411299410
 Transform:
@@ -3753,12 +3753,12 @@ GameObject:
   - component: {fileID: 495066097442621528}
   - component: {fileID: 495066097442621531}
   - component: {fileID: 495066097442621530}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 6x9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097442621533
 Transform:
@@ -3863,12 +3863,12 @@ GameObject:
   - component: {fileID: 495066097468443486}
   - component: {fileID: 495066097468443489}
   - component: {fileID: 495066097468443488}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 0x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097468443491
 Transform:
@@ -3973,12 +3973,12 @@ GameObject:
   - component: {fileID: 495066097469866625}
   - component: {fileID: 495066097469866624}
   - component: {fileID: 495066097469866627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 9x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097469866626
 Transform:
@@ -4083,12 +4083,12 @@ GameObject:
   - component: {fileID: 495066097536873655}
   - component: {fileID: 495066097536873654}
   - component: {fileID: 495066097536873657}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 4x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097536873656
 Transform:
@@ -4193,12 +4193,12 @@ GameObject:
   - component: {fileID: 495066097546910866}
   - component: {fileID: 495066097546910869}
   - component: {fileID: 495066097546910868}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 3x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097546910871
 Transform:
@@ -4303,12 +4303,12 @@ GameObject:
   - component: {fileID: 495066097556189580}
   - component: {fileID: 495066097556189583}
   - component: {fileID: 495066097556189582}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 3x11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097556189585
 Transform:
@@ -4413,12 +4413,12 @@ GameObject:
   - component: {fileID: 495066097586975724}
   - component: {fileID: 495066097586975727}
   - component: {fileID: 495066097586975726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 10x9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097586975729
 Transform:
@@ -4523,12 +4523,12 @@ GameObject:
   - component: {fileID: 495066097599539146}
   - component: {fileID: 495066097599539149}
   - component: {fileID: 495066097599539148}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 4x7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097599539151
 Transform:
@@ -4633,12 +4633,12 @@ GameObject:
   - component: {fileID: 495066097631829434}
   - component: {fileID: 495066097631829437}
   - component: {fileID: 495066097631829436}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 5x10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097631829439
 Transform:
@@ -4743,12 +4743,12 @@ GameObject:
   - component: {fileID: 495066097636940452}
   - component: {fileID: 495066097636940455}
   - component: {fileID: 495066097636940454}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 10x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097636940457
 Transform:
@@ -4853,12 +4853,12 @@ GameObject:
   - component: {fileID: 495066097667058788}
   - component: {fileID: 495066097667058791}
   - component: {fileID: 495066097667058790}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 0x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097667058793
 Transform:
@@ -4963,12 +4963,12 @@ GameObject:
   - component: {fileID: 495066097670296477}
   - component: {fileID: 495066097670296476}
   - component: {fileID: 495066097670296479}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 11x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097670296478
 Transform:
@@ -5073,12 +5073,12 @@ GameObject:
   - component: {fileID: 495066097680934143}
   - component: {fileID: 495066097680934142}
   - component: {fileID: 495066097680933889}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 2x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097680933888
 Transform:
@@ -5183,12 +5183,12 @@ GameObject:
   - component: {fileID: 495066097684023313}
   - component: {fileID: 495066097684023312}
   - component: {fileID: 495066097684023315}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 6x0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097684023314
 Transform:
@@ -5293,12 +5293,12 @@ GameObject:
   - component: {fileID: 495066097686310863}
   - component: {fileID: 495066097686310862}
   - component: {fileID: 495066097686310865}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 11x10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097686310864
 Transform:
@@ -5403,12 +5403,12 @@ GameObject:
   - component: {fileID: 495066097687665806}
   - component: {fileID: 495066097687665809}
   - component: {fileID: 495066097687665808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 0x11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097687665811
 Transform:
@@ -5513,12 +5513,12 @@ GameObject:
   - component: {fileID: 495066097717362203}
   - component: {fileID: 495066097717362202}
   - component: {fileID: 495066097717362205}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 8x10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097717362204
 Transform:
@@ -5623,12 +5623,12 @@ GameObject:
   - component: {fileID: 495066097736685305}
   - component: {fileID: 495066097736685304}
   - component: {fileID: 495066097736685307}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 11x0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097736685306
 Transform:
@@ -5733,12 +5733,12 @@ GameObject:
   - component: {fileID: 495066097756137127}
   - component: {fileID: 495066097756137126}
   - component: {fileID: 495066097756137129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 11x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097756137128
 Transform:
@@ -5843,12 +5843,12 @@ GameObject:
   - component: {fileID: 495066097802759860}
   - component: {fileID: 495066097802759863}
   - component: {fileID: 495066097802759862}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 5x11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097802759865
 Transform:
@@ -5953,12 +5953,12 @@ GameObject:
   - component: {fileID: 495066097812114033}
   - component: {fileID: 495066097812114032}
   - component: {fileID: 495066097812114035}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 2x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097812114034
 Transform:
@@ -6063,12 +6063,12 @@ GameObject:
   - component: {fileID: 495066097817156611}
   - component: {fileID: 495066097817156610}
   - component: {fileID: 495066097817156613}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 6x10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097817156612
 Transform:
@@ -6170,7 +6170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 495066097825174087}
   - component: {fileID: 495066097825174086}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TerranDefault
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6359,12 +6359,12 @@ GameObject:
   - component: {fileID: 495066097856551801}
   - component: {fileID: 495066097856551800}
   - component: {fileID: 495066097856551803}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 7x10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097856551802
 Transform:
@@ -6469,12 +6469,12 @@ GameObject:
   - component: {fileID: 495066097898723879}
   - component: {fileID: 495066097898723878}
   - component: {fileID: 495066097898723881}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 11x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097898723880
 Transform:
@@ -6579,12 +6579,12 @@ GameObject:
   - component: {fileID: 495066097908410847}
   - component: {fileID: 495066097908410846}
   - component: {fileID: 495066097908410849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 8x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097908410848
 Transform:
@@ -6689,12 +6689,12 @@ GameObject:
   - component: {fileID: 495066097938574916}
   - component: {fileID: 495066097938574919}
   - component: {fileID: 495066097938574918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 4x10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097938574921
 Transform:
@@ -6799,12 +6799,12 @@ GameObject:
   - component: {fileID: 495066097944435214}
   - component: {fileID: 495066097944435217}
   - component: {fileID: 495066097944435216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 6x11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097944435219
 Transform:
@@ -6909,12 +6909,12 @@ GameObject:
   - component: {fileID: 495066097950331404}
   - component: {fileID: 495066097950331407}
   - component: {fileID: 495066097950331406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 11x11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097950331409
 Transform:
@@ -7019,12 +7019,12 @@ GameObject:
   - component: {fileID: 495066097983549154}
   - component: {fileID: 495066097983549157}
   - component: {fileID: 495066097983549156}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 8x9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097983549159
 Transform:
@@ -7129,12 +7129,12 @@ GameObject:
   - component: {fileID: 495066097986350686}
   - component: {fileID: 495066097986350689}
   - component: {fileID: 495066097986350688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 6x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066097986350691
 Transform:
@@ -7239,12 +7239,12 @@ GameObject:
   - component: {fileID: 495066098004174394}
   - component: {fileID: 495066098004174397}
   - component: {fileID: 495066098004174396}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 10x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098004174399
 Transform:
@@ -7349,12 +7349,12 @@ GameObject:
   - component: {fileID: 495066098019552338}
   - component: {fileID: 495066098019552341}
   - component: {fileID: 495066098019552340}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 7x7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098019552343
 Transform:
@@ -7459,12 +7459,12 @@ GameObject:
   - component: {fileID: 495066098023114201}
   - component: {fileID: 495066098023114200}
   - component: {fileID: 495066098023114203}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 0x10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098023114202
 Transform:
@@ -7569,12 +7569,12 @@ GameObject:
   - component: {fileID: 495066098030023735}
   - component: {fileID: 495066098030023734}
   - component: {fileID: 495066098030023737}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 9x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098030023736
 Transform:
@@ -7679,12 +7679,12 @@ GameObject:
   - component: {fileID: 495066098089301722}
   - component: {fileID: 495066098089301725}
   - component: {fileID: 495066098089301724}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 0x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098089301727
 Transform:
@@ -7789,12 +7789,12 @@ GameObject:
   - component: {fileID: 495066098104177193}
   - component: {fileID: 495066098104177192}
   - component: {fileID: 495066098104177195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 9x9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098104177194
 Transform:
@@ -7899,12 +7899,12 @@ GameObject:
   - component: {fileID: 495066098107537088}
   - component: {fileID: 495066098107537091}
   - component: {fileID: 495066098107537090}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 7x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098107537093
 Transform:
@@ -8009,12 +8009,12 @@ GameObject:
   - component: {fileID: 495066098134721877}
   - component: {fileID: 495066098134721876}
   - component: {fileID: 495066098134721879}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 1x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098134721878
 Transform:
@@ -8119,12 +8119,12 @@ GameObject:
   - component: {fileID: 495066098143707745}
   - component: {fileID: 495066098143707744}
   - component: {fileID: 495066098143707747}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 6x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098143707746
 Transform:
@@ -8229,12 +8229,12 @@ GameObject:
   - component: {fileID: 495066098156206600}
   - component: {fileID: 495066098156206603}
   - component: {fileID: 495066098156206602}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 6x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098156206605
 Transform:
@@ -8339,12 +8339,12 @@ GameObject:
   - component: {fileID: 495066098161422717}
   - component: {fileID: 495066098161422716}
   - component: {fileID: 495066098161422719}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 9x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098161422718
 Transform:
@@ -8449,12 +8449,12 @@ GameObject:
   - component: {fileID: 495066098171334875}
   - component: {fileID: 495066098171334874}
   - component: {fileID: 495066098171334877}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 7x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098171334876
 Transform:
@@ -8559,12 +8559,12 @@ GameObject:
   - component: {fileID: 495066098185346548}
   - component: {fileID: 495066098185346551}
   - component: {fileID: 495066098185346550}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 0x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098185346553
 Transform:
@@ -8669,12 +8669,12 @@ GameObject:
   - component: {fileID: 495066098190050320}
   - component: {fileID: 495066098190050323}
   - component: {fileID: 495066098190050322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 2x11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098190050325
 Transform:
@@ -8779,12 +8779,12 @@ GameObject:
   - component: {fileID: 495066098203827944}
   - component: {fileID: 495066098203827947}
   - component: {fileID: 495066098203827946}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 5x9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098203827949
 Transform:
@@ -8889,12 +8889,12 @@ GameObject:
   - component: {fileID: 495066098204509016}
   - component: {fileID: 495066098204509019}
   - component: {fileID: 495066098204509018}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 1x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098204509021
 Transform:
@@ -8999,12 +8999,12 @@ GameObject:
   - component: {fileID: 495066098212190364}
   - component: {fileID: 495066098212190367}
   - component: {fileID: 495066098212190366}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 1x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098212190369
 Transform:
@@ -9109,12 +9109,12 @@ GameObject:
   - component: {fileID: 495066098218465120}
   - component: {fileID: 495066098218465123}
   - component: {fileID: 495066098218465122}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 10x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098218465125
 Transform:
@@ -9219,12 +9219,12 @@ GameObject:
   - component: {fileID: 495066098227709743}
   - component: {fileID: 495066098227709742}
   - component: {fileID: 495066098227709745}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 9x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098227709744
 Transform:
@@ -9329,12 +9329,12 @@ GameObject:
   - component: {fileID: 495066098265537257}
   - component: {fileID: 495066098265537256}
   - component: {fileID: 495066098265537259}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 6x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098265537258
 Transform:
@@ -9439,12 +9439,12 @@ GameObject:
   - component: {fileID: 495066098278496242}
   - component: {fileID: 495066098278496245}
   - component: {fileID: 495066098278496244}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 7x9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098278496247
 Transform:
@@ -9549,12 +9549,12 @@ GameObject:
   - component: {fileID: 495066098280447371}
   - component: {fileID: 495066098280447370}
   - component: {fileID: 495066098280447373}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 0x0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098280447372
 Transform:
@@ -9659,12 +9659,12 @@ GameObject:
   - component: {fileID: 495066098284061951}
   - component: {fileID: 495066098284061950}
   - component: {fileID: 495066098284061697}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 5x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098284061696
 Transform:
@@ -9769,12 +9769,12 @@ GameObject:
   - component: {fileID: 495066098321643416}
   - component: {fileID: 495066098321643419}
   - component: {fileID: 495066098321643418}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 9x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098321643421
 Transform:
@@ -9879,12 +9879,12 @@ GameObject:
   - component: {fileID: 495066098348915249}
   - component: {fileID: 495066098348915248}
   - component: {fileID: 495066098348915251}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 8x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098348915250
 Transform:
@@ -9989,12 +9989,12 @@ GameObject:
   - component: {fileID: 495066098351553320}
   - component: {fileID: 495066098351553323}
   - component: {fileID: 495066098351553322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 7x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098351553325
 Transform:
@@ -10099,12 +10099,12 @@ GameObject:
   - component: {fileID: 495066098354291894}
   - component: {fileID: 495066098354291897}
   - component: {fileID: 495066098354291896}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 10x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098354291899
 Transform:
@@ -10209,12 +10209,12 @@ GameObject:
   - component: {fileID: 495066098355255881}
   - component: {fileID: 495066098355255880}
   - component: {fileID: 495066098355255883}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 9x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098355255882
 Transform:
@@ -10319,12 +10319,12 @@ GameObject:
   - component: {fileID: 495066098360572247}
   - component: {fileID: 495066098360572246}
   - component: {fileID: 495066098360572249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 3x9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098360572248
 Transform:
@@ -10429,12 +10429,12 @@ GameObject:
   - component: {fileID: 495066098375975358}
   - component: {fileID: 495066098375975361}
   - component: {fileID: 495066098375975360}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 1x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098375975363
 Transform:
@@ -10539,12 +10539,12 @@ GameObject:
   - component: {fileID: 495066098382729734}
   - component: {fileID: 495066098382729737}
   - component: {fileID: 495066098382729736}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 4x9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098382729739
 Transform:
@@ -10649,12 +10649,12 @@ GameObject:
   - component: {fileID: 495066098385794489}
   - component: {fileID: 495066098385794488}
   - component: {fileID: 495066098385794491}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 0x9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098385794490
 Transform:
@@ -10759,12 +10759,12 @@ GameObject:
   - component: {fileID: 495066098414492509}
   - component: {fileID: 495066098414492508}
   - component: {fileID: 495066098414492511}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 3x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098414492510
 Transform:
@@ -10869,12 +10869,12 @@ GameObject:
   - component: {fileID: 495066098434793872}
   - component: {fileID: 495066098434793875}
   - component: {fileID: 495066098434793874}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 5x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098434793877
 Transform:
@@ -10979,12 +10979,12 @@ GameObject:
   - component: {fileID: 495066098437386958}
   - component: {fileID: 495066098437386961}
   - component: {fileID: 495066098437386960}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 10x0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098437386963
 Transform:
@@ -11089,12 +11089,12 @@ GameObject:
   - component: {fileID: 495066098441963922}
   - component: {fileID: 495066098441963925}
   - component: {fileID: 495066098441963924}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 5x0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098441963927
 Transform:
@@ -11199,12 +11199,12 @@ GameObject:
   - component: {fileID: 495066098448563821}
   - component: {fileID: 495066098448563820}
   - component: {fileID: 495066098448563823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 2x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098448563822
 Transform:
@@ -11309,12 +11309,12 @@ GameObject:
   - component: {fileID: 495066098477520826}
   - component: {fileID: 495066098477520829}
   - component: {fileID: 495066098477520828}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 2x9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098477520831
 Transform:
@@ -11419,12 +11419,12 @@ GameObject:
   - component: {fileID: 495066098501251645}
   - component: {fileID: 495066098501251644}
   - component: {fileID: 495066098501251647}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 8x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098501251646
 Transform:
@@ -11529,12 +11529,12 @@ GameObject:
   - component: {fileID: 495066098508166168}
   - component: {fileID: 495066098508166171}
   - component: {fileID: 495066098508166170}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 7x11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098508166173
 Transform:
@@ -11639,12 +11639,12 @@ GameObject:
   - component: {fileID: 495066098513553331}
   - component: {fileID: 495066098513553330}
   - component: {fileID: 495066098513553333}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 8x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098513553332
 Transform:
@@ -11749,12 +11749,12 @@ GameObject:
   - component: {fileID: 495066098526325926}
   - component: {fileID: 495066098526325929}
   - component: {fileID: 495066098526325928}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 3x0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098526325931
 Transform:
@@ -11859,12 +11859,12 @@ GameObject:
   - component: {fileID: 495066098544583089}
   - component: {fileID: 495066098544583088}
   - component: {fileID: 495066098544583091}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 4x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098544583090
 Transform:
@@ -11969,12 +11969,12 @@ GameObject:
   - component: {fileID: 495066098590066454}
   - component: {fileID: 495066098590066457}
   - component: {fileID: 495066098590066456}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 5x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098590066459
 Transform:
@@ -12079,12 +12079,12 @@ GameObject:
   - component: {fileID: 495066098629076626}
   - component: {fileID: 495066098629076629}
   - component: {fileID: 495066098629076628}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 8x0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098629076631
 Transform:
@@ -12189,12 +12189,12 @@ GameObject:
   - component: {fileID: 495066098634665453}
   - component: {fileID: 495066098634665452}
   - component: {fileID: 495066098634665455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 9x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098634665454
 Transform:
@@ -12299,12 +12299,12 @@ GameObject:
   - component: {fileID: 495066098645441571}
   - component: {fileID: 495066098645441570}
   - component: {fileID: 495066098645441573}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 9x10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098645441572
 Transform:
@@ -12409,12 +12409,12 @@ GameObject:
   - component: {fileID: 495066098648158052}
   - component: {fileID: 495066098648158055}
   - component: {fileID: 495066098648158054}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 0x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098648158057
 Transform:
@@ -12519,12 +12519,12 @@ GameObject:
   - component: {fileID: 495066098675109880}
   - component: {fileID: 495066098675109883}
   - component: {fileID: 495066098675109882}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 1x10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098675109885
 Transform:
@@ -12629,12 +12629,12 @@ GameObject:
   - component: {fileID: 495066098679074770}
   - component: {fileID: 495066098679074773}
   - component: {fileID: 495066098679074772}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 8x7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098679074775
 Transform:
@@ -12739,12 +12739,12 @@ GameObject:
   - component: {fileID: 495066098701083093}
   - component: {fileID: 495066098701083092}
   - component: {fileID: 495066098701083095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 3x10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098701083094
 Transform:
@@ -12849,12 +12849,12 @@ GameObject:
   - component: {fileID: 495066098702313927}
   - component: {fileID: 495066098702313926}
   - component: {fileID: 495066098702313929}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 10x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098702313928
 Transform:
@@ -12959,12 +12959,12 @@ GameObject:
   - component: {fileID: 495066098708488960}
   - component: {fileID: 495066098708488963}
   - component: {fileID: 495066098708488962}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 5x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098708488965
 Transform:
@@ -13069,12 +13069,12 @@ GameObject:
   - component: {fileID: 495066098722048319}
   - component: {fileID: 495066098722048318}
   - component: {fileID: 495066098722048321}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 8x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098722048320
 Transform:
@@ -13179,12 +13179,12 @@ GameObject:
   - component: {fileID: 495066098728973851}
   - component: {fileID: 495066098728973850}
   - component: {fileID: 495066098728973853}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 2x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098728973852
 Transform:
@@ -13289,12 +13289,12 @@ GameObject:
   - component: {fileID: 495066098741672172}
   - component: {fileID: 495066098741672175}
   - component: {fileID: 495066098741672174}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 3x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098741672177
 Transform:
@@ -13399,12 +13399,12 @@ GameObject:
   - component: {fileID: 495066098742045313}
   - component: {fileID: 495066098742045312}
   - component: {fileID: 495066098742045315}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 1x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098742045314
 Transform:
@@ -13509,12 +13509,12 @@ GameObject:
   - component: {fileID: 495066098763001027}
   - component: {fileID: 495066098763001026}
   - component: {fileID: 495066098763001029}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 0x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098763001028
 Transform:
@@ -13619,12 +13619,12 @@ GameObject:
   - component: {fileID: 495066098771055909}
   - component: {fileID: 495066098771055908}
   - component: {fileID: 495066098771055911}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 7x0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098771055910
 Transform:
@@ -13729,12 +13729,12 @@ GameObject:
   - component: {fileID: 495066098772916475}
   - component: {fileID: 495066098772916474}
   - component: {fileID: 495066098772916477}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 11x9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098772916476
 Transform:
@@ -13839,12 +13839,12 @@ GameObject:
   - component: {fileID: 495066098779352781}
   - component: {fileID: 495066098779352780}
   - component: {fileID: 495066098779352783}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 2x7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098779352782
 Transform:
@@ -13949,12 +13949,12 @@ GameObject:
   - component: {fileID: 495066098785009306}
   - component: {fileID: 495066098785009309}
   - component: {fileID: 495066098785009308}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 8x11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098785009311
 Transform:
@@ -14059,12 +14059,12 @@ GameObject:
   - component: {fileID: 495066098791284824}
   - component: {fileID: 495066098791284827}
   - component: {fileID: 495066098791284826}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 11x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098791284829
 Transform:
@@ -14169,12 +14169,12 @@ GameObject:
   - component: {fileID: 495066098801057243}
   - component: {fileID: 495066098801057242}
   - component: {fileID: 495066098801057245}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 2x0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098801057244
 Transform:
@@ -14279,12 +14279,12 @@ GameObject:
   - component: {fileID: 495066098818893098}
   - component: {fileID: 495066098818893101}
   - component: {fileID: 495066098818893100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 4x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098818893103
 Transform:
@@ -14389,12 +14389,12 @@ GameObject:
   - component: {fileID: 495066098832666675}
   - component: {fileID: 495066098832666674}
   - component: {fileID: 495066098832666677}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 11x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098832666676
 Transform:
@@ -14499,12 +14499,12 @@ GameObject:
   - component: {fileID: 495066098838622144}
   - component: {fileID: 495066098838622147}
   - component: {fileID: 495066098838622146}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 2x10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098838622149
 Transform:
@@ -14609,12 +14609,12 @@ GameObject:
   - component: {fileID: 495066098859742410}
   - component: {fileID: 495066098859742413}
   - component: {fileID: 495066098859742412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 5x7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098859742415
 Transform:
@@ -14719,12 +14719,12 @@ GameObject:
   - component: {fileID: 495066098899431726}
   - component: {fileID: 495066098899431729}
   - component: {fileID: 495066098899431728}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 6x7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098899431731
 Transform:
@@ -14829,12 +14829,12 @@ GameObject:
   - component: {fileID: 495066098919798479}
   - component: {fileID: 495066098919798478}
   - component: {fileID: 495066098919798481}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 1x0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098919798480
 Transform:
@@ -14939,12 +14939,12 @@ GameObject:
   - component: {fileID: 495066098957357863}
   - component: {fileID: 495066098957357862}
   - component: {fileID: 495066098957357865}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 4x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098957357864
 Transform:
@@ -15049,12 +15049,12 @@ GameObject:
   - component: {fileID: 495066098985064295}
   - component: {fileID: 495066098985064294}
   - component: {fileID: 495066098985064297}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 1x9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098985064296
 Transform:
@@ -15159,12 +15159,12 @@ GameObject:
   - component: {fileID: 495066098991640185}
   - component: {fileID: 495066098991640184}
   - component: {fileID: 495066098991640187}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 5x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066098991640186
 Transform:
@@ -15269,12 +15269,12 @@ GameObject:
   - component: {fileID: 495066099001276022}
   - component: {fileID: 495066099001276025}
   - component: {fileID: 495066099001276024}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 2x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066099001276027
 Transform:
@@ -15379,12 +15379,12 @@ GameObject:
   - component: {fileID: 495066099007697872}
   - component: {fileID: 495066099007697875}
   - component: {fileID: 495066099007697874}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 10x10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066099007697877
 Transform:
@@ -15489,12 +15489,12 @@ GameObject:
   - component: {fileID: 495066099021148501}
   - component: {fileID: 495066099021148500}
   - component: {fileID: 495066099021148503}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 1x11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066099021148502
 Transform:
@@ -15599,12 +15599,12 @@ GameObject:
   - component: {fileID: 495066099031204021}
   - component: {fileID: 495066099031204020}
   - component: {fileID: 495066099031204023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 2x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066099031204022
 Transform:
@@ -15709,12 +15709,12 @@ GameObject:
   - component: {fileID: 495066099073723562}
   - component: {fileID: 495066099073723565}
   - component: {fileID: 495066099073723564}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: field 10x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &495066099073723567
 Transform:
