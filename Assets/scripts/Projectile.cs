@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class Projectile : MonoBehaviour
 {
@@ -23,12 +24,12 @@ public class Projectile : MonoBehaviour
 
     }
 
-    public static void CreateExplosion(Vector3 hitPoint, AnimationCurve explosion, Transform explosionPrefap, float explosionSize)
+    public static Tween CreateExplosion(Vector3 hitPoint, AnimationCurve explosion, Transform explosionPrefap, float explosionSize)
     {
         var boom = Instantiate(explosionPrefap, hitPoint, Quaternion.identity);
         boom.DOScale(explosionSize, 0.6f).SetEase(explosion);
         var exploMaterial = boom.GetComponent<Renderer>().material;
-        exploMaterial.DOFade(100f, 0.6f).OnComplete(() => Destroy(boom.gameObject));
+        Tween tween = exploMaterial.DOFade(100f, 0.6f).OnComplete(()=>Destroy(boom.gameObject));
 
         Collider[] colliders = Physics.OverlapSphere(hitPoint, 1);
         foreach (Collider hit in colliders)
@@ -38,5 +39,7 @@ public class Projectile : MonoBehaviour
             if (rb != null)
                 rb.AddExplosionForce(150f * explosionSize, hitPoint, 1.5f * explosionSize, 0f);
         }
+
+        return tween;
     }
 }

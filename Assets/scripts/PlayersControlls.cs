@@ -23,6 +23,7 @@ public class PlayersControlls : MonoBehaviour, IPlayer1Actions
         ControllEvents.Player1.looking.performed += OnLooking;
         ControllEvents.Player1.Artillery.performed += OnArtillery;
         ControllEvents.Player1.MiniGun.performed += OnMiniGun;
+        ControllEvents.Player1.Rocket.performed += OnRocket;
 
         moveAction = ControllEvents.Player1.movment;
     }
@@ -86,5 +87,14 @@ public class PlayersControlls : MonoBehaviour, IPlayer1Actions
             Weapons[i].SetActive(false);
         }
         Weapons[1].SetActive(true);
+    }
+
+    public void OnRocket(InputAction.CallbackContext context)
+    {
+        for (int i = 0; i < Weapons.Length; i++)
+        {
+            Weapons[i].SetActive(false);
+        }
+        Weapons[2].SetActive(true);
     }
 }

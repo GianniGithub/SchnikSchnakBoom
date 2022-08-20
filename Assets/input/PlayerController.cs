@@ -71,6 +71,15 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rocket"",
+                    ""type"": ""Button"",
+                    ""id"": ""c6086c51-ff0f-4038-bbbe-e2f8bb10a3b7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -128,6 +137,17 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""action"": ""Artillery"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b75ec5c1-aab4-44cc-b238-1895b950c663"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rocket"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -141,6 +161,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         m_Player1_looking = m_Player1.FindAction("looking", throwIfNotFound: true);
         m_Player1_MiniGun = m_Player1.FindAction("MiniGun", throwIfNotFound: true);
         m_Player1_Artillery = m_Player1.FindAction("Artillery", throwIfNotFound: true);
+        m_Player1_Rocket = m_Player1.FindAction("Rocket", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -205,6 +226,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player1_looking;
     private readonly InputAction m_Player1_MiniGun;
     private readonly InputAction m_Player1_Artillery;
+    private readonly InputAction m_Player1_Rocket;
     public struct Player1Actions
     {
         private @PlayerController m_Wrapper;
@@ -214,6 +236,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         public InputAction @looking => m_Wrapper.m_Player1_looking;
         public InputAction @MiniGun => m_Wrapper.m_Player1_MiniGun;
         public InputAction @Artillery => m_Wrapper.m_Player1_Artillery;
+        public InputAction @Rocket => m_Wrapper.m_Player1_Rocket;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -238,6 +261,9 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @Artillery.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnArtillery;
                 @Artillery.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnArtillery;
                 @Artillery.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnArtillery;
+                @Rocket.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRocket;
+                @Rocket.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRocket;
+                @Rocket.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRocket;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -257,6 +283,9 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @Artillery.started += instance.OnArtillery;
                 @Artillery.performed += instance.OnArtillery;
                 @Artillery.canceled += instance.OnArtillery;
+                @Rocket.started += instance.OnRocket;
+                @Rocket.performed += instance.OnRocket;
+                @Rocket.canceled += instance.OnRocket;
             }
         }
     }
@@ -268,5 +297,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         void OnLooking(InputAction.CallbackContext context);
         void OnMiniGun(InputAction.CallbackContext context);
         void OnArtillery(InputAction.CallbackContext context);
+        void OnRocket(InputAction.CallbackContext context);
     }
 }

@@ -10,7 +10,6 @@ public class MiniGun : MonoBehaviour
     public PlayersControlls Controlls;
     LineRenderer lr;
     Vector3[] points;
-    private PlayerController controllEvents;
     bool FireOn = false;
     public float shootTime;
     float lastShootT;
@@ -41,10 +40,6 @@ public class MiniGun : MonoBehaviour
         points[0] = Vector3.zero;
         points[1] = Vector3.zero;
         lr.SetPositions(points);
-    }
-
-    private void Controlls_OnLookStateSwitch(bool arg1, Vector2 arg2)
-    {
     }
 
     private void FixedUpdate()
@@ -80,13 +75,11 @@ public class MiniGun : MonoBehaviour
 
         Controlls.ControllEvents.Player1.MainShoot.performed += MainShoot_performed;
         Controlls.ControllEvents.Player1.MainShoot.canceled += MainShoot_canceled;
-        Controlls.OnLookStateSwitch += Controlls_OnLookStateSwitch;
     }
     private void OnDisable()
     {
 
         Controlls.ControllEvents.Player1.MainShoot.performed -= MainShoot_performed;
         Controlls.ControllEvents.Player1.MainShoot.canceled -= MainShoot_canceled;
-        Controlls.OnLookStateSwitch -= Controlls_OnLookStateSwitch;
     }
 }
