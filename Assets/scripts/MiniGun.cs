@@ -28,6 +28,7 @@ public class MiniGun : MonoBehaviour
 
     private void MainShoot_performed(InputAction.CallbackContext context)
     {
+        lastShootT = shootTime;
         FireOn = true;
         lr.enabled = true;
     }
@@ -44,31 +45,37 @@ public class MiniGun : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity))
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * hit.distance, Color.yellow);
-        }
-
         if (FireOn)
         {
-            if (lastShootT > shootTime)
+            if (lastShootT >= shootTime)
             {
                 lastShootT -= shootTime;
 
-                points[0] = transform.position;
-                points[1] = hit.point;
-                lr.SetPositions(points);
-                Projectile.CreateExplosion(hit.point, ExpolisonCurv, PrefapExplosion, 0.5f);
+                // Does the ray intersect any objects excluding the player layer
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity))
+                {
+                    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * hit.distance, Color.yellow);
 
+                    points[0] = transform.position;
+                    points[1] = hit.point;
+                    lr.SetPositions(points);
+
+                    // for explosion efect reasions, is only working if outside of the collider
+                    var explosionPosition = hit.point - ((points[1] - points[0]).normalized * 0.1f);
+                    Projectile.CreateExplosion(explosionPosition, ExpolisonCurv, PrefapExplosion, 0.5f);
+                }
+                else
+                {
+                    points[0] = transform.position;
+                    points[1] = transform.TransformDirection(Vector3.up) * 100f;
+                    lr.SetPositions(points);
+                }
             }
             else
             {
                 lastShootT += Time.deltaTime;
             }
-
         }
-
     }
     private void OnEnable()
     {

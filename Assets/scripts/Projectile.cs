@@ -3,24 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using Gianni.Helper;
 
 public class Projectile : MonoBehaviour
 {
     public Transform explosionPrefap;
     public AnimationCurve explosion;
+    private Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     void Start()
     {
-       
+        rb.detectCollisions = false;
+        this.InvokeWait(0.5f, () => rb.detectCollisions = true);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.layer == 6)
-        {
-            var hitPoint = collision.GetContact(0).point;
-            CreateExplosion(hitPoint, explosion, explosionPrefap, 2f);
-            gameObject.SetActive(false);
-        }
+        CreateExplosion(transform.position, explosion, explosionPrefap, 2.7f);
+        Destroy(gameObject);
 
     }
 
@@ -31,13 +35,26 @@ public class Projectile : MonoBehaviour
         var exploMaterial = boom.GetComponent<Renderer>().material;
         Tween tween = exploMaterial.DOFade(100f, 0.6f).OnComplete(()=>Destroy(boom.gameObject));
 
-        Collider[] colliders = Physics.OverlapSphere(hitPoint, 1);
+        Collider[] colliders = Physics.OverlapSphere(hitPoint, 1.3f);
         foreach (Collider hit in colliders)
         {
-            Rigidbody rb = hit.GetComponent<Rigidbody>();
+            Rigidbody rb = hit.attachedRigidbody;
 
             if (rb != null)
-                rb.AddExplosionForce(150f * explosionSize, hitPoint, 1.5f * explosionSize, 0f);
+            {
+                float addDamage = 150f * explosionSize;
+                float radius = 1.5f * explosionSize;
+                if ( rb.gameObject.tag == "Player")
+                {
+                    
+                    var damage = rb.gameObject.GetComponent<CollectHitPoint>();
+                    var dis = Vector3.Distance(hitPoint, rb.transform.position);
+                    damage.AddDamage(radius / dis);
+                    addDamage += damage.Damage * 3;
+                }
+                rb.AddExplosionForce(addDamage, hitPoint, radius);
+            }
+             
         }
 
         return tween;

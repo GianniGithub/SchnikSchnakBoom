@@ -5,9 +5,9 @@ using UnityEngine.InputSystem;
 
 public class ArtillerieShoot : MonoBehaviour
 {
-	public Projectile bullet;
+	public Projectile bulletPrefab;
 	public PlayersControlls Controlls;
-	public Transform BulletPrefap;
+	Transform bullet;
 	public float speed;
     [SerializeField]
 	ArtilleriePathPointData pathData;
@@ -48,15 +48,19 @@ public class ArtillerieShoot : MonoBehaviour
 		}
 
 		var t = trackCounter / pathData.PointsDistanzToEacheuser;
-		BulletPrefap.SetPositionAndRotation(Vector3.Lerp(pathData.points[i], pathData.points[i+1], t), Quaternion.Lerp(pathData.rotations[i], pathData.rotations[i+1], t));
+		if (bullet == null)
+			return;
+		bullet.SetPositionAndRotation(Vector3.Lerp(pathData.points[i], pathData.points[i+1], t), Quaternion.Lerp(pathData.rotations[i], pathData.rotations[i+1], t));
 	}
 	public void OnShootBullet(InputAction.CallbackContext context)
 	{
 		Debug.Log("bbb");
 		if (!lookLock || enabled)
 			return;
-		Debug.Log("cccc	");
-		bullet.gameObject.SetActive(true);
+
+		aPath = GetComponent<ArtilleriePath>();
+		pathData = aPath.GetArtilleriePathData();
+		bullet = Instantiate(bulletPrefab).transform;
 		trackCounter = 0f;
 		i = 0;
 		pathData = aPath.GetArtilleriePathData();

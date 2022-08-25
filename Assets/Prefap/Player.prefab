@@ -128,14 +128,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125960936356732363}
-  m_LocalRotation: {x: 0.7158146, y: 0, z: 0, w: 0.69829035}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.08, y: 0.32, z: 0.62}
   m_LocalScale: {x: 0.3, y: 1.47, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7419480997096995892}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 91.42, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &7456503764484211595
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -295,8 +295,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.005235672
+        time: 0.0023880005
+        value: 0.1586628
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -357,9 +357,10 @@ GameObject:
   - component: {fileID: 1133269427314981140}
   - component: {fileID: 2745999060048330987}
   - component: {fileID: 4696238362399703296}
+  - component: {fileID: 5200434837702186475}
   m_Layer: 0
-  m_Name: Player1
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -455,7 +456,7 @@ Rigidbody:
   m_GameObject: {fileID: 2611073971819717115}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 3
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -478,7 +479,22 @@ MonoBehaviour:
   - {fileID: 2125960936356732363}
   - {fileID: 5834708586214405607}
   - {fileID: 222537153056739888}
-  Speed: 20
+  Speed: 13
+  PlayerNum: 0
+--- !u!114 &5200434837702186475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2611073971819717115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e0efbab3ecd53439999a1df887e9bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageInfo: {fileID: 0}
+  Damage: 0
 --- !u!1 &5834708586214405607
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,14 +704,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5834708586214405607}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: daf7071ec23b07d4fb3d326c7729f752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
+  bulletPrefab: {fileID: 4654688793651518122, guid: 4f0309d2a7fcf704693a87cfd6a57a72,
+    type: 3}
   Controlls: {fileID: 4696238362399703296}
-  BulletPrefap: {fileID: 0}
   speed: 1
 --- !u!114 &9123786404408286905
 MonoBehaviour:

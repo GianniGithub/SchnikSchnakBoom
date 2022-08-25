@@ -40,10 +40,8 @@ public class Rocket : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //if (collision.gameObject.layer == 6)
-        {
-            var hitPoint = collision.GetContact(0).point;
-            Projectile.CreateExplosion(hitPoint, explosion, explosionPrefap, 2f);
-            Destroy(gameObject);
-        }
+        Projectile.CreateExplosion(transform.position, explosion, explosionPrefap, 2f);
+        Destroy(gameObject);
+        
     }
 }
