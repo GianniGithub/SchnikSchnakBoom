@@ -11,9 +11,13 @@ namespace GellosGames
         public GameObject PlayerPrefap;
         public Vector3 Spownpoint;
         List<int> GampadIDsInUse = new List<int>();
+        private void Awake()
+        {
+
+        }
         void Start()
         {
-            Locator.AddService(new PlayerEvents());
+
             // Temp
             this.InvokeWait(10f, () => enabled = false);
         }
@@ -30,14 +34,14 @@ namespace GellosGames
                 {
                     var lalal = Instantiate(PlayerPrefap, Spownpoint, Quaternion.identity);
                     GampadIDsInUse.Add(pad.deviceId);
-                    Locator.GetService<PlayerEvents>().AddPlayer(GampadIDsInUse.Count, pad.deviceId, lalal);
+                    PlayerEvents.AddPlayer((PlayerID)GampadIDsInUse.Count, pad.deviceId, lalal);
                 }
             }
         }
 
         private void OnDestroy()
         {
-            Locator.RemoveService<PlayerEvents>();
+
         }
         private void OnEnable()
         {

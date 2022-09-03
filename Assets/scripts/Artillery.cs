@@ -2,23 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Artillery : MonoBehaviour
+namespace GellosGames
 {
-    public PlayersControlls Controlls;
-    ArtillerieShoot shooter;
-    void Awake()
+    public class Artillery : MonoBehaviour
     {
-        shooter = GetComponent<ArtillerieShoot>();
-    }
-    private void OnEnable()
-    {
-        Controlls.OnLookStateSwitch += shooter.Controlls_OnLookStateSwitch;
-        Controlls.ControllEvents.Player1.MainShoot.performed += shooter.OnShootBullet;
-        Debug.Log("Artill");
-    }
-    private void OnDisable()
-    {
-        Controlls.OnLookStateSwitch += shooter.Controlls_OnLookStateSwitch;
-        Controlls.ControllEvents.Player1.MainShoot.performed -= shooter.OnShootBullet;
-    }
+        public PlayersControlls Controlls;
+        ArtillerieShoot shooter;
+        void Awake()
+        {
+            shooter = GetComponent<ArtillerieShoot>();
+        }
+        private void OnEnable()
+        {
+            Controlls.OnLookStateSwitch += shooter.Controlls_OnLookStateSwitch;
+            Controlls.ControllEvents.Player1.MainShoot.performed += shooter.OnShootBullet;
+            Debug.Log("Artill");
+        }
+        private void OnDisable()
+        {
+            Controlls.OnLookStateSwitch += shooter.Controlls_OnLookStateSwitch;
+            Controlls.ControllEvents.Player1.MainShoot.performed -= shooter.OnShootBullet;
+        }
+    } 
 }

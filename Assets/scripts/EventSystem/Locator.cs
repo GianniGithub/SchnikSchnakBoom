@@ -28,6 +28,11 @@ namespace GellosGames
 
         }
 
+        private void OnCollisionEnter(Collision collision)
+        {
+            
+        }
+
         public static void AddService(IService service)
         {
             serviceContainer.Add(service.GetType(), service);

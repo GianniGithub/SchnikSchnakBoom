@@ -7,14 +7,15 @@ using static PlayerController;
 
 namespace GellosGames
 {
-    enum Weapen
+    public enum Weapen
     {
-        none,
+        unknown = 0,
+        none = 1,
         Gun,
         Artillery,
         Rocket,
     }
-    public class PlayersControlls : PlayerListener, IPlayer1Actions
+    public class PlayersControlls : PlayerEvent, IPlayer1Actions
     {
         public GameObject[] Weapons;
         public event Action<bool, Vector2> OnLookStateSwitch;
@@ -48,9 +49,8 @@ namespace GellosGames
             ControllEvents.Player1.Rocket.performed += OnRocket;
             ControllEvents.Player1.Enable();
 
+            PlayerEvents.CallPlayerAction(this, PlayerActions.PlayerControllerEventsRegisterd, PlayerEventInfos.general);
 
-            var e = new PlayerControllsEvent(Weapen.none, PlayerActions.PlayerControllerEventsRegisterd);
-            StateManger.RunEvent(this, e);
         }
 
         void FixedUpdate()
@@ -98,8 +98,9 @@ namespace GellosGames
             }
             Weapons[0].SetActive(true);
 
-            var e = new PlayerControllsEvent(Weapen.Gun, PlayerActions.WeapenSwitch);
-            StateManger.RunEvent(this, e);
+            var e = PlayerEventInfos.general;
+            e.Current = Weapen.Gun;
+            PlayerEvents.CallPlayerAction(this, PlayerActions.WeapenSwitch, e);
         }
 
         public void OnArtillery(InputAction.CallbackContext context)
@@ -110,8 +111,9 @@ namespace GellosGames
             }
             Weapons[1].SetActive(true);
 
-            var e = new PlayerControllsEvent(Weapen.Artillery, PlayerActions.WeapenSwitch);
-            StateManger.RunEvent(this, e);
+            var e = PlayerEventInfos.general;
+            e.Current = Weapen.Artillery;
+            PlayerEvents.CallPlayerAction(this, PlayerActions.WeapenSwitch, e);
         }
 
         public void OnRocket(InputAction.CallbackContext context)
@@ -122,21 +124,15 @@ namespace GellosGames
             }
             Weapons[2].SetActive(true);
 
-            var e = new PlayerControllsEvent(Weapen.Rocket, PlayerActions.WeapenSwitch);
-            StateManger.RunEvent(this, e);
+            var e = PlayerEventInfos.general;
+            e.Current = Weapen.Rocket;
+            PlayerEvents.CallPlayerAction(this, PlayerActions.WeapenSwitch, e);
         }
 
-        protected override void OnStateChange(MonoBehaviour sender, Event<PlayerActions> e)
+        public override void OnPlayerActionEvent(MonoBehaviour sender, PlayerActions action, PlayerEventInfos e)
         {
+
         }
     } 
-    class PlayerControllsEvent : Event<PlayerActions>
-    {
-        public readonly Weapen Current;
 
-        public PlayerControllsEvent(Weapen current, PlayerActions targetStage) : base(targetStage)
-        {
-            Current = current;
-        }
-    }
 }

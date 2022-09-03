@@ -20,6 +20,6 @@ public class GameEventManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        Locator.RemoveService<PlayerEvents>();
+
     }
 }
