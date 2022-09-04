@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace GellosGames
 {
-    public class MiniGun : MonoBehaviour
+    public class MiniGun : PlayerEvent
     {
         public AnimationCurve ExpolisonCurv;
         public Transform PrefapExplosion;
@@ -65,7 +65,7 @@ namespace GellosGames
 
                         // for explosion efect reasions, is only working if outside of the collider
                         var explosionPosition = hit.point - ((points[1] - points[0]).normalized * 0.1f);
-                        Projectile.CreateExplosion(explosionPosition, ExpolisonCurv, PrefapExplosion, 0.5f);
+                        Projectile.CreateExplosion(EventHandler.id, explosionPosition, ExpolisonCurv, PrefapExplosion, 0.5f);
                     }
                     else
                     {

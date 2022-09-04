@@ -23,21 +23,25 @@ namespace GellosGames
         Vector3 nextMove;
         Rigidbody rb;
         public PlayerController ControllEvents;
-        public int PlayerNum;
+        public PlayerID Player;
         private InputAction moveAction;
 
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             rb = GetComponent<Rigidbody>();
+        }
+        public override void OnSpawn()
+        {
             ControllEvents = new PlayerController();
 
             moveAction = ControllEvents.Player1.movment;
 
             try
             {
-                ControllEvents.devices = new[] { Gamepad.all[PlayerNum] };
+                ControllEvents.devices = new[] { Gamepad.all[EventHandler.PlayerSlot] };
+                Player = EventHandler.id;
             }
             catch (Exception)
             {
@@ -49,10 +53,8 @@ namespace GellosGames
             ControllEvents.Player1.Rocket.performed += OnRocket;
             ControllEvents.Player1.Enable();
 
-            PlayerEvents.CallPlayerAction(this, PlayerActions.PlayerControllerEventsRegisterd, PlayerEventInfos.general);
-
+            EventHandler.TriggerEvent(this, new PlayerEventInfos(PlayerActions.PlayerControllerEventsRegisterd));
         }
-
         void FixedUpdate()
         {
             var moveInput = moveAction.ReadValue<Vector2>();
@@ -98,9 +100,8 @@ namespace GellosGames
             }
             Weapons[0].SetActive(true);
 
-            var e = PlayerEventInfos.general;
-            e.Current = Weapen.Gun;
-            PlayerEvents.CallPlayerAction(this, PlayerActions.WeapenSwitch, e);
+            var e = new PlayerEventInfos(PlayerActions.WeapenSwitch) { Current = Weapen.Gun};
+            EventHandler.TriggerEvent(this, e);
         }
 
         public void OnArtillery(InputAction.CallbackContext context)
@@ -111,9 +112,8 @@ namespace GellosGames
             }
             Weapons[1].SetActive(true);
 
-            var e = PlayerEventInfos.general;
-            e.Current = Weapen.Artillery;
-            PlayerEvents.CallPlayerAction(this, PlayerActions.WeapenSwitch, e);
+            var e = new PlayerEventInfos(PlayerActions.WeapenSwitch) { Current = Weapen.Artillery };
+            EventHandler.TriggerEvent(this, e);
         }
 
         public void OnRocket(InputAction.CallbackContext context)
@@ -124,15 +124,10 @@ namespace GellosGames
             }
             Weapons[2].SetActive(true);
 
-            var e = PlayerEventInfos.general;
-            e.Current = Weapen.Rocket;
-            PlayerEvents.CallPlayerAction(this, PlayerActions.WeapenSwitch, e);
+            var e = new PlayerEventInfos(PlayerActions.WeapenSwitch) { Current = Weapen.Rocket };
+            EventHandler.TriggerEvent(this, e);
         }
 
-        public override void OnPlayerActionEvent(MonoBehaviour sender, PlayerActions action, PlayerEventInfos e)
-        {
-
-        }
     } 
 
 }

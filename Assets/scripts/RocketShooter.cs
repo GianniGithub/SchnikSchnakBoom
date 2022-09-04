@@ -11,8 +11,9 @@ namespace GellosGames
     {
         public PlayersControlls Controlls;
         public Vector2 CrossRadiusRange;
-        public Transform aimCross;
+        public Transform aimCrossPrefap;
         public Transform shootPrefap;
+        Transform aimCross;
         private float range;
 
         void Start()
@@ -31,6 +32,8 @@ namespace GellosGames
         {
             Controlls.OnLookStateSwitch += Controlls_OnLookStateSwitch;
             Controlls.ControllEvents.Player1.MainShoot.performed += OnShootBullet;
+            if (aimCross == null)
+                aimCross = Instantiate(aimCrossPrefap);
             aimCross.gameObject.SetActive(true);
 
         }

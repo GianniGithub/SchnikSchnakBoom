@@ -8,7 +8,7 @@ namespace GellosGames
         void RegisterListener(IEventLeaf listener);
         void UnregisterListener(IEventLeaf listener);
     }
-    public interface IEventLeaf<IArgs> where IArgs : EventArgs
+    public interface IEventLeaf<IArgs> where IArgs : struct
     {
         IEventComponent<IEventLeaf<IArgs>> EventParent { get; }
         void Initialisation();

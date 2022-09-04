@@ -13,7 +13,7 @@ namespace GellosGames
         List<int> GampadIDsInUse = new List<int>();
         private void Awake()
         {
-
+            PlayerEvents.Global = new PlayerEvents(PlayerID.all, gameObject);
         }
         void Start()
         {
@@ -25,18 +25,19 @@ namespace GellosGames
         // Update is called once per frame
         void Update()
         {
-            foreach (var pad in Gamepad.all)
+            for (int i = 0; i < Gamepad.all.Count; i++)
             {
-                if (GampadIDsInUse.Contains(pad.deviceId))
+                if (GampadIDsInUse.Contains(Gamepad.all[i].deviceId))
                     continue;
 
-                if (pad.aButton.isPressed)
+                if (Gamepad.all[i].aButton.isPressed)
                 {
                     var lalal = Instantiate(PlayerPrefap, Spownpoint, Quaternion.identity);
-                    GampadIDsInUse.Add(pad.deviceId);
-                    PlayerEvents.AddPlayer((PlayerID)GampadIDsInUse.Count, pad.deviceId, lalal);
+                    GampadIDsInUse.Add(Gamepad.all[i].deviceId);
+                    PlayerEvents.AddPlayer((PlayerID)i, lalal);
                 }
             }
+
         }
 
         private void OnDestroy()

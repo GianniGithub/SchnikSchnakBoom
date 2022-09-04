@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GellosGames
 {
@@ -23,7 +24,9 @@ namespace GellosGames
         WeapenSwitch = 201,
 
         OnSpawn = 301,
-        OnKilled = 302,
+        OnAdded = 302,
+
+        OnKilled = 402,
 
         OnHit = 501,
         OnDamage = 502,
@@ -32,173 +35,108 @@ namespace GellosGames
 
         PlayerControllerEventsRegisterd = 701,
     }
-    public class PlayerEvents : IEventComponent<PlayerEvent>
+    public class PlayerEvents
     {
+        public static PlayerEvents Global; // Init on SpawnPlayer
+        public PlayerID id { get; }
+        public int PlayerSlot => (int)id;
         static Dictionary<GameObject, PlayerID> playerDict = new Dictionary<GameObject, PlayerID>();
         static PlayerEvents[] allPlayerEvents = new PlayerEvents[4];
 
-        int deviceID;
-        List<PlayerEvent> playerEventListener = new List<PlayerEvent>();
+        Dictionary<PlayerActions, UnityEvent<MonoBehaviour, PlayerEventInfos>> playerEventDictionary = new Dictionary<PlayerActions, UnityEvent<MonoBehaviour, PlayerEventInfos>>();
         GameObject player;
-        PlayerID id;
 
-        public PlayerEvents(PlayerID playerID, int deviceID, GameObject gameObject)
+        public PlayerEvents(PlayerID playerID, GameObject gameObject)
         {
             id = playerID;
             player = gameObject;
-            this.deviceID = deviceID;
-
-            gameObject.GetComponentsInChildren(true, playerEventListener);
-
-            foreach (var col in playerEventListener)
-            {
-                col.OnSpawn();
-            }
         }
 
-        public static void AddPlayer(PlayerID playerID, int deviceID, GameObject gameObject)
+        public static void AddPlayer(PlayerID playerID, GameObject gameObject)
         {
-            var thisEventHandler = new PlayerEvents(playerID, deviceID, gameObject);
+            var thisEventHandler = new PlayerEvents(playerID, gameObject);
 
             allPlayerEvents[(int)playerID] = thisEventHandler;
             playerDict.Add(gameObject, playerID);
+
+            List<PlayerEvent> playerEventComponents = new List<PlayerEvent>();
+            gameObject.GetComponentsInChildren(true, playerEventComponents);
+
+            foreach (var col in playerEventComponents)
+            {
+                col.EventHandler = thisEventHandler;
+                col.OnSpawn();
+            }
+
+            thisEventHandler.StartListening(PlayerActions.OnKilled, (s, e) => RemovePlayer(e.From, s.gameObject));
+
+            Global.TriggerEvent(null, new PlayerEventInfos(PlayerActions.OnAdded) { From = playerID });
         }
         public static void RemovePlayer(PlayerID playerID, GameObject gameObject)
         {
             allPlayerEvents[((int)playerID)] = null;
             playerDict.Remove(gameObject);
         }
-        public static void CallPlayerAction(MonoBehaviour sender, PlayerActions action, PlayerEventInfos e)
+        public static PlayerEvents GetPlayerEventsHandler(PlayerID playerID)
         {
-            var from = playerDict[sender.gameObject];
-            e.From = from;
-
-            switch (e.To)
+            int id = (int)playerID;
+            //if (allPlayerEvents[id] == null) Debug.LogError(playerID.ToString() + ": Player does not Exist anymore");
+            return allPlayerEvents[id];
+        }
+        public static PlayerEvents GetPlayerEventsHandler(GameObject player)
+        {
+            int id = (int)playerDict[player];
+            return allPlayerEvents[id];
+        }
+        public void StartListening(PlayerActions eventName, UnityAction<MonoBehaviour, PlayerEventInfos> listener)
+        {
+            if(playerEventDictionary.TryGetValue(eventName, out var thisEvent))
             {
-                case PlayerID.A:
-                case PlayerID.B:
-                case PlayerID.C:
-                case PlayerID.D:
-                    foreach (var item in playerEvents[(int)e.To])
-                    {
-                        item.OnPlayerActionEvent(sender, action, e);
-                    }
-                    break;
-
-                case PlayerID.all:
-                    for (int i = 0; i < playerEvents.Length; i++)
-                    {
-                        foreach (var item in playerEvents[i])
-                        {
-                            if (item == null)
-                                continue;
-
-                            item.OnPlayerActionEvent(sender, action, e);
-                        }
-                    }
-                    break;
-
-                case PlayerID.me:
-                    foreach (var item in playerEvents[(int)from])
-                    {
-                        item.OnPlayerActionEvent(sender, action, e);
-                    }
-                    break;
-
-                default:
-                    break;
+                thisEvent.AddListener(listener);
+            }
+            else
+            {
+                thisEvent = new UnityEvent<MonoBehaviour, PlayerEventInfos>();
+                thisEvent.AddListener(listener);
+                playerEventDictionary.Add(eventName, thisEvent);
             }
         }
-
-        public void RegisterParentListener(PlayerID id, PlayerEvent playerEventComponent)
+        public void StopListening(PlayerActions eventName, UnityAction<MonoBehaviour, PlayerEventInfos> listener)
         {
-            switch (id)
+            if(playerEventDictionary.TryGetValue(eventName, out var thisEvent))
             {
-                case PlayerID.A:
-                case PlayerID.B:
-                case PlayerID.C:
-                case PlayerID.D:
-                    allPlayerEvents[(int)id].RegisterListener(playerEventComponent);
-                    break;
-                case PlayerID.all:
-                    for (int i = 0; i < allPlayerEvents.Length; i++)
-                    {
-                        allPlayerEvents[i].RegisterListener(playerEventComponent);
-                    }
-                    break;
-                case PlayerID.me:
-                    Debug.LogError("Use Un-/RegisterListener instat");
-                    break;
-                case PlayerID.testPlayer:
-                    break;
-                default:
-                    Debug.LogError("Use RegisterListener instat");
-                    break;
+                thisEvent.RemoveListener(listener);
             }
         }
-        public void UnRegisterParentListener(PlayerID id, PlayerEvent playerEventComponent)
+        public void TriggerEvent(MonoBehaviour sender, PlayerEventInfos listener)
         {
-            switch (id)
+            if (playerEventDictionary.TryGetValue(listener.action, out var thisEvent))
             {
-                case PlayerID.A:
-                case PlayerID.B:
-                case PlayerID.C:
-                case PlayerID.D:
-                    allPlayerEvents[(int)id].UnregisterListener(playerEventComponent);
-                    return;
-
-                case PlayerID.all:
-                    for (int i = 0; i < allPlayerEvents.Length; i++)
-                    {
-                        allPlayerEvents[i].UnregisterListener(playerEventComponent);
-                    }
-                    return;
-
-                default:
-                    Debug.LogError("Use RegisterListener instat");
-                    break;
+                listener.From = id;
+                thisEvent?.Invoke(sender, listener);
             }
-        }
-        public void RegisterListener(PlayerEvent playerEventComponent)
-        {
-            playerEventListener.Add(playerEventComponent);
-        }
-        public void UnregisterListener(PlayerEvent playerEventComponent)
-        {
-            playerEventListener.Remove(playerEventComponent);
         }
     }
-    public abstract class PlayerEvent : MonoBehaviour, IEventLeaf<PlayerEventInfos>
+    public abstract class PlayerEvent : MonoBehaviour
     {
-        PlayerEvents eventParent;
-
-        public IEventComponent<IEventLeaf<PlayerEventInfos>> EventParent => (IEventComponent<IEventLeaf<PlayerEventInfos>>)eventParent;
-
-        IEventComponent<IEventLeaf<PlayerEventInfos>> IEventLeaf<PlayerEventInfos>.EventParent => throw new NotImplementedException();
-
+        public PlayerEvents EventHandler;
         public virtual void OnSpawn() { }
-        public virtual void Initialisation() { }
-        protected virtual void OnDestroy()
-        {
-            EventParent.UnregisterListener(this);
-        }
-        public abstract void OnPlayerActionEvent(MonoBehaviour sender, PlayerActions action, PlayerEventInfos e);
-
-        public virtual void OnEvent(MonoBehaviour sender, PlayerEventInfos e) { }
-
+ 
     }
 
-    public class PlayerEventInfos : EventArgs
+    public struct PlayerEventInfos
     {
-        public PlayerActions action;
-        public PlayerID From = PlayerID.me;
-        public PlayerID To = PlayerID.me;
-
-        public Weapen Current = Weapen.unknown;
+        public readonly PlayerActions action { get; }
+        public PlayerID From;
+        public EventArgs infos;
+        public Weapen Current;
 
         public PlayerEventInfos(PlayerActions action)
         {
             this.action = action;
+            From = PlayerID.me;
+            Current = Weapen.unknown;
+            infos = null;
         }
     }
 }

@@ -98,7 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controlls: {fileID: 4696238362399703296}
   CrossRadiusRange: {x: 1, y: 4}
-  aimCross: {fileID: 0}
+  aimCrossPrefap: {fileID: 9186154388607958013, guid: 04e1a335acce04a4fb0f52e8f1f283b8,
+    type: 3}
   shootPrefap: {fileID: 615446530976949117, guid: 7a3c8f1a0330e8b43b01e751aa4d3124,
     type: 3}
 --- !u!1 &2125960936356732363
@@ -480,7 +481,7 @@ MonoBehaviour:
   - {fileID: 5834708586214405607}
   - {fileID: 222537153056739888}
   Speed: 13
-  PlayerNum: 0
+  Player: 0
 --- !u!114 &5200434837702186475
 MonoBehaviour:
   m_ObjectHideFlags: 0

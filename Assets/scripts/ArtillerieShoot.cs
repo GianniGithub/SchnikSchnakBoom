@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace GellosGames
 {
-    public class ArtillerieShoot : MonoBehaviour
+    public class ArtillerieShoot : PlayerEvent
     {
         public Projectile bulletPrefab;
         public PlayersControlls Controlls;
@@ -62,7 +62,9 @@ namespace GellosGames
 
             aPath = GetComponent<ArtilleriePath>();
             pathData = aPath.GetArtilleriePathData();
-            bullet = Instantiate(bulletPrefab).transform;
+            var proBullet = Instantiate(bulletPrefab);
+            proBullet.Owner = EventHandler.id;
+            bullet = proBullet.transform;
             trackCounter = 0f;
             i = 0;
             pathData = aPath.GetArtilleriePathData();

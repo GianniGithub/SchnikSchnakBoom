@@ -4,12 +4,15 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 using Gianni.Helper;
+using GellosGames;
 
 public class Projectile : MonoBehaviour
 {
     public Transform explosionPrefap;
     public AnimationCurve explosion;
     private Rigidbody rb;
+
+    public PlayerID Owner { get; internal set; }
 
     private void Awake()
     {
@@ -28,7 +31,7 @@ public class Projectile : MonoBehaviour
 
     }
 
-    public static Tween CreateExplosion(Vector3 hitPoint, AnimationCurve explosion, Transform explosionPrefap, float explosionSize)
+    public static Tween CreateExplosion(EventArgs info, Vector3 hitPoint, AnimationCurve explosion, Transform explosionPrefap, float explosionSize) // Alles in EventArgs und eigene Explosionsbeahvior
     {
         var boom = Instantiate(explosionPrefap, hitPoint, Quaternion.identity);
         boom.DOScale(explosionSize, 0.6f).SetEase(explosion);
@@ -49,6 +52,9 @@ public class Projectile : MonoBehaviour
                     
                     var damage = rb.gameObject.GetComponent<CollectHitPoint>();
                     var dis = Vector3.Distance(hitPoint, rb.transform.position);
+
+                    var events = PlayerEvents.GetPlayerEventsHandler(rb.gameObject);
+                    events.TriggerEvent(rb, info);
                     damage.AddDamage(radius / dis);
                     addDamage += damage.Damage * 3;
                 }

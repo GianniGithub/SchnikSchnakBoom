@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using GellosGames;
 
-public class CollectHitPoint : MonoBehaviour
+public class CollectHitPoint : PlayerEvent
 {
     public TextMeshProUGUI DamageInfo;
     public float Damage;
     void Start()
     {
+    
     }
 
     // Update is called once per frame
