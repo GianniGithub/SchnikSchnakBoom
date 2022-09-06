@@ -4,52 +4,38 @@ using UnityEngine;
 using System.Linq;
 using GellosGames;
 
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
 
 namespace GellosGames
 {
 
-    public class EventManager : MonoBehaviour
+    public abstract class EventManager<TAction, TArgs> where TArgs : struct
     {
-        public UIPageStage CurrentStage;
-        [Tooltip("For Debug Reasons you can start where ever you want")]
-        public UIPageStage StartStage = UIPageStage.Start_Menue;
-
-        // Is loaded in EventManerEditor
-        public List<PageEventListener> AllStageListener;
-
-		void Awake()
-		{
-
-            Locator.AddService(new PageEvents());
-            Locator.AddService(new UserAction());
-
-            foreach (var listener in AllStageListener)
+        protected Dictionary<TAction, UnityEvent<MonoBehaviour, TArgs>> EventDictionary = new Dictionary<TAction, UnityEvent<MonoBehaviour, TArgs>>();
+        public void StartListening(TAction eventName, UnityAction<MonoBehaviour, TArgs> listener) 
+        {
+            if (EventDictionary.TryGetValue(eventName, out var thisEvent))
             {
-                listener.DisableAwake();
+                thisEvent.AddListener(listener);
+            }
+            else
+            {
+                thisEvent = new UnityEvent<MonoBehaviour, TArgs>();
+                thisEvent.AddListener(listener);
+                EventDictionary.Add(eventName, thisEvent);
             }
         }
-		void Start()
+        public void StopListening(TAction eventName, UnityAction<MonoBehaviour, TArgs> listener)
         {
-
-            // AllStageListener will be updated in EventManagerEditor each time
-            foreach (var listener in AllStageListener)
+            if (EventDictionary.TryGetValue(eventName, out var thisEvent))
             {
-                listener.RegisterThisListener();
-                listener.DisableStart();
+                thisEvent.RemoveListener(listener);
             }
-#if UNITY_EDITOR
-            // Just for Debug
-            Locator.GetService<PageEvents>().broadcastEventChangedListener += (s,e) => CurrentStage = e.StageNow;
-#endif
-            // First Stage
-            Locator.GetService<PageEvents>().RunEvent(this, new Event<UIPageStage>(StartStage));
         }
-        private void OnDestroy()
-        {
-
-            Locator.RemoveService<PageEvents>();
-            Locator.RemoveService<UserAction>();
-        }
+        public abstract void TriggerEvent(MonoBehaviour sender, TArgs listener);
 
     }
 

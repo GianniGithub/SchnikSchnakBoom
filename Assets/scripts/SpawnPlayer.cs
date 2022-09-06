@@ -1,4 +1,5 @@
 using Gianni.Helper;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,20 +7,16 @@ using UnityEngine.InputSystem;
 
 namespace GellosGames
 {
-    public class SpawnPlayer : MonoBehaviour
+    public class SpawnPlayer : GameEvent
     {
         public GameObject PlayerPrefap;
         public Vector3 Spownpoint;
         List<int> GampadIDsInUse = new List<int>();
-        private void Awake()
-        {
-            PlayerEvents.Global = new PlayerEvents(PlayerID.all, gameObject);
-        }
         void Start()
         {
 
             // Temp
-            this.InvokeWait(10f, () => enabled = false);
+            this.InvokeWait(100f, () => enabled = false);
         }
 
         // Update is called once per frame
@@ -32,25 +29,31 @@ namespace GellosGames
 
                 if (Gamepad.all[i].aButton.isPressed)
                 {
-                    var lalal = Instantiate(PlayerPrefap, Spownpoint, Quaternion.identity);
+                    var playerObj = Instantiate(PlayerPrefap, Spownpoint, Quaternion.identity);
                     GampadIDsInUse.Add(Gamepad.all[i].deviceId);
-                    PlayerEvents.AddPlayer((PlayerID)i, lalal);
+                    var pe = PlayerEvents.AddPlayer((PlayerID)i, playerObj);
+
+                    var e = new SpawnPlayerArgs(GampadIDsInUse.Count, (PlayerID)i, playerObj, pe);
+                    EventHandler.TriggerEvent(this, new GameEventArgs(GameActions.OnPlayerAdded, e));
                 }
             }
 
         }
 
-        private void OnDestroy()
+    }
+    public class SpawnPlayerArgs : EventArgs
+    {
+        public SpawnPlayerArgs(int count, PlayerID id, GameObject playerObj, PlayerEvents pe)
         {
-
+            Count = count;
+            Id = id;
+            PlayerObj = playerObj;
+            Pe = pe;
         }
-        private void OnEnable()
-        {
 
-        }
-        private void OnDisable()
-        {
-
-        }
+        public int Count { get; }
+        public PlayerID Id { get; }
+        public GameObject PlayerObj { get; }
+        public PlayerEvents Pe { get; }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static GellosGames.PlayerEvents;
 
 namespace GellosGames
 {
@@ -24,7 +25,6 @@ namespace GellosGames
         WeapenSwitch = 201,
 
         OnSpawn = 301,
-        OnAdded = 302,
 
         OnKilled = 402,
 
@@ -33,26 +33,23 @@ namespace GellosGames
 
         OnShoot = 601,
 
-        PlayerControllerEventsRegisterd = 701,
+        IsAiming = 701,
+
+        PlayerControllerEventsRegisterd = 7801,
     }
-    public class PlayerEvents
+    public class PlayerEvents : EventManager<PlayerActions, PlayerEventArgs>
     {
-        public static PlayerEvents Global; // Init on SpawnPlayer
         public PlayerID id { get; }
         public int PlayerSlot => (int)id;
         static Dictionary<GameObject, PlayerID> playerDict = new Dictionary<GameObject, PlayerID>();
         static PlayerEvents[] allPlayerEvents = new PlayerEvents[4];
 
-        Dictionary<PlayerActions, UnityEvent<MonoBehaviour, PlayerEventInfos>> playerEventDictionary = new Dictionary<PlayerActions, UnityEvent<MonoBehaviour, PlayerEventInfos>>();
-        GameObject player;
-
         public PlayerEvents(PlayerID playerID, GameObject gameObject)
         {
             id = playerID;
-            player = gameObject;
         }
 
-        public static void AddPlayer(PlayerID playerID, GameObject gameObject)
+        public static PlayerEvents AddPlayer(PlayerID playerID, GameObject gameObject)
         {
             var thisEventHandler = new PlayerEvents(playerID, gameObject);
 
@@ -70,7 +67,7 @@ namespace GellosGames
 
             thisEventHandler.StartListening(PlayerActions.OnKilled, (s, e) => RemovePlayer(e.From, s.gameObject));
 
-            Global.TriggerEvent(null, new PlayerEventInfos(PlayerActions.OnAdded) { From = playerID });
+            return thisEventHandler;
         }
         public static void RemovePlayer(PlayerID playerID, GameObject gameObject)
         {
@@ -88,32 +85,13 @@ namespace GellosGames
             int id = (int)playerDict[player];
             return allPlayerEvents[id];
         }
-        public void StartListening(PlayerActions eventName, UnityAction<MonoBehaviour, PlayerEventInfos> listener)
+
+        public override void TriggerEvent(MonoBehaviour sender, PlayerEventArgs listener)
         {
-            if(playerEventDictionary.TryGetValue(eventName, out var thisEvent))
-            {
-                thisEvent.AddListener(listener);
-            }
-            else
-            {
-                thisEvent = new UnityEvent<MonoBehaviour, PlayerEventInfos>();
-                thisEvent.AddListener(listener);
-                playerEventDictionary.Add(eventName, thisEvent);
-            }
-        }
-        public void StopListening(PlayerActions eventName, UnityAction<MonoBehaviour, PlayerEventInfos> listener)
-        {
-            if(playerEventDictionary.TryGetValue(eventName, out var thisEvent))
-            {
-                thisEvent.RemoveListener(listener);
-            }
-        }
-        public void TriggerEvent(MonoBehaviour sender, PlayerEventInfos listener)
-        {
-            if (playerEventDictionary.TryGetValue(listener.action, out var thisEvent))
+            if (EventDictionary.TryGetValue(listener.Action, out var thisEvent))
             {
                 listener.From = id;
-                thisEvent?.Invoke(sender, listener);
+                thisEvent.Invoke(sender, listener);
             }
         }
     }
@@ -121,22 +99,37 @@ namespace GellosGames
     {
         public PlayerEvents EventHandler;
         public virtual void OnSpawn() { }
- 
+
     }
-
-    public struct PlayerEventInfos
+    public struct PlayerEventArgs
     {
-        public readonly PlayerActions action { get; }
-        public PlayerID From;
-        public EventArgs infos;
-        public Weapen Current;
+        public readonly PlayerActions Action { get; }
+        public EventArgs EventInfos { get; }
+        public PlayerID From { get; set; }
+        public Weapen Current { get; set; }
+        public bool IsAiming { get; }
 
-        public PlayerEventInfos(PlayerActions action)
+        public PlayerEventArgs(PlayerActions action)
         {
-            this.action = action;
+            this.Action = action;
             From = PlayerID.me;
             Current = Weapen.unknown;
-            infos = null;
+            EventInfos = null;
+            IsAiming = false;
+        }
+
+        public PlayerEventArgs(PlayerActions action, EventArgs e) : this(action)
+        {
+            EventInfos = e;
+        }
+        public PlayerEventArgs(PlayerActions action, bool isAiming) : this(action)
+        {
+            IsAiming = isAiming;
+        }
+        public PlayerEventArgs(PlayerActions action, bool isAiming, Weapen current) : this(action)
+        {
+            IsAiming = isAiming;
+            Current = current;
         }
     }
 }

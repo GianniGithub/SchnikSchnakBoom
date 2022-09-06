@@ -7,19 +7,44 @@ using UnityEngine.AI;
 
 namespace GellosGames
 {
-    public class RocketShooter : MonoBehaviour
+    public class RocketShooter : PlayerEvent
     {
-        public PlayersControlls Controlls;
         public Vector2 CrossRadiusRange;
         public Transform aimCrossPrefap;
         public Transform shootPrefap;
         Transform aimCross;
         private float range;
 
-        void Start()
+        public override void OnSpawn()
         {
+            EventHandler.StartListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
 
+            if (aimCross == null)
+                aimCross = Instantiate(aimCrossPrefap);
+
+            enabled = false;
+            aimCross.gameObject.SetActive(false);
         }
+
+        private void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
+        {
+            PlayersControlls controlls = (PlayersControlls)sender;
+            if(e.Current == Weapen.Rocket)
+            {
+                EventHandler.StartListening(PlayerActions.IsAiming, Aiming);
+                controlls.ControllEvents.Player1.MainShoot.performed += OnShootBullet;
+                gameObject.SetActive(true);
+                Aiming(sender, e);
+            }
+            else if (gameObject.activeInHierarchy)
+            {
+                EventHandler.StopListening(PlayerActions.IsAiming, Aiming);
+                controlls.ControllEvents.Player1.MainShoot.performed -= OnShootBullet;
+                aimCross.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
+        }
+
         void Update()
         {
             NavMeshHit hit;
@@ -28,35 +53,45 @@ namespace GellosGames
                 aimCross.transform.position = hit.position;
             }
         }
-        private void OnEnable()
-        {
-            Controlls.OnLookStateSwitch += Controlls_OnLookStateSwitch;
-            Controlls.ControllEvents.Player1.MainShoot.performed += OnShootBullet;
-            if (aimCross == null)
-                aimCross = Instantiate(aimCrossPrefap);
-            aimCross.gameObject.SetActive(true);
-
-        }
-        private void OnDisable()
-        {
-            Controlls.OnLookStateSwitch -= Controlls_OnLookStateSwitch;
-            Controlls.ControllEvents.Player1.MainShoot.performed -= OnShootBullet;
-            aimCross.gameObject.SetActive(false);
-        }
         private void OnShootBullet(InputAction.CallbackContext obj)
         {
             if (!aimCross.gameObject.activeInHierarchy)
                 return;
 
-            var rocket = Instantiate(shootPrefap, transform.position, transform.rotation).GetComponent<Rocket>();
+            Rocket rocket = Instantiate(shootPrefap, transform.position, transform.rotation).GetComponent<Rocket>();
             rocket.aimCrossGoal = aimCross;
 
         }
-
-        private void Controlls_OnLookStateSwitch(bool arg1, Vector2 axes)
+        private void Aiming(MonoBehaviour sender, PlayerEventArgs e)
         {
-            var t = Mathf.Abs(axes.x) + Mathf.Abs(axes.y);
+            PlayersControlls controlls = (PlayersControlls)sender;
+            if (e.IsAiming)
+            {
+                enabled = true;
+                aimCross.gameObject.SetActive(true);
+                controlls.ControllEvents.Player1.looking.performed += OnLooking;
+            }
+            else
+            {
+                enabled = false;
+                aimCross.gameObject.SetActive(false);
+                controlls.ControllEvents.Player1.looking.performed -= OnLooking;
+            }
+        }
+
+        private void OnLooking(InputAction.CallbackContext context)
+        {
+            var moveInput = context.ReadValue<Vector2>();
+            var t = Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.y);
             range = Mathf.Lerp(CrossRadiusRange.x, CrossRadiusRange.y, t);
+        }
+
+        private void OnDestroy()
+        {
+            EventHandler.StopListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
+            if (aimCross.gameObject)
+                return;
+            Destroy(aimCross.gameObject);
         }
     }
 

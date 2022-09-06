@@ -96,7 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27ba151d2df2ec4f8e8abfb3829b4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Controlls: {fileID: 4696238362399703296}
   CrossRadiusRange: {x: 1, y: 4}
   aimCrossPrefap: {fileID: 9186154388607958013, guid: 04e1a335acce04a4fb0f52e8f1f283b8,
     type: 3}
@@ -243,7 +242,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   PrefapExplosion: {fileID: 4403779710155534262, guid: 0ef22c2fa913ce047be87551d7b91bdb,
     type: 3}
-  Controlls: {fileID: 4696238362399703296}
   shootTime: 0.2
 --- !u!120 &4696561090897357760
 LineRenderer:
@@ -476,12 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e92f13ad7ebeb449f15e54db2a35a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapons:
-  - {fileID: 2125960936356732363}
-  - {fileID: 5834708586214405607}
-  - {fileID: 222537153056739888}
   Speed: 13
-  Player: 0
 --- !u!114 &5200434837702186475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,9 +500,7 @@ GameObject:
   - component: {fileID: 840537106613853695}
   - component: {fileID: 1496608674110607066}
   - component: {fileID: 4490599264756714797}
-  - component: {fileID: 585721175861100238}
   - component: {fileID: 5800384363429636319}
-  - component: {fileID: 5289958085025028788}
   - component: {fileID: 9123786404408286905}
   m_Layer: 0
   m_Name: Artillery
@@ -583,23 +574,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &585721175861100238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5834708586214405607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd96d82b05261e446aeb262a7cbc5c7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PowerRange: {x: 3, y: 10}
-  Controll: {fileID: 4696238362399703296}
-  Power: 1
-  lengthLimit: 2.2
-  resulution: 50
 --- !u!120 &5800384363429636319
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -698,22 +672,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &5289958085025028788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5834708586214405607}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daf7071ec23b07d4fb3d326c7729f752, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4654688793651518122, guid: 4f0309d2a7fcf704693a87cfd6a57a72,
-    type: 3}
-  Controlls: {fileID: 4696238362399703296}
-  speed: 1
 --- !u!114 &9123786404408286905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,4 +684,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e419f23d06f028745ac10e380cbbd953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Controlls: {fileID: 4696238362399703296}
+  bulletPrefab: {fileID: 4654688793651518122, guid: 4f0309d2a7fcf704693a87cfd6a57a72,
+    type: 3}
+  PowerRange: {x: 3, y: 10}
+  Power: 1
+  lengthLimit: 2.2
+  resulution: 50

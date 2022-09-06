@@ -6,42 +6,51 @@ using UnityEngine;
 using UnityEngine.AI;
 using Gianni.Helper;
 
-public class Rocket : MonoBehaviour
+namespace GellosGames
 {
-    public Transform aimCrossGoal;
-    public Transform explosionPrefap;
-    public AnimationCurve explosion;
-    Rigidbody rb;
-    NavMeshAgent agent;
-
-    private void Awake()
+    public class Rocket : MonoBehaviour, Bullet
     {
-        agent = GetComponent<NavMeshAgent>();
-        rb = GetComponent<Rigidbody>();
-    }
-    void Update()
-    {
+        public Transform aimCrossGoal;
+        public Transform explosionPrefap;
+        public AnimationCurve explosion;
+        Rigidbody rb;
+        NavMeshAgent agent;
 
-        agent.destination = aimCrossGoal.position;
+        public PlayerID OwnerId { get; set; }
+        Transform Bullet.ExplosionPrefap => explosionPrefap;
+        AnimationCurve Bullet.ExplosionAnimation => explosion;
 
-        if (Vector2.Distance(transform.position.ToVectorXZ(), aimCrossGoal.position.ToVectorXZ()) < 0.1f)
+        private void Awake()
         {
-            Projectile.CreateExplosion(transform.position, explosion, explosionPrefap, 2f);
+            agent = GetComponent<NavMeshAgent>();
+            rb = GetComponent<Rigidbody>();
+        }
+        void Update()
+        {
+            agent.destination = aimCrossGoal.position;
+
+            if (Vector2.Distance(transform.position.ToVectorXZ(), aimCrossGoal.position.ToVectorXZ()) < 0.1f)
+            {
+                TriggerExplosion();
+            }
+        }
+
+        void Start()
+        {
+            rb.detectCollisions = false;
+            this.InvokeWait(0.5f, () => rb.detectCollisions = true);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            TriggerExplosion();
+        }
+
+        private void TriggerExplosion()
+        {
+            var exp = new ExplosionArgs(OwnerId, transform.position, 2f, Weapen.Rocket, explosionPrefap, explosion);
+            Explosion.CreateExplosion(exp);
             Destroy(gameObject);
         }
-    }
-
-    void Start()
-    {
-        rb.detectCollisions = false;
-        this.InvokeWait(0.5f, () => rb.detectCollisions = true);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        //if (collision.gameObject.layer == 6)
-        Projectile.CreateExplosion(transform.position, explosion, explosionPrefap, 2f);
-        Destroy(gameObject);
-        
-    }
+    } 
 }

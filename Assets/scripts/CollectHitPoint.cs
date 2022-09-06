@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using GellosGames;
+using System;
 
 public class CollectHitPoint : PlayerEvent
 {
     public TextMeshProUGUI DamageInfo;
     public float Damage;
-    void Start()
+    public override void OnSpawn() 
     {
-    
+        EventHandler.StartListening(PlayerActions.OnDamage, OnDamage);
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        EventHandler.StopListening(PlayerActions.OnDamage, OnDamage);
+    }
+    private void OnDamage(MonoBehaviour sender, PlayerEventArgs e)
+    {
+        var eA = (ExplosionArgs)e.EventInfos;
+        AddDamage(eA.Damage);
+        eA.PlayerPoints = this;
     }
     public void AddDamage(float damage)
     {

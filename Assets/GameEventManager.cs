@@ -1,25 +1,48 @@
 using GellosGames;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameEventManager : MonoBehaviour
+namespace GellosGames
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum GameActions
     {
-
-        //Locator.AddService(new UserAction());
+        None = 0,
+        OnPlayerAdded = 302,
     }
-
-    // Update is called once per frame
-    void Update()
+    public class GameEventManager : EventManager<GameActions, GameEventArgs>
     {
-        
+        public GameEventManager()
+        {
+        }
+        public override void TriggerEvent(MonoBehaviour sender, GameEventArgs listener)
+        {
+            if (EventDictionary.TryGetValue(listener.Action, out var thisEvent))
+            {
+                thisEvent.Invoke(sender, listener);
+            }
+        }
     }
-
-    private void OnDestroy()
+    public abstract class GameEvent : MonoBehaviour
     {
+        public GameEventManager EventHandler;
+        public virtual void DisableStart() { }
 
+    }
+    public struct GameEventArgs
+    {
+        public readonly GameActions Action { get; }
+        public System.EventArgs EventInfos { get; }
+
+        public GameEventArgs(GameActions action, EventArgs e) : this(action)
+        {
+            EventInfos = e;
+        }
+
+        public GameEventArgs(GameActions action) : this()
+        {
+            this.Action = action;
+        }
     }
 }
