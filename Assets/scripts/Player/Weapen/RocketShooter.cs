@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 namespace GellosGames
 {
-    public class RocketShooter : PlayerEvent
+    public class RocketShooter : Weapon
     {
         public Vector2 CrossRadiusRange;
         public Transform aimCrossPrefap;
@@ -55,7 +55,7 @@ namespace GellosGames
         }
         private void OnShootBullet(InputAction.CallbackContext obj)
         {
-            if (!aimCross.gameObject.activeInHierarchy)
+            if (!aimCross.gameObject.activeInHierarchy || !IsFireTimeReady)
                 return;
 
             Rocket rocket = Instantiate(shootPrefap, transform.position, transform.rotation).GetComponent<Rocket>();
@@ -89,7 +89,7 @@ namespace GellosGames
         private void OnDestroy()
         {
             EventHandler.StopListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
-            if (aimCross.gameObject)
+            if (aimCross == null)
                 return;
             Destroy(aimCross.gameObject);
         }

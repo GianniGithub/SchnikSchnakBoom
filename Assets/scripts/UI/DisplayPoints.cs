@@ -17,10 +17,15 @@ namespace GellosGames
         private void OnPlayerAdded(MonoBehaviour sender, GameEventArgs e)
         {
             var TextGui = Instantiate(DamageInfoPrefap, transform);
-            var pe = (SpawnPlayerArgs)e.EventInfos;
+            var args = (SpawnPlayerArgs)e.EventInfos;
 
-            var point = pe.PlayerObj.GetComponent<CollectHitPoint>();
+            var point = args.PlayerObj.GetComponent<CollectHitPoint>();
             point.DamageInfo = TextGui;
+
+            var mesh = args.PlayerObj.GetComponent<MeshRenderer>();
+            TextGui.color = mesh.material.color;
+
+            args.Pe.StartListening(PlayerActions.OnKilled, (s,e)=> Destroy(gameObject));
         }
 
     }

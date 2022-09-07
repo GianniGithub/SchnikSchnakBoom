@@ -6,16 +6,16 @@ using UnityEngine.InputSystem;
 
 namespace GellosGames
 {
-    public class MiniGun : PlayerEvent, Bullet
+    public class MiniGun : Weapon, Bullet
     {
         public AnimationCurve ExpolisonCurv;
         public Transform PrefapExplosion;
 
-        public float shootTime;
+
         LineRenderer lr;
         Vector3[] points;
         bool FireOn = false;
-        float lastShootT;
+
         RaycastHit hit;
 
         public PlayerID OwnerId { get; set; }
@@ -57,9 +57,9 @@ namespace GellosGames
 
         private void MainShoot_performed(InputAction.CallbackContext context)
         {
-            lastShootT = shootTime;
             FireOn = true;
             lr.enabled = true;
+            Fire();
         }
 
         private void MainShoot_canceled(InputAction.CallbackContext context)
@@ -74,39 +74,36 @@ namespace GellosGames
 
         private void FixedUpdate()
         {
-            if (FireOn)
+            Fire();
+        }
+
+        private void Fire()
+        {
+            if (FireOn && IsFireTimeReady)
             {
-                if (lastShootT >= shootTime)
+                // Does the ray intersect any objects excluding the player layer
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity))
                 {
-                    lastShootT -= shootTime;
+                    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * hit.distance, Color.yellow);
 
-                    // Does the ray intersect any objects excluding the player layer
-                    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity))
-                    {
-                        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * hit.distance, Color.yellow);
+                    points[0] = transform.position;
+                    points[1] = hit.point;
+                    lr.SetPositions(points);
 
-                        points[0] = transform.position;
-                        points[1] = hit.point;
-                        lr.SetPositions(points);
-
-                        // for explosion efect reasions, is only working if outside of the collider
-                        var explosionPosition = hit.point - ((points[1] - points[0]).normalized * 0.1f);
-                        var exp = new ExplosionArgs(OwnerId, explosionPosition, 0.8f, Weapen.Gun, PrefapExplosion, ExpolisonCurv);
-                        Explosion.CreateExplosion(exp);
-                    }
-                    else
-                    {
-                        points[0] = transform.position;
-                        points[1] = transform.TransformDirection(Vector3.up) * 100f;
-                        lr.SetPositions(points);
-                    }
+                    // for explosion efect reasions, is only working if outside of the collider
+                    var explosionPosition = hit.point - ((points[1] - points[0]).normalized * 0.1f);
+                    var exp = new ExplosionArgs(OwnerId, explosionPosition, 0.8f, Weapen.Gun, PrefapExplosion, ExpolisonCurv);
+                    Explosion.CreateExplosion(exp);
                 }
                 else
                 {
-                    lastShootT += Time.deltaTime;
+                    points[0] = transform.position;
+                    points[1] = transform.TransformDirection(Vector3.up) * 100f;
+                    lr.SetPositions(points);
                 }
             }
         }
+
         private void OnDestroy()
         {
             EventHandler.StopListening(PlayerActions.WeapenSwitch, onWeapenSwitch);

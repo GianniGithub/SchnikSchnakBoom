@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace GellosGames
 {
-    public class Artillery : PlayerEvent
+    public class Artillery : Weapon
     {
         public ArtilleryProjectile bulletPrefab;
         public Vector2 PowerRange;
@@ -82,10 +82,12 @@ namespace GellosGames
         }
         public void OnShootBullet(InputAction.CallbackContext context)
         {
-            var proBullet = Instantiate(bulletPrefab);
-            proBullet.OwnerId = EventHandler.id;
-            proBullet.PathData = new ArtilleriePathPointData(points, rotations, lengthLimit / resulution);
-
+            if (IsFireTimeReady)
+            {
+                var proBullet = Instantiate(bulletPrefab);
+                proBullet.OwnerId = EventHandler.id;
+                proBullet.ArtilleryPathData = new ArtilleryPathPointData(points, rotations, lengthLimit / resulution);
+            }
         }
         // Update is called once per frame
         void Update()
@@ -114,13 +116,13 @@ namespace GellosGames
             EventHandler.StopListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
         }
     }
-    public class ArtilleriePathPointData
+    public class ArtilleryPathPointData
     {
         public Vector3[] points;
         public Quaternion[] rotations;
         public float PointsDistanzToEacheuser;
 
-        public ArtilleriePathPointData(Vector3[] points, Quaternion[] rotations, float pointsDistanzToEacheuser)
+        public ArtilleryPathPointData(Vector3[] points, Quaternion[] rotations, float pointsDistanzToEacheuser) 
         {
             this.points = (Vector3[])points.Clone();
             this.rotations = (Quaternion[])rotations.Clone(); ;

@@ -27,7 +27,7 @@ namespace GellosGames
                     {
                         var dis = Vector3.Distance(eA.HitPoint, rb.transform.position);
 
-                        var events = PlayerEvents.GetPlayerEventsHandler(eA.Owner);
+                        var events = PlayerEvents.GetPlayerEventsHandler(rb.gameObject);
                         eA.Damage = radius / dis;
                         events.TriggerEvent(null, new PlayerEventArgs(PlayerActions.OnDamage, eA));
 
@@ -46,9 +46,9 @@ namespace GellosGames
     public class ExplosionArgs : System.EventArgs
     {
 
-        public ExplosionArgs(PlayerID owner, Vector3 hitPoint, float explosionSize, Weapen weapenType, Transform explosionPrefap, AnimationCurve explosion)
+        public ExplosionArgs(PlayerID originator, Vector3 hitPoint, float explosionSize, Weapen weapenType, Transform explosionPrefap, AnimationCurve explosion)
         {
-            Owner = owner;
+            this.originator = originator;
             HitPoint = hitPoint;
             ExplosionSize = explosionSize;
             WeapenType = weapenType;
@@ -58,7 +58,7 @@ namespace GellosGames
 
         public CollectHitPoint PlayerPoints { get; set; }
         public float Damage { get; set; }
-        public PlayerID Owner { get; }
+        public PlayerID originator { get; }
         public Vector3 HitPoint { get; }
         public float ExplosionSize { get; }
         public Weapen WeapenType { get; }

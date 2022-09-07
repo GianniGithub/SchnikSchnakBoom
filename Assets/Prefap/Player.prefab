@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27ba151d2df2ec4f8e8abfb3829b4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRate: 1
   CrossRadiusRange: {x: 1, y: 4}
   aimCrossPrefap: {fileID: 9186154388607958013, guid: 04e1a335acce04a4fb0f52e8f1f283b8,
     type: 3}
@@ -198,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9f36496bf23d449a7d8222602b0e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRate: 0.37
   ExpolisonCurv:
     serializedVersion: 2
     m_Curve:
@@ -242,7 +244,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   PrefapExplosion: {fileID: 4403779710155534262, guid: 0ef22c2fa913ce047be87551d7b91bdb,
     type: 3}
-  shootTime: 0.2
 --- !u!120 &4696561090897357760
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -357,6 +358,7 @@ GameObject:
   - component: {fileID: 2745999060048330987}
   - component: {fileID: 4696238362399703296}
   - component: {fileID: 5200434837702186475}
+  - component: {fileID: 5125067287346465915}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -489,6 +491,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageInfo: {fileID: 0}
   Damage: 0
+--- !u!114 &5125067287346465915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2611073971819717115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff7cf7291373f944963445203f7202b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerColors:
+  - {fileID: 2100000, guid: a8605031ef8955542bb16820ce8f9be1, type: 2}
+  - {fileID: 2100000, guid: 87b05ec8f5c55de4482fc36098b69458, type: 2}
+  - {fileID: 2100000, guid: 3fc4632b788469f4780856de0f2de514, type: 2}
+  - {fileID: 2100000, guid: 587f3012788a9b84cabc313ab89adb89, type: 2}
 --- !u!1 &5834708586214405607
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,6 +703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e419f23d06f028745ac10e380cbbd953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRate: 1
   bulletPrefab: {fileID: 4654688793651518122, guid: 4f0309d2a7fcf704693a87cfd6a57a72,
     type: 3}
   PowerRange: {x: 3, y: 10}
