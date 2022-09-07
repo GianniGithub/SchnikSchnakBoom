@@ -8,10 +8,10 @@ namespace GellosGames
 {
     public enum PlayerID
     {
-        A = 0,
-        B = 1,
-        C = 2,
-        D = 3,
+        P1 = 0,
+        P2 = 1,
+        P3 = 2,
+        P4 = 3,
         all = 100,
         me = 101,
         testPlayer = 102
@@ -39,10 +39,12 @@ namespace GellosGames
     }
     public class PlayerEvents : EventManager<PlayerActions, PlayerEventArgs>
     {
+        public static int PlayerCount => playerDict.Count;
         public PlayerID id { get; }
         public int PlayerSlot => (int)id;
         static Dictionary<GameObject, PlayerID> playerDict = new Dictionary<GameObject, PlayerID>();
         static PlayerEvents[] allPlayerEvents = new PlayerEvents[4];
+        
 
         public PlayerEvents(PlayerID playerID, GameObject gameObject)
         {

@@ -59,7 +59,7 @@ namespace GellosGames
 
                 for (int i = 0; i < wayPoints.Length; i++)
                 {
-                    wayPoints[i] = wayPoints[i] + new Vector3(0f, 0.3f, 0f);
+                    wayPoints[i] = wayPoints[i] + new Vector3(0f, 0.8f, 0f);
                 }
 
                 nextPoint = wayPoints[reachedPoints++];
@@ -67,7 +67,10 @@ namespace GellosGames
             }
             else
             {
-                Debug.LogWarning("No Path Data!");
+                enabled = false;
+                nextPoint = aimCrossGoal.position;
+                Vector3 direction = (nextPoint - transform.position).normalized;
+                Quaternion lookRotation = Quaternion.LookRotation(direction);
             }
 
 

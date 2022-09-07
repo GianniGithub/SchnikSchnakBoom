@@ -10,7 +10,7 @@ namespace GellosGames
     public class SpawnPlayer : GameEvent
     {
         public GameObject PlayerPrefap;
-        public Vector3 Spownpoint;
+        public Vector3[] Spownpoints;
         List<int> GampadIDsInUse = new List<int>();
         void Start()
         {
@@ -29,7 +29,7 @@ namespace GellosGames
 
                 if (Gamepad.all[i].aButton.isPressed)
                 {
-                    var playerObj = Instantiate(PlayerPrefap, Spownpoint, Quaternion.identity);
+                    var playerObj = Instantiate(PlayerPrefap, Spownpoints[i], Quaternion.identity);
                     GampadIDsInUse.Add(Gamepad.all[i].deviceId);
                     var pe = PlayerEvents.AddPlayer((PlayerID)i, playerObj);
 

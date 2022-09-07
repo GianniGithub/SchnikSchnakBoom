@@ -190,7 +190,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   speed: 22.8
-  LiveTime: 2.3
+  LiveTime: 6
   aimCrossGoal: {fileID: 0}
 --- !u!54 &615446530976949118
 Rigidbody:
