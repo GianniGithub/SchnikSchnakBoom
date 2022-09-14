@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using static GellosGames.PlayerEvents;
 
 namespace GellosGames
 {
@@ -37,7 +36,7 @@ namespace GellosGames
 
         PlayerControllerEventsRegisterd = 7801,
     }
-    public class PlayerEvents : EventManager<PlayerActions, PlayerEventArgs>
+    public class PlayerEvents : SpownObjects<PlayerActions, PlayerEventArgs>
     {
         public static int PlayerCount => playerDict.Count;
         public PlayerID id { get; }
@@ -46,7 +45,7 @@ namespace GellosGames
         static PlayerEvents[] allPlayerEvents = new PlayerEvents[4];
         
 
-        public PlayerEvents(PlayerID playerID, GameObject gameObject)
+        private PlayerEvents(PlayerID playerID, GameObject gameObject)
         {
             id = playerID;
         }
@@ -58,19 +57,18 @@ namespace GellosGames
             allPlayerEvents[(int)playerID] = thisEventHandler;
             playerDict.Add(gameObject, playerID);
 
-            List<PlayerEvent> playerEventComponents = new List<PlayerEvent>();
-            gameObject.GetComponentsInChildren(true, playerEventComponents);
-
-            foreach (var col in playerEventComponents)
+            foreach (var col in CollectChilds<PlayerEvent>(gameObject))
             {
                 col.EventHandler = thisEventHandler;
                 col.OnSpawn();
             }
-
             thisEventHandler.StartListening(PlayerActions.OnKilled, (s, e) => RemovePlayer(e.From, s.gameObject));
 
             return thisEventHandler;
         }
+
+
+
         public static void RemovePlayer(PlayerID playerID, GameObject gameObject)
         {
             allPlayerEvents[((int)playerID)] = null;
@@ -97,7 +95,7 @@ namespace GellosGames
             }
         }
     }
-    public abstract class PlayerEvent : MonoBehaviour
+    public abstract class PlayerEvent : SpownEvent
     {
         public PlayerEvents EventHandler;
         public virtual void OnSpawn() { }

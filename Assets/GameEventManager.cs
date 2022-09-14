@@ -10,6 +10,7 @@ namespace GellosGames
     {
         None = 0,
         OnPlayerAdded = 302,
+        OnNPCAdded = 702,
     }
     public class GameEventManager : EventManager<GameActions, GameEventArgs>
     {

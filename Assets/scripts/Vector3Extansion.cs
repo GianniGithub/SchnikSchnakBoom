@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Vector3Extansion
+namespace Gianni.Helper
 {
-    public static Vector2 ToVectorXZ(this Vector3 from)
+    public static class Vector3Extansion
     {
-        return new Vector2(from.x, from.z);
-    }
+        public static Vector2 ToVectorXZ(this Vector3 from)
+        {
+            return new Vector2(from.x, from.z);
+        }
+        public static Vector3 ToVectorXZ(this Vector2 from)
+        {
+            return new Vector3(from.x, 0f, from.y);
+        }
+    } 
 }

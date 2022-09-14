@@ -34,7 +34,8 @@ namespace GellosGames
             EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
             gameObject.layer = LayerMask.NameToLayer(EventHandler.id.ToString());
 
-
+            var exp = cvc.GetInputAxisProvider();
+            var la = exp.GetAxisValue(1);
         }
 
         private void SetUpSplittScreen()
