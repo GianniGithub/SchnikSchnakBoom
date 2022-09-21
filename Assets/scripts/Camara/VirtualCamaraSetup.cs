@@ -11,7 +11,7 @@ namespace GellosGames
         static Camera P1;
         static Camera P2;
         CinemachineVirtualCamera cvc;
-        public override void OnSpawn()
+        public override void OnSpawn(UnityEngine.InputSystem.InputDevice device)
         {
             if (P1 == null || P2 == null)
             {
@@ -33,9 +33,6 @@ namespace GellosGames
             cvc = GetComponent<CinemachineVirtualCamera>();
             EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
             gameObject.layer = LayerMask.NameToLayer(EventHandler.id.ToString());
-
-            var exp = cvc.GetInputAxisProvider();
-            var la = exp.GetAxisValue(1);
         }
 
         private void SetUpSplittScreen()

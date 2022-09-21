@@ -50,7 +50,7 @@ namespace GellosGames
             id = playerID;
         }
 
-        public static PlayerEvents AddPlayer(PlayerID playerID, GameObject gameObject)
+        public static PlayerEvents AddPlayer(PlayerID playerID, GameObject gameObject, UnityEngine.InputSystem.InputDevice device)
         {
             var thisEventHandler = new PlayerEvents(playerID, gameObject);
 
@@ -60,7 +60,7 @@ namespace GellosGames
             foreach (var col in CollectChilds<PlayerEvent>(gameObject))
             {
                 col.EventHandler = thisEventHandler;
-                col.OnSpawn();
+                col.OnSpawn(device);
             }
             thisEventHandler.StartListening(PlayerActions.OnKilled, (s, e) => RemovePlayer(e.From, s.gameObject));
 
@@ -98,7 +98,7 @@ namespace GellosGames
     public abstract class PlayerEvent : SpownEvent
     {
         public PlayerEvents EventHandler;
-        public virtual void OnSpawn() { }
+        public virtual void OnSpawn(UnityEngine.InputSystem.InputDevice device) { }
 
     }
     public struct PlayerEventArgs

@@ -9,14 +9,17 @@ public class CollectHitPoint : PlayerEvent
 {
     public TextMeshProUGUI DamageInfo;
     public float Damage;
-    public override void OnSpawn() 
+    public override void OnSpawn(UnityEngine.InputSystem.InputDevice device) 
     {
         EventHandler.StartListening(PlayerActions.OnDamage, OnDamage);
+        EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
     }
-    private void OnDestroy()
+
+    private void OnKilled(MonoBehaviour arg0, PlayerEventArgs arg1)
     {
         EventHandler.StopListening(PlayerActions.OnDamage, OnDamage);
     }
+
     private void OnDamage(MonoBehaviour sender, PlayerEventArgs e)
     {
         var eA = (ExplosionArgs)e.EventInfos;

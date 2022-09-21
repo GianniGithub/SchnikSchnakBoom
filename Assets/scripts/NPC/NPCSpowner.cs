@@ -8,16 +8,15 @@ using UnityEngine.InputSystem;
 
 namespace GellosGames
 {
-    public class NPCSpowner : GameEvent
+    public class NPCSpowner : MonoBehaviour
     {
         public GameObject PlayerPrefap;
         public Vector3 StartArena;
         public int Amount = 2;
-        public override void DisableStart() 
+        void Awake()
         {
-            EventHandler.StartListening(GameActions.OnPlayerAdded, OnPlayerAdded);
+            GameEvents.Instance.StartListening(GameActions.OnPlayerAdded, OnPlayerAdded);
         }
-
         private void OnPlayerAdded(MonoBehaviour sender, GameEventArgs e)
         {
             for (int i = 0; i < Amount; i++)
@@ -33,7 +32,7 @@ namespace GellosGames
             var pe = NPCEvents.AddNPC(NPCtype.dummy, nPCobj);
 
             var NPCe = new SpawnNPCArgs(NPCtype.dummy, nPCobj, pe);
-            EventHandler.TriggerEvent(this, new GameEventArgs(GameActions.OnNPCAdded, NPCe));
+            GameEvents.Instance.TriggerEvent(this, new GameEventArgs(GameActions.OnNPCAdded, NPCe));
         }
     }
     public class SpawnNPCArgs : EventArgs

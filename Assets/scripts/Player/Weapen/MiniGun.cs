@@ -26,11 +26,14 @@ namespace GellosGames
         {
             lr = GetComponent<LineRenderer>();
         }
-        public override void OnSpawn()
+        public override void OnSpawn(UnityEngine.InputSystem.InputDevice device)
         {
             EventHandler.StartListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
+            EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
             OwnerId = EventHandler.id;
         }
+
+
 
         private void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
@@ -104,7 +107,7 @@ namespace GellosGames
             }
         }
 
-        private void OnDestroy()
+        private void OnKilled(MonoBehaviour arg0, PlayerEventArgs arg1)
         {
             EventHandler.StopListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
         }

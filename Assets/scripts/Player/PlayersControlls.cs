@@ -29,12 +29,12 @@ namespace GellosGames
         {
             rb = GetComponent<Rigidbody>();
         }
-        public override void OnSpawn()
+        public override void OnSpawn(InputDevice device)
         {
             ControllEvents = new PlayerController();
             moveAction = ControllEvents.Player1.movment;
 
-            ControllEvents.devices = new[] { Gamepad.all[EventHandler.PlayerSlot] };
+            ControllEvents.devices = new[] { device };
 
             ControllEvents.Player1.looking.performed += OnLooking;
             ControllEvents.Player1.Artillery.performed += OnArtillery;
@@ -71,6 +71,8 @@ namespace GellosGames
 
         public void OnMainShoot(InputAction.CallbackContext context) { }
         public void OnMovment(InputAction.CallbackContext context) { }
+        public void OnConform(InputAction.CallbackContext context) { }
+
         public void OnMiniGun(InputAction.CallbackContext context)
         {
             var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, aimState, Weapen.Gun);

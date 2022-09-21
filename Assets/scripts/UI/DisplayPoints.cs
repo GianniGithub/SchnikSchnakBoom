@@ -6,14 +6,14 @@ using System;
 
 namespace GellosGames
 {
-    public class DisplayPoints : GameEvent
+    public class DisplayPoints : MonoBehaviour
     {
         public TextMeshProUGUI DamageInfoPrefap;
-        public override void DisableStart() 
-        {
-            EventHandler.StartListening(GameActions.OnPlayerAdded, OnPlayerAdded);
-        }
 
+        private void Awake()
+        {
+            GameEvents.Instance.StartListening(GameActions.OnPlayerAdded, OnPlayerAdded);
+        }
         private void OnPlayerAdded(MonoBehaviour sender, GameEventArgs e)
         {
             var TextGui = Instantiate(DamageInfoPrefap, transform);

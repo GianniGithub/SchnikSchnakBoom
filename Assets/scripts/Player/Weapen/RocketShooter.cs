@@ -15,9 +15,10 @@ namespace GellosGames
         Transform aimCross;
         private float range;
 
-        public override void OnSpawn()
+        public override void OnSpawn(UnityEngine.InputSystem.InputDevice device)
         {
             EventHandler.StartListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
+            EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
 
             if (aimCross == null)
                 aimCross = Instantiate(aimCrossPrefap);
@@ -25,6 +26,8 @@ namespace GellosGames
             enabled = false;
             aimCross.gameObject.SetActive(false);
         }
+
+
 
         private void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
@@ -86,11 +89,9 @@ namespace GellosGames
             range = Mathf.Lerp(CrossRadiusRange.x, CrossRadiusRange.y, t);
         }
 
-        private void OnDestroy()
+        private void OnKilled(MonoBehaviour arg0, PlayerEventArgs arg1)
         {
             EventHandler.StopListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
-            if (aimCross == null)
-                return;
             Destroy(aimCross.gameObject);
         }
     }

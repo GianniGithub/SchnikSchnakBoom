@@ -9,37 +9,77 @@ namespace GellosGames
 {
     public class SpawnPlayer : GameEvent
     {
+        public Transform Parent;
         public GameObject PlayerPrefap;
         public Vector3[] Spownpoints;
-        List<int> GampadIDsInUse = new List<int>();
+        List<InputDevice> GampadIDsInUse = new List<InputDevice>();
+        private void Awake()
+        {
+            
+        }
         void Start()
         {
-
             // Temp
-            this.InvokeWait(100f, () => enabled = false);
+            this.InvokeWait(500f, () => enabled = false);
+
         }
 
-        // Update is called once per frame
-        void Update()
+        private void SpownOnClick(object obj, InputActionChange change)
         {
-            for (int i = 0; i < Gamepad.all.Count; i++)
+            if (change == InputActionChange.ActionPerformed)
             {
-                if (GampadIDsInUse.Contains(Gamepad.all[i].deviceId))
-                    continue;
+                var inputAction = (InputAction)obj;
+                if (inputAction.id != Guid.Parse("7607c7b6-cd76-4816-beef-bd0341cfe950"))
+                    return;
 
-                if (Gamepad.all[i].aButton.isPressed)
-                {
-                    var playerObj = Instantiate(PlayerPrefap, Spownpoints[i], Quaternion.identity);
-                    GampadIDsInUse.Add(Gamepad.all[i].deviceId);
-                    var pe = PlayerEvents.AddPlayer((PlayerID)i, playerObj);
+                if (GampadIDsInUse.Contains(inputAction.activeControl.device))
+                    return;
 
-                    var e = new SpawnPlayerArgs(GampadIDsInUse.Count, (PlayerID)i, playerObj, pe);
-                    EventHandler.TriggerEvent(this, new GameEventArgs(GameActions.OnPlayerAdded, e));
-                }
+                GampadIDsInUse.Add(inputAction.activeControl.device);
+                int PlayerID = GampadIDsInUse.Count - 1;
+                var playerObj = Instantiate(PlayerPrefap, Spownpoints[PlayerID], Quaternion.identity, Parent);
+                var pe = PlayerEvents.AddPlayer((PlayerID)PlayerID, playerObj, inputAction.activeControl.device);
+
+                var e = new SpawnPlayerArgs(GampadIDsInUse.Count, (PlayerID)PlayerID, playerObj, pe);
+                GameEvents.Instance.TriggerEvent(this, new GameEventArgs(GameActions.OnPlayerAdded, e));
             }
-
         }
 
+        private void OnGamePadStateChange(MonoBehaviour sender, GameEventArgs e)
+        {
+            var ima = (InputManagerArgs)e.EventInfos;
+
+            if(ima.Enabled)
+                InputManager.AllController.Player1.Conform.performed += Conform_performedSpawnPlayer;
+            else
+                InputManager.AllController.Player1.Conform.performed -= Conform_performedSpawnPlayer;
+        }
+
+        private void Conform_performedSpawnPlayer(InputAction.CallbackContext obj)
+        {
+            if (GampadIDsInUse.Contains(obj.control.device))
+                return;
+            GampadIDsInUse.Add(obj.control.device);
+            int PlayerID = GampadIDsInUse.Count - 1;
+            var playerObj = Instantiate(PlayerPrefap, Spownpoints[PlayerID], Quaternion.identity, Parent);
+            var pe = PlayerEvents.AddPlayer((PlayerID)PlayerID, playerObj, obj.control.device);
+
+            var e = new SpawnPlayerArgs(GampadIDsInUse.Count, (PlayerID)PlayerID, playerObj, pe);
+            GameEvents.Instance.TriggerEvent(this, new GameEventArgs(GameActions.OnPlayerAdded, e));
+        }
+        private void OnDisable()
+        {
+            var e = new InputManagerArgs() { Enabled = false };
+            //GameEvents.Instance.TriggerEvent(null, new GameEventArgs(GameActions.OnGamePadStateChange, e));
+
+            InputSystem.onActionChange -= SpownOnClick;
+        }
+        private void OnEnable()
+        {
+            //GameEvents.Instance.StartListening(GameActions.OnGamePadStateChange, OnGamePadStateChange);
+
+            InputSystem.onActionChange += SpownOnClick;
+        }
     }
     public class SpawnPlayerArgs : EventArgs
     {

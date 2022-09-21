@@ -9,13 +9,17 @@ namespace GellosGames
     public enum GameActions
     {
         None = 0,
+        OnGamePadStateChange = 202,
         OnPlayerAdded = 302,
         OnNPCAdded = 702,
     }
-    public class GameEventManager : EventManager<GameActions, GameEventArgs>
+    public class GameEvents : EventManager<GameActions, GameEventArgs>
     {
-        public GameEventManager()
+        public static GameEvents Instance { get { return instance; } }
+        static GameEvents instance;
+        public GameEvents()
         {
+            instance = this;
         }
         public override void TriggerEvent(MonoBehaviour sender, GameEventArgs listener)
         {
@@ -27,9 +31,6 @@ namespace GellosGames
     }
     public abstract class GameEvent : MonoBehaviour
     {
-        public GameEventManager EventHandler;
-        public virtual void DisableStart() { }
-
     }
     public struct GameEventArgs
     {

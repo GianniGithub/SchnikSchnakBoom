@@ -28,7 +28,7 @@ namespace GellosGames
             points = new Vector3[resulution];
             rotations = new Quaternion[resulution];
         }
-        public override void OnSpawn() 
+        public override void OnSpawn(UnityEngine.InputSystem.InputDevice device) 
         {
             enabled = false;
             EventHandler.StartListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
