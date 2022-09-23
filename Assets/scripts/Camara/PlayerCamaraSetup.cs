@@ -10,7 +10,6 @@ namespace GellosGames
     {
         public Camera[] ScreenCamps;
         public CinemachineVirtualCamera[] PlayerCamps;
-        public CinemachineVirtualCamera[] PlayerAimCamps;
         void Start()
         {
             GameEvents.Instance.StartListening(GameActions.OnPlayerAdded, OnPlayerAdded);
@@ -27,7 +26,7 @@ namespace GellosGames
             PlayerCamp.enabled = true;
             PlayerCamp.gameObject.layer = LayerMask.NameToLayer(player.Id.ToString());
             PlayerCamp.Follow = player.PlayerObj.transform;
-            PlayerCamp.LookAt = player.PlayerObj.transform;
+            //PlayerCamp.LookAt = player.PlayerObj.transform;
 
             SetUpSplittScreen(playerID);
             player.Pe.StartListening(PlayerActions.OnKilled, OnKilled);
