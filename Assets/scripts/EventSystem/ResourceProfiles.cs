@@ -7,7 +7,7 @@ namespace GellosGames
 {
     public abstract class Profile : ScriptableObject, IService
     {
-        static string FolderPathAudio = "profiles/sound/";
+        //static string FolderPathAudio = "profiles/sound/";
         static string FolderPathColor = "profiles/color/";
         static string FolderPathAnimation = "profiles/animation/";
 

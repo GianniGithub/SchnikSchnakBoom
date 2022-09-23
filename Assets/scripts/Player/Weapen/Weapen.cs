@@ -7,6 +7,7 @@ namespace GellosGames
 {
     public class Weapon : PlayerEvent
     {
+        public Transform aimCrossPrefap;
         public float fireRate;
         float nextFire;
 

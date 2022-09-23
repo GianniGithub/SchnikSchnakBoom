@@ -10,6 +10,7 @@ namespace GellosGames
     {
         public Camera[] ScreenCamps;
         public CinemachineVirtualCamera[] PlayerCamps;
+        public CinemachineVirtualCamera[] PlayerAimCamps;
         void Start()
         {
             GameEvents.Instance.StartListening(GameActions.OnPlayerAdded, OnPlayerAdded);

@@ -15,6 +15,7 @@ namespace GellosGames
         [SerializeField]
         int resulution;
 
+        Transform aimCross;
         LineRenderer lr;
         Vector3[] points;
         Quaternion[] rotations;
@@ -26,10 +27,14 @@ namespace GellosGames
             points = new Vector3[resulution];
             rotations = new Quaternion[resulution];
         }
-        public override void OnSpawn(UnityEngine.InputSystem.InputDevice device) 
+        public override void OnSpawn(InputDevice device) 
         {
             enabled = false;
             EventHandler.StartListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
+
+           
+            if (aimCross == null)
+                aimCross = Instantiate(aimCrossPrefap);
         }
         private void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
@@ -61,6 +66,7 @@ namespace GellosGames
             {
                 enabled = true;
                 lr.enabled = true;
+                aimCross.gameObject.SetActive(true);
                 controlls.ControllEvents.Player1.looking.performed += OnLooking;
                 controlls.ControllEvents.Player1.MainShoot.performed += OnShootBullet;
             }
@@ -68,6 +74,7 @@ namespace GellosGames
             {
                 enabled = false;
                 lr.enabled = false;
+                aimCross.gameObject.SetActive(false);
                 controlls.ControllEvents.Player1.looking.performed -= OnLooking;
                 controlls.ControllEvents.Player1.MainShoot.performed -= OnShootBullet;
             }
@@ -103,6 +110,18 @@ namespace GellosGames
                 rotations[i] = Quaternion.LookRotation(direction);
             }
             lr.SetPositions(points);
+        }
+        private void FixedUpdate()
+        {
+            for (int i = 0; i < points.Length; i++)
+            {
+                if (Physics.Linecast(points[i], points[++i], out RaycastHit hitInfo))
+                {
+                    aimCross.position = hitInfo.point;
+                    Debug.Log("hit fix count: " + points.Length);
+                    return;
+                }
+            }
         }
         private void OnDestroy()
         {

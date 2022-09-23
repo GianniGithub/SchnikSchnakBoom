@@ -96,10 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27ba151d2df2ec4f8e8abfb3829b4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
-  CrossRadiusRange: {x: 1, y: 10}
   aimCrossPrefap: {fileID: 9186154388607958013, guid: 04e1a335acce04a4fb0f52e8f1f283b8,
     type: 3}
+  fireRate: 1
+  AimRange: {x: 2, y: 11}
   shootPrefap: {fileID: 615446530976949117, guid: 7a3c8f1a0330e8b43b01e751aa4d3124,
     type: 3}
 --- !u!1 &2125960936356732363
@@ -199,7 +199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9f36496bf23d449a7d8222602b0e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aimCrossPrefap: {fileID: 0}
   fireRate: 0.37
+  AimRange: {x: 0, y: 0}
   ExpolisonCurv:
     serializedVersion: 2
     m_Curve:
@@ -703,10 +705,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e419f23d06f028745ac10e380cbbd953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aimCrossPrefap: {fileID: 4933439699220618690, guid: bc17b2bdb08bb4db19ed7e974f015a22,
+    type: 3}
   fireRate: 1
+  AimRange: {x: 8, y: 15}
   bulletPrefab: {fileID: 4654688793651518122, guid: 4f0309d2a7fcf704693a87cfd6a57a72,
     type: 3}
-  PowerRange: {x: 7, y: 14}
-  Power: 1
   lengthLimit: 3.1
   resulution: 50

@@ -9,7 +9,6 @@ namespace GellosGames
 {
     public class RocketShooter : Weapon
     {
-        public Transform aimCrossPrefap;
         public Transform shootPrefap;
         Transform aimCross;
 

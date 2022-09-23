@@ -15,7 +15,7 @@ namespace GellosGames
         void Start()
         {
             rb.detectCollisions = false;
-            this.InvokeWait(0.5f, () => rb.detectCollisions = true);
+            this.InvokeWait(0.1f, () => rb.detectCollisions = true);
 
         }
         private void OnCollisionEnter(Collision collision)

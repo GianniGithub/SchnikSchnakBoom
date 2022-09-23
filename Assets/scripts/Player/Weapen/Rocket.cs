@@ -18,6 +18,7 @@ namespace GellosGames
         int reachedPoints = 1;
         private ConstantForce cf;
         Vector3 nextPoint;
+
         void Update()
         {
 
