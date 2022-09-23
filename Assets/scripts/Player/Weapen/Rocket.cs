@@ -68,9 +68,9 @@ namespace GellosGames
             else
             {
                 enabled = false;
+                reachedPoints++;
                 nextPoint = aimCrossGoal.position;
-                Vector3 direction = (nextPoint - transform.position).normalized;
-                Quaternion lookRotation = Quaternion.LookRotation(direction);
+                wayPoints = new Vector3[] { nextPoint, transform.position, nextPoint };
             }
 
 

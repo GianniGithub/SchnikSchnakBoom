@@ -9,8 +9,6 @@ namespace GellosGames
     public class Artillery : Weapon
     {
         public ArtilleryProjectile bulletPrefab;
-        public Vector2 PowerRange;
-        public float Power;
         public float PointsDistanzToEacheuser => lengthLimit / resulution;
         [SerializeField]
         float lengthLimit;
@@ -74,12 +72,7 @@ namespace GellosGames
                 controlls.ControllEvents.Player1.MainShoot.performed -= OnShootBullet;
             }
         }
-        private void OnLooking(InputAction.CallbackContext context)
-        {
-            var moveInput = context.ReadValue<Vector2>();
-            var t = Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.y);
-            Power = Mathf.Lerp(PowerRange.x, PowerRange.y, t);
-        }
+
         public void OnShootBullet(InputAction.CallbackContext context)
         {
             if (IsFireTimeReady)
@@ -101,7 +94,7 @@ namespace GellosGames
                 var t = (lengthLimit / resulution) * i;
 
                 //Positions
-                var powerStraight = transform.up * Power * t;
+                var powerStraight = transform.up * Range * t;
                 var gravityLost = (Mathf.Pow(t, 2) * 9.8f) / 2;
                 points[i] = new Vector3(powerStraight.x, powerStraight.y - gravityLost, powerStraight.z) + point;
 

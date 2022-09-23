@@ -9,11 +9,9 @@ namespace GellosGames
 {
     public class RocketShooter : Weapon
     {
-        public Vector2 CrossRadiusRange;
         public Transform aimCrossPrefap;
         public Transform shootPrefap;
         Transform aimCross;
-        private float range;
 
         public override void OnSpawn(UnityEngine.InputSystem.InputDevice device)
         {
@@ -26,8 +24,6 @@ namespace GellosGames
             enabled = false;
             aimCross.gameObject.SetActive(false);
         }
-
-
 
         private void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
@@ -51,7 +47,7 @@ namespace GellosGames
         void Update()
         {
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(transform.forward * range + transform.position, out hit, 4f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(transform.forward * Range + transform.position, out hit, 4f, NavMesh.AllAreas))
             {
                 aimCross.transform.position = hit.position;
             }
@@ -81,14 +77,6 @@ namespace GellosGames
                 controlls.ControllEvents.Player1.looking.performed -= OnLooking;
             }
         }
-
-        private void OnLooking(InputAction.CallbackContext context)
-        {
-            var moveInput = context.ReadValue<Vector2>();
-            var t = Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.y);
-            range = Mathf.Lerp(CrossRadiusRange.x, CrossRadiusRange.y, t);
-        }
-
         private void OnKilled(MonoBehaviour arg0, PlayerEventArgs arg1)
         {
             EventHandler.StopListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
