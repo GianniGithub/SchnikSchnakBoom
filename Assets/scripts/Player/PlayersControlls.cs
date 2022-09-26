@@ -23,7 +23,11 @@ namespace GellosGames
         Vector3 nextMove;
         Rigidbody rb;
         InputAction moveAction;
-        bool aimState = false;
+        AimMode aimState = AimMode.off;
+        [NonSerialized]
+        public bool OverrideRotation;
+        [NonSerialized]
+        public bool OverrideMoving;
 
         void Awake()
         {
@@ -55,18 +59,28 @@ namespace GellosGames
         public void OnLooking(InputAction.CallbackContext context)
         {
             var target = context.ReadValue<Vector2>();
-            bool isAiming = target != Vector2.zero;
-
-            if (aimState != isAiming)
+            AimMode newMode;
+            if (target != Vector2.zero)
             {
-                var e = new PlayerEventArgs(PlayerActions.IsAiming, isAiming);
-                EventHandler.TriggerEvent(this, e);
-                aimState = isAiming;
-                return;
+                newMode = AimMode.start;
+            }
+            else
+            {
+                newMode = AimMode.off;
             }
 
-            float heading = Mathf.Atan2(target.x, target.y);
-            transform.rotation = Quaternion.Euler(0f, heading * Mathf.Rad2Deg, 0f);
+            if (newMode != aimState)
+            {
+                var e = new PlayerEventArgs(PlayerActions.OnAimStateChange, newMode);
+                EventHandler.TriggerEvent(this, e);
+                aimState = newMode;
+            }
+
+            if (!OverrideRotation)
+            {
+                float heading = Mathf.Atan2(target.x, target.y);
+                transform.rotation = Quaternion.Euler(0f, heading * Mathf.Rad2Deg, 0f); 
+            }
         }
 
         public void OnMainShoot(InputAction.CallbackContext context) { }

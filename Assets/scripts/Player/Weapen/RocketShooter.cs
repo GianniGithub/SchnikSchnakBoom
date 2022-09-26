@@ -10,7 +10,6 @@ namespace GellosGames
     public class RocketShooter : Weapon
     {
         public Transform shootPrefap;
-        Transform aimCross;
 
         public override void OnSpawn(UnityEngine.InputSystem.InputDevice device)
         {
@@ -29,14 +28,14 @@ namespace GellosGames
             PlayersControlls controlls = (PlayersControlls)sender;
             if(e.Current == Weapen.Rocket)
             {
-                EventHandler.StartListening(PlayerActions.IsAiming, Aiming);
+                EventHandler.StartListening(PlayerActions.OnAimStateChange, Aiming);
                 controlls.ControllEvents.Player1.MainShoot.performed += OnShootBullet;
                 gameObject.SetActive(true);
                 Aiming(sender, e);
             }
             else if (gameObject.activeInHierarchy)
             {
-                EventHandler.StopListening(PlayerActions.IsAiming, Aiming);
+                EventHandler.StopListening(PlayerActions.OnAimStateChange, Aiming);
                 controlls.ControllEvents.Player1.MainShoot.performed -= OnShootBullet;
                 aimCross.gameObject.SetActive(false);
                 gameObject.SetActive(false);
@@ -62,18 +61,18 @@ namespace GellosGames
         }
         private void Aiming(MonoBehaviour sender, PlayerEventArgs e)
         {
-            PlayersControlls controlls = (PlayersControlls)sender;
-            if (e.IsAiming)
+            PlayersControlls controlls = sender as PlayersControlls;
+            AimChangeBase(e.IsAiming, controlls, e.AimState);
+            switch (e.AimState)
             {
-                enabled = true;
-                aimCross.gameObject.SetActive(true);
-                controlls.ControllEvents.Player1.looking.performed += OnLooking;
-            }
-            else
-            {
-                enabled = false;
-                aimCross.gameObject.SetActive(false);
-                controlls.ControllEvents.Player1.looking.performed -= OnLooking;
+                case AimMode.start:
+                    controlls.ControllEvents.Player1.looking.performed += OnLooking;
+                    break;
+                case AimMode.accurate:
+                    return;
+                case AimMode.off:
+                    controlls.ControllEvents.Player1.looking.performed -= OnLooking;
+                    break;
             }
         }
         private void OnKilled(MonoBehaviour arg0, PlayerEventArgs arg1)

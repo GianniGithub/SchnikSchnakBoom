@@ -32,7 +32,7 @@ namespace GellosGames
 
         OnShoot = 601,
 
-        IsAiming = 701,
+        OnAimStateChange = 701,
 
         PlayerControllerEventsRegisterd = 7801,
     }
@@ -107,7 +107,8 @@ namespace GellosGames
         public EventArgs EventInfos { get; }
         public PlayerID From { get; set; }
         public Weapen Current { get; set; }
-        public bool IsAiming { get; }
+        public AimMode AimState { get; }
+        public bool IsAiming => AimState != AimMode.off;
 
         public PlayerEventArgs(PlayerActions action)
         {
@@ -115,20 +116,20 @@ namespace GellosGames
             From = PlayerID.me;
             Current = Weapen.unknown;
             EventInfos = null;
-            IsAiming = false;
+            AimState = AimMode.off;
         }
 
         public PlayerEventArgs(PlayerActions action, EventArgs e) : this(action)
         {
             EventInfos = e;
         }
-        public PlayerEventArgs(PlayerActions action, bool isAiming) : this(action)
+        public PlayerEventArgs(PlayerActions action, AimMode isAiming) : this(action)
         {
-            IsAiming = isAiming;
+            AimState = isAiming;
         }
-        public PlayerEventArgs(PlayerActions action, bool isAiming, Weapen current) : this(action)
+        public PlayerEventArgs(PlayerActions action, AimMode isAiming, Weapen current) : this(action)
         {
-            IsAiming = isAiming;
+            AimState = isAiming;
             Current = current;
         }
     }

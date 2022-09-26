@@ -16,7 +16,6 @@ namespace GellosGames
         [SerializeField]
         int resulution;
 
-        Transform aimCross;
         LineRenderer lr;
         Vector3[] points;
         Quaternion[] rotations;
@@ -43,39 +42,35 @@ namespace GellosGames
             if (e.Current == Weapen.Artillery)
             {
                 gameObject.SetActive(true);
-                EventHandler.StartListening(PlayerActions.IsAiming, onAiming);
-                SetEnableState(e.IsAiming, controlls);
+                EventHandler.StartListening(PlayerActions.OnAimStateChange, onAiming);
+                SetEnableState(e.IsAiming, controlls, e);
             }
             else
             {
                 if(enabled)
-                    SetEnableState(false, controlls);
+                    SetEnableState(false, controlls, e);
                 gameObject.SetActive(false);
-                EventHandler.StopListening(PlayerActions.IsAiming, onAiming);
+                EventHandler.StopListening(PlayerActions.OnAimStateChange, onAiming);
             }
             
         }
         private void onAiming(MonoBehaviour sender, PlayerEventArgs e)
         {
             PlayersControlls controlls = (PlayersControlls)sender;
-            SetEnableState(e.IsAiming, controlls);
-
+            SetEnableState(e.IsAiming, controlls, e);
         }
-        void SetEnableState(bool onActive, PlayersControlls controlls)
+        void SetEnableState(bool onActive, PlayersControlls controlls, PlayerEventArgs e)
         {
+            AimChangeBase(onActive, controlls, e.AimState);
             if (onActive)
             {
-                enabled = true;
                 lr.enabled = true;
-                aimCross.gameObject.SetActive(true);
                 controlls.ControllEvents.Player1.looking.performed += OnLooking;
                 controlls.ControllEvents.Player1.MainShoot.performed += OnShootBullet;
             }
             else
             {
-                enabled = false;
                 lr.enabled = false;
-                aimCross.gameObject.SetActive(false);
                 controlls.ControllEvents.Player1.looking.performed -= OnLooking;
                 controlls.ControllEvents.Player1.MainShoot.performed -= OnShootBullet;
             }
