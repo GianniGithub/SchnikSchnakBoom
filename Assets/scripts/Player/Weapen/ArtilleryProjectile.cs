@@ -22,14 +22,20 @@ namespace GellosGames
         }
         private void OnCollisionEnter(Collision collision)
         {
+            DoExplosion(transform.position);
+        }
+
+        private void DoExplosion(Vector3 hitPoint)
+        {
             if (!alreadyHit)
             {
-                var exp = new ExplosionArgs(OwnerId, transform.position, 2.7f, Weapen.Artillery, explosionPrefap, explosion);
+                var exp = new ExplosionArgs(OwnerId, hitPoint, 2.7f, Weapen.Artillery, explosionPrefap, explosion);
                 Explosion.CreateExplosion(exp);
                 Destroy(gameObject);
                 alreadyHit = true;
             }
         }
+
         void FixedUpdate()
         {
             trackCounter += speed * Time.fixedDeltaTime;
@@ -37,11 +43,10 @@ namespace GellosGames
             while (trackCounter > distanz)
             {
                 trackCounter -= distanz;
-
                 if (i + 2 >= ArtilleryPathData.points.Length)
                 {
-                    enabled = false;
-                    return;
+                    var hitpoint = ArtilleryPathData.points[ArtilleryPathData.points.Length - 1];
+                    DoExplosion(hitpoint);
                 }
                 else
                 {
@@ -49,13 +54,16 @@ namespace GellosGames
                     distanz = Vector3.Distance(ArtilleryPathData.points[i], ArtilleryPathData.points[i + 1]);
                 }
             }
-
-            var t = trackCounter / distanz;
-
-            rb.MovePosition(Vector3.Lerp(ArtilleryPathData.points[i], ArtilleryPathData.points[i + 1], t));
-            rb.MoveRotation(Quaternion.Lerp(ArtilleryPathData.rotations[i], ArtilleryPathData.rotations[i + 1], t));
+            MoveOnTrack();
         }
 
+        private void MoveOnTrack()
+        {
+            var t = trackCounter / distanz;
+
+            rb.MovePosition(Vector3.LerpUnclamped(ArtilleryPathData.points[i], ArtilleryPathData.points[i + 1], t));
+            rb.MoveRotation(Quaternion.LerpUnclamped(ArtilleryPathData.rotations[i], ArtilleryPathData.rotations[i + 1], t));
+        }
     }
 
 }

@@ -46,7 +46,7 @@ namespace GellosGames
         void Update()
         {
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(GetAimPosition(), out hit, 4f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(GetAimPosition(transform), out hit, 4f, NavMesh.AllAreas))
             {
                 aimCross.transform.position = hit.position;
             }

@@ -122,21 +122,23 @@ namespace GellosGames
             transform.rotation = Quaternion.LookRotation(ShootDirection, Vector3.right);
         }
 
-        private static float GravitationsFunktion(float fx)
+        private static float GravitationsFunktion(float delta)
         {
-            return Mathf.Pow(fx, 2) * 9.8f / 2f;
+            return Mathf.Pow(delta, 2) * 9.8f / 2f;
         }
 
         private void FixedUpdate()
         {
-            for (int i = 0; i < points.Length - 1; i++)
+            var aim = GetAimPosition(transform.parent);
+            Debug.DrawRay(aim + new Vector3(0f, 7f, 0f), Vector3.down, Color.red);
+            if (Physics.Raycast(aim + new Vector3(0f, 7f, 0f), Vector3.down, out RaycastHit hitInfo, 30f))
             {
-                if (Physics.Linecast(points[i], points[i + 1], out RaycastHit hitInfo))
-                {
-                    //aimCross.position = hitInfo.point;
-                    return;
-                }
+                aimCross.position = hitInfo.point;
+                return;
             }
+            else
+                aimCross.position = aim;
+
         }
         private void OnDestroy()
         {

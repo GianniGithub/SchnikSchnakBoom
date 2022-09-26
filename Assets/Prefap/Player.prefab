@@ -743,5 +743,5 @@ MonoBehaviour:
   AimRange: {x: 8, y: 15}
   bulletPrefab: {fileID: 4654688793651518122, guid: 4f0309d2a7fcf704693a87cfd6a57a72,
     type: 3}
-  BowSize: 1
+  BowSize: 1.5
   resulution: 5
