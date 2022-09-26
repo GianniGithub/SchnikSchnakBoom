@@ -11,11 +11,13 @@ namespace GellosGames
     {
         public ArtilleryPathPointData ArtilleryPathData;
         float trackCounter = 0f;
+        float distanz = 0f;
         int i = 0;
         void Start()
         {
             rb.detectCollisions = false;
             this.InvokeWait(0.1f, () => rb.detectCollisions = true);
+            distanz = Vector3.Distance(ArtilleryPathData.points[i], ArtilleryPathData.points[i + 1]);
 
         }
         private void OnCollisionEnter(Collision collision)
@@ -32,9 +34,9 @@ namespace GellosGames
         {
             trackCounter += speed * Time.fixedDeltaTime;
 
-            while (trackCounter > ArtilleryPathData.PointsDistanzToEacheuser)
+            while (trackCounter > distanz)
             {
-                trackCounter -= ArtilleryPathData.PointsDistanzToEacheuser;
+                trackCounter -= distanz;
 
                 if (i + 2 >= ArtilleryPathData.points.Length)
                 {
@@ -44,10 +46,11 @@ namespace GellosGames
                 else
                 {
                     i++;
+                    distanz = Vector3.Distance(ArtilleryPathData.points[i], ArtilleryPathData.points[i + 1]);
                 }
             }
 
-            var t = trackCounter / ArtilleryPathData.PointsDistanzToEacheuser;
+            var t = trackCounter / distanz;
 
             rb.MovePosition(Vector3.Lerp(ArtilleryPathData.points[i], ArtilleryPathData.points[i + 1], t));
             rb.MoveRotation(Quaternion.Lerp(ArtilleryPathData.rotations[i], ArtilleryPathData.rotations[i + 1], t));

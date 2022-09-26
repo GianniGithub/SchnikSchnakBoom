@@ -34,5 +34,9 @@ namespace GellosGames
             var t = Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.y);
             Range = Mathf.Lerp(AimRange.x, AimRange.y, t);
         }
+        protected Vector3 GetAimPosition()
+        {
+            return transform.up * Range + transform.position;
+        }
     }
 }

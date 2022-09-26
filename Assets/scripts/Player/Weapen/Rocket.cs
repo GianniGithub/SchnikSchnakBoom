@@ -34,7 +34,7 @@ namespace GellosGames
                 if (reachedPoints >= wayPoints.Length)
                 {
                     //if close enough
-                    if (Vector2.Distance(transform.position.ToVectorXZ(), nextPoint.ToVectorXZ()) < 0.45f)
+                    if (Vector2.Distance(transform.position.ToVector2XZ(), nextPoint.ToVector2XZ()) < 0.45f)
                         TriggerExplosion();
                 }
                 else

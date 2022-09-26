@@ -6,7 +6,7 @@ namespace Gianni.Helper
 {
     public static class Vector3Extansion
     {
-        public static Vector2 ToVectorXZ(this Vector3 from)
+        public static Vector2 ToVector2XZ(this Vector3 from)
         {
             return new Vector2(from.x, from.z);
         }
