@@ -11,7 +11,6 @@ namespace GellosGames
         public AnimationCurve ExpolisonCurv;
         public Transform PrefapExplosion;
 
-
         LineRenderer lr;
         Vector3[] points;
         bool FireOn = false;
@@ -33,11 +32,10 @@ namespace GellosGames
             OwnerId = EventHandler.id;
         }
 
-
-
         private void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
             PlayersControlls controlls = (PlayersControlls)sender;
+
             if (e.Current == Weapen.Gun)
             {
                 controlls.ControllEvents.Player1.MainShoot.performed += MainShoot_performed;

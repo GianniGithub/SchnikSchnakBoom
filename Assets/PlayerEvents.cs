@@ -127,6 +127,10 @@ namespace GellosGames
         {
             AimState = isAiming;
         }
+        public PlayerEventArgs(PlayerActions action, AimMode isAiming, EventArgs e) : this(action, isAiming)
+        {
+            EventInfos = e;
+        }
         public PlayerEventArgs(PlayerActions action, AimMode isAiming, Weapen current) : this(action)
         {
             AimState = isAiming;

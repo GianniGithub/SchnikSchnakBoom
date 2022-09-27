@@ -8,7 +8,7 @@ using Gianni.Helper;
 
 namespace GellosGames
 {
-    public class Artillery : Weapon
+    public class Artillery : LongRangeWeapon
     {
         public ArtilleryProjectile bulletPrefab;
         [SerializeField]
@@ -31,51 +31,56 @@ namespace GellosGames
         {
             enabled = false;
             EventHandler.StartListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
+            EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
 
-           
             if (aimCross == null)
                 aimCross = Instantiate(aimCrossPrefap);
         }
-        private void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
+        protected override void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
-            PlayersControlls controlls = (PlayersControlls)sender;
+            PlayerControllEvents = ((PlayersControlls)sender).ControllEvents.Player1;
+
             if (e.Current == Weapen.Artillery)
             {
                 gameObject.SetActive(true);
-                EventHandler.StartListening(PlayerActions.OnAimStateChange, onAiming);
-                SetEnableState(e.IsAiming, controlls, e);
+                EventHandler.StartListening(PlayerActions.OnAimStateChange, OnAimStateChange);
+                OnAimStateChange(null, e);
             }
             else
             {
                 if(enabled)
-                    SetEnableState(false, controlls, e);
+                    OnAimStateChange(null, e);
                 gameObject.SetActive(false);
-                EventHandler.StopListening(PlayerActions.OnAimStateChange, onAiming);
+                EventHandler.StopListening(PlayerActions.OnAimStateChange, OnAimStateChange);
             }
             
         }
-        private void onAiming(MonoBehaviour sender, PlayerEventArgs e)
+        private void OnAimStateChange(MonoBehaviour sender, PlayerEventArgs e)
         {
-            PlayersControlls controlls = (PlayersControlls)sender;
-            SetEnableState(e.IsAiming, controlls, e);
-        }
-        void SetEnableState(bool onActive, PlayersControlls controlls, PlayerEventArgs e)
-        {
-            AimChangeBase(onActive, controlls, e.AimState);
-            if (onActive)
-            {
-                lr.enabled = true;
-                controlls.ControllEvents.Player1.looking.performed += OnLooking;
-                controlls.ControllEvents.Player1.MainShoot.performed += OnShootBullet;
-            }
-            else
-            {
-                lr.enabled = false;
-                controlls.ControllEvents.Player1.looking.performed -= OnLooking;
-                controlls.ControllEvents.Player1.MainShoot.performed -= OnShootBullet;
-            }
-        }
+            AimChangeBase(e.IsAiming, e.AimState);
 
+            switch (e.AimState)
+            {
+                case AimMode.off:
+                    lr.enabled = false;
+                    PlayerControllEvents.looking.performed -= OnLooking;
+                    PlayerControllEvents.MainShoot.performed -= OnShootBullet;
+                    PlayerControllEvents.WeapenMode.performed -= OnWeapenModeAccurateStart;
+                    PlayerControllEvents.WeapenMode.canceled -= OnWeapenModeAccurateCanceld;
+                    break;
+
+                case AimMode.start:
+                    lr.enabled = true;
+                    PlayerControllEvents.looking.performed += OnLooking;
+                    PlayerControllEvents.MainShoot.performed += OnShootBullet;
+                    PlayerControllEvents.WeapenMode.performed += OnWeapenModeAccurateStart;
+                    PlayerControllEvents.WeapenMode.canceled += OnWeapenModeAccurateCanceld;
+                    break;
+
+                case AimMode.accurate:
+                    return;
+            }
+        }
         public void OnShootBullet(InputAction.CallbackContext context)
         {
             if (IsFireTimeReady)
@@ -125,7 +130,7 @@ namespace GellosGames
         private void FixedUpdate()
         {
             var aim = GetAimPosition(transform.parent);
-            Debug.DrawRay(aim + new Vector3(0f, 7f, 0f), Vector3.down, Color.red);
+            //Debug.DrawRay(aim + new Vector3(0f, 7f, 0f), Vector3.down, Color.red);
             if (Physics.Raycast(aim + new Vector3(0f, 7f, 0f), Vector3.down, out RaycastHit hitInfo, 30f))
             {
                 aimCross.position = hitInfo.point;

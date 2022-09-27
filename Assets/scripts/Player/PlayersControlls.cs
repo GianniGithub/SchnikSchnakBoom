@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static PlayerController;
+using Gianni.Helper;
 
 namespace GellosGames
 {
@@ -19,15 +20,15 @@ namespace GellosGames
     {
         [SerializeField]
         float Speed;
+        [SerializeField]
+        Transform WeaponTower;
         public PlayerController ControllEvents { get; private set; }
         Vector3 nextMove;
         Rigidbody rb;
         InputAction moveAction;
         AimMode aimState = AimMode.off;
-        [NonSerialized]
-        public bool OverrideRotation;
-        [NonSerialized]
-        public bool OverrideMoving;
+        Transform lookTarget;
+
 
         void Awake()
         {
@@ -46,40 +47,63 @@ namespace GellosGames
             ControllEvents.Player1.Rocket.performed += OnRocket;
             ControllEvents.Player1.Enable();
 
-           // EventHandler.StartListening(PlayerActions.IsAiming, (s,e)=> Debug.Log("Aim: " + e.IsAiming));
+            EventHandler.StartListening(PlayerActions.OnAimStateChange, OnAimStateChange);
         }
+
+        private void OnAimStateChange(MonoBehaviour sender, PlayerEventArgs e)
+        {
+            aimState = e.AimState;
+
+            if(e.AimState == AimMode.accurate)
+            {
+                lookTarget = ((LongRangeWeaponArgs)e.EventInfos).AimCross;
+            }
+        }
+
         void FixedUpdate()
         {
             var moveInput = moveAction.ReadValue<Vector2>();
             nextMove = new Vector3(moveInput.x, 0, moveInput.y);
             rb.AddForce(nextMove * Speed, ForceMode.Force);
             nextMove = Vector3.zero;
+
+        }
+        private void Update()
+        {
+
         }
 
         public void OnLooking(InputAction.CallbackContext context)
         {
-            var target = context.ReadValue<Vector2>();
-            AimMode newMode;
-            if (target != Vector2.zero)
+            transform.rotation = Quaternion.LookRotation(rb.velocity);
+            // if accurate mode, look and AimMode events are controlled by someone else (weapens)
+            if (aimState != AimMode.accurate)
             {
-                newMode = AimMode.start;
+                AimMode newMode;
+                var target = context.ReadValue<Vector2>();
+                if (target != Vector2.zero)
+                {
+                    newMode = AimMode.start;
+                }
+                else
+                {
+                    newMode = AimMode.off;
+                }
+
+                if (newMode != aimState)
+                {
+                    var e = new PlayerEventArgs(PlayerActions.OnAimStateChange, newMode);
+                    EventHandler.TriggerEvent(this, e);
+                    aimState = newMode;
+                }
+                float heading = Mathf.Atan2(target.x, target.y) * Mathf.Rad2Deg;
+                WeaponTower.rotation = Quaternion.Euler(0f, heading, 0f);
             }
             else
             {
-                newMode = AimMode.off;
-            }
-
-            if (newMode != aimState)
-            {
-                var e = new PlayerEventArgs(PlayerActions.OnAimStateChange, newMode);
-                EventHandler.TriggerEvent(this, e);
-                aimState = newMode;
-            }
-
-            if (!OverrideRotation)
-            {
-                float heading = Mathf.Atan2(target.x, target.y);
-                transform.rotation = Quaternion.Euler(0f, heading * Mathf.Rad2Deg, 0f); 
+                var target = lookTarget.position - transform.position;
+                target.y = 0; // keep only the horizontal direction
+                WeaponTower.rotation = Quaternion.LookRotation(target);
             }
         }
 
@@ -89,20 +113,30 @@ namespace GellosGames
 
         public void OnMiniGun(InputAction.CallbackContext context)
         {
-            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, aimState, Weapen.Gun);
+            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, AimMode.off, Weapen.Gun);
             EventHandler.TriggerEvent(this, e);
         }
 
         public void OnArtillery(InputAction.CallbackContext context)
         {
-            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, aimState, Weapen.Artillery);
+            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, AimMode.off, Weapen.Artillery);
             EventHandler.TriggerEvent(this, e);
         }
 
         public void OnRocket(InputAction.CallbackContext context)
         {
-            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, aimState, Weapen.Rocket);
+            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, AimMode.off, Weapen.Rocket);
             EventHandler.TriggerEvent(this, e);
+        }
+
+        public void OnSecondShoot(InputAction.CallbackContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnWeapenMode(InputAction.CallbackContext context)
+        {
+            throw new NotImplementedException();
         }
 
     } 

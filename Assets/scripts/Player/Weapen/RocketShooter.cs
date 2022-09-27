@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 namespace GellosGames
 {
-    public class RocketShooter : Weapon
+    public class RocketShooter : LongRangeWeapon
     {
         public Transform shootPrefap;
 
@@ -23,20 +23,21 @@ namespace GellosGames
             aimCross.gameObject.SetActive(false);
         }
 
-        private void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
+        protected override void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
-            PlayersControlls controlls = (PlayersControlls)sender;
-            if(e.Current == Weapen.Rocket)
+            PlayerControllEvents = ((PlayersControlls)sender).ControllEvents.Player1;
+
+            if (e.Current == Weapen.Rocket)
             {
-                EventHandler.StartListening(PlayerActions.OnAimStateChange, Aiming);
-                controlls.ControllEvents.Player1.MainShoot.performed += OnShootBullet;
+                EventHandler.StartListening(PlayerActions.OnAimStateChange, OnAimStateChange);
+                PlayerControllEvents.MainShoot.performed += OnShootBullet;
                 gameObject.SetActive(true);
-                Aiming(sender, e);
+                OnAimStateChange(sender, e);
             }
             else if (gameObject.activeInHierarchy)
             {
-                EventHandler.StopListening(PlayerActions.OnAimStateChange, Aiming);
-                controlls.ControllEvents.Player1.MainShoot.performed -= OnShootBullet;
+                EventHandler.StopListening(PlayerActions.OnAimStateChange, OnAimStateChange);
+                PlayerControllEvents.MainShoot.performed -= OnShootBullet;
                 aimCross.gameObject.SetActive(false);
                 gameObject.SetActive(false);
             }
@@ -45,7 +46,7 @@ namespace GellosGames
         void Update()
         {
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(GetAimPosition(transform), out hit, 4f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(GetAimPosition(transform.parent), out hit, 4f, NavMesh.AllAreas))
             {
                 aimCross.transform.position = hit.position;
             }
@@ -59,27 +60,29 @@ namespace GellosGames
             rocket.aimCrossGoal = aimCross;
 
         }
-        private void Aiming(MonoBehaviour sender, PlayerEventArgs e)
+        private void OnAimStateChange(MonoBehaviour sender, PlayerEventArgs e)
         {
-            PlayersControlls controlls = sender as PlayersControlls;
-            AimChangeBase(e.IsAiming, controlls, e.AimState);
+            AimChangeBase(e.IsAiming, e.AimState);
+
             switch (e.AimState)
             {
-                case AimMode.start:
-                    controlls.ControllEvents.Player1.looking.performed += OnLooking;
+                case AimMode.off:
+                    PlayerControllEvents.looking.performed -= OnLooking;
+                    PlayerControllEvents.WeapenMode.performed -= OnWeapenModeAccurateStart;
+                    PlayerControllEvents.WeapenMode.canceled -= OnWeapenModeAccurateCanceld;
                     break;
+
+                case AimMode.start:
+                    PlayerControllEvents.looking.performed += OnLooking;
+                    PlayerControllEvents.WeapenMode.performed += OnWeapenModeAccurateStart;
+                    PlayerControllEvents.WeapenMode.canceled += OnWeapenModeAccurateCanceld;
+                    break;
+
                 case AimMode.accurate:
                     return;
-                case AimMode.off:
-                    controlls.ControllEvents.Player1.looking.performed -= OnLooking;
-                    break;
             }
         }
-        private void OnKilled(MonoBehaviour arg0, PlayerEventArgs arg1)
-        {
-            EventHandler.StopListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
-            Destroy(aimCross.gameObject);
-        }
+
     }
 
 }

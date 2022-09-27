@@ -89,6 +89,24 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""secondShoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""e4360b53-dbe1-4fc8-9799-193b8798ccd2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WeapenMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""f7c6814b-93de-4e3c-94df-5829e5c932a8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -410,6 +428,72 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""action"": ""Conform"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""544ccf92-0ceb-43b7-9878-e6179ebc1e61"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""secondShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eacb6eef-b7e1-4bad-94e1-9f248242eb49"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""secondShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd0a0bbd-3744-47b6-b55c-dd64fa36f196"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""secondShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c9ef7d0-3830-44f8-89fe-b78af8391854"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeapenMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39dbeeaf-2701-444a-9e43-78a87e19c61f"",
+                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeapenMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5601a255-5701-4c44-9c09-aba2765e0092"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeapenMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -425,6 +509,8 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         m_Player1_Artillery = m_Player1.FindAction("Artillery", throwIfNotFound: true);
         m_Player1_Rocket = m_Player1.FindAction("Rocket", throwIfNotFound: true);
         m_Player1_Conform = m_Player1.FindAction("Conform", throwIfNotFound: true);
+        m_Player1_secondShoot = m_Player1.FindAction("secondShoot", throwIfNotFound: true);
+        m_Player1_WeapenMode = m_Player1.FindAction("WeapenMode", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -491,6 +577,8 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player1_Artillery;
     private readonly InputAction m_Player1_Rocket;
     private readonly InputAction m_Player1_Conform;
+    private readonly InputAction m_Player1_secondShoot;
+    private readonly InputAction m_Player1_WeapenMode;
     public struct Player1Actions
     {
         private @PlayerController m_Wrapper;
@@ -502,6 +590,8 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         public InputAction @Artillery => m_Wrapper.m_Player1_Artillery;
         public InputAction @Rocket => m_Wrapper.m_Player1_Rocket;
         public InputAction @Conform => m_Wrapper.m_Player1_Conform;
+        public InputAction @secondShoot => m_Wrapper.m_Player1_secondShoot;
+        public InputAction @WeapenMode => m_Wrapper.m_Player1_WeapenMode;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -532,6 +622,12 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @Conform.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnConform;
                 @Conform.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnConform;
                 @Conform.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnConform;
+                @secondShoot.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnSecondShoot;
+                @secondShoot.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnSecondShoot;
+                @secondShoot.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnSecondShoot;
+                @WeapenMode.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnWeapenMode;
+                @WeapenMode.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnWeapenMode;
+                @WeapenMode.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnWeapenMode;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -557,6 +653,12 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @Conform.started += instance.OnConform;
                 @Conform.performed += instance.OnConform;
                 @Conform.canceled += instance.OnConform;
+                @secondShoot.started += instance.OnSecondShoot;
+                @secondShoot.performed += instance.OnSecondShoot;
+                @secondShoot.canceled += instance.OnSecondShoot;
+                @WeapenMode.started += instance.OnWeapenMode;
+                @WeapenMode.performed += instance.OnWeapenMode;
+                @WeapenMode.canceled += instance.OnWeapenMode;
             }
         }
     }
@@ -570,5 +672,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         void OnArtillery(InputAction.CallbackContext context);
         void OnRocket(InputAction.CallbackContext context);
         void OnConform(InputAction.CallbackContext context);
+        void OnSecondShoot(InputAction.CallbackContext context);
+        void OnWeapenMode(InputAction.CallbackContext context);
     }
 }
