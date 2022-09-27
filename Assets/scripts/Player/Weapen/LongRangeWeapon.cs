@@ -18,6 +18,7 @@ namespace GellosGames
         protected Transform aimCross;
         protected PlayerController.Player1Actions PlayerControllEvents;
         private Vector2 moveInput;
+        float relativeAimSpeed;
         protected void AimChangeBase(bool to, AimMode mode)
         {
             AimMode = mode;
@@ -51,7 +52,18 @@ namespace GellosGames
             {
                 case AimMode.accurate:
                     var target = aimCross.transform.position + moveInput.ToVectorXZ() * AimSpeed;
-                    return aimCross.transform.position + moveInput.ToVectorXZ() * AimSpeed;
+                    var distance = Vector2.Distance(target.ToVector2XZ(), transform.position.ToVector2XZ());
+                    if(distance > AimRange.y)
+                    {
+                        relativeAimSpeed = Mathf.Lerp(AimSpeed, 0, distance - AimRange.y);
+                        return aimCross.transform.position + moveInput.ToVectorXZ() * relativeAimSpeed;
+                    }
+                    if (distance < AimRange.x)
+                    {
+                        relativeAimSpeed = Mathf.Lerp(AimSpeed, 0, AimRange.x - distance);
+                        return aimCross.transform.position + moveInput.ToVectorXZ() * relativeAimSpeed;
+                    }
+                    return target;
                 default:
                     return trans.forward * Range + trans.position;
             }

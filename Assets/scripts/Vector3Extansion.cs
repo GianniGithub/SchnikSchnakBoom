@@ -14,5 +14,9 @@ namespace Gianni.Helper
         {
             return new Vector3(from.x, 0f, from.y);
         }
+        public static Vector3 ToVectorXZ(this Vector3 from)
+        {
+            return new Vector3(from.x, 0f, from.y);
+        }
     } 
 }
