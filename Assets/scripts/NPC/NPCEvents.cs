@@ -71,13 +71,13 @@ namespace GellosGames
     {
         public readonly NPCActions Action { get; }
         public EventArgs EventInfos { get; }
-        public Weapen Current { get; set; }
+        public WeaponType Current { get; set; }
         public bool IsAiming { get; }
 
         public NPCEventArgs(NPCActions action)
         {
             this.Action = action;
-            Current = Weapen.unknown;
+            Current = WeaponType.unknown;
             EventInfos = null;
             IsAiming = false;
         }

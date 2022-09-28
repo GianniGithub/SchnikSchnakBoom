@@ -32,7 +32,8 @@ namespace GellosGames
 
         OnShoot = 601,
 
-        OnAimStateChange = 701,
+        OnLookStateChange = 701,
+        OnAimModeChange = 702,
 
         PlayerControllerEventsRegisterd = 7801,
     }
@@ -106,35 +107,41 @@ namespace GellosGames
         public readonly PlayerActions Action { get; }
         public EventArgs EventInfos { get; }
         public PlayerID From { get; set; }
-        public Weapen Current { get; set; }
-        public AimMode AimState { get; }
-        public bool IsAiming => AimState != AimMode.off;
+        public WeaponType Current { get; set; }
+        public LookState LookState { get; }
+        public Enum EventState { get; }
 
         public PlayerEventArgs(PlayerActions action)
         {
             this.Action = action;
             From = PlayerID.me;
-            Current = Weapen.unknown;
+            Current = WeaponType.unknown;
             EventInfos = null;
-            AimState = AimMode.off;
+            LookState = LookState.off;
+            EventState = LookState;
         }
 
         public PlayerEventArgs(PlayerActions action, EventArgs e) : this(action)
         {
             EventInfos = e;
         }
-        public PlayerEventArgs(PlayerActions action, AimMode isAiming) : this(action)
+        public PlayerEventArgs(PlayerActions action, LookState isAiming) : this(action)
         {
-            AimState = isAiming;
+            LookState = isAiming;
         }
-        public PlayerEventArgs(PlayerActions action, AimMode isAiming, EventArgs e) : this(action, isAiming)
+        public PlayerEventArgs(PlayerActions action, LookState isAiming, EventArgs e) : this(action, isAiming)
         {
             EventInfos = e;
         }
-        public PlayerEventArgs(PlayerActions action, AimMode isAiming, Weapen current) : this(action)
+        public PlayerEventArgs(PlayerActions action, LookState isAiming, WeaponType current) : this(action)
         {
-            AimState = isAiming;
+            LookState = isAiming;
             Current = current;
+        }
+
+        public PlayerEventArgs(PlayerActions action, WeaponType weaponType) : this(action)
+        {
+            Current = weaponType;
         }
     }
 }

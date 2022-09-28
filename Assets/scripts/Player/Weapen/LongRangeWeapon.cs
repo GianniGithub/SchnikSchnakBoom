@@ -19,25 +19,52 @@ namespace GellosGames
         protected PlayerController.Player1Actions PlayerControllEvents;
         private Vector2 moveInput;
         float relativeAimSpeed;
-        protected void AimChangeBase(bool to, AimMode mode)
+        public Transform AimCross => aimCross;
+        public AimMode AimModeState => AimMode;
+
+        protected void OnLookStateChange(MonoBehaviour sender, PlayerEventArgs e)
         {
-            AimMode = mode;
-            if (mode != AimMode.accurate)
+            switch (e.LookState)
             {
-                enabled = to;
-                aimCross.gameObject.SetActive(to);
+                case LookState.off:
+                    AimMode = AimMode.off;
+                    enabled = false;
+                    aimCross.gameObject.SetActive(false);
+                    OnAimmodeChanged(AimMode.off);
+
+                    var ea = new PlayerEventArgs(PlayerActions.OnAimModeChange, WeaponType);
+                    EventHandler.TriggerEvent(this, ea);
+                    break;
+
+                case LookState.ControllerStickLooking when AimMode != AimMode.ControllerStickDirection:
+                    AimMode = AimMode.ControllerStickDirection;
+                    enabled = true;
+                    aimCross.gameObject.SetActive(true);
+                    OnAimmodeChanged(AimMode.ControllerStickDirection);
+
+                    var eb = new PlayerEventArgs(PlayerActions.OnAimModeChange, WeaponType);
+                    EventHandler.TriggerEvent(this, eb);
+                    break;
+
+                case LookState.AimCrossControlled:
+                    break;
+                case LookState.notVehicleControlled:
+                    break;
+                case LookState.autoPilot:
+                    break;
             }
-            //Debug.Log("state: " + AimMode.ToString());
+
         }
         protected void OnWeapenModeAccurateStart(InputAction.CallbackContext obj)
         {
-            var a = new LongRangeWeaponArgs() { AimCross = aimCross };
-            var e = new PlayerEventArgs(PlayerActions.OnAimStateChange, AimMode.accurate, a);
+            AimMode = AimMode.ControllerStickControlled;
+            var e = new PlayerEventArgs(PlayerActions.OnAimModeChange, WeaponType);
             EventHandler.TriggerEvent(this, e);
         }
         protected void OnWeapenModeAccurateCanceld(InputAction.CallbackContext obj)
         {
-            var e = new PlayerEventArgs(PlayerActions.OnAimStateChange, AimMode.off);
+            AimMode = AimMode.ControllerStickDirection;
+            var e = new PlayerEventArgs(PlayerActions.OnAimModeChange, WeaponType);
             EventHandler.TriggerEvent(this, e);
         }
         protected void OnLooking(InputAction.CallbackContext context)
@@ -50,7 +77,7 @@ namespace GellosGames
         {
             switch (AimMode)
             {
-                case AimMode.accurate:
+                case AimMode.ControllerStickControlled:
                     var target = aimCross.transform.position + moveInput.ToVectorXZ() * AimSpeed;
                     var distance = Vector2.Distance(target.ToVector2XZ(), transform.position.ToVector2XZ());
                     if(distance > AimRange.y)
@@ -73,10 +100,17 @@ namespace GellosGames
         {
             Destroy(aimCross.gameObject);
         }
-        protected abstract void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e);
+        protected abstract void OnWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e);
+        protected abstract void OnAimmodeChanged(AimMode aimMode);
     }
     public class LongRangeWeaponArgs : EventArgs
     {
-        public Transform AimCross { get; set; }
+        public AimMode AimModeState { get; }
+        public Transform AimCross { get; }
+        public LongRangeWeaponArgs(Transform aimCross, AimMode accurate)
+        {
+            AimCross = aimCross;
+            AimModeState = accurate;
+        }
     }
 }

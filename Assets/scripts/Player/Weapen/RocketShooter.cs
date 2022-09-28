@@ -13,7 +13,8 @@ namespace GellosGames
 
         public override void OnSpawn(UnityEngine.InputSystem.InputDevice device)
         {
-            EventHandler.StartListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
+            WeaponType = WeaponType.Rocket;
+            EventHandler.StartListening(PlayerActions.WeapenSwitch, OnWeapenSwitch);
             EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
 
             if (aimCross == null)
@@ -23,20 +24,20 @@ namespace GellosGames
             aimCross.gameObject.SetActive(false);
         }
 
-        protected override void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
+        protected override void OnWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
             PlayerControllEvents = ((PlayersControlls)sender).ControllEvents.Player1;
 
-            if (e.Current == Weapen.Rocket)
+            if (e.Current == WeaponType.Rocket)
             {
-                EventHandler.StartListening(PlayerActions.OnAimStateChange, OnAimStateChange);
+                EventHandler.StartListening(PlayerActions.OnLookStateChange, OnLookStateChange);
                 PlayerControllEvents.MainShoot.performed += OnShootBullet;
                 gameObject.SetActive(true);
-                OnAimStateChange(sender, e);
+                OnLookStateChange(sender, e);
             }
             else if (gameObject.activeInHierarchy)
             {
-                EventHandler.StopListening(PlayerActions.OnAimStateChange, OnAimStateChange);
+                EventHandler.StopListening(PlayerActions.OnLookStateChange, OnLookStateChange);
                 PlayerControllEvents.MainShoot.performed -= OnShootBullet;
                 aimCross.gameObject.SetActive(false);
                 gameObject.SetActive(false);
@@ -60,11 +61,9 @@ namespace GellosGames
             rocket.aimCrossGoal = aimCross;
 
         }
-        private void OnAimStateChange(MonoBehaviour sender, PlayerEventArgs e)
+        protected override void OnAimmodeChanged(AimMode aimMode)
         {
-            AimChangeBase(e.IsAiming, e.AimState);
-
-            switch (e.AimState)
+            switch (aimMode)
             {
                 case AimMode.off:
                     PlayerControllEvents.looking.performed -= OnLooking;
@@ -72,14 +71,11 @@ namespace GellosGames
                     PlayerControllEvents.WeapenMode.canceled -= OnWeapenModeAccurateCanceld;
                     break;
 
-                case AimMode.start:
+                case AimMode.ControllerStickDirection:
                     PlayerControllEvents.looking.performed += OnLooking;
                     PlayerControllEvents.WeapenMode.performed += OnWeapenModeAccurateStart;
                     PlayerControllEvents.WeapenMode.canceled += OnWeapenModeAccurateCanceld;
                     break;
-
-                case AimMode.accurate:
-                    return;
             }
         }
 

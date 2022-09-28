@@ -8,13 +8,13 @@ using Gianni.Helper;
 
 namespace GellosGames
 {
-    public enum Weapen
-    {
-        unknown = 0,
-        none = 1,
-        Gun,
-        Artillery,
-        Rocket,
+    public enum LookState
+    { 
+        off, 
+        ControllerStickLooking,
+        AimCrossControlled,
+        notVehicleControlled,
+        autoPilot
     }
     public class PlayersControlls : PlayerEvent, IPlayer1Actions
     {
@@ -26,7 +26,7 @@ namespace GellosGames
         Vector3 nextMove;
         Rigidbody rb;
         InputAction moveAction;
-        AimMode aimState = AimMode.off;
+        LookState LookState = LookState.off;
         Transform lookTarget;
 
 
@@ -47,16 +47,27 @@ namespace GellosGames
             ControllEvents.Player1.Rocket.performed += OnRocket;
             ControllEvents.Player1.Enable();
 
-            EventHandler.StartListening(PlayerActions.OnAimStateChange, OnAimStateChange);
+            EventHandler.StartListening(PlayerActions.OnAimModeChange, OnAimModeChange);
         }
 
-        private void OnAimStateChange(MonoBehaviour sender, PlayerEventArgs e)
+        private void OnAimModeChange(MonoBehaviour sender, PlayerEventArgs e)
         {
-            aimState = e.AimState;
-
-            if(e.AimState == AimMode.accurate)
+            var args = (LongRangeWeapon)sender;
+            switch (args.AimModeState)
             {
-                lookTarget = ((LongRangeWeaponArgs)e.EventInfos).AimCross;
+                case AimMode.ControllerStickDirection:
+                    LookState = LookState.ControllerStickLooking;
+                    var cev = new PlayerEventArgs(PlayerActions.OnLookStateChange, LookState.ControllerStickLooking);
+                    EventHandler.TriggerEvent(this, cev);
+                    break;
+                case AimMode.ControllerStickControlled:
+                    lookTarget = args.AimCross;
+                    LookState = LookState.AimCrossControlled;
+                    var aev = new PlayerEventArgs(PlayerActions.OnLookStateChange, LookState.AimCrossControlled);
+                    EventHandler.TriggerEvent(this, aev);
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -68,33 +79,29 @@ namespace GellosGames
             nextMove = Vector3.zero;
 
         }
-        private void Update()
-        {
-
-        }
 
         public void OnLooking(InputAction.CallbackContext context)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
             // if accurate mode, look and AimMode events are controlled by someone else (weapens)
-            if (aimState != AimMode.accurate)
+            if (LookState != LookState.AimCrossControlled)
             {
-                AimMode newMode;
+                LookState current;
                 var target = context.ReadValue<Vector2>();
                 if (target != Vector2.zero)
                 {
-                    newMode = AimMode.start;
+                    current = LookState.ControllerStickLooking;
                 }
                 else
                 {
-                    newMode = AimMode.off;
+                    current = LookState.off;
                 }
 
-                if (newMode != aimState)
+                if (current != LookState)
                 {
-                    var e = new PlayerEventArgs(PlayerActions.OnAimStateChange, newMode);
+                    var e = new PlayerEventArgs(PlayerActions.OnLookStateChange, current);
                     EventHandler.TriggerEvent(this, e);
-                    aimState = newMode;
+                    LookState = current;
                 }
                 float heading = Mathf.Atan2(target.x, target.y) * Mathf.Rad2Deg;
                 WeaponTower.rotation = Quaternion.Euler(0f, heading, 0f);
@@ -113,19 +120,19 @@ namespace GellosGames
 
         public void OnMiniGun(InputAction.CallbackContext context)
         {
-            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, AimMode.off, Weapen.Gun);
+            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, LookState.off, WeaponType.Gun);
             EventHandler.TriggerEvent(this, e);
         }
 
         public void OnArtillery(InputAction.CallbackContext context)
         {
-            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, AimMode.off, Weapen.Artillery);
+            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, LookState.off, WeaponType.Artillery);
             EventHandler.TriggerEvent(this, e);
         }
 
         public void OnRocket(InputAction.CallbackContext context)
         {
-            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, AimMode.off, Weapen.Rocket);
+            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, LookState.off, WeaponType.Rocket);
             EventHandler.TriggerEvent(this, e);
         }
 

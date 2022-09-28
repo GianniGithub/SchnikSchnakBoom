@@ -10,6 +10,7 @@ namespace GellosGames
     {
         public Camera[] ScreenCamps;
         public CinemachineVirtualCamera[] PlayerCamps;
+        public CinemachineVirtualCamera[] PlayerAimCamps;
         void Start()
         {
             GameEvents.Instance.StartListening(GameActions.OnPlayerAdded, OnPlayerAdded);
@@ -26,10 +27,29 @@ namespace GellosGames
             PlayerCamp.enabled = true;
             PlayerCamp.gameObject.layer = LayerMask.NameToLayer(player.Id.ToString());
             PlayerCamp.Follow = player.PlayerObj.transform;
-            //PlayerCamp.LookAt = player.PlayerObj.transform;
+
+            player.Pe.StartListening(PlayerActions.OnAimModeChange, OnAimModeChange);
 
             SetUpSplittScreen(playerID);
             player.Pe.StartListening(PlayerActions.OnKilled, OnKilled);
+        }
+
+        private void OnAimModeChange(MonoBehaviour sender, PlayerEventArgs e)
+        {
+            LongRangeWeapon weapon = (LongRangeWeapon)sender;
+            int playerID = (int)e.From;
+
+            switch (weapon.AimModeState)
+            {
+                case AimMode.off:
+                    PlayerAimCamps[playerID].gameObject.SetActive(false);
+                    break;
+                case AimMode.ControllerStickDirection:
+                    PlayerAimCamps[playerID].Follow = weapon.AimCross;
+                    PlayerAimCamps[playerID].gameObject.SetActive(true);
+                    break;
+            }
+            
         }
 
         // Update is called once per frame

@@ -27,6 +27,7 @@ namespace GellosGames
         }
         public override void OnSpawn(UnityEngine.InputSystem.InputDevice device)
         {
+            WeaponType = WeaponType.Gun;
             EventHandler.StartListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
             EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
             OwnerId = EventHandler.id;
@@ -36,7 +37,7 @@ namespace GellosGames
         {
             PlayersControlls controlls = (PlayersControlls)sender;
 
-            if (e.Current == Weapen.Gun)
+            if (e.Current == WeaponType.Gun)
             {
                 controlls.ControllEvents.Player1.MainShoot.performed += MainShoot_performed;
                 controlls.ControllEvents.Player1.MainShoot.canceled += MainShoot_canceled;
@@ -93,7 +94,7 @@ namespace GellosGames
 
                     // for explosion efect reasions, is only working if outside of the collider
                     var explosionPosition = hit.point - ((points[1] - points[0]).normalized * 0.1f);
-                    var exp = new ExplosionArgs(OwnerId, explosionPosition, 0.8f, Weapen.Gun, PrefapExplosion, ExpolisonCurv);
+                    var exp = new ExplosionArgs(OwnerId, explosionPosition, 0.8f, WeaponType.Gun, PrefapExplosion, ExpolisonCurv);
                     Explosion.CreateExplosion(exp);
                 }
                 else

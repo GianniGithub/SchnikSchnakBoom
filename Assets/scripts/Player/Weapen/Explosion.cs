@@ -46,7 +46,7 @@ namespace GellosGames
     public class ExplosionArgs : System.EventArgs
     {
 
-        public ExplosionArgs(PlayerID originator, Vector3 hitPoint, float explosionSize, Weapen weapenType, Transform explosionPrefap, AnimationCurve explosion)
+        public ExplosionArgs(PlayerID originator, Vector3 hitPoint, float explosionSize, WeaponType weapenType, Transform explosionPrefap, AnimationCurve explosion)
         {
             this.originator = originator;
             HitPoint = hitPoint;
@@ -61,7 +61,7 @@ namespace GellosGames
         public PlayerID originator { get; }
         public Vector3 HitPoint { get; }
         public float ExplosionSize { get; }
-        public Weapen WeapenType { get; }
+        public WeaponType WeapenType { get; }
         public Transform ExplosionPrefap { get; }
         public AnimationCurve ExplosionAnimation { get; }
     }

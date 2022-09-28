@@ -29,37 +29,36 @@ namespace GellosGames
         }
         public override void OnSpawn(InputDevice device) 
         {
+            WeaponType = WeaponType.Artillery;
             enabled = false;
-            EventHandler.StartListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
+            EventHandler.StartListening(PlayerActions.WeapenSwitch, OnWeapenSwitch);
             EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
 
             if (aimCross == null)
                 aimCross = Instantiate(aimCrossPrefap);
         }
-        protected override void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
+        protected override void OnWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
             PlayerControllEvents = ((PlayersControlls)sender).ControllEvents.Player1;
 
-            if (e.Current == Weapen.Artillery)
+            if (e.Current == WeaponType.Artillery)
             {
                 gameObject.SetActive(true);
-                EventHandler.StartListening(PlayerActions.OnAimStateChange, OnAimStateChange);
-                OnAimStateChange(null, e);
+                EventHandler.StartListening(PlayerActions.OnLookStateChange, OnLookStateChange);
+                OnLookStateChange(null, e);
             }
             else
             {
                 if(enabled)
-                    OnAimStateChange(null, e);
+                    OnLookStateChange(null, e);
                 gameObject.SetActive(false);
-                EventHandler.StopListening(PlayerActions.OnAimStateChange, OnAimStateChange);
+                EventHandler.StopListening(PlayerActions.OnLookStateChange, OnLookStateChange);
             }
             
         }
-        private void OnAimStateChange(MonoBehaviour sender, PlayerEventArgs e)
+        protected override void OnAimmodeChanged(AimMode aimMode)
         {
-            AimChangeBase(e.IsAiming, e.AimState);
-
-            switch (e.AimState)
+            switch (aimMode)
             {
                 case AimMode.off:
                     lr.enabled = false;
@@ -69,16 +68,13 @@ namespace GellosGames
                     PlayerControllEvents.WeapenMode.canceled -= OnWeapenModeAccurateCanceld;
                     break;
 
-                case AimMode.start:
+                case AimMode.ControllerStickDirection:
                     lr.enabled = true;
                     PlayerControllEvents.looking.performed += OnLooking;
                     PlayerControllEvents.MainShoot.performed += OnShootBullet;
                     PlayerControllEvents.WeapenMode.performed += OnWeapenModeAccurateStart;
                     PlayerControllEvents.WeapenMode.canceled += OnWeapenModeAccurateCanceld;
                     break;
-
-                case AimMode.accurate:
-                    return;
             }
         }
         public void OnShootBullet(InputAction.CallbackContext context)
@@ -142,7 +138,7 @@ namespace GellosGames
         }
         private void OnDestroy()
         {
-            EventHandler.StopListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
+            EventHandler.StopListening(PlayerActions.WeapenSwitch, OnWeapenSwitch);
         }
     }
     public struct ArtilleryPathPointData

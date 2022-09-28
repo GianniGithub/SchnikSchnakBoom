@@ -29,7 +29,7 @@ namespace GellosGames
         {
             if (!alreadyHit)
             {
-                var exp = new ExplosionArgs(OwnerId, hitPoint, 2.7f, Weapen.Artillery, explosionPrefap, explosion);
+                var exp = new ExplosionArgs(OwnerId, hitPoint, 2.7f, WeaponType.Artillery, explosionPrefap, explosion);
                 Explosion.CreateExplosion(exp);
                 Destroy(gameObject);
                 alreadyHit = true;

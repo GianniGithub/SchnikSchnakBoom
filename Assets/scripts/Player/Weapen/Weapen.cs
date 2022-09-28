@@ -6,9 +6,23 @@ using Gianni.Helper;
 
 namespace GellosGames
 {
-    public enum AimMode { off, start, accurate}
+    public enum WeaponType
+    {
+        unknown = 0,
+        none = 1,
+        Gun,
+        Artillery,
+        Rocket,
+    }
+    public enum AimMode 
+    {
+        off, 
+        ControllerStickDirection,
+        ControllerStickControlled
+    }
     public abstract class Weapon : PlayerEvent
     {
+        protected WeaponType WeaponType;
         public float fireRate;
         float nextFire;
 
