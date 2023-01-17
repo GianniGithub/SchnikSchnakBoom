@@ -28,11 +28,13 @@ namespace GellosGames
         InputAction moveAction;
         LookState LookState = LookState.off;
         Transform lookTarget;
+        GroundWheels plyGroundWheels;
 
 
         void Awake()
         {
             rb = GetComponent<Rigidbody>();
+            plyGroundWheels = GetComponentInChildren<GroundWheels>();
         }
         public override void OnSpawn(InputDevice device)
         {
@@ -75,14 +77,20 @@ namespace GellosGames
         {
             var moveInput = moveAction.ReadValue<Vector2>();
             nextMove = new Vector3(moveInput.x, 0, moveInput.y);
-            rb.AddForce(nextMove * Speed, ForceMode.Force);
-            nextMove = Vector3.zero;
 
+            if (plyGroundWheels.IsGrounded)
+            {
+                rb.AddForce(nextMove * Speed, ForceMode.Impulse);
+                //rb.MovePosition(nextMove * Speed + transform.position);
+            }
+
+
+            nextMove = Vector3.zero; 
         }
 
         public void OnLooking(InputAction.CallbackContext context)
         {
-            transform.rotation = Quaternion.LookRotation(rb.velocity);
+            //transform.rotation = Quaternion.LookRotation(rb.velocity);
             // if accurate mode, look and AimMode events are controlled by someone else (weapens)
             if (LookState != LookState.AimCrossControlled)
             {
