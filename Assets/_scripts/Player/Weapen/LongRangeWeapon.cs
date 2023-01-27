@@ -10,11 +10,12 @@ namespace GellosGames
 {
     public abstract class LongRangeWeapon : Weapon
     {
+        [SerializeField]
+        protected AimMode AimMode;
         public Transform aimCrossPrefap;
         public float AimSpeed;
         public Vector2 AimRange;
         protected float Range;
-        protected AimMode AimMode;
         protected Transform aimCross;
         protected PlayerController.Player1Actions PlayerControllEvents;
         private Vector2 moveInput;
@@ -31,42 +32,29 @@ namespace GellosGames
                     enabled = false;
                     aimCross.gameObject.SetActive(false);
                     OnAimmodeChanged(AimMode.off);
-
-                    var ea = new PlayerEventArgs(PlayerActions.OnAimModeChange, WeaponType);
-                    EventHandler.TriggerEvent(this, ea);
                     break;
 
-                case LookState.ControllerStickLooking when AimMode != AimMode.ControllerStickDirection:
+                case LookState.ControllerStickMoved:
                     AimMode = AimMode.ControllerStickDirection;
                     enabled = true;
                     aimCross.gameObject.SetActive(true);
                     OnAimmodeChanged(AimMode.ControllerStickDirection);
-
-                    var eb = new PlayerEventArgs(PlayerActions.OnAimModeChange, WeaponType);
-                    EventHandler.TriggerEvent(this, eb);
-                    break;
-
-                case LookState.AimCrossControlled:
-                    break;
-                case LookState.notVehicleControlled:
-                    break;
-                case LookState.autoPilot:
                     break;
             }
 
+            
         }
         protected void OnWeapenModeAccurateStart(InputAction.CallbackContext obj)
         {
             AimMode = AimMode.ControllerStickControlled;
-            var e = new PlayerEventArgs(PlayerActions.OnAimModeChange, WeaponType);
-            EventHandler.TriggerEvent(this, e);
+            OnAimmodeChanged(AimMode.ControllerStickControlled);
         }
         protected void OnWeapenModeAccurateCanceld(InputAction.CallbackContext obj)
         {
             AimMode = AimMode.ControllerStickDirection;
-            var e = new PlayerEventArgs(PlayerActions.OnAimModeChange, WeaponType);
-            EventHandler.TriggerEvent(this, e);
+            OnAimmodeChanged(AimMode.ControllerStickDirection);
         }
+
         protected void OnLooking(InputAction.CallbackContext context)
         {
             moveInput = context.ReadValue<Vector2>();
@@ -80,7 +68,7 @@ namespace GellosGames
                 case AimMode.ControllerStickControlled:
                     var target = aimCross.transform.position + moveInput.ToVectorXZ() * AimSpeed;
                     var distance = Vector2.Distance(target.ToVector2XZ(), transform.position.ToVector2XZ());
-                    if(distance > AimRange.y)
+                    if (distance > AimRange.y)
                     {
                         relativeAimSpeed = Mathf.Lerp(AimSpeed, 0, distance - AimRange.y);
                         return aimCross.transform.position + moveInput.ToVectorXZ() * relativeAimSpeed;
@@ -91,8 +79,10 @@ namespace GellosGames
                         return aimCross.transform.position + moveInput.ToVectorXZ() * relativeAimSpeed;
                     }
                     return target;
-                default:
+                case AimMode.ControllerStickDirection:
                     return trans.forward * Range + trans.position;
+                default:
+                    return trans.position;
             }
 
         }
@@ -101,7 +91,11 @@ namespace GellosGames
             Destroy(aimCross.gameObject);
         }
         protected abstract void OnWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e);
-        protected abstract void OnAimmodeChanged(AimMode aimMode);
+        protected virtual void OnAimmodeChanged(AimMode aimMode)
+        {
+            var AimModeEventArg = new PlayerEventArgs(PlayerActions.OnAimModeChange, WeaponType);
+            EventHandler.TriggerEvent(this, AimModeEventArg);
+        }
     }
     public class LongRangeWeaponArgs : EventArgs
     {

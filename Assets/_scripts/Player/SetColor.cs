@@ -8,7 +8,7 @@ namespace GellosGames
     public class SetColor : PlayerEvent
     {
         public Material[] PlayerColors;
-        public override void OnSpawn(UnityEngine.InputSystem.InputDevice device) 
+        public override void OnSpawn() 
         {
             var mesh = GetComponent<MeshRenderer>();
             mesh.material = PlayerColors[EventHandler.PlayerSlot];

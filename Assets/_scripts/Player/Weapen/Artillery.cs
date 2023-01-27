@@ -27,8 +27,10 @@ namespace GellosGames
             points = new Vector3[resulution];
             rotations = new Quaternion[resulution];
         }
-        public override void OnSpawn(InputDevice device) 
+        public override void OnSpawn() 
         {
+            PlayerControllEvents = EventHandler.ControlEvents.Player1;
+
             WeaponType = WeaponType.Artillery;
             enabled = false;
             EventHandler.StartListening(PlayerActions.WeapenSwitch, OnWeapenSwitch);
@@ -39,8 +41,6 @@ namespace GellosGames
         }
         protected override void OnWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
-            PlayerControllEvents = ((PlayersControlls)sender).ControllEvents.Player1;
-
             if (e.Current == WeaponType.Artillery)
             {
                 gameObject.SetActive(true);
@@ -58,22 +58,31 @@ namespace GellosGames
         }
         protected override void OnAimmodeChanged(AimMode aimMode)
         {
+            base.OnAimmodeChanged(aimMode);
             switch (aimMode)
             {
                 case AimMode.off:
                     lr.enabled = false;
                     PlayerControllEvents.looking.performed -= OnLooking;
                     PlayerControllEvents.MainShoot.performed -= OnShootBullet;
+
                     PlayerControllEvents.WeapenMode.performed -= OnWeapenModeAccurateStart;
                     PlayerControllEvents.WeapenMode.canceled -= OnWeapenModeAccurateCanceld;
                     break;
 
                 case AimMode.ControllerStickDirection:
-                    lr.enabled = true;
+                    lr.enabled = false;
                     PlayerControllEvents.looking.performed += OnLooking;
-                    PlayerControllEvents.MainShoot.performed += OnShootBullet;
                     PlayerControllEvents.WeapenMode.performed += OnWeapenModeAccurateStart;
                     PlayerControllEvents.WeapenMode.canceled += OnWeapenModeAccurateCanceld;
+                    break;
+
+                case AimMode.ControllerStickControlled:
+                    lr.enabled = true;
+                    //PlayerControllEvents.looking.performed -= OnLooking;
+                    PlayerControllEvents.MainShoot.performed += OnShootBullet;
+
+
                     break;
             }
         }

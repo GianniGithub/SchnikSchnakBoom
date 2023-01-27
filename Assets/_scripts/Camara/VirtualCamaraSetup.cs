@@ -11,7 +11,7 @@ namespace GellosGames
         static Camera P1;
         static Camera P2;
         CinemachineVirtualCamera cvc;
-        public override void OnSpawn(UnityEngine.InputSystem.InputDevice device)
+        public override void OnSpawn()
         {
             if (P1 == null || P2 == null)
             {

@@ -39,6 +39,7 @@ namespace GellosGames
     }
     public class PlayerEvents : SpownObjects<PlayerActions, PlayerEventArgs>
     {
+        public PlayerController ControlEvents;
         public static int PlayerCount => playerDict.Count;
         public PlayerID id { get; }
         public int PlayerSlot => (int)id;
@@ -46,22 +47,27 @@ namespace GellosGames
         static PlayerEvents[] allPlayerEvents = new PlayerEvents[4];
         
 
-        private PlayerEvents(PlayerID playerID, GameObject gameObject)
+        private PlayerEvents(PlayerID playerID, GameObject gameObject, UnityEngine.InputSystem.InputDevice device)
         {
             id = playerID;
+
+            ControlEvents = new PlayerController();
+            ControlEvents.devices = new[] { device };
+            ControlEvents.Player1.Enable();
         }
 
         public static PlayerEvents AddPlayer(PlayerID playerID, GameObject gameObject, UnityEngine.InputSystem.InputDevice device)
         {
-            var thisEventHandler = new PlayerEvents(playerID, gameObject);
+            var thisEventHandler = new PlayerEvents(playerID, gameObject, device);
 
             allPlayerEvents[(int)playerID] = thisEventHandler;
             playerDict.Add(gameObject, playerID);
 
+
             foreach (var col in CollectChilds<PlayerEvent>(gameObject))
             {
                 col.EventHandler = thisEventHandler;
-                col.OnSpawn(device);
+                col.OnSpawn();
             }
             thisEventHandler.StartListening(PlayerActions.OnKilled, (s, e) => RemovePlayer(e.From, s.gameObject));
 
@@ -99,7 +105,10 @@ namespace GellosGames
     public abstract class PlayerEvent : SpownEvent
     {
         public PlayerEvents EventHandler;
-        public virtual void OnSpawn(UnityEngine.InputSystem.InputDevice device) { }
+        /// <summary>
+        /// After Awake and Start, when controller device is set
+        /// </summary>
+        public virtual void OnSpawn() { }
 
     }
     public struct PlayerEventArgs

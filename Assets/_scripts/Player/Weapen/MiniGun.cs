@@ -25,7 +25,7 @@ namespace GellosGames
         {
             lr = GetComponent<LineRenderer>();
         }
-        public override void OnSpawn(UnityEngine.InputSystem.InputDevice device)
+        public override void OnSpawn()
         {
             WeaponType = WeaponType.Gun;
             EventHandler.StartListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
@@ -35,18 +35,16 @@ namespace GellosGames
 
         private void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
-            PlayersControlls controlls = (PlayersControlls)sender;
-
             if (e.Current == WeaponType.Gun)
             {
-                controlls.ControllEvents.Player1.MainShoot.performed += MainShoot_performed;
-                controlls.ControllEvents.Player1.MainShoot.canceled += MainShoot_canceled;
+                EventHandler.ControlEvents.Player1.MainShoot.performed += MainShoot_performed;
+                EventHandler.ControlEvents.Player1.MainShoot.canceled += MainShoot_canceled;
                 gameObject.SetActive(true);
             }
             else
             {
-                controlls.ControllEvents.Player1.MainShoot.performed -= MainShoot_performed;
-                controlls.ControllEvents.Player1.MainShoot.canceled -= MainShoot_canceled;
+                EventHandler.ControlEvents.Player1.MainShoot.performed -= MainShoot_performed;
+                EventHandler.ControlEvents.Player1.MainShoot.canceled -= MainShoot_canceled;
                 gameObject.SetActive(false);
             }
         }

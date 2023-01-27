@@ -11,8 +11,10 @@ namespace GellosGames
     {
         public Transform shootPrefap;
 
-        public override void OnSpawn(UnityEngine.InputSystem.InputDevice device)
+        public override void OnSpawn()
         {
+            PlayerControllEvents = EventHandler.ControlEvents.Player1;
+
             WeaponType = WeaponType.Rocket;
             EventHandler.StartListening(PlayerActions.WeapenSwitch, OnWeapenSwitch);
             EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
@@ -26,8 +28,6 @@ namespace GellosGames
 
         protected override void OnWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
-            PlayerControllEvents = ((PlayersControlls)sender).ControllEvents.Player1;
-
             if (e.Current == WeaponType.Rocket)
             {
                 EventHandler.StartListening(PlayerActions.OnLookStateChange, OnLookStateChange);
@@ -63,6 +63,8 @@ namespace GellosGames
         }
         protected override void OnAimmodeChanged(AimMode aimMode)
         {
+            base.OnAimmodeChanged(aimMode);
+
             switch (aimMode)
             {
                 case AimMode.off:
@@ -71,10 +73,14 @@ namespace GellosGames
                     PlayerControllEvents.WeapenMode.canceled -= OnWeapenModeAccurateCanceld;
                     break;
 
-                case AimMode.ControllerStickDirection:
+                case AimMode.ControllerStickControlled:
                     PlayerControllEvents.looking.performed += OnLooking;
                     PlayerControllEvents.WeapenMode.performed += OnWeapenModeAccurateStart;
                     PlayerControllEvents.WeapenMode.canceled += OnWeapenModeAccurateCanceld;
+                    break;
+
+                case AimMode.ControllerStickDirection:
+                    //Nothing
                     break;
             }
         }
