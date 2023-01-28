@@ -70,13 +70,13 @@ namespace GellosGames
                     var distance = Vector2.Distance(target.ToVector2XZ(), transform.position.ToVector2XZ());
                     if (distance > AimRange.y)
                     {
-                        relativeAimSpeed = Mathf.Lerp(AimSpeed, 0, distance - AimRange.y);
-                        return aimCross.transform.position + moveInput.ToVectorXZ() * relativeAimSpeed;
+                        var direction = (target - transform.position).normalized;
+                        return (direction * AimRange.y) + transform.position;
                     }
                     if (distance < AimRange.x)
                     {
-                        relativeAimSpeed = Mathf.Lerp(AimSpeed, 0, AimRange.x - distance);
-                        return aimCross.transform.position + moveInput.ToVectorXZ() * relativeAimSpeed;
+                        var direction = (target - transform.position).normalized;
+                        return (direction * AimRange.x) + transform.position;
                     }
                     return target;
                 case AimMode.ControllerStickDirection:

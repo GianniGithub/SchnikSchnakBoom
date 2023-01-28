@@ -810,6 +810,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4106b776e3f6ce543a84d6113da881a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DinstanceCol:
+  - weapenType: 3
+    distance: 11
 --- !u!1 &5834708586214405607
 GameObject:
   m_ObjectHideFlags: 0

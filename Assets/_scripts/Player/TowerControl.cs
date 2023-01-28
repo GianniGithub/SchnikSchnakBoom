@@ -1,3 +1,4 @@
+using GellosGames.Assets._scripts.Helper;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -59,9 +60,9 @@ namespace GellosGames
 
         private void CheckForControllerStickMovings(Vector2 target)
         {
-            bool StickMoved = (target != Vector2.zero);
-
+            bool StickMoved = !target.IsQuiteZero(0.07f);
             LookState NewState = LookState.noState;
+
             switch (LookState)
             {
                 case LookState.off when StickMoved:
@@ -70,8 +71,8 @@ namespace GellosGames
                 case LookState.ControllerStickMoved when !StickMoved:
                     NewState = LookState.off;
                     break;
-                case LookState.controlledExternally when !StickMoved:
-                    NewState = LookState.off;
+                case LookState.controlledExternally:
+                    // Do Nothing
                     break;
                 case LookState.notVehicleControlled when !StickMoved:
                     NewState = LookState.off;
