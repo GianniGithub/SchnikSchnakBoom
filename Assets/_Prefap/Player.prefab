@@ -132,13 +132,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 1
+  movementBreakTime: 0.4
+  aimRange: {x: 2, y: 10}
   AimMode: 0
   aimCrossPrefap: {fileID: 9186154388607958013, guid: 04e1a335acce04a4fb0f52e8f1f283b8,
     type: 3}
   AimSpeed: 0.18
-  AimRange: {x: 2, y: 12}
   shootPrefap: {fileID: 615446530976949117, guid: 7a3c8f1a0330e8b43b01e751aa4d3124,
     type: 3}
+  acurateAimRange: {x: 3, y: 18}
 --- !u!1 &1533460306381384311
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 0.37
+  movementBreakTime: 20.25
   ExpolisonCurv:
     serializedVersion: 2
     m_Curve:
@@ -813,6 +816,8 @@ MonoBehaviour:
   DinstanceCol:
   - weapenType: 3
     distance: 11
+  - weapenType: 4
+    distance: 15
 --- !u!1 &5834708586214405607
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,11 +963,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 1
+  movementBreakTime: 1.2
+  aimRange: {x: 12, y: 25}
   AimMode: 0
   aimCrossPrefap: {fileID: 4933439699220618690, guid: bc17b2bdb08bb4db19ed7e974f015a22,
     type: 3}
   AimSpeed: 0.18
-  AimRange: {x: 8, y: 17}
   bulletPrefab: {fileID: 4654688793651518122, guid: 4f0309d2a7fcf704693a87cfd6a57a72,
     type: 3}
   BowSize: 2

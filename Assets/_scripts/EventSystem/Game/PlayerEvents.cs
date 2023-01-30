@@ -36,6 +36,8 @@ namespace GellosGames
         OnAimModeChange = 702,
 
         PlayerControllerEventsRegisterd = 7801,
+
+        VehicleStateChange = 801,
     }
     public class PlayerEvents : SpownObjects<PlayerActions, PlayerEventArgs>
     {
@@ -116,41 +118,17 @@ namespace GellosGames
         public readonly PlayerActions Action { get; }
         public EventArgs EventInfos { get; }
         public PlayerID From { get; set; }
-        public WeaponType Current { get; set; }
-        public LookState LookState { get; }
-        public Enum EventState { get; }
 
         public PlayerEventArgs(PlayerActions action)
         {
             this.Action = action;
             From = PlayerID.me;
-            Current = WeaponType.unknown;
             EventInfos = null;
-            LookState = LookState.off;
-            EventState = LookState;
         }
 
         public PlayerEventArgs(PlayerActions action, EventArgs e) : this(action)
         {
             EventInfos = e;
-        }
-        public PlayerEventArgs(PlayerActions action, LookState isAiming) : this(action)
-        {
-            LookState = isAiming;
-        }
-        public PlayerEventArgs(PlayerActions action, LookState isAiming, EventArgs e) : this(action, isAiming)
-        {
-            EventInfos = e;
-        }
-        public PlayerEventArgs(PlayerActions action, LookState isAiming, WeaponType current) : this(action)
-        {
-            LookState = isAiming;
-            Current = current;
-        }
-
-        public PlayerEventArgs(PlayerActions action, WeaponType weaponType) : this(action)
-        {
-            Current = weaponType;
         }
     }
 }

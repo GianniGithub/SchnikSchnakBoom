@@ -21,9 +21,10 @@ namespace GellosGames
         [SerializeField]
         Transform WeaponTower;
         [SerializeField]
-        LookState LookState = LookState.off;
+        LookState lookState = LookState.off;
         Transform lookTarget;
-        // Start is called before the first frame update
+
+        public LookState LookState => lookState;
         public override void OnSpawn()
         {
             EventHandler.ControlEvents.Player1.looking.performed += OnLooking;
@@ -37,11 +38,11 @@ namespace GellosGames
             switch (args.AimModeState)
             {
                 case AimMode.ControllerStickDirection:
-                    LookState = LookState.ControllerStickMoved;
+                    lookState = LookState.ControllerStickMoved;
                     break;
                 case AimMode.ControllerStickControlled:
                     lookTarget = args.AimCross;
-                    LookState = LookState.controlledExternally;
+                    lookState = LookState.controlledExternally;
                     break;
                 default:
                     break;
@@ -63,7 +64,7 @@ namespace GellosGames
             bool StickMoved = !target.IsQuiteZero(0.07f);
             LookState NewState = LookState.noState;
 
-            switch (LookState)
+            switch (lookState)
             {
                 case LookState.off when StickMoved:
                     NewState = LookState.ControllerStickMoved;
@@ -86,15 +87,15 @@ namespace GellosGames
 
             if (NewState != LookState.noState)
             {
-                var e = new PlayerEventArgs(PlayerActions.OnLookStateChange, NewState);
+                lookState = NewState;
+                var e = new PlayerEventArgs(PlayerActions.OnLookStateChange);
                 EventHandler.TriggerEvent(this, e);
-                LookState = NewState;
             }
         }
 
         private Quaternion GetTowerRotation(Vector2 target)
         {
-            if (LookState != LookState.controlledExternally)
+            if (lookState != LookState.controlledExternally)
             {
                 float heading = Mathf.Atan2(target.x, target.y) * Mathf.Rad2Deg;
                 return Quaternion.Euler(0f, heading, 0f);

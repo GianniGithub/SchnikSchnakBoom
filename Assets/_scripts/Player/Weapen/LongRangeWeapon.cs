@@ -11,10 +11,11 @@ namespace GellosGames
     public abstract class LongRangeWeapon : Weapon
     {
         [SerializeField]
+        Vector2 aimRange;
+        [SerializeField]
         protected AimMode AimMode;
         public Transform aimCrossPrefap;
         public float AimSpeed;
-        public Vector2 AimRange;
         protected float Range;
         protected Transform aimCross;
         protected PlayerController.Player1Actions PlayerControllEvents;
@@ -22,10 +23,20 @@ namespace GellosGames
         float relativeAimSpeed;
         public Transform AimCross => aimCross;
         public AimMode AimModeState => AimMode;
+        protected Vector2 AimRange => aimRange;
 
         protected void OnLookStateChange(MonoBehaviour sender, PlayerEventArgs e)
         {
-            switch (e.LookState)
+            Look = ((TowerControl)sender).LookState;
+
+            if (gameObject.activeInHierarchy)
+            {
+                SetWeaponAimMode();
+            }
+        }
+        protected void SetWeaponAimMode()
+        {
+            switch (Look)
             {
                 case LookState.off:
                     AimMode = AimMode.off;
@@ -41,8 +52,6 @@ namespace GellosGames
                     OnAimmodeChanged(AimMode.ControllerStickDirection);
                     break;
             }
-
-            
         }
         protected void OnWeapenModeAccurateStart(InputAction.CallbackContext obj)
         {
@@ -59,24 +68,25 @@ namespace GellosGames
         {
             moveInput = context.ReadValue<Vector2>();
             var t = Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.y);
-            Range = Mathf.Lerp(AimRange.x, AimRange.y, t);
+            Range = Mathf.Lerp(aimRange.x, aimRange.y, t);
         }
         protected Vector3 GetAimPosition(Transform trans)
         {
             switch (AimMode)
             {
                 case AimMode.ControllerStickControlled:
+                    var aimRange = GetAimRange();
                     var target = aimCross.transform.position + moveInput.ToVectorXZ() * AimSpeed;
                     var distance = Vector2.Distance(target.ToVector2XZ(), transform.position.ToVector2XZ());
-                    if (distance > AimRange.y)
+                    if (distance > aimRange.y)
                     {
                         var direction = (target - transform.position).normalized;
-                        return (direction * AimRange.y) + transform.position;
+                        return (direction * aimRange.y) + transform.position;
                     }
-                    if (distance < AimRange.x)
+                    if (distance < aimRange.x)
                     {
                         var direction = (target - transform.position).normalized;
-                        return (direction * AimRange.x) + transform.position;
+                        return (direction * aimRange.x) + transform.position;
                     }
                     return target;
                 case AimMode.ControllerStickDirection:
@@ -93,9 +103,10 @@ namespace GellosGames
         protected abstract void OnWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e);
         protected virtual void OnAimmodeChanged(AimMode aimMode)
         {
-            var AimModeEventArg = new PlayerEventArgs(PlayerActions.OnAimModeChange, WeaponType);
+            var AimModeEventArg = new PlayerEventArgs(PlayerActions.OnAimModeChange);
             EventHandler.TriggerEvent(this, AimModeEventArg);
         }
+        protected virtual Vector2 GetAimRange() => AimRange;
     }
     public class LongRangeWeaponArgs : EventArgs
     {

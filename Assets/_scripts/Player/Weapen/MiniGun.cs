@@ -35,7 +35,7 @@ namespace GellosGames
 
         private void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
-            if (e.Current == WeaponType.Gun)
+            if (((WeaponEvents)sender).Type == WeaponType.Gun)
             {
                 EventHandler.ControlEvents.Player1.MainShoot.performed += MainShoot_performed;
                 EventHandler.ControlEvents.Player1.MainShoot.canceled += MainShoot_canceled;
@@ -102,6 +102,8 @@ namespace GellosGames
                     lr.SetPositions(points);
                 }
             }
+
+            CallShootEvent();
         }
 
         private void OnKilled(MonoBehaviour arg0, PlayerEventArgs arg1)

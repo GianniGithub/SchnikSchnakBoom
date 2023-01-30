@@ -22,9 +22,14 @@ namespace GellosGames
     }
     public abstract class Weapon : PlayerEvent
     {
-        protected WeaponType WeaponType;
         public float fireRate;
+        protected WeaponType WeaponType;
+        protected LookState Look;
+        [SerializeField]
+        float movementBreakTime;
         float nextFire;
+        public float MovementBreakTime => movementBreakTime;
+        public WeaponType Type => WeaponType;
 
         protected bool IsFireTimeReady 
         { 
@@ -41,5 +46,17 @@ namespace GellosGames
                 }
             } 
         }
+        protected void CallShootEvent()
+        {
+            var arg = new PlayerEventArgs(PlayerActions.OnShoot);
+            EventHandler.TriggerEvent(this, arg);
+        }
+        public static LookState AimToLook(AimMode aim) => aim switch
+        {
+            AimMode.off => LookState.off,
+            AimMode.ControllerStickDirection => LookState.ControllerStickMoved,
+            AimMode.ControllerStickControlled => LookState.controlledExternally,
+            _ => throw new System.NotImplementedException(),
+        };
     }
 }

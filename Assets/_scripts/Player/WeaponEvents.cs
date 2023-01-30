@@ -7,6 +7,7 @@ namespace GellosGames
 {
     public class WeaponEvents : PlayerEvent
     {
+        public WeaponType Type { private set; get; }
         public override void OnSpawn()
         {
             var ControllEvents = EventHandler.ControlEvents;
@@ -18,19 +19,22 @@ namespace GellosGames
 
         public void OnMiniGun(InputAction.CallbackContext context)
         {
-            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, LookState.off, WeaponType.Gun);
+            Type = WeaponType.Gun;
+            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch);
             EventHandler.TriggerEvent(this, e);
         }
 
         public void OnArtillery(InputAction.CallbackContext context)
         {
-            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, LookState.off, WeaponType.Artillery);
+            Type = WeaponType.Artillery;
+            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch);
             EventHandler.TriggerEvent(this, e);
         }
 
         public void OnRocket(InputAction.CallbackContext context)
         {
-            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch, LookState.off, WeaponType.Rocket);
+            Type = WeaponType.Rocket;
+            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch);
             EventHandler.TriggerEvent(this, e);
         }
     }

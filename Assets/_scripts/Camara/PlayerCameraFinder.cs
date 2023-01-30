@@ -25,7 +25,7 @@ namespace GellosGames
                     transform.localPosition = new Vector3(0f, 0f, 0f);
                     break;
                 case AimMode.ControllerStickDirection:
-                    var dis = DinstanceCol.FirstOrDefault(x => x.weapenType == args.Current).distance;
+                    var dis = DinstanceCol.FirstOrDefault(x => x.weapenType == weapon.Type).distance;
                     transform.localPosition = dis != 0f ? new Vector3(0f, 0f, dis) : new Vector3(0f, 0f, 5f);
                     break;
                 case AimMode.ControllerStickControlled:

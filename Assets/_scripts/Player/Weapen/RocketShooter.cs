@@ -10,7 +10,9 @@ namespace GellosGames
     public class RocketShooter : LongRangeWeapon
     {
         public Transform shootPrefap;
-
+        [SerializeField]
+        Vector2 acurateAimRange;
+        Vector2 currentAimRange;
         public override void OnSpawn()
         {
             PlayerControllEvents = EventHandler.ControlEvents.Player1;
@@ -18,6 +20,7 @@ namespace GellosGames
             WeaponType = WeaponType.Rocket;
             EventHandler.StartListening(PlayerActions.WeapenSwitch, OnWeapenSwitch);
             EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
+            EventHandler.StartListening(PlayerActions.OnLookStateChange, OnLookStateChange);
 
             if (aimCross == null)
                 aimCross = Instantiate(aimCrossPrefap);
@@ -28,16 +31,14 @@ namespace GellosGames
 
         protected override void OnWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
-            if (e.Current == WeaponType.Rocket)
+            if (((WeaponEvents)sender).Type == WeaponType.Rocket)
             {
-                EventHandler.StartListening(PlayerActions.OnLookStateChange, OnLookStateChange);
                 PlayerControllEvents.MainShoot.performed += OnShootBullet;
                 gameObject.SetActive(true);
-                OnLookStateChange(sender, e);
+                SetWeaponAimMode();
             }
             else if (gameObject.activeInHierarchy)
             {
-                EventHandler.StopListening(PlayerActions.OnLookStateChange, OnLookStateChange);
                 PlayerControllEvents.MainShoot.performed -= OnShootBullet;
                 aimCross.gameObject.SetActive(false);
                 gameObject.SetActive(false);
@@ -60,6 +61,7 @@ namespace GellosGames
             Rocket rocket = Instantiate(shootPrefap, transform.position, transform.rotation).GetComponent<Rocket>();
             rocket.aimCrossGoal = aimCross;
 
+            CallShootEvent();
         }
         protected override void OnAimmodeChanged(AimMode aimMode)
         {
@@ -68,23 +70,26 @@ namespace GellosGames
             switch (aimMode)
             {
                 case AimMode.off:
+                    currentAimRange = AimRange;
                     PlayerControllEvents.looking.performed -= OnLooking;
                     PlayerControllEvents.WeapenMode.performed -= OnWeapenModeAccurateStart;
                     PlayerControllEvents.WeapenMode.canceled -= OnWeapenModeAccurateCanceld;
                     break;
 
-                case AimMode.ControllerStickControlled:
+                case AimMode.ControllerStickDirection:
+                    currentAimRange = AimRange;
                     PlayerControllEvents.looking.performed += OnLooking;
                     PlayerControllEvents.WeapenMode.performed += OnWeapenModeAccurateStart;
                     PlayerControllEvents.WeapenMode.canceled += OnWeapenModeAccurateCanceld;
                     break;
 
-                case AimMode.ControllerStickDirection:
-                    //Nothing
+                case AimMode.ControllerStickControlled:
+                    currentAimRange = acurateAimRange;
                     break;
+
             }
         }
-
+        protected override Vector2 GetAimRange() => currentAimRange;
     }
 
 }

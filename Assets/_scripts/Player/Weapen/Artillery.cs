@@ -35,17 +35,18 @@ namespace GellosGames
             enabled = false;
             EventHandler.StartListening(PlayerActions.WeapenSwitch, OnWeapenSwitch);
             EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
+            EventHandler.StartListening(PlayerActions.OnLookStateChange, OnLookStateChange);
 
             if (aimCross == null)
                 aimCross = Instantiate(aimCrossPrefap);
         }
         protected override void OnWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
         {
-            if (e.Current == WeaponType.Artillery)
+            if (((WeaponEvents)sender).Type == WeaponType.Artillery)
             {
                 gameObject.SetActive(true);
                 EventHandler.StartListening(PlayerActions.OnLookStateChange, OnLookStateChange);
-                OnLookStateChange(null, e);
+                SetWeaponAimMode();
             }
             else
             {
@@ -79,10 +80,7 @@ namespace GellosGames
 
                 case AimMode.ControllerStickControlled:
                     lr.enabled = true;
-                    //PlayerControllEvents.looking.performed -= OnLooking;
                     PlayerControllEvents.MainShoot.performed += OnShootBullet;
-
-
                     break;
             }
         }
@@ -94,6 +92,8 @@ namespace GellosGames
                 proBullet.OwnerId = EventHandler.id;
                 proBullet.ArtilleryPathData = new ArtilleryPathPointData(points, rotations);
             }
+
+            CallShootEvent();
         }
         // Update is called once per frame
         void Update()
