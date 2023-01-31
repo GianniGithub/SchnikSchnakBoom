@@ -44,7 +44,9 @@ namespace GellosGames
         public PlayerController ControlEvents;
         public static int PlayerCount => playerDict.Count;
         public PlayerID id { get; }
+        public GameObject PlayerObject { get; }
         public int PlayerSlot => (int)id;
+
         static Dictionary<GameObject, PlayerID> playerDict = new Dictionary<GameObject, PlayerID>();
         static PlayerEvents[] allPlayerEvents = new PlayerEvents[4];
         
@@ -52,7 +54,7 @@ namespace GellosGames
         private PlayerEvents(PlayerID playerID, GameObject gameObject, UnityEngine.InputSystem.InputDevice device)
         {
             id = playerID;
-
+            PlayerObject = gameObject;
             ControlEvents = new PlayerController();
             ControlEvents.devices = new[] { device };
             ControlEvents.Player1.Enable();
@@ -71,17 +73,23 @@ namespace GellosGames
                 col.EventHandler = thisEventHandler;
                 col.OnSpawn();
             }
-            thisEventHandler.StartListening(PlayerActions.OnKilled, (s, e) => RemovePlayer(e.From, s.gameObject));
+            thisEventHandler.StartListening(PlayerActions.OnKilled, (s, e) => RemovePlayer(e.From));
 
             return thisEventHandler;
         }
 
 
 
-        public static void RemovePlayer(PlayerID playerID, GameObject gameObject)
+        public static void RemovePlayer(PlayerID playerID)
         {
-            allPlayerEvents[((int)playerID)] = null;
-            playerDict.Remove(gameObject);
+            var pe = allPlayerEvents[(int)playerID];
+            // All Events are wiped
+            //pe.EventDictionary.Clear();
+            playerDict.Remove(pe.PlayerObject);
+            //Disable Inputs, On Destroy events tray to read death Gameobjects
+            pe.ControlEvents.Player1.Disable();
+            //with delay so that OnKilled event runns to the End 
+            UnityEngine.Object.Destroy(pe.PlayerObject, 0.4f);
         }
         public static PlayerEvents GetPlayerEventsHandler(PlayerID playerID)
         {

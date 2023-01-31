@@ -16,8 +16,11 @@ namespace GellosGames
             get => grounded; 
             private set 
             {
-                grounded = value;
-                IsGroundedEvent(value);
+                if(value != grounded)
+                {
+                    grounded = value;
+                    IsGroundedEvent(value);
+                }
             }
         }
 

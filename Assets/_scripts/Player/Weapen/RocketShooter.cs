@@ -90,6 +90,7 @@ namespace GellosGames
             }
         }
         protected override Vector2 GetAimRange() => currentAimRange;
+
     }
 
 }

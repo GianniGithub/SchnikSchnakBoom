@@ -63,7 +63,14 @@ namespace GellosGames
             AimMode = AimMode.ControllerStickDirection;
             OnAimmodeChanged(AimMode.ControllerStickDirection);
         }
-
+        protected void CheckIfWeapenModeAlreadyPerformed()
+        {
+            if (PlayerControllEvents.WeapenMode.inProgress)
+            {
+                AimMode = AimMode.ControllerStickControlled;
+                OnAimmodeChanged(AimMode.ControllerStickControlled);
+            }
+        }
         protected void OnLooking(InputAction.CallbackContext context)
         {
             moveInput = context.ReadValue<Vector2>();

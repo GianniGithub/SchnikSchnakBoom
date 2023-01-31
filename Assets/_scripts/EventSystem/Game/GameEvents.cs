@@ -11,6 +11,7 @@ namespace GellosGames
         None = 0,
         OnGamePadStateChange = 202,
         OnPlayerAdded = 302,
+        OnPlayerDied = 402,
         OnNPCAdded = 702,
     }
     public class GameEvents : EventManager<GameActions, GameEventArgs>

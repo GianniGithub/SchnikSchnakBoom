@@ -59,8 +59,6 @@ namespace GellosGames
             }
             
         }
-
-        // Update is called once per frame
         private void SetUpSplittScreen(int player)
         {
             if (PlayerEvents.PlayerCount > 1)

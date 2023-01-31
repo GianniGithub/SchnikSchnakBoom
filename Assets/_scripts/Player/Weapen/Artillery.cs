@@ -69,19 +69,20 @@ namespace GellosGames
 
                     PlayerControllEvents.WeapenMode.performed -= OnWeapenModeAccurateStart;
                     PlayerControllEvents.WeapenMode.canceled -= OnWeapenModeAccurateCanceld;
-                    break;
+                    return;
 
                 case AimMode.ControllerStickDirection:
                     lr.enabled = false;
                     PlayerControllEvents.looking.performed += OnLooking;
                     PlayerControllEvents.WeapenMode.performed += OnWeapenModeAccurateStart;
                     PlayerControllEvents.WeapenMode.canceled += OnWeapenModeAccurateCanceld;
-                    break;
+                    CheckIfWeapenModeAlreadyPerformed();
+                    return;
 
                 case AimMode.ControllerStickControlled:
                     lr.enabled = true;
                     PlayerControllEvents.MainShoot.performed += OnShootBullet;
-                    break;
+                    return;
             }
         }
         public void OnShootBullet(InputAction.CallbackContext context)
@@ -145,10 +146,7 @@ namespace GellosGames
                 aimCross.position = aim;
 
         }
-        private void OnDestroy()
-        {
-            EventHandler.StopListening(PlayerActions.WeapenSwitch, OnWeapenSwitch);
-        }
+
     }
     public struct ArtilleryPathPointData
     {
