@@ -18,6 +18,7 @@ namespace GellosGames
         {
             var TextGui = Instantiate(DamageInfoPrefap, transform);
             var args = (SpawnPlayerArgs)e.EventInfos;
+            TextGui.gameObject.name += args.Pe.Name;
 
             var point = args.PlayerObj.GetComponent<CollectHitPoint>();
             point.DamageInfo = TextGui;
@@ -25,7 +26,7 @@ namespace GellosGames
             var mesh = args.PlayerObj.GetComponent<MeshRenderer>();
             TextGui.color = mesh.material.color;
 
-            args.Pe.StartListening(PlayerActions.OnKilled, (s,e)=> Destroy(gameObject));
+            args.Pe.StartListening(PlayerActions.OnKilled, (s,e)=> Destroy(TextGui.gameObject));
         }
 
     }

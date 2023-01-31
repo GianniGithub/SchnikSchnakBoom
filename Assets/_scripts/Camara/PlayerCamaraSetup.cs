@@ -12,11 +12,11 @@ namespace GellosGames
         public CinemachineVirtualCamera[] PlayerCamps;
         public CinemachineVirtualCamera[] PlayerAimCamps;
 
-        PlayerCameraFinder PlayerPointer;
+        PlayerCameraFinder[] PlayerPointer;
         void Start()
         {
             GameEvents.Instance.StartListening(GameActions.OnPlayerAdded, OnPlayerAdded);
-
+            PlayerPointer = new PlayerCameraFinder[4];
         }
 
         private void OnPlayerAdded(MonoBehaviour sender, GameEventArgs e)
@@ -29,8 +29,8 @@ namespace GellosGames
             PlayerCamp.enabled = true;
             PlayerCamp.gameObject.layer = LayerMask.NameToLayer(player.Id.ToString());
 
-            PlayerPointer = player.PlayerObj.GetComponentInChildren<PlayerCameraFinder>();
-            PlayerCamp.Follow = PlayerPointer.transform; //player.PlayerObj.transform;
+            PlayerPointer[playerID] = player.PlayerObj.GetComponentInChildren<PlayerCameraFinder>();
+            PlayerCamp.Follow = PlayerPointer[playerID].transform; //player.PlayerObj.transform;
 
             player.Pe.StartListening(PlayerActions.OnAimModeChange, OnAimModeChange);
 
@@ -49,7 +49,7 @@ namespace GellosGames
                     PlayerAimCamps[playerID].gameObject.SetActive(false);
                     break;
                 case AimMode.ControllerStickDirection:
-                    PlayerAimCamps[playerID].Follow = PlayerPointer.transform;
+                    PlayerAimCamps[playerID].Follow = PlayerPointer[playerID].transform;
                     PlayerAimCamps[playerID].gameObject.SetActive(true);
                     break;
                 case AimMode.ControllerStickControlled:

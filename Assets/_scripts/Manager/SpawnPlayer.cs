@@ -57,6 +57,7 @@ namespace GellosGames
                 }
                 var playerObj = Instantiate(PlayerPrefap, Spownpoints[PlayerNr], Quaternion.identity, Parent);
                 var pe = PlayerEvents.AddPlayer((PlayerID)PlayerNr, playerObj, inputAction.activeControl.device);
+                playerObj.gameObject.name = pe.Name;
 
                 var e = new SpawnPlayerArgs(GampadIDsInUse.Count, (PlayerID)PlayerNr, playerObj, pe);
                 GameEvents.Instance.TriggerEvent(this, new GameEventArgs(GameActions.OnPlayerAdded, e));

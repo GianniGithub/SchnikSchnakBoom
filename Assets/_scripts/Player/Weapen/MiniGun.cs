@@ -110,11 +110,7 @@ namespace GellosGames
         {
             EventHandler.StopListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
         }
-        private void OnDestroy()
-        {
-            EventHandler.ControlEvents.Player1.MainShoot.performed -= MainShoot_performed;
-            EventHandler.ControlEvents.Player1.MainShoot.canceled -= MainShoot_canceled;
-        }
+
     }
 
 }

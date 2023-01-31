@@ -34,7 +34,7 @@ namespace GellosGames
                         // as more damage the player have as 3 x more damgeforce
                         damageForce += eA.PlayerPoints.Damage * 3;
                     }
-                    rb.AddExplosionForce(damageForce, eA.HitPoint, radius);
+                    rb.AddExplosionForce(damageForce, eA.HitPoint, radius, 0.2f);
                 }
 
             }

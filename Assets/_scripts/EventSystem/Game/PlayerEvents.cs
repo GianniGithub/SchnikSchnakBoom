@@ -46,6 +46,7 @@ namespace GellosGames
         public PlayerID id { get; }
         public GameObject PlayerObject { get; }
         public int PlayerSlot => (int)id;
+        public string Name => id.ToString();
 
         static Dictionary<GameObject, PlayerID> playerDict = new Dictionary<GameObject, PlayerID>();
         static PlayerEvents[] allPlayerEvents = new PlayerEvents[4];
