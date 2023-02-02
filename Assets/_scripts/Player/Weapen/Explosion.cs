@@ -43,26 +43,18 @@ namespace GellosGames
         }
     }
 
-    public class ExplosionArgs : System.EventArgs
+    public class ExplosionArgs : DamageArgs
     {
-
-        public ExplosionArgs(PlayerID originator, Vector3 hitPoint, float explosionSize, WeaponType weapenType, Transform explosionPrefap, AnimationCurve explosion)
+        public ExplosionArgs(PlayerEvents originator, Vector3 hitPoint, float explosionSize, WeaponType weapenType, Transform explosionPrefap, AnimationCurve explosion) : base(originator, weapenType, hitPoint)
         {
-            this.originator = originator;
-            HitPoint = hitPoint;
             ExplosionSize = explosionSize;
-            WeapenType = weapenType;
             ExplosionPrefap = explosionPrefap;
             ExplosionAnimation = explosion;
         }
-
-        public CollectHitPoint PlayerPoints { get; set; }
-        public float Damage { get; set; }
-        public PlayerID originator { get; }
-        public Vector3 HitPoint { get; }
         public float ExplosionSize { get; }
-        public WeaponType WeapenType { get; }
         public Transform ExplosionPrefap { get; }
         public AnimationCurve ExplosionAnimation { get; }
     }
+
+
 }

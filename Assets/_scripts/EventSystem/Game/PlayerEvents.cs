@@ -68,11 +68,15 @@ namespace GellosGames
             allPlayerEvents[(int)playerID] = thisEventHandler;
             playerDict.Add(gameObject, playerID);
 
-
-            foreach (var col in CollectChilds<PlayerEvent>(gameObject))
+            var col = CollectChilds<PlayerEvent>(gameObject);
+            foreach (var p in col)
             {
-                col.EventHandler = thisEventHandler;
-                col.OnSpawn();
+                p.EventHandler = thisEventHandler;
+                p.OnSpawn();
+            }
+            foreach (var p in col)
+            {
+                p.AfterSpawn();
             }
             thisEventHandler.StartListening(PlayerActions.OnKilled, (s, e) => RemovePlayer(e.From));
 
@@ -120,7 +124,10 @@ namespace GellosGames
         /// After Awake and Start, when controller device is set
         /// </summary>
         public virtual void OnSpawn() { }
-
+        /// <summary>
+        /// After OnSpawn loop
+        /// </summary>
+        public virtual void AfterSpawn() { }
     }
     public struct PlayerEventArgs
     {

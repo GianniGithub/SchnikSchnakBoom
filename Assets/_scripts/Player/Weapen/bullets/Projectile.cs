@@ -8,7 +8,7 @@ using Gianni.Helper;
 
 namespace GellosGames
 {
-    public abstract class Projectile : MonoBehaviour, Bullet
+    public abstract class Projectile : MonoBehaviour
     {
         public Transform explosionPrefap;
         public AnimationCurve explosion;
@@ -20,9 +20,7 @@ namespace GellosGames
         protected bool alreadyHit = false;
 
 
-        public PlayerID OwnerId { get; set; }
-        Transform Bullet.ExplosionPrefap => explosionPrefap;
-        AnimationCurve Bullet.ExplosionAnimation => explosion;
+        public PlayerEvents OwnerId { get; set; }
 
         private void Awake()
         {

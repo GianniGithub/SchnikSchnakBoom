@@ -6,20 +6,18 @@ using UnityEngine.InputSystem;
 
 namespace GellosGames
 {
-    public class MiniGun : Weapon, Bullet
+    public class MiniGun : Weapon
     {
-        public AnimationCurve ExpolisonCurv;
-        public Transform PrefapExplosion;
+        [SerializeField]
+        AnimationCurve ExpolisonCurv;
+        [SerializeField]
+        Transform PrefapExplosion;
 
         LineRenderer lr;
         Vector3[] points;
         bool FireOn = false;
 
         RaycastHit hit;
-
-        public PlayerID OwnerId { get; set; }
-        public Transform ExplosionPrefap => PrefapExplosion;
-        public AnimationCurve ExplosionAnimation => ExpolisonCurv;
 
         private void Awake()
         {
@@ -29,8 +27,6 @@ namespace GellosGames
         {
             WeaponType = WeaponType.Gun;
             EventHandler.StartListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
-            EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
-            OwnerId = EventHandler.id;
         }
 
         private void onWeapenSwitch(MonoBehaviour sender, PlayerEventArgs e)
@@ -92,7 +88,7 @@ namespace GellosGames
 
                     // for explosion efect reasions, is only working if outside of the collider
                     var explosionPosition = hit.point - ((points[1] - points[0]).normalized * 0.1f);
-                    var exp = new ExplosionArgs(OwnerId, explosionPosition, 0.8f, WeaponType.Gun, PrefapExplosion, ExpolisonCurv);
+                    var exp = new ExplosionArgs(EventHandler, explosionPosition, 0.8f, WeaponType.Gun, PrefapExplosion, ExpolisonCurv);
                     Explosion.CreateExplosion(exp);
                 }
                 else
@@ -105,12 +101,6 @@ namespace GellosGames
 
             CallShootEvent();
         }
-
-        private void OnKilled(MonoBehaviour arg0, PlayerEventArgs arg1)
-        {
-            EventHandler.StopListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
-        }
-
     }
 
 }

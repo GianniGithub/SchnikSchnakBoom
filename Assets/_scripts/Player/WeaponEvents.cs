@@ -18,20 +18,29 @@ namespace GellosGames
 
             enableWeaponSwitch();
         }
-
+        public override void AfterSpawn()
+        {
+            // Start Weapon
+            Type = WeaponType.Sword;
+            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch);
+            EventHandler.TriggerEvent(this, e);
+        }
         private void enableWeaponSwitch()
         {
             isWeaponSwitchEnabled = true;
             ControllEvents.Artillery.performed += OnArtillery;
             ControllEvents.MiniGun.performed += OnMiniGun;
             ControllEvents.Rocket.performed += OnRocket;
+            ControllEvents.Conform.performed += OnSword;
         }
+
         private void disableWeaponSwitch()
         {
             isWeaponSwitchEnabled = false;
             ControllEvents.Artillery.performed -= OnArtillery;
             ControllEvents.MiniGun.performed -= OnMiniGun;
             ControllEvents.Rocket.performed -= OnRocket;
+            ControllEvents.Conform.performed -= OnSword;
         }
 
         private void VehicleStateChange(MonoBehaviour sender, PlayerEventArgs arg)
@@ -67,6 +76,11 @@ namespace GellosGames
             var e = new PlayerEventArgs(PlayerActions.WeapenSwitch);
             EventHandler.TriggerEvent(this, e);
         }
-
+        private void OnSword(InputAction.CallbackContext context)
+        {
+            Type = WeaponType.Sword;
+            var e = new PlayerEventArgs(PlayerActions.WeapenSwitch);
+            EventHandler.TriggerEvent(this, e);
+        }
     }
 }

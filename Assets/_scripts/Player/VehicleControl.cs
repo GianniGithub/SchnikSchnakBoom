@@ -124,11 +124,12 @@ namespace GellosGames
         }
         private void OnShoot(MonoBehaviour sender, PlayerEventArgs arg)
         {
-            if (sender is not LongRangeWeapon)
+            var weapon = (Weapon)sender;
+
+            if (weapon.MovementBreakTime == 0f)
                 return;
 
-            var weapon = (LongRangeWeapon)sender;
-            if(BreakRoutine != null)
+            if (BreakRoutine != null)
             {
                 StopCoroutine(BreakRoutine);
             }
@@ -140,9 +141,19 @@ namespace GellosGames
                 {
                     inBreak = false;
 
-                    if (weapon.AimModeState != AimMode.ControllerStickControlled)
+                    switch (weapon.Type)
                     {
-                        EnableVehicle();
+                        case WeaponType.Artillery:
+                        case WeaponType.Rocket:
+                            if (((LongRangeWeapon)sender).AimModeState != AimMode.ControllerStickControlled)
+                            {
+                                EnableVehicle();
+                            }
+                            return;
+
+                        default:
+                            EnableVehicle();
+                            break;
                     }
                 });
         }

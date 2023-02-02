@@ -90,7 +90,7 @@ namespace GellosGames
             if (IsFireTimeReady)
             {
                 var proBullet = Instantiate(bulletPrefab);
-                proBullet.OwnerId = EventHandler.id;
+                proBullet.OwnerId = EventHandler;
                 proBullet.ArtilleryPathData = new ArtilleryPathPointData(points, rotations);
             }
 

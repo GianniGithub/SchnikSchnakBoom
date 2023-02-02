@@ -10,6 +10,7 @@ namespace GellosGames
     {
         unknown = 0,
         none = 1,
+        Sword,
         Gun,
         Artillery,
         Rocket,
@@ -22,12 +23,15 @@ namespace GellosGames
     }
     public abstract class Weapon : PlayerEvent
     {
-        public float fireRate;
         protected WeaponType WeaponType;
         protected LookState Look;
         [SerializeField]
         float movementBreakTime;
+        [SerializeField]
+        float fireRate;
         float nextFire;
+
+        protected float FireRate => fireRate;
         public float MovementBreakTime => movementBreakTime;
         public WeaponType Type => WeaponType;
 

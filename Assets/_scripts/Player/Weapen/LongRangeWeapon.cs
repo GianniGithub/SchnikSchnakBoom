@@ -20,7 +20,6 @@ namespace GellosGames
         protected Transform aimCross;
         protected PlayerController.Player1Actions PlayerControllEvents;
         private Vector2 moveInput;
-        float relativeAimSpeed;
         public Transform AimCross => aimCross;
         public AimMode AimModeState => AimMode;
         protected Vector2 AimRange => aimRange;
