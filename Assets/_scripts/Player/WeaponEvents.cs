@@ -45,15 +45,19 @@ namespace GellosGames
 
         private void VehicleStateChange(MonoBehaviour sender, PlayerEventArgs arg)
         {
-            var vehicle = (VehicleControl)sender;
-            if(vehicle.VehicleState == VehicleState.uncontrollable && isWeaponSwitchEnabled)
+            switch (((VehicleControl)sender).VehicleState)
             {
-                disableWeaponSwitch();
+                case VehicleState.Idle:
+                case VehicleState.IsDriving:
+                case VehicleState.InAir:
+                    if(!isWeaponSwitchEnabled)
+                        enableWeaponSwitch();
+                    break;
+                case VehicleState.uncontrollable when isWeaponSwitchEnabled:
+                    disableWeaponSwitch();
+                    break;
             }
-            else if(!isWeaponSwitchEnabled)
-            {
-                enableWeaponSwitch();
-            }
+
         }
 
         public void OnMiniGun(InputAction.CallbackContext context)

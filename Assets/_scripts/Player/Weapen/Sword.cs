@@ -21,9 +21,11 @@ namespace GellosGames
         Quaternion StartRotPosition;
         float t = 0f;
         TrailRenderer tr;
+        Blade blade;
 
         private void Awake()
         {
+            blade = GetComponentInChildren<Blade>();
             tr = GetComponentInChildren<TrailRenderer>();
             tr.time = swingDuration;
             tr.enabled = false;
@@ -32,7 +34,7 @@ namespace GellosGames
         {
             WeaponType = WeaponType.Sword;
             EventHandler.StartListening(PlayerActions.WeapenSwitch, onWeapenSwitch);
-            StartRotPosition = ChildAxe.rotation;
+            StartRotPosition = ChildAxe.localRotation;
 
 #if UNITY_EDITOR
             if (swingDuration > FireRate)
@@ -64,18 +66,20 @@ namespace GellosGames
         }
         private IEnumerator swingBlade()
         {
+            blade.enabled = true;
             float deltaDegree = degreesLength / swingDuration;
             tr.enabled = true;
             while (t < swingDuration)
             {
                 t += Time.deltaTime;
                 var deltaCurve = swingCurve.Evaluate(1 / swingDuration * t);
-                ChildAxe.Rotate(0f, deltaDegree * Time.deltaTime * deltaCurve, 0f);
+                ChildAxe.Rotate(0f, deltaDegree * Time.deltaTime * deltaCurve, 0f, Space.Self);
                 yield return null; 
             }
             t = 0f;
             tr.enabled = false;
-            ChildAxe.rotation = StartRotPosition;
+            blade.enabled = false;
+            ChildAxe.localRotation = StartRotPosition;
         }
 
     }

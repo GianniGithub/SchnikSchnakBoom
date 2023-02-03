@@ -15,7 +15,6 @@ namespace GellosGames
             EventHandler.StartListening(PlayerActions.OnDamage, OnDamage);
             EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
         }
-
         private void OnKilled(MonoBehaviour arg0, PlayerEventArgs arg1)
         {
             EventHandler.StopListening(PlayerActions.OnDamage, OnDamage);

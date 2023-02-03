@@ -9,10 +9,10 @@ namespace GellosGames
 {
     public enum VehicleState
     {
+        Idle,
         IsDriving,
         InAir,
         uncontrollable,
-        Idle
     }
     public class VehicleControl : PlayerEvent
     {
@@ -31,6 +31,7 @@ namespace GellosGames
             private set
             {
                 vehicleState = value;
+                enabled = (value == VehicleState.IsDriving);
                 var AimModeEventArg = new PlayerEventArgs(PlayerActions.VehicleStateChange);
                 EventHandler.TriggerEvent(this, AimModeEventArg);
             }
@@ -56,11 +57,8 @@ namespace GellosGames
             var moveInput = moveAction.ReadValue<Vector2>();
             nextMove = new Vector3(moveInput.x, 0, moveInput.y);
 
-            if (VehicleState == VehicleState.IsDriving)
-            {
-                rb.AddForce(nextMove * Speed, ForceMode.Impulse);
-                //rb.MovePosition(nextMove * Speed + transform.position);
-            }
+            rb.AddForce(nextMove * Speed, ForceMode.Impulse);
+            //rb.MovePosition(nextMove * Speed + transform.position);
 
             nextMove = Vector3.zero;
         }
@@ -96,12 +94,18 @@ namespace GellosGames
         }
         private void MoveAction_canceled(InputAction.CallbackContext obj)
         {
-            VehicleState = VehicleState.Idle;
+            if (VehicleState == VehicleState.IsDriving)
+            {
+                VehicleState = VehicleState.Idle;
+            }
         }
 
         private void MoveAction_performed(InputAction.CallbackContext obj)
         {
-            VehicleState = VehicleState.IsDriving;
+            if(VehicleState == VehicleState.Idle)
+            {
+                VehicleState = VehicleState.IsDriving;
+            }
         }
 
         private void OnAimModeChange(MonoBehaviour sender, PlayerEventArgs arg1)
