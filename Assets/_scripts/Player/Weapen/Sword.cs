@@ -85,7 +85,7 @@ namespace GellosGames
     }
     public class HitArgs : DamageArgs
     {
-        public HitArgs(PlayerEvents originator, Vector3 hitPoint, WeaponType weapenType) : base(originator, weapenType, hitPoint)
+        public HitArgs(PlayerEvents originator, Vector3 hitPoint, WeaponType weapenType, float damagePower) : base(originator, weapenType, hitPoint, damagePower)
         {
 
         }

@@ -88,7 +88,7 @@ namespace GellosGames
 
         private void TriggerExplosion()
         {
-            var exp = new ExplosionArgs(OwnerId, transform.position, 2f, WeaponType.Rocket, explosionPrefap, explosion);
+            var exp = new ExplosionArgs(OwnerId, transform.position, 2f, WeaponType.Rocket, explosionPrefap, explosion, DamagePower);
             Explosion.CreateExplosion(exp);
             Destroy(gameObject);
         }

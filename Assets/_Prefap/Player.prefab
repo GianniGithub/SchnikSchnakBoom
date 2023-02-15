@@ -408,6 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementBreakTime: 0
   fireRate: 0.37
+  damagePower: 150
   ExpolisonCurv:
     serializedVersion: 2
     m_Curve:
@@ -686,7 +687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageInfo: {fileID: 0}
-  Damage: 0
+  TotalDamage: 0
 --- !u!114 &5125067287346465915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,8 +1314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc69b696b198deb44b2968701e5a96c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  force: 5
+  damagePower: 4000
+  force: 100
   rb: {fileID: 0}
 --- !u!54 &8388778897038595597
 Rigidbody:

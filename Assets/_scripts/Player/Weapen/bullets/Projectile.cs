@@ -10,6 +10,8 @@ namespace GellosGames
 {
     public abstract class Projectile : MonoBehaviour
     {
+        [SerializeField]
+        protected float DamagePower = 50f;
         public Transform explosionPrefap;
         public AnimationCurve explosion;
 

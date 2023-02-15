@@ -9,7 +9,7 @@ namespace GellosGames
     public class CollectHitPoint : PlayerEvent
     {
         public TextMeshProUGUI DamageInfo;
-        public float Damage;
+        public float TotalDamage;
         public override void OnSpawn()
         {
             EventHandler.StartListening(PlayerActions.OnDamage, OnDamage);
@@ -23,27 +23,28 @@ namespace GellosGames
         private void OnDamage(MonoBehaviour sender, PlayerEventArgs e)
         {
             var eA = (DamageArgs)e.EventInfos;
-            AddDamage(eA.Damage);
+            AddDamage(eA.NewDamage);
             eA.PlayerPoints = this;
         }
         public void AddDamage(float damage)
         {
-            this.Damage += damage;
-            DamageInfo.text = this.Damage.ToString("N1");
+            this.TotalDamage += damage;
+            DamageInfo.text = this.TotalDamage.ToString("N1");
         }
 
     }
     public abstract class DamageArgs : System.EventArgs
     {
-        protected DamageArgs(PlayerEvents originator, WeaponType weapenType, Vector3 hitPoint)
+        protected DamageArgs(PlayerEvents originator, WeaponType weapenType, Vector3 hitPoint, float hitDamage)
         {
             this.originator = originator;
             WeapenType = weapenType;
             HitPoint = hitPoint;
+            NewDamage = hitDamage;
         }
         public Vector3 HitPoint { get; }
         public PlayerEvents originator { get; }
-        public float Damage { get; set; }
+        public float NewDamage { get; set; }
         public CollectHitPoint PlayerPoints { get; set; }
         public WeaponType WeapenType { get; }
     }

@@ -9,9 +9,9 @@ namespace GellosGames
     public class Blade : PlayerEvent
     {
         [SerializeField]
-        float damage = 20f;
+        float damagePower = 20f;
         [SerializeField]
-        float force = 3;
+        float antiForce = 100f;
         [SerializeField]
         private Rigidbody rb;
         List<ContactPoint> contactPoints = new List<ContactPoint>();
@@ -37,19 +37,18 @@ namespace GellosGames
         {
             if(coli.rigidbody != null)
             {
-                float currentForce = force;
+                float currentForce = antiForce;
 
                 if (coli.gameObject.tag == "Player")
                 {
                     Debug.Log("Hit Player");
 
                     var events = PlayerEvents.GetPlayerEventsHandler(coli.gameObject);
-                    var eA = new HitArgs(EventHandler, coli.GetContact(0).point, WeaponType.Sword);
-                    eA.Damage = damage;
+                    var eA = new HitArgs(EventHandler, coli.GetContact(0).point, WeaponType.Sword, damagePower);
                     events.TriggerEvent(null, new PlayerEventArgs(PlayerActions.OnDamage, eA));
 
                     // as more damage the player have as 3 x more damgeforce
-                    currentForce = force + (eA.PlayerPoints.Damage / 10);
+                    currentForce = (eA.PlayerPoints.TotalDamage / antiForce);
                 }
                 else
                 {
@@ -64,21 +63,6 @@ namespace GellosGames
                 }
             }
         }
-        //private void OnCollisionStay(Collision coli)
-        //{
-        //    var otherCollider = coli.GetContact(0).otherCollider;
-        //    foreach (var cp in contactPoints)
-        //    {
-        //        if(cp.otherCollider == otherCollider)
-        //        {
-        //            Debug.Log("match other: " + otherCollider.gameObject.name);
-        //            return;
-        //        }
-        //    }
-
-        //    Debug.Log("match not: " + coli.gameObject.name);
-        //    OnCollisionEnter(coli);
-        //}
 
     }
 }

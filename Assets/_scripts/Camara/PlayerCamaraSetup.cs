@@ -24,11 +24,13 @@ namespace GellosGames
             var player = (SpawnPlayerArgs)e.EventInfos;
             int playerID = (int)player.Id;
             var PlayerCamp = PlayerCamps[playerID];
+            var layer = LayerMask.NameToLayer(player.Id.ToString());
 
             ScreenCamps[playerID].enabled = true;
             PlayerCamp.enabled = true;
-            PlayerCamp.gameObject.layer = LayerMask.NameToLayer(player.Id.ToString());
+            PlayerCamp.gameObject.layer = layer;
 
+            PlayerAimCamps[playerID].gameObject.layer = layer;
             PlayerPointer[playerID] = player.PlayerObj.GetComponentInChildren<PlayerCameraFinder>();
             PlayerCamp.Follow = PlayerPointer[playerID].transform; //player.PlayerObj.transform;
 

@@ -9,6 +9,8 @@ namespace GellosGames
     public class MiniGun : Weapon
     {
         [SerializeField]
+        float damagePower = 150f;
+        [SerializeField]
         AnimationCurve ExpolisonCurv;
         [SerializeField]
         Transform PrefapExplosion;
@@ -88,7 +90,7 @@ namespace GellosGames
 
                     // for explosion efect reasions, is only working if outside of the collider
                     var explosionPosition = hit.point - ((points[1] - points[0]).normalized * 0.1f);
-                    var exp = new ExplosionArgs(EventHandler, explosionPosition, 0.8f, WeaponType.Gun, PrefapExplosion, ExpolisonCurv);
+                    var exp = new ExplosionArgs(EventHandler, explosionPosition, 0.8f, WeaponType.Gun, PrefapExplosion, ExpolisonCurv, damagePower);
                     Explosion.CreateExplosion(exp);
                 }
                 else

@@ -13,7 +13,7 @@ namespace GellosGames
         public GameObject PlayerPrefap;
         public Vector3 StartArena;
         public int Amount = 2;
-        void Awake()
+        void Start()
         {
             GameEvents.Instance.StartListening(GameActions.OnPlayerAdded, OnPlayerAdded);
         }
