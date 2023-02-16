@@ -74,6 +74,14 @@ namespace GellosGames
         {
             Fire();
         }
+        private void Update()
+        {
+            if (lr.enabled)
+            {
+                points[0] = transform.position;
+                lr.SetPositions(points);
+            }
+        }
 
         private void Fire()
         {
@@ -96,7 +104,7 @@ namespace GellosGames
                 else
                 {
                     points[0] = transform.position;
-                    points[1] = transform.TransformDirection(Vector3.up) * 100f;
+                    points[1] = points[0] + transform.up * 100f;
                     lr.SetPositions(points);
                 }
             }

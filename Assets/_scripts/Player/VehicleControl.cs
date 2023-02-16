@@ -26,6 +26,7 @@ namespace GellosGames
         GroundWheels plyGroundWheels;
         bool inBreak;
         Coroutine BreakRoutine;
+        float startDrag;
         public VehicleState VehicleState
         {
             private set
@@ -41,6 +42,7 @@ namespace GellosGames
         void Awake()
         {
             rb = GetComponent<Rigidbody>();
+            startDrag = rb.drag;
         }
         public override void OnSpawn()
         {
@@ -49,9 +51,11 @@ namespace GellosGames
             EventHandler.StartListening(PlayerActions.OnShoot, OnShoot);
             EventHandler.StartListening(PlayerActions.OnAimModeChange, OnAimModeChange);
 
+
             plyGroundWheels = GetComponentInChildren<GroundWheels>();
             plyGroundWheels.IsGroundedEvent += PlyGroundWheels_IsGroundedEvent;
         }
+
         void FixedUpdate()
         {
             var moveInput = moveAction.ReadValue<Vector2>();
@@ -67,17 +71,26 @@ namespace GellosGames
             if (!isGrounded)
             {
                 VehicleState = VehicleState.InAir;
+                rb.drag = 0f;
+                return;
             }
             else if (moveAction.inProgress)
                 VehicleState = VehicleState.IsDriving;
             else
                 VehicleState = VehicleState.Idle;
+
+            rb.drag = startDrag;
+            enabled = true;
         }
 
         void EnableVehicle()
         {
             moveAction.performed += MoveAction_performed;
-            moveAction.canceled += MoveAction_canceled; ;
+            moveAction.canceled += MoveAction_canceled;
+
+            if (VehicleState == VehicleState.InAir)
+                return;
+
             enabled = true;
 
             if (moveAction.inProgress)

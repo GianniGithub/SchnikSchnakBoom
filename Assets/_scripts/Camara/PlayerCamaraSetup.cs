@@ -12,6 +12,7 @@ namespace GellosGames
         public CinemachineVirtualCamera[] PlayerCamps;
         public CinemachineVirtualCamera[] PlayerAimCamps;
 
+
         PlayerCameraFinder[] PlayerPointer;
         void Start()
         {
@@ -53,10 +54,12 @@ namespace GellosGames
                 case AimMode.ControllerStickDirection:
                     PlayerAimCamps[playerID].Follow = PlayerPointer[playerID].transform;
                     PlayerAimCamps[playerID].gameObject.SetActive(true);
+                    PlayerAimCamps[playerID].m_Lens.OrthographicSize = 10f;
                     break;
                 case AimMode.ControllerStickControlled:
                     PlayerAimCamps[playerID].Follow = weapon.AimCross;
                     PlayerAimCamps[playerID].gameObject.SetActive(true);
+                    PlayerAimCamps[playerID].m_Lens.OrthographicSize = 17f;
                     break;
             }
             
