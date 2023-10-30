@@ -1,12 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="" />
+    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Models/Materials/Material.001.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Models/Materials/Material.001.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Models/Materials/No Name.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Models/Materials/No Name.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/ArtilleriPath.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ArtilleriPath.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/ArtilleryAimCrossMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ArtilleryAimCrossMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Explosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Explosion.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Gianni.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Gianni.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/LineRenderer.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/LineRenderer.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Player1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Player1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Player2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Player2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Player3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Player3.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Player4.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Player4.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/ProbuilderDefault.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ProbuilderDefault.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Rock.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Rock.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Rocket.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Rocket.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Terrian.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Terrian.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/EventSystem/App/Managers/DataManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/EventSystem/App/Managers/DataManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.connect.share/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.connect.share/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/boot.config" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
   <component name="ProjectId" id="2DPCBFpHHx4xF4kAfSI1ltLWm9i" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -14,16 +61,46 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Discover.Launch.Via.Unity": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "rider.run.widget.enabled.cache": "false"
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/hans/Library/Application Support/JetBrains/Rider2023.2/resharper-host/DecompilerCache",
+      "/Users/hans/Library/Application Support/JetBrains/Rider2023.2/resharper-host/SourcesCache",
+      "/Users/hans/.local/share/Symbols/src"
+    ]
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.12f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.12f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.6f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.12f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\Hans\Documents\Unity\Lost Crypt 2D Sample Project\SchnikSchnakBoom&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Hans\Documents\Unity\Lost Crypt 2D Sample Project\SchnikSchnakBoom" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -61,10 +138,28 @@
       <updated>1660591198212</updated>
       <workItem from="1660591205119" duration="5000" />
       <workItem from="1660591229767" duration="639000" />
+      <workItem from="1698695559796" duration="811000" />
+      <workItem from="1698696457859" duration="1410000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

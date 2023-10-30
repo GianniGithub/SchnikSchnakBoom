@@ -31,7 +31,7 @@
 #if UNITY_EDITOR
             IsDebugMode = true;
 #endif
-            AddService<IDataManager>(new DataManager());
+            //AddService<IDataManager>(new DataManager());
             AddService<ISoundManager>(new SoundManager());
             AddService<IInputManager>(new InputManager());
             AddService<ILoadObjectsManager>(new LoadObjectsManager());
