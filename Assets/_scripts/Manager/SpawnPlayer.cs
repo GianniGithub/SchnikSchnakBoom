@@ -29,7 +29,7 @@ namespace GellosGames
         {
             var deathArgs = (DeathZoneArgs)e.EventInfos;
             var devPlay = GampadIDsInUse[deathArgs.Pe.ControlEvents.devices.Value[0]];
-            devPlay.Aktive = false;
+            devPlay.PlayerHasControl = false;
         }
 
         private void SpownOnClick(object obj, InputActionChange change)
@@ -47,13 +47,14 @@ namespace GellosGames
                     PlayerNr = GampadIDsInUse.Count;
                     GampadIDsInUse.Add(inputAction.activeControl.device, new PlayerDeviceConnection(PlayerNr, inputAction.activeControl.device));
                 }
-                else if (devPlay.Aktive)
+                else if (devPlay.PlayerHasControl)
                 {
                     return;
                 }
                 else
                 {
                     PlayerNr = devPlay.PlayerNr;
+                    devPlay.PlayerHasControl = true;
                 }
                 var playerObj = Instantiate(PlayerPrefap, Spownpoints[PlayerNr], Quaternion.identity, Parent);
                 var pe = PlayerEvents.AddPlayer((PlayerID)PlayerNr, playerObj, inputAction.activeControl.device);
@@ -91,12 +92,12 @@ namespace GellosGames
             {
                 PlayerNr = playerID;
                 Device = device;
-                Aktive = true;
+                PlayerHasControl = true;
             }
             public InputDevice Device { get; }
             public PlayerID PlayerID => (PlayerID)PlayerNr;
             public int PlayerNr { get; }
-            public bool Aktive;
+            public bool PlayerHasControl;
         }
     }
 

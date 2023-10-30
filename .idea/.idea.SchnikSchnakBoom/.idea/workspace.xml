@@ -5,38 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Models/Materials/Material.001.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Models/Materials/Material.001.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Models/Materials/No Name.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Models/Materials/No Name.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/ArtilleriPath.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ArtilleriPath.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/ArtilleryAimCrossMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ArtilleryAimCrossMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Explosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Explosion.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Gianni.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Gianni.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/LineRenderer.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/LineRenderer.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Player1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Player1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Player2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Player2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Player3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Player3.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Player4.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Player4.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/ProbuilderDefault.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ProbuilderDefault.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Rock.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Rock.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Rocket.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Rocket.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Terrian.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Terrian.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/EventSystem/App/Managers/DataManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/EventSystem/App/Managers/DataManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.connect.share/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.connect.share/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/boot.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,40 +18,42 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2DPCBFpHHx4xF4kAfSI1ltLWm9i" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/hans/Library/Application Support/JetBrains/Rider2023.2/resharper-host/DecompilerCache",
-      "/Users/hans/Library/Application Support/JetBrains/Rider2023.2/resharper-host/SourcesCache",
-      "/Users/hans/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/hans/Library/Application Support/JetBrains/Rider2023.2/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/hans/Library/Application Support/JetBrains/Rider2023.2/resharper-host/SourcesCache&quot;,
+      &quot;/Users/hans/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.12f1/Unity.app/Contents/MacOS/Unity" />
@@ -117,10 +89,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="27178">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="27178" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -139,8 +111,18 @@
       <workItem from="1660591205119" duration="5000" />
       <workItem from="1660591229767" duration="639000" />
       <workItem from="1698695559796" duration="811000" />
-      <workItem from="1698696457859" duration="1410000" />
+      <workItem from="1698696457859" duration="3147000" />
+      <workItem from="1698699622817" duration="2998000" />
     </task>
+    <task id="LOCAL-00001" summary="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs">
+      <option name="closed" value="true" />
+      <created>1698698206808</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698698206808</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,5 +144,39 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs</url>
+          <line>49</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs" initialLine="49" containingFunctionPresentation="Method 'SpownOnClick'">
+            <startOffsets>
+              <option value="1750" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1781" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs</url>
+          <line>51</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs" initialLine="51" containingFunctionPresentation="Method 'SpownOnClick'">
+            <startOffsets>
+              <option value="1820" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1827" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
