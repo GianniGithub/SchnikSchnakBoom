@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="">
+    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="Fix Gampad spown problem after Player died and joint again">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +18,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Manager/SpawnPlayer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_scripts/Test/TestRocketNormal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
@@ -112,7 +114,7 @@
       <workItem from="1660591229767" duration="639000" />
       <workItem from="1698695559796" duration="811000" />
       <workItem from="1698696457859" duration="3147000" />
-      <workItem from="1698699622817" duration="2998000" />
+      <workItem from="1698699622817" duration="28666000" />
     </task>
     <task id="LOCAL-00001" summary="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs">
       <option name="closed" value="true" />
@@ -122,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698698206808</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fix Gampad spown problem after Player died and joint again">
+      <option name="closed" value="true" />
+      <created>1698702798759</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1698702798759</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,38 +155,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs" />
-    <option name="LAST_COMMIT_MESSAGE" value="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs</url>
-          <line>49</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs" initialLine="49" containingFunctionPresentation="Method 'SpownOnClick'">
-            <startOffsets>
-              <option value="1750" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1781" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs</url>
-          <line>51</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs" initialLine="51" containingFunctionPresentation="Method 'SpownOnClick'">
-            <startOffsets>
-              <option value="1820" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1827" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Fix Gampad spown problem after Player died and joint again" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Gampad spown problem after Player died and joint again" />
   </component>
 </project>

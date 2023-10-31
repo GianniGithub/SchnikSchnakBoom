@@ -13,21 +13,41 @@ namespace GellosGames
         [SerializeField]
         float LiveTime = 3f;
         public Transform aimCrossGoal;
-        Vector3[] wayPoints;
+        public Vector3[] wayPoints;
 
         int reachedPoints = 1;
         private ConstantForce cf;
         Vector3 nextPoint;
-
+        
+        //Debug
+        public float Scalar;
         void Update()
         {
-
             Vector3 direction = (nextPoint - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 0.065f);
 
-            var dotProdukt = Vector3.Dot(transform.position - wayPoints[reachedPoints - 1], wayPoints[reachedPoints - 2] - (wayPoints[reachedPoints - 1])); //negativ if passed
+            var dotProdukt = Vector3.Dot(transform.position - wayPoints[reachedPoints - 1], wayPoints[reachedPoints - 2] - wayPoints[reachedPoints - 1]); //negativ if passed
+        //Debug 
+        // wayPoints[reachedPoints - 1] is a head the rocked
+        // wayPoints[reachedPoints - 2] is behind the rocked
+        // wayPoints[reachedPoints] is a head the next but one
+            var directionNextPoint = wayPoints[reachedPoints - 1] - wayPoints[reachedPoints - 2]; // AB und F
+            var directionPlayer = transform.position - wayPoints[reachedPoints - 2]; // CA
+            //Scalar = Vector3.Dot(directionNextPoint, directionPlayer);
 
+            // This is a formular to get the shortest way (orthogonal) to the wayPoints Line/trail. null point of scalar 
+            var a = Vector3.Dot(directionPlayer, directionNextPoint);
+            var b = Vector3.Dot(directionNextPoint, directionNextPoint);
+            // result is f(x) between Waypoints
+            var result = (a / b);
+            var t = directionNextPoint * result + wayPoints[reachedPoints - 2];
+            
+            Debug.DrawLine(transform.position, t, Color.black );
+            for (int i = 1; i < wayPoints.Length; i++)
+            {
+                Debug.DrawLine(wayPoints[i-1], wayPoints[i], Color.magenta); 
+            }
             //if pass cross product
             if(dotProdukt < 0)
             {
