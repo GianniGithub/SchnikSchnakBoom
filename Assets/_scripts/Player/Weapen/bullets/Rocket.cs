@@ -11,29 +11,32 @@ namespace GellosGames
     public class Rocket : Projectile
     {
         [SerializeField]
-        float LiveTime = 3f;
+
         public Transform aimCrossGoal;
         public Vector3[] wayPoints;
-
+        
+        public float RotationAngel = 0.065f;
+        public Vector2 RangeToAddAimDistance;
+        public float maxDistanceToCorrect;
+        public float CorrectionSensibility;
+        public float distance;
+        public float winkelToLine;
+        
+        float LiveTime = 3f;
         int reachedPoints = 1;
         private ConstantForce cf;
         Vector3 nextPoint;
-        
-        //Debug
-        public float Scalar;
+        private bool passedLastWaypoint;
+        public float extraDistance;
         void Update()
         {
-            Vector3 direction = (nextPoint - transform.position).normalized;
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 0.065f);
-
-            var dotProdukt = Vector3.Dot(transform.position - wayPoints[reachedPoints - 1], wayPoints[reachedPoints - 2] - wayPoints[reachedPoints - 1]); //negativ if passed
+            Vector3 rocketPosition = transform.position;
         //Debug 
-        // wayPoints[reachedPoints - 1] is a head the rocked
+        // wayPoints[reachedPoints - 1] and nextPoint is in front the rocked
         // wayPoints[reachedPoints - 2] is behind the rocked
-        // wayPoints[reachedPoints] is a head the next but one
-            var directionNextPoint = wayPoints[reachedPoints - 1] - wayPoints[reachedPoints - 2]; // AB und F
-            var directionPlayer = transform.position - wayPoints[reachedPoints - 2]; // CA
+        // wayPoints[reachedPoints] is in front the next but one
+            var directionNextPoint = nextPoint - wayPoints[reachedPoints - 2]; // AB und F
+            var directionPlayer = rocketPosition - wayPoints[reachedPoints - 2]; // CA
             //Scalar = Vector3.Dot(directionNextPoint, directionPlayer);
 
             // This is a formular to get the shortest way (orthogonal) to the wayPoints Line/trail. null point of scalar 
@@ -41,27 +44,59 @@ namespace GellosGames
             var b = Vector3.Dot(directionNextPoint, directionNextPoint);
             // result is f(x) between Waypoints
             var result = (a / b);
-            var t = directionNextPoint * result + wayPoints[reachedPoints - 2];
             
-            Debug.DrawLine(transform.position, t, Color.black );
+            extraDistance = Mathf.Lerp(RangeToAddAimDistance.y, RangeToAddAimDistance.x, distance / maxDistanceToCorrect);
+            var NextpointOnLine = (directionNextPoint * result + wayPoints[reachedPoints - 2]);
+            var correctedPointOnRoute = NextpointOnLine + directionNextPoint.normalized * extraDistance;
+            distance = Vector3.Distance(NextpointOnLine, rocketPosition);
+            
+            var directionPointLineToPlayer = (NextpointOnLine - rocketPosition).normalized;
+            winkelToLine = Vector3.Dot(transform.forward, directionPointLineToPlayer);
+            extraDistance = Mathf.LerpUnclamped(RangeToAddAimDistance.x, RangeToAddAimDistance.y, winkelToLine);
+            correctedPointOnRoute = NextpointOnLine + (directionNextPoint.normalized * 0.5f) + directionPointLineToPlayer * -extraDistance;
+            
+            Debug.DrawLine(rocketPosition, NextpointOnLine, Color.black );
             for (int i = 1; i < wayPoints.Length; i++)
             {
                 Debug.DrawLine(wayPoints[i-1], wayPoints[i], Color.magenta); 
             }
+            
             //if pass cross product
-            if(dotProdukt < 0)
+            var dotProduct = Vector3.Dot(rocketPosition - nextPoint, wayPoints[reachedPoints - 2] - nextPoint); //negativ if passed
+            if(dotProduct < 0)
             {
                 if (reachedPoints >= wayPoints.Length)
                 {
-                    //if close enough
-                    if (Vector2.Distance(transform.position.ToVector2XZ(), nextPoint.ToVector2XZ()) < 0.45f)
-                        TriggerExplosion();
+                    passedLastWaypoint = true;
                 }
                 else
                 {
                     nextPoint = wayPoints[reachedPoints++];
                 }
             }
+
+            if (passedLastWaypoint)
+            {
+                //if close enough
+                if (Vector2.Distance(rocketPosition.ToVector2XZ(), nextPoint.ToVector2XZ()) < 0.45f)
+                    TriggerExplosion();     
+                    
+                // If pass set Destroy timer to 2 sec to avoid circle loop
+                this.InvokeWait(1.3f, () => { TriggerExplosion(); });
+                    
+                // aim now only to last waypoint
+                NextpointOnLine = nextPoint;
+            }
+            
+            // Rotation
+            Vector3 direction =
+                //(nextPoint - rocketPosition);
+                (correctedPointOnRoute - rocketPosition);
+            Quaternion lookRotation =
+                //lookRotation = Quaternion.LookRotation(direction);
+                Quaternion.LookRotation(direction);
+            Debug.DrawRay(rocketPosition,direction, Color.yellow);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, RotationAngel);
         }
     
 

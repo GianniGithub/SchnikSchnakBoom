@@ -34,7 +34,6 @@ namespace GellosGames
             PlayerAimCamps[playerID].gameObject.layer = layer;
             PlayerPointer[playerID] = player.PlayerObj.GetComponentInChildren<PlayerCameraFinder>();
             PlayerCamp.Follow = PlayerPointer[playerID].transform; //player.PlayerObj.transform;
-
             player.Pe.StartListening(PlayerActions.OnAimModeChange, OnAimModeChange);
 
             SetUpSplittScreen(playerID);
