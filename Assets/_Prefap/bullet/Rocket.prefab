@@ -316,12 +316,17 @@ MonoBehaviour:
   speed: 43.79
   aimCrossGoal: {fileID: 0}
   wayPoints: []
-  RotationAngel: 0.065
-  RangeToAddAimDistance: {x: 0.2, y: 3.71}
+  RotationAngel: 0.1
+  RangeToAddAimDistance: {x: 0.38, y: 1.94}
   maxDistanceToCorrect: 0.5
   CorrectionSensibility: 0
   distance: 0
-  extraDistance: 0
+  winkelToLine: 0
+  CorrectedAngel: 0
+  proportionalGain: 0.3
+  derivativeGain: 0.06
+  integralGain: 0.09
+  PID: 0
 --- !u!54 &615446530976949118
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -22,20 +22,34 @@ namespace GellosGames
         public float distance;
         public float winkelToLine;
         
-        float LiveTime = 3f;
+        float LiveTime = 5f;
         int reachedPoints = 1;
         private ConstantForce cf;
         Vector3 nextPoint;
         private bool passedLastWaypoint;
-        public float extraDistance;
+        public float CorrectedAngel;
+        [SerializeField]
+        private float proportionalGain;
+        [SerializeField]
+        private float derivativeGain;
+        private float errorLast;
+        private float integrationStored;
+        [SerializeField]
+        private float integralGain;
+        [SerializeField]
+        private float PID;
+
         void Update()
         {
             Vector3 rocketPosition = transform.position;
-        //Debug 
-        // wayPoints[reachedPoints - 1] and nextPoint is in front the rocked
-        // wayPoints[reachedPoints - 2] is behind the rocked
-        // wayPoints[reachedPoints] is in front the next but one
-            var directionNextPoint = nextPoint - wayPoints[reachedPoints - 2]; // AB und F
+            //if pass cross product
+            var crossCheckAngle = Vector3.Dot((rocketPosition - nextPoint).normalized, (wayPoints[reachedPoints - 2] - nextPoint).normalized); //negativ if passed
+
+                        // wayPoints[reachedPoints - 1] and nextPoint is in front the rocked
+                        // wayPoints[reachedPoints - 2] is behind the rocked
+                        // wayPoints[reachedPoints] is in front the next but one
+                        
+            var directionNextPoint = (nextPoint - wayPoints[reachedPoints - 2]).normalized; // AB und F
             var directionPlayer = rocketPosition - wayPoints[reachedPoints - 2]; // CA
             //Scalar = Vector3.Dot(directionNextPoint, directionPlayer);
 
@@ -44,26 +58,42 @@ namespace GellosGames
             var b = Vector3.Dot(directionNextPoint, directionNextPoint);
             // result is f(x) between Waypoints
             var result = (a / b);
-            
-            extraDistance = Mathf.Lerp(RangeToAddAimDistance.y, RangeToAddAimDistance.x, distance / maxDistanceToCorrect);
+
             var NextpointOnLine = (directionNextPoint * result + wayPoints[reachedPoints - 2]);
-            var correctedPointOnRoute = NextpointOnLine + directionNextPoint.normalized * extraDistance;
+            var NextOrthogonalWayPoint = NextpointOnLine + (directionNextPoint.normalized * 0.3f);
+            var directionPointLineToRocket = (NextOrthogonalWayPoint - rocketPosition).normalized;
+            var directionLineFromRocket = NextpointOnLine - rocketPosition;
+            winkelToLine = Vector3.Dot(directionNextPoint, directionPointLineToRocket);
+            //PID Controller
+            float error = 1 - winkelToLine;
+            //P
+            float P = proportionalGain * error;
+            //D
+            float errorRateOfChange = (error - errorLast) / Time.deltaTime;
+            errorLast = error;
+            float D = derivativeGain * errorRateOfChange;
+            //I
+            integrationStored += (error * Time.deltaTime);
+            float I = integralGain * integrationStored;
+            PID = P + I + D;
+            
+            Quaternion lookRotation = Quaternion.LerpUnclamped(Quaternion.LookRotation(directionNextPoint),Quaternion.LookRotation(directionLineFromRocket), Mathf.Clamp(PID,0.1f,1f));
+
+            
+            
+            
+            
             distance = Vector3.Distance(NextpointOnLine, rocketPosition);
             
-            var directionPointLineToPlayer = (NextpointOnLine - rocketPosition).normalized;
-            winkelToLine = Vector3.Dot(transform.forward, directionPointLineToPlayer);
-            extraDistance = Mathf.LerpUnclamped(RangeToAddAimDistance.x, RangeToAddAimDistance.y, winkelToLine);
-            correctedPointOnRoute = NextpointOnLine + (directionNextPoint.normalized * 0.5f) + directionPointLineToPlayer * -extraDistance;
             
+            Debug.DrawLine(rocketPosition,NextOrthogonalWayPoint, Color.yellow);
             Debug.DrawLine(rocketPosition, NextpointOnLine, Color.black );
             for (int i = 1; i < wayPoints.Length; i++)
             {
                 Debug.DrawLine(wayPoints[i-1], wayPoints[i], Color.magenta); 
             }
             
-            //if pass cross product
-            var dotProduct = Vector3.Dot(rocketPosition - nextPoint, wayPoints[reachedPoints - 2] - nextPoint); //negativ if passed
-            if(dotProduct < 0)
+            if(crossCheckAngle < 0)
             {
                 if (reachedPoints >= wayPoints.Length)
                 {
@@ -89,13 +119,12 @@ namespace GellosGames
             }
             
             // Rotation
-            Vector3 direction =
+            //Vector3 direction =
                 //(nextPoint - rocketPosition);
-                (correctedPointOnRoute - rocketPosition);
-            Quaternion lookRotation =
+                //(correctedPointOnRoute - rocketPosition);
+            // lookRotation =
                 //lookRotation = Quaternion.LookRotation(direction);
-                Quaternion.LookRotation(direction);
-            Debug.DrawRay(rocketPosition,direction, Color.yellow);
+                //Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, RotationAngel);
         }
     
