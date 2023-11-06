@@ -4402,7 +4402,7 @@ PrefabInstance:
     - target: {fileID: 9186154388607958013, guid: 04e1a335acce04a4fb0f52e8f1f283b8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.82
+      value: -18.98
       objectReference: {fileID: 0}
     - target: {fileID: 9186154388607958013, guid: 04e1a335acce04a4fb0f52e8f1f283b8,
         type: 3}
@@ -4412,7 +4412,7 @@ PrefabInstance:
     - target: {fileID: 9186154388607958013, guid: 04e1a335acce04a4fb0f52e8f1f283b8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -42.97
+      value: -44.2
       objectReference: {fileID: 0}
     - target: {fileID: 9186154388607958013, guid: 04e1a335acce04a4fb0f52e8f1f283b8,
         type: 3}
@@ -8372,7 +8372,7 @@ MonoBehaviour:
   - {fileID: 244424415}
   - {fileID: 206674463}
   ShootNr: 5
-  TimeScale: 0.4
+  TimeScale: 1
 --- !u!23 &1555464180
 MeshRenderer:
   m_ObjectHideFlags: 0
