@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="Clean Code, refactor, rocket aim right by pass last waypoint">
+    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="saved sceen">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/bullet/Rocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefap/bullet/Rocket.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +124,7 @@
       <workItem from="1698695559796" duration="811000" />
       <workItem from="1698696457859" duration="3147000" />
       <workItem from="1698699622817" duration="28816000" />
-      <workItem from="1698863458085" duration="44987000" />
+      <workItem from="1698863458085" duration="46397000" />
     </task>
     <task id="LOCAL-00001" summary="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs">
       <option name="closed" value="true" />
@@ -173,7 +174,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699307385926</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add Art, played with uv mapping probuilder. &#10;Light coocie as aim cross test.&#10;rocket props adjusted">
+      <option name="closed" value="true" />
+      <created>1699318556047</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699318556047</updated>
+    </task>
+    <task id="LOCAL-00008" summary="saved sceen">
+      <option name="closed" value="true" />
+      <created>1699318591174</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699318591174</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +218,8 @@
     <MESSAGE value="middle in something" />
     <MESSAGE value="Added Rocket test system.&#10;Integrated PID Controller.&#10;Rockets fly much better now.&#10;&#10;Target point logic is missing and code cleaning" />
     <MESSAGE value="Clean Code, refactor, rocket aim right by pass last waypoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean Code, refactor, rocket aim right by pass last waypoint" />
+    <MESSAGE value="Add Art, played with uv mapping probuilder. &#10;Light coocie as aim cross test.&#10;rocket props adjusted" />
+    <MESSAGE value="saved sceen" />
+    <option name="LAST_COMMIT_MESSAGE" value="saved sceen" />
   </component>
 </project>

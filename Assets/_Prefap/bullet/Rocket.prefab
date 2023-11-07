@@ -318,9 +318,9 @@ MonoBehaviour:
   wayPoints: []
   RotationAngel: 0.2
   winkelToLine: 0
-  proportionalGain: 0.43
-  derivativeGain: 0.06
-  integralGain: 0.09
+  proportionalGain: 0.15
+  derivativeGain: 0.1
+  integralGain: 0.1
   PID: 0
 --- !u!54 &615446530976949118
 Rigidbody:

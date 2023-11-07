@@ -104,7 +104,7 @@ namespace GellosGames
             float I = integralGain * integrationStored;
             PID = P + I + D;
             
-            lookRotation = Quaternion.Lerp(Quaternion.LookRotation(directionNextPoint),Quaternion.LookRotation(directionLineFromRocket), Mathf.Clamp(PID,0.1f,1f));
+            lookRotation = Quaternion.LerpUnclamped(Quaternion.LookRotation(directionNextPoint),Quaternion.LookRotation(directionLineFromRocket), Mathf.Clamp(PID,0.1f,1.4f));
             rotateWithDrag();
             
             // Debug
