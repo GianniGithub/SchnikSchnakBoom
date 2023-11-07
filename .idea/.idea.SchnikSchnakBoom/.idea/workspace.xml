@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="Added Rocket test system.&#10;Integrated PID Controller.&#10;Rockets fly much better now.&#10;&#10;Target point logic is missing and code cleaning">
+    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="Clean Code, refactor, rocket aim right by pass last waypoint">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/bullet/Rocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefap/bullet/Rocket.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +20,7 @@
     <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_Prefap/bullet/Rocket.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Camara/PlayerCamaraSetup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/Test/ShootTestBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/Test/TestRocketNormal.cs" root0="FORCE_HIGHLIGHTING" />
@@ -124,7 +123,7 @@
       <workItem from="1698695559796" duration="811000" />
       <workItem from="1698696457859" duration="3147000" />
       <workItem from="1698699622817" duration="28816000" />
-      <workItem from="1698863458085" duration="43744000" />
+      <workItem from="1698863458085" duration="44987000" />
     </task>
     <task id="LOCAL-00001" summary="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs">
       <option name="closed" value="true" />
@@ -166,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698971348409</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Clean Code, refactor, rocket aim right by pass last waypoint">
+      <option name="closed" value="true" />
+      <created>1699307385926</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699307385926</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +200,7 @@
     <MESSAGE value="improve Rocket path trail. started with finding next point on the trail to improve turn behaviour.&#10;&#10;Add Test scene and script" />
     <MESSAGE value="middle in something" />
     <MESSAGE value="Added Rocket test system.&#10;Integrated PID Controller.&#10;Rockets fly much better now.&#10;&#10;Target point logic is missing and code cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Rocket test system.&#10;Integrated PID Controller.&#10;Rockets fly much better now.&#10;&#10;Target point logic is missing and code cleaning" />
+    <MESSAGE value="Clean Code, refactor, rocket aim right by pass last waypoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean Code, refactor, rocket aim right by pass last waypoint" />
   </component>
 </project>
