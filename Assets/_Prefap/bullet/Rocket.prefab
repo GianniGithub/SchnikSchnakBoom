@@ -316,9 +316,9 @@ MonoBehaviour:
   speed: 43.79
   aimCrossGoal: {fileID: 0}
   wayPoints: []
-  RotationAngel: 0.09
+  RotationAngel: 0.2
   winkelToLine: 0
-  proportionalGain: 0.3
+  proportionalGain: 0.43
   derivativeGain: 0.06
   integralGain: 0.09
   PID: 0
