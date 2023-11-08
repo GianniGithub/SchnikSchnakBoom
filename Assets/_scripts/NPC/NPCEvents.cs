@@ -6,14 +6,14 @@ using UnityEngine.Events;
 
 namespace GellosGames
 {
-    public enum NPCActions
+    public enum NPCEventTrigger
     {
         None = 0,
         WeapenSwitch = 201,
 
         OnSpawn = 301,
 
-        OnKilled = 402,
+        OnNPCKilled = 402,
 
         OnHit = 501,
         OnDamage = 502,
@@ -23,27 +23,27 @@ namespace GellosGames
         IsAiming = 701,
 
     }
-    public class NPCEvents : SpownObjects<NPCActions, NPCEventArgs>
+    public class NPCEvents : SpownObjects<NPCEventTrigger, NPCEventArgs>
     {
-        public NPCtype TypeOfNPC { get; }
+        public NPCType TypeOfNPC { get; }
         public static int NPCCount => NPCcollection.Count;
         static Dictionary<GameObject, NPCEvents> NPCcollection = new Dictionary<GameObject, NPCEvents>();
 
-        private NPCEvents(NPCtype type, GameObject gameObject)
+        private NPCEvents(NPCType type, GameObject gameObject)
         {
             this.TypeOfNPC = type;
             NPCcollection.Add(gameObject, this);
         }
-        public static NPCEvents AddNPC(NPCtype id, GameObject gameObject)
+        public static NPCEvents AddNPC(NPCType id, GameObject gameObject)
         {
             var thisEventHandler = new NPCEvents(id, gameObject);
 
             foreach (var col in CollectChilds<NPCEvent>(gameObject))
             {
                 col.EventHandler = thisEventHandler;
-                col.OnSpawn();
+                col.OnNPCSpawn();
             }
-            thisEventHandler.StartListening(NPCActions.OnKilled, (s, e) => RemoveNPC(s.gameObject));
+            thisEventHandler.StartListening(NPCEventTrigger.OnNPCKilled, (s, e) => RemoveNPC(s.gameObject));
 
             return thisEventHandler;
         }
@@ -55,7 +55,7 @@ namespace GellosGames
 
         public override void TriggerEvent(MonoBehaviour sender, NPCEventArgs listener)
         {
-            if (EventDictionary.TryGetValue(listener.Action, out var thisEvent))
+            if (EventDictionary.TryGetValue(listener.EventTrigger, out var thisEvent))
             {
                 thisEvent.Invoke(sender, listener);
             }
@@ -64,25 +64,25 @@ namespace GellosGames
     public abstract class NPCEvent : SpownEvent
     {
         public NPCEvents EventHandler;
-        public virtual void OnSpawn() { }
+        public virtual void OnNPCSpawn() { }
 
     }
     public struct NPCEventArgs
     {
-        public readonly NPCActions Action { get; }
+        public readonly NPCEventTrigger EventTrigger { get; }
         public EventArgs EventInfos { get; }
         public WeaponType Current { get; set; }
         public bool IsAiming { get; }
 
-        public NPCEventArgs(NPCActions action)
+        public NPCEventArgs(NPCEventTrigger eventTrigger)
         {
-            this.Action = action;
+            this.EventTrigger = eventTrigger;
             Current = WeaponType.unknown;
             EventInfos = null;
             IsAiming = false;
         }
 
-        public NPCEventArgs(NPCActions action, EventArgs e) : this(action)
+        public NPCEventArgs(NPCEventTrigger eventTrigger, EventArgs e) : this(eventTrigger)
         {
             EventInfos = e;
         }

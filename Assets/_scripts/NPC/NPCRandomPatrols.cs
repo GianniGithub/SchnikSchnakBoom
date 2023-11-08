@@ -8,13 +8,8 @@ using UnityEngine.AI;
 
 namespace GellosGames
 {
-    public enum NPCtype
-    {
-        dummy,
-        simple
-    }
     [RequireComponent(typeof(NavMeshAgent))]
-    public class NPCBehaivour : NPCEvent
+    public class NPCRandomPatrols : NPCEvent
     {
         NavMeshAgent agent;
         private Vector3 destination;
@@ -23,9 +18,9 @@ namespace GellosGames
         {
             agent = GetComponent<NavMeshAgent>();
         }
-        public override void OnSpawn()
+        public override void OnNPCSpawn()
         {
-            EventHandler.StartListening(NPCActions.OnKilled, OnKilled);
+            EventHandler.StartListening(NPCEventTrigger.OnNPCKilled, OnKilled);
 
             destination = GetRandomNavPoint(10f, transform.position);
             agent.destination = destination;

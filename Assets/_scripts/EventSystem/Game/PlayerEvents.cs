@@ -24,6 +24,7 @@ namespace GellosGames
         WeapenSwitch = 201,
 
         OnSpawn = 301,
+        OnReSpawn = 302,
 
         OnKilled = 402,
 
@@ -107,7 +108,17 @@ namespace GellosGames
             int id = (int)playerDict[player];
             return allPlayerEvents[id];
         }
-
+        public static IEnumerable<PlayerEvents> GetAllPlayerEventsEnumerable()
+        {
+            for (int i = 0; i < allPlayerEvents.Length; i++)
+            {
+                if (allPlayerEvents[i] == null)
+                {
+                    continue;
+                }
+                yield return allPlayerEvents[i];
+            }
+        }
         public override void TriggerEvent(MonoBehaviour sender, PlayerEventArgs listener)
         {
             if (EventDictionary.TryGetValue(listener.Action, out var thisEvent))

@@ -4,10 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="saved sceen">
+    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="balancing rocket">
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/GetNextPlayer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/GetNextPlayer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/IdleAction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/IdleAction.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/ForceMovement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/ForceMovement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/HeadToPlayer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/HeadToPlayer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleMovement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleMovement.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/bullet/Rocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefap/bullet/Rocket.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Physic/Player.physicMaterial" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Physic/Player.physicMaterial.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/NPC/NPC Dummy.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/NPC/NPC Dummy.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/EventSystem/Game/PlayerEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/EventSystem/Game/PlayerEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCBehaivour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCRandomPatrols.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCBehaivour.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCRandomPatrols.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCSpowner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCSpowner.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +42,9 @@
     <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_Prefap/bullet/Rocket.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Camara/PlayerCamaraSetup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/Test/ShootTestBullet.cs" root0="FORCE_HIGHLIGHTING" />
@@ -124,7 +148,7 @@
       <workItem from="1698695559796" duration="811000" />
       <workItem from="1698696457859" duration="3147000" />
       <workItem from="1698699622817" duration="28816000" />
-      <workItem from="1698863458085" duration="46397000" />
+      <workItem from="1698863458085" duration="63459000" />
     </task>
     <task id="LOCAL-00001" summary="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs">
       <option name="closed" value="true" />
@@ -190,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699318591174</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="balancing rocket">
+      <option name="closed" value="true" />
+      <created>1699383736745</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699383736745</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +252,7 @@
     <MESSAGE value="Clean Code, refactor, rocket aim right by pass last waypoint" />
     <MESSAGE value="Add Art, played with uv mapping probuilder. &#10;Light coocie as aim cross test.&#10;rocket props adjusted" />
     <MESSAGE value="saved sceen" />
-    <option name="LAST_COMMIT_MESSAGE" value="saved sceen" />
+    <MESSAGE value="balancing rocket" />
+    <option name="LAST_COMMIT_MESSAGE" value="balancing rocket" />
   </component>
 </project>
