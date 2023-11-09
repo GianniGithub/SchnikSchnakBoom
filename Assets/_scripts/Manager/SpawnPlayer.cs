@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,7 +32,17 @@ namespace GellosGames
             var devPlay = GampadIDsInUse[deathArgs.Pe.ControlEvents.devices.Value[0]];
             devPlay.PlayerHasControl = false;
         }
+        [Button("SpownPlayer")]
+        void SpownOnTestButton()
+        {
+            int PlayerNr = GampadIDsInUse.Count;
+            var playerObj = Instantiate(PlayerPrefap, Spownpoints[PlayerNr], Quaternion.identity, Parent);
+            var pe = PlayerEvents.AddPlayer((PlayerID)PlayerNr, playerObj, null);
+            playerObj.gameObject.name = pe.Name;
 
+            var e = new SpawnPlayerArgs(GampadIDsInUse.Count, (PlayerID)PlayerNr, playerObj, pe);
+            GameEvents.Instance.TriggerEvent(this, new GameEventArgs(GameActions.OnPlayerAdded, e));
+        }
         private void SpownOnClick(object obj, InputActionChange change)
         {
             if (change == InputActionChange.ActionPerformed)

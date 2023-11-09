@@ -4,22 +4,22 @@ using UnityEngine;
 
 namespace GellosGames
 {
-    public class MeleeNPC : NPCMode
+    public class MeleeNPC : NPCMode, IRouted<ClosestPlayerDistances>
     {
-        private IdleMovement IdleMove;
+        private HeadToPlayer moveTo;
+        private GetNextPlayer<ClosestPlayerDistances> targetingAct;
         public override void OnNPCSpawn()
         {
+            ActionUpdateRate = 1f;
             CurrentActionMode = IdleAction.Universal;
             
             var forceMover = GetComponent<ConstantForce>();
-            CurrentMovementMode = IdleMove = new IdleMovement(forceMover, this);
-            
-            var player =  PlayerEvents.GetPlayerEventsHandler(PlayerID.P1);
-            player.StartListening(pla);
+            CurrentMovementMode = moveTo = new HeadToPlayer(forceMover, this);
+            CurrentActionMode = targetingAct = new GetNextPlayer<ClosestPlayerDistances>(this);
         }
-        public override void StateChanged<TAction>(TAction newState)
+        public void RoutUpdate(ClosestPlayerDistances rout)
         {
-            throw new System.NotImplementedException();
+            moveTo.Player = rout.Player;
         }
     }
 

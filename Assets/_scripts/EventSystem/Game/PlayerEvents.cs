@@ -108,7 +108,7 @@ namespace GellosGames
             int id = (int)playerDict[player];
             return allPlayerEvents[id];
         }
-        public static IEnumerable<PlayerEvents> GetAllPlayerEventsEnumerable()
+        public static IEnumerable<PlayerEvents> GetAllActivePlayerEvents()
         {
             for (int i = 0; i < allPlayerEvents.Length; i++)
             {

@@ -22,6 +22,8 @@ namespace GellosGames
     }
     public abstract class NPCMode : NPCEvent
     {
+        protected float ActionUpdateRate = 0f;
+        private float timeLeft;
         private NPCModeBehaviour m_CurrentActionMode ;
         private NPCModeBehaviour m_CurrentMovementMode ;
         protected NPCModeBehaviour CurrentActionMode
@@ -37,9 +39,14 @@ namespace GellosGames
         protected void Update()
         {
             CurrentMovementMode.Update();
-            CurrentActionMode.Update();
+
+            timeLeft += Time.deltaTime;
+            if (timeLeft > ActionUpdateRate)
+            {
+                timeLeft -= ActionUpdateRate;
+                CurrentActionMode.Update();
+            }
         }
-        public abstract void StateChanged<TAction>(TAction newState) where TAction : Enum;
     }
     public abstract class NPCModeBehaviour
     {

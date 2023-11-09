@@ -1,67 +1,76 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using UnityEngine;
+
 namespace GellosGames
 {
-    public class GetNextPlayer :  NPCModeBehaviour
+    public enum TargetingState
     {
-        private static List<(PlayerID,Transform)> players;
-        private List<PlayerDistances> distances;
-        private PlayerDistances nextPlayer;
-
+        newTarget,
+        same,
+    }
+    // Get Route to Target, update Route behaviour depending on Target and inform IRouted<TLogic> Npc member
+    internal class GetNextPlayer<TLogic> :  NPCModeBehaviour where TLogic : IGetPlayerDistances, new()
+    {
+        private readonly List<TLogic> playerDistances;
+        private TLogic ClosestPlayer;
         public GetNextPlayer(NPCMode Mother) : base(Mother)
         {
-            distances = new List<PlayerDistances>();
-            if (GetNextPlayer.players == null)
-            {
-                players = new List<(PlayerID,Transform)>();
-                foreach (var player in PlayerEvents.GetAllPlayerEventsEnumerable())
-                {
-                    player.StartListening(PlayerActions.OnKilled, PlayerKilled);
-                    player.StartListening(PlayerActions.OnReSpawn, PlayerReSpawned);
-                    players.Add((player.id,player.PlayerObject.transform));
-                }
-            }
-        }
-        static void PlayerReSpawned(MonoBehaviour arg0, PlayerEventArgs arg1)
-        {
-            var handle = PlayerEvents.GetPlayerEventsHandler(arg1.From);
-            players.Add((arg1.From, handle.PlayerObject.transform));
-        }
-        static void PlayerKilled(MonoBehaviour arg0, PlayerEventArgs arg1)
-        {
-            for (int i = players.Count - 1; i >= 0; i--)
-            {
-                if (players[i].Item1 == arg1.From)
-                {
-                    players.RemoveAt(i);
-                }
-            }
+            playerDistances = new List<TLogic>();
+            GetPlayerDistances();
+            ClosestPlayer = playerDistances[0];
+            ((IRouted<TLogic>)Npc).RoutUpdate(ClosestPlayer);
         }
         public override void Update()
         {
-            distances.Clear();
-            foreach ((PlayerID, Transform) player in players)
+            GetPlayerDistances();
+            if (ClosestPlayer.IsCloserTo(playerDistances[0]))
             {
-                PlayerDistances dis;
-                dis.NextPlayer = player.Item2;
-                dis.Distance = Vector3.Distance(player.Item2.position, Npc.transform.position);
-                distances.Add(dis);
-            }
-            distances.Sort();
-            nextPlayer = distances[0];
-
-            if (this.nextPlayer.NextPlayer != nextPlayer.NextPlayer)
-            {
-                Npc.StateChanged((PlayerID)3);
+                ClosestPlayer = playerDistances[0];
+                //New Target
+                ((IRouted<TLogic>)Npc).RoutUpdate(ClosestPlayer);
             }
         }
+        private void GetPlayerDistances()
+        {
+            playerDistances.Clear();
+            foreach (var player in PlayerEvents.GetAllActivePlayerEvents())
+            {
+                var dis = new TLogic();
+                dis.GetDistanceObj(player.PlayerObject.transform, Npc.transform);
+                playerDistances.Add(dis);
+            }
+            playerDistances.Sort();
+        }
     }
-    public struct PlayerDistances
+
+    public struct ClosestPlayerDistances : IGetPlayerDistances, IComparer<ClosestPlayerDistances>
     {
-        public float Distance;
-        public Transform NextPlayer;
+        public float DistanceToNextPlayer;
+        public Transform Player;
+        public void GetDistanceObj(Transform player, Transform npc)
+        {
+            Player = player;
+            DistanceToNextPlayer = Vector3.Distance(Player.position, npc.position);
+        }
+        public bool IsCloserTo(IGetPlayerDistances newUpdate)
+        {
+            return ((ClosestPlayerDistances)newUpdate).DistanceToNextPlayer < DistanceToNextPlayer;
+        }
+        public int Compare(ClosestPlayerDistances x, ClosestPlayerDistances y)
+        {
+            return x.DistanceToNextPlayer.CompareTo(y.DistanceToNextPlayer);
+        }
     }
-    public interface 
+    public interface IGetPlayerDistances
+    {
+        public void GetDistanceObj(Transform player, Transform npc);
+        public bool IsCloserTo(IGetPlayerDistances newUpdate);
+    }
+    interface IRouted<T> where T : IGetPlayerDistances
+    {
+        public void RoutUpdate(T rout);
+    }
 }
