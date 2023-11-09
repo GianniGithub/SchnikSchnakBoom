@@ -50,11 +50,15 @@ namespace GellosGames
     }
     public abstract class NPCModeBehaviour
     {
+        [NonSerialized]
         public NPCMode Npc;
         public abstract void Update();
         protected NPCModeBehaviour(NPCMode Mother)
         {
             Npc = Mother;
+        }
+        protected NPCModeBehaviour()
+        {
         }
     }
 }

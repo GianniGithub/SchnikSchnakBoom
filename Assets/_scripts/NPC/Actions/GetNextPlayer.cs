@@ -12,9 +12,9 @@ namespace GellosGames
         same,
     }
     // Get Route to Target, update Route behaviour depending on Target and inform IRouted<TLogic> Npc member
-    internal class GetNextPlayer<TLogic> :  NPCModeBehaviour where TLogic : IGetPlayerDistances, new()
+    internal class GetNextPlayer<TLogic> :  NPCModeBehaviour where TLogic : struct, IGetPlayerDistances
     {
-        private readonly List<TLogic> playerDistances;
+        public readonly List<TLogic> playerDistances;
         private TLogic ClosestPlayer;
         public GetNextPlayer(NPCMode Mother) : base(Mother)
         {
@@ -46,30 +46,13 @@ namespace GellosGames
         }
     }
 
-    public struct ClosestPlayerDistances : IGetPlayerDistances, IComparer<ClosestPlayerDistances>
-    {
-        public float DistanceToNextPlayer;
-        public Transform Player;
-        public void GetDistanceObj(Transform player, Transform npc)
-        {
-            Player = player;
-            DistanceToNextPlayer = Vector3.Distance(Player.position, npc.position);
-        }
-        public bool IsCloserTo(IGetPlayerDistances newUpdate)
-        {
-            return ((ClosestPlayerDistances)newUpdate).DistanceToNextPlayer < DistanceToNextPlayer;
-        }
-        public int Compare(ClosestPlayerDistances x, ClosestPlayerDistances y)
-        {
-            return x.DistanceToNextPlayer.CompareTo(y.DistanceToNextPlayer);
-        }
-    }
+
     public interface IGetPlayerDistances
     {
         public void GetDistanceObj(Transform player, Transform npc);
         public bool IsCloserTo(IGetPlayerDistances newUpdate);
     }
-    interface IRouted<T> where T : IGetPlayerDistances
+    interface IRouted<T> where T : struct, IGetPlayerDistances
     {
         public void RoutUpdate(T rout);
     }

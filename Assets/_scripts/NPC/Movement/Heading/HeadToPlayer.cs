@@ -1,7 +1,7 @@
 using UnityEngine;
 namespace GellosGames
 {
-    public class HeadToPlayer: ForceMovement
+    public class HeadToPlayer : ForceMovement
     {
         public Transform Player;
         public HeadToPlayer(ConstantForce forceMover, NPCMode mother) : base(forceMover, mother)
