@@ -1,32 +1,10 @@
 using System;
-using System.Collections.Generic;
-using Gianni.Helper;
 using NaughtyAttributes;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 namespace GellosGames
 {
-    public struct PathRouting : IGetPlayerDistances, IComparer<ClosestPlayerDistances>
-    {
-        public float DistanceToNextPlayer;
-        public Transform Player;
-
-        public void GetDistanceObj(Transform player, Transform npc)
-        {
-            Player = player;
-            DistanceToNextPlayer = Vector3.Distance(Player.position, npc.position);
-        }
-        public bool IsCloserTo(IGetPlayerDistances newUpdate)
-        {
-            return ((ClosestPlayerDistances)newUpdate).DistanceToNextPlayer < DistanceToNextPlayer;
-        }
-        public int Compare(ClosestPlayerDistances x, ClosestPlayerDistances y)
-        {
-            return x.DistanceToNextPlayer.CompareTo(y.DistanceToNextPlayer);
-        }
-    }
-    [Serializable]
+[Serializable]
     public class HeadToPath : NPCModeBehaviour
     {
         [ReadOnly]

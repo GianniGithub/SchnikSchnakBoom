@@ -38,13 +38,13 @@ namespace GellosGames
         }
         protected void Update()
         {
-            CurrentMovementMode.Update();
+            m_CurrentMovementMode.Update();
 
             timeLeft += Time.deltaTime;
             if (timeLeft > ActionUpdateRate)
             {
                 timeLeft -= ActionUpdateRate;
-                CurrentActionMode.Update();
+                m_CurrentActionMode.Update();
             }
         }
     }

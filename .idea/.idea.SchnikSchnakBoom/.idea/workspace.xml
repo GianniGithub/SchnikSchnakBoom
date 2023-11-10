@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="Simple AI follow logic added">
-      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/PathRouting.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/PathRouting.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/bullet/Rocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefap/bullet/Rocket.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/GetNextPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/GetNextPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/ForceMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/ForceMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/HeadToPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/HeadToPlayer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPlayer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" afterDir="false" />
-    </list>
+    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="moveed path finding logic to separate class" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,7 +135,7 @@
       <workItem from="1698695559796" duration="811000" />
       <workItem from="1698696457859" duration="3147000" />
       <workItem from="1698699622817" duration="28816000" />
-      <workItem from="1698863458085" duration="88692000" />
+      <workItem from="1698863458085" duration="89226000" />
     </task>
     <task id="LOCAL-00001" summary="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs">
       <option name="closed" value="true" />
@@ -239,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699561239186</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="moveed path finding logic to separate class">
+      <option name="closed" value="true" />
+      <created>1699574076899</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699574076900</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +266,8 @@
     <MESSAGE value="balancing rocket" />
     <MESSAGE value="Working on AI implementation" />
     <MESSAGE value="Simple AI follow logic added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Simple AI follow logic added" />
+    <MESSAGE value="moveed path finding logic to separate class" />
+    <option name="LAST_COMMIT_MESSAGE" value="moveed path finding logic to separate class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
