@@ -12,24 +12,24 @@ namespace GellosGames
         same,
     }
     // Get Target (pick player behaviour), update Target behaviour depending on Target and inform ITarget<TLogic> Npc member
-    internal class TargetRanking<TLogic> : NPCModeBehaviour where TLogic : struct, TargetLogic<TLogic> 
+    internal class TargetRanking<TLogic> : Mode where TLogic : struct, TargetLogic<TLogic> 
     {
         public readonly List<TLogic> ranking;
         public TLogic Closest;
-        public TargetRanking(NPCMode Mother) : base(Mother)
+        public TargetRanking(MonoBehaviour Mother) : base(Mother)
         {
             ranking = new List<TLogic>();
             var dummy = new TLogic();
-            dummy.GetRanking(ranking, Npc.transform);
+            dummy.GetRanking(ranking, base.Mother.transform);
             Closest = ranking[0];
-            ((ITarget<TLogic>)Npc).TargetUpdate(Closest);
+            ((ITarget<TLogic>)base.Mother).TargetUpdate(Closest);
         }
         public override void Update()
         {
-            if (Closest.Update(ranking, Npc.transform))
+            if (Closest.Update(ranking, Mother.transform))
             {
                 //New Target
-                ((ITarget<TLogic>)Npc).TargetUpdate(Closest);
+                ((ITarget<TLogic>)Mother).TargetUpdate(Closest);
             }
         }
     }

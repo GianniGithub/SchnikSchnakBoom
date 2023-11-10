@@ -6,19 +6,20 @@ using UnityEngine;
 using UnityEngine.AI;
 using Gianni.Helper;
 using NaughtyAttributes;
+using UnityEngine.Serialization;
 
 namespace GellosGames
 {
     public class Rocket : Projectile, IPathEvents
     {
+        [FormerlySerializedAs("aimCrossGoal")]
         [ReadOnly]
-        public Transform aimCrossGoal;
+        public Transform aimCrossTarget;
         [SerializeField]
         float RotationAngel = 0.065f;
-        private HeadToPath pathFinding;
+        private MovementAndRotation pathFinding;
         [SerializeField]
         float LiveTime = 5f;
-        private ConstantForce cf;
         [SerializeField]
         private PID gain;
 
@@ -27,7 +28,7 @@ namespace GellosGames
             pathFinding.Update();
             
             //if close enough
-            if (Vector2.Distance(transform.position.ToVector2XZ(), aimCrossGoal.position.ToVector2XZ()) < 0.55f)
+            if (Vector2.Distance(transform.position.ToVector2XZ(), aimCrossTarget.position.ToVector2XZ()) < 0.55f)
                 TriggerExplosion();
         }
         void Start()
@@ -36,8 +37,9 @@ namespace GellosGames
             this.InvokeWait(0.35f, () => { rb.detectCollisions = true; });
             this.InvokeWait(LiveTime, () => { TriggerExplosion(); });
 
-            pathFinding = new HeadToPath(this, aimCrossGoal, gain, RotationAngel, this.transform);
-            pathFinding.CalculatePath();
+            var path = new HeadToPath(this, aimCrossTarget, gain, RotationAngel);
+            path.CalculatePath();
+            pathFinding = path;
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -64,15 +66,13 @@ namespace GellosGames
         }
         public void OnPathIsCalculated(bool reachable)
         {
-            if (reachable)
+            if (!reachable)
             {
-                cf = GetComponent<ConstantForce>();
-                cf.relativeForce = Vector3.forward * (rb.mass * speed);
+                var path = new HeadToTarget(RotationAngel,this);
+                path.Target = aimCrossTarget;
+                pathFinding = path;
             }
-            else
-            {
-                enabled = false;
-            }
+            pathFinding.ForceMover.relativeForce = Vector3.forward * (rb.mass * speed);
         }
     } 
 }

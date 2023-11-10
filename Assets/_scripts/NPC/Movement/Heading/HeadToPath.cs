@@ -5,12 +5,10 @@ using UnityEngine.AI;
 namespace GellosGames
 {
 [Serializable]
-    public class HeadToPath : NPCModeBehaviour
+    public class HeadToPath : MovementAndRotation
     {
         [ReadOnly]
         public Vector3[] wayPoints;
-        [SerializeField]
-        float rotationAngel = 0.065f;
         private readonly Transform m_Source;
         Vector3 nextPoint;
         bool passedLastWaypoint;
@@ -26,15 +24,12 @@ namespace GellosGames
         private float integralGain;
         private float PID;
         private PID gain;
-        private readonly Transform target;
         private IPathEvents listener;
-        private Transform source;
         
-        public HeadToPath(IPathEvents listener, Transform target, PID gain, float rotationAngel, Transform source)
+        public HeadToPath(MonoBehaviour Mother, Transform target, PID gain, float rotationAngel) : base(Mother)
         {
-            this.listener = listener;
-            this.target = target;
-            this.source = source;
+            this.Target = target;
+            this.listener = (IPathEvents)Mother;
             this.gain = gain;
             this.rotationAngel = rotationAngel;
         }
@@ -42,7 +37,7 @@ namespace GellosGames
         {
 
             var path = new NavMeshPath();
-            if (NavMesh.CalculatePath(source.position, target.position, NavMesh.AllAreas, path))
+            if (NavMesh.CalculatePath(Source.position, Target.position, NavMesh.AllAreas, path))
             {
                 wayPoints = path.corners;
                 for (int i = 0; i < wayPoints.Length; i++)
@@ -55,14 +50,14 @@ namespace GellosGames
             else
             {
                 reachedPoints++;
-                nextPoint = target.position;
-                wayPoints = new Vector3[] { nextPoint, source.position, nextPoint };
+                nextPoint = Target.position;
+                wayPoints = new Vector3[] { nextPoint, Source.position, nextPoint };
                 listener.OnPathIsCalculated(false);
             }
         }
         public override void Update()
         {
-            Vector3 rocketPosition = source.position;
+            Vector3 rocketPosition = Source.position;
             Quaternion lookRotation;
             
             //if pass cross product
@@ -81,7 +76,7 @@ namespace GellosGames
                     
                     // aim now only to last waypoint
                     lookRotation = Quaternion.LookRotation(nextPoint - rocketPosition);
-                    rotateWithDrag();
+                    RotateWithDrag(Source,lookRotation);
                     return;
                 }
                 else
@@ -122,7 +117,7 @@ namespace GellosGames
             PID = P + I + D;
             
             lookRotation = Quaternion.LerpUnclamped(Quaternion.LookRotation(directionNextPoint),Quaternion.LookRotation(directionLineFromRocket), Mathf.Clamp(PID,0.1f,1.4f));
-            rotateWithDrag();
+            RotateWithDrag(Source, lookRotation);
             
             // Debug
             // wayPoints[reachedPoints - 1] and nextPoint is in front the rocked
@@ -135,11 +130,7 @@ namespace GellosGames
                 Debug.DrawLine(wayPoints[i-1], wayPoints[i], Color.magenta); 
             }
             
-            void rotateWithDrag()
-            {
-                // Add drag to rotation
-                source.rotation = Quaternion.Slerp(source.rotation, lookRotation, rotationAngel);
-            }
+
         }
     }
     public interface IPathEvents

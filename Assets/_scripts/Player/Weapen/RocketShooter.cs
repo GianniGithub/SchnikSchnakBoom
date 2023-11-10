@@ -59,7 +59,7 @@ namespace GellosGames
                 return;
 
             Rocket rocket = Instantiate(shootPrefap, transform.position, transform.rotation).GetComponent<Rocket>();
-            rocket.aimCrossGoal = aimCross;
+            rocket.aimCrossTarget = aimCross;
 
             CallShootEvent();
         }

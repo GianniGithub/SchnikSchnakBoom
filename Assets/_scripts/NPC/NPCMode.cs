@@ -24,22 +24,20 @@ namespace GellosGames
     {
         protected float ActionUpdateRate = 0f;
         private float timeLeft;
-        private NPCModeBehaviour m_CurrentActionMode ;
-        private NPCModeBehaviour m_CurrentMovementMode ;
-        protected NPCModeBehaviour CurrentActionMode
+        private Mode m_CurrentActionMode ;
+        private Mode m_CurrentMovementMode ;
+        protected Mode CurrentActionMode
         {
             get => m_CurrentActionMode;
             set => m_CurrentActionMode = value;
         }
-        protected NPCModeBehaviour CurrentMovementMode
+        protected Mode CurrentMovementMode
         {
             get => m_CurrentMovementMode;
             set => m_CurrentMovementMode = value;
         }
         protected void Update()
         {
-            m_CurrentMovementMode.Update();
-
             timeLeft += Time.deltaTime;
             if (timeLeft > ActionUpdateRate)
             {
@@ -47,17 +45,21 @@ namespace GellosGames
                 m_CurrentActionMode.Update();
             }
         }
+        protected void FixedUpdate()
+        {
+            m_CurrentMovementMode.Update();
+        }
     }
-    public abstract class NPCModeBehaviour
+    public abstract class Mode
     {
         [NonSerialized]
-        public NPCMode Npc;
+        protected readonly MonoBehaviour Mother;
         public abstract void Update();
-        protected NPCModeBehaviour(NPCMode Mother)
+        protected Mode(MonoBehaviour Mother)
         {
-            Npc = Mother;
+            this.Mother = Mother;
         }
-        protected NPCModeBehaviour()
+        protected Mode()
         {
         }
     }

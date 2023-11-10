@@ -1,6 +1,7 @@
+using UnityEngine;
 namespace GellosGames
 {
-    public class IdleAction : NPCModeBehaviour
+    public class IdleAction : Mode
     {
         public static IdleAction Universal
         {
@@ -18,7 +19,7 @@ namespace GellosGames
         {
             // Do nothing
         }
-        public IdleAction(NPCMode mother) : base(mother)
+        public IdleAction(MonoBehaviour mother) : base(mother)
         {
         }
     }

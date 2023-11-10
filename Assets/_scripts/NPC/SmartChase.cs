@@ -1,6 +1,7 @@
 using UnityEngine;
 namespace GellosGames
 {
+    [RequireComponent(typeof(ConstantForce))]
     public class SmartChase: NPCMode, ITarget<ClosestPlayerNavMeshPath>, IPathEvents
     {
         private HeadToPath moveTo;
@@ -16,11 +17,11 @@ namespace GellosGames
             
             var forceMover = GetComponent<ConstantForce>();
             CurrentActionMode = targetingAct = new TargetRanking<ClosestPlayerNavMeshPath>(this);
-            CurrentMovementMode = moveTo = new HeadToPath(this, targetingAct.Closest.Player, Gain, rotaionAngel, transform);
+            CurrentMovementMode = moveTo = new HeadToPath(this, targetingAct.Closest.Player, Gain, rotaionAngel);
         }
         public void TargetUpdate(ClosestPlayerNavMeshPath target)
         {
-            CurrentMovementMode = moveTo = new HeadToPath(this, target.Player, Gain, rotaionAngel, transform);
+            CurrentMovementMode = moveTo = new HeadToPath(this, target.Player, Gain, rotaionAngel);
         }
         public void OnPassedWaypoint(int waypointsLeft)
         {

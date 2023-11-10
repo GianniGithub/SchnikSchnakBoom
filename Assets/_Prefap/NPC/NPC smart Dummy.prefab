@@ -144,8 +144,8 @@ ConstantForce:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634170214405409792}
   m_Enabled: 1
-  m_Force: {x: 0, y: 0, z: 8}
-  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 7}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!114 &8698276518884873776
@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a486e939141dc4f2ea8a41568ecb67a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotaionAngel: 0.052
 --- !u!1 &7062766952624983456
 GameObject:
   m_ObjectHideFlags: 0

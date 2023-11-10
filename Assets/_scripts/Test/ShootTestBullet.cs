@@ -34,7 +34,7 @@ namespace GellosGames
                 return;
 
             Rocket rocket = Instantiate(shootPrefap, transform.position, transform.rotation).GetComponent<Rocket>();
-            rocket.aimCrossGoal = aimCrosses[index];
+            rocket.aimCrossTarget = aimCrosses[index];
         }
         [Button("shoot Rockets")]
         private void OnShootBullet()
