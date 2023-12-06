@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 7034151492692190303}
   - component: {fileID: 6945721634552850518}
   - component: {fileID: 1111017837589534079}
-  - component: {fileID: 8698276518884873776}
+  - component: {fileID: 4727830167753214618}
   m_Layer: 0
-  m_Name: NPC smart Dummy
+  m_Name: NPC melee Pathfinding Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 7}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
---- !u!114 &8698276518884873776
+--- !u!114 &4727830167753214618
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,10 +157,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1634170214405409792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a486e939141dc4f2ea8a41568ecb67a0, type: 3}
+  m_Script: {fileID: 11500000, guid: db5b7e5d2432422c91ed27e86b85b93e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotaionAngel: 0.052
+  Gain:
+    P: 0.3
+    I: 0.27
+    D: 0.12
+  rotaionAngel: 0.09
 --- !u!1 &7062766952624983456
 GameObject:
   m_ObjectHideFlags: 0

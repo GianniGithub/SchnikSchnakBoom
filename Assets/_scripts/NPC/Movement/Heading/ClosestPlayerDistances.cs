@@ -30,7 +30,7 @@ namespace GellosGames
             }
             ranking.Sort();
         }
-        public bool Update(List<ClosestPlayerDistances> ranking, Transform npc)
+        public bool CheckForTarget(List<ClosestPlayerDistances> ranking, Transform npc)
         {
             GetRanking(ranking, npc);
             if (this.IsCloserTo(ranking[0]))

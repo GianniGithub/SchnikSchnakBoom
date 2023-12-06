@@ -1,25 +1,25 @@
 using UnityEngine;
 namespace GellosGames
 {
-    public class IdleAction : Mode
+    public class Idle : Mode
     {
-        public static IdleAction Universal
+        public static Idle Universal
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new IdleAction(null);
+                    instance = new Idle(null);
                 }
                 return instance;
             }
         }
-        private static IdleAction instance;
+        private static Idle instance;
         public override void Update()
         {
             // Do nothing
         }
-        public IdleAction(MonoBehaviour mother) : base(mother)
+        public Idle(MonoBehaviour mother) : base(mother)
         {
         }
     }

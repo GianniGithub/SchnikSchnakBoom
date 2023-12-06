@@ -22,8 +22,6 @@ namespace GellosGames
     }
     public abstract class NPCMode : NPCEvent
     {
-        protected float ActionUpdateRate = 0f;
-        private float timeLeft;
         private Mode m_CurrentActionMode ;
         private Mode m_CurrentMovementMode ;
         protected Mode CurrentActionMode
@@ -38,12 +36,7 @@ namespace GellosGames
         }
         protected void Update()
         {
-            timeLeft += Time.deltaTime;
-            if (timeLeft > ActionUpdateRate)
-            {
-                timeLeft -= ActionUpdateRate;
-                m_CurrentActionMode.Update();
-            }
+            m_CurrentActionMode.Update();
         }
         protected void FixedUpdate()
         {
@@ -59,8 +52,24 @@ namespace GellosGames
         {
             this.Mother = Mother;
         }
-        protected Mode()
+    }
+    public abstract class ScheduleUpdate : Mode
+    {
+        public float ActionUpdateRate;
+        private float timeLeft;
+        protected ScheduleUpdate(MonoBehaviour mother, float actionUpdateRate = 0f) : base(mother)
         {
+            ActionUpdateRate = actionUpdateRate;
         }
+        public override void Update()
+        {
+            timeLeft += Time.deltaTime;
+            if (timeLeft > ActionUpdateRate)
+            {
+                timeLeft -= ActionUpdateRate;
+                ScheduledUpdate();
+            }
+        }
+        protected abstract void ScheduledUpdate();
     }
 }

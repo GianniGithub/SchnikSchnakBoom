@@ -9,7 +9,6 @@ namespace GellosGames
     {
         [ReadOnly]
         public Vector3[] wayPoints;
-        private readonly Transform m_Source;
         Vector3 nextPoint;
         bool passedLastWaypoint;
         int reachedPoints = 1;
@@ -25,21 +24,23 @@ namespace GellosGames
         private float PID;
         private PID gain;
         private IPathEvents listener;
-        
-        public HeadToPath(MonoBehaviour Mother, Transform target, PID gain, float rotationAngel) : base(Mother)
+        private NavMeshPath pathToRun;
+
+        public HeadToPath(MonoBehaviour Mother, PID gain, float rotationAngel) : base(Mother)
         {
-            this.Target = target;
             this.listener = (IPathEvents)Mother;
             this.gain = gain;
             this.rotationAngel = rotationAngel;
         }
-        public void CalculatePath()
+        public void CalculatePath(Transform target)
         {
+            this.Target = target;
+            reachedPoints = 1;
 
-            var path = new NavMeshPath();
-            if (NavMesh.CalculatePath(Source.position, Target.position, NavMesh.AllAreas, path))
+            pathToRun ??= new NavMeshPath();
+            if (NavMesh.CalculatePath(Source.position, Target.position, NavMesh.AllAreas, pathToRun))
             {
-                wayPoints = path.corners;
+                wayPoints = pathToRun.corners;
                 for (int i = 0; i < wayPoints.Length; i++)
                 {
                     wayPoints[i] += new Vector3(0f, 0.8f, 0f);
@@ -51,7 +52,7 @@ namespace GellosGames
             {
                 reachedPoints++;
                 nextPoint = Target.position;
-                wayPoints = new Vector3[] { nextPoint, Source.position, nextPoint };
+                wayPoints = new Vector3[] {  Source.position, Source.position, nextPoint };
                 listener.OnPathIsCalculated(false);
             }
         }

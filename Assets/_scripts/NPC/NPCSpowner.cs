@@ -25,6 +25,7 @@ namespace GellosGames
                 SpownNPC();
             }
         }
+       
         [Button("SpownNPC")]
         private void SpownNPC()
         {
@@ -36,6 +37,7 @@ namespace GellosGames
             var NPCe = new SpawnNPCArgs(null, nPCobj, pe);
             GameEvents.Instance.TriggerEvent(this, new GameEventArgs(GameActions.OnNPCAdded, NPCe));
         }
+
     }
     public class SpawnNPCArgs : EventArgs
     {

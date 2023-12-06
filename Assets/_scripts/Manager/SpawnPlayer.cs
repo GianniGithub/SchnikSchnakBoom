@@ -32,18 +32,13 @@ namespace GellosGames
             var devPlay = GampadIDsInUse[deathArgs.Pe.ControlEvents.devices.Value[0]];
             devPlay.PlayerHasControl = false;
         }
-        [Button("SpownPlayer")]
-        void SpownOnTestButton()
+        [Button("Spawn Player")]
+        void spawnOnTestButton()
         {
-            int PlayerNr = GampadIDsInUse.Count;
-            var playerObj = Instantiate(PlayerPrefap, Spownpoints[PlayerNr], Quaternion.identity, Parent);
-            var pe = PlayerEvents.AddPlayer((PlayerID)PlayerNr, playerObj, null);
-            playerObj.gameObject.name = pe.Name;
-
-            var e = new SpawnPlayerArgs(GampadIDsInUse.Count, (PlayerID)PlayerNr, playerObj, pe);
-            GameEvents.Instance.TriggerEvent(this, new GameEventArgs(GameActions.OnPlayerAdded, e));
+            var gamepad = InputSystem.AddDevice<Gamepad>();
+            spawnPlayer(gamepad);
         }
-        private void SpownOnClick(object obj, InputActionChange change)
+        private void spawnOnClick(object obj, InputActionChange change)
         {
             if (change == InputActionChange.ActionPerformed)
             {
@@ -51,29 +46,33 @@ namespace GellosGames
                 if (inputAction.id != Guid.Parse("7607c7b6-cd76-4816-beef-bd0341cfe950"))
                     return;
 
-                int PlayerNr = -1;
-
-                if (!GampadIDsInUse.TryGetValue(inputAction.activeControl.device, out var devPlay))
-                {
-                    PlayerNr = GampadIDsInUse.Count;
-                    GampadIDsInUse.Add(inputAction.activeControl.device, new PlayerDeviceConnection(PlayerNr, inputAction.activeControl.device));
-                }
-                else if (devPlay.PlayerHasControl)
-                {
-                    return;
-                }
-                else
-                {
-                    PlayerNr = devPlay.PlayerNr;
-                    devPlay.PlayerHasControl = true;
-                }
-                var playerObj = Instantiate(PlayerPrefap, Spownpoints[PlayerNr], Quaternion.identity, Parent);
-                var pe = PlayerEvents.AddPlayer((PlayerID)PlayerNr, playerObj, inputAction.activeControl.device);
-                playerObj.gameObject.name = pe.Name;
-
-                var e = new SpawnPlayerArgs(GampadIDsInUse.Count, (PlayerID)PlayerNr, playerObj, pe);
-                GameEvents.Instance.TriggerEvent(this, new GameEventArgs(GameActions.OnPlayerAdded, e));
+                spawnPlayer(inputAction.activeControl.device);
             }
+        }
+        private void spawnPlayer(InputDevice gamepad)
+        {
+            int PlayerNr = -1;
+
+            if (!GampadIDsInUse.TryGetValue(gamepad, out var devPlay))
+            {
+                PlayerNr = GampadIDsInUse.Count;
+                GampadIDsInUse.Add(gamepad, new PlayerDeviceConnection(PlayerNr, gamepad));
+            }
+            else if (devPlay.PlayerHasControl)
+            {
+                return;
+            }
+            else
+            {
+                PlayerNr = devPlay.PlayerNr;
+                devPlay.PlayerHasControl = true;
+            }
+            var playerObj = Instantiate(PlayerPrefap, Spownpoints[PlayerNr], Quaternion.identity, Parent);
+            var pe = PlayerEvents.AddPlayer((PlayerID)PlayerNr, playerObj, gamepad);
+            playerObj.gameObject.name = pe.Name;
+
+            var e = new SpawnPlayerArgs(GampadIDsInUse.Count, (PlayerID)PlayerNr, playerObj, pe);
+            GameEvents.Instance.TriggerEvent(this, new GameEventArgs(GameActions.OnPlayerAdded, e));
         }
 
         private void OnGamePadStateChange(MonoBehaviour sender, GameEventArgs e)
@@ -91,11 +90,11 @@ namespace GellosGames
         }
         private void OnDisable()
         {
-            InputSystem.onActionChange -= SpownOnClick;
+            InputSystem.onActionChange -= spawnOnClick;
         }
         private void OnEnable()
         {
-            InputSystem.onActionChange += SpownOnClick;
+            InputSystem.onActionChange += spawnOnClick;
         }
         class PlayerDeviceConnection
         {

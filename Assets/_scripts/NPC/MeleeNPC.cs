@@ -13,11 +13,10 @@ namespace GellosGames
         private float rotaionAngel;
         public override void OnNPCSpawn()
         {
-            ActionUpdateRate = 1f;
-            CurrentActionMode = IdleAction.Universal;
+            CurrentActionMode = Idle.Universal;
 
             CurrentMovementMode = moveTo = new HeadToTarget(rotaionAngel, this);
-            CurrentActionMode = targetingAct = new TargetRanking<ClosestPlayerDistances>(this);
+            CurrentActionMode = targetingAct = new TargetRanking<ClosestPlayerDistances>(this, 1f);
         }
         public void TargetUpdate(ClosestPlayerDistances target)
         {

@@ -4,26 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="Add one more NPC logic and add targeting system">
+    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="Clean and Rename Movement system">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest/RocketTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest/RocketTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/NPC/NPC smart Dummy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefap/NPC/NPC smart Dummy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/bullet/Rocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefap/bullet/Rocket.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/IdleAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/IdleAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/NPC/NPC smart Dummy.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/NPC/NPC smart Dummy.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/IdleAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/Idle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/IdleAction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/Idle.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetRanking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetRanking.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/ForceMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/MovementAndRotation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/ForceMovement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/MovementAndRotation.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerNavMeshPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerNavMeshPath.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPath.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToTarget.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPlayer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToTarget.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleMovementAndRotation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleMovement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleMovementAndRotation.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCSpowner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCSpowner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/RocketShooter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/RocketShooter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Test/ShootTestBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Test/ShootTestBullet.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,28 +31,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_Prefap/bullet/Rocket.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Camara/PlayerCamaraSetup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/NPC/Actions/GetNextPlayer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetRanking.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/Test/ShootTestBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/Test/TestRocketNormal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.5/Runtime/Behaviours/CinemachineVirtualCamera.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.5/Runtime/Core/CameraState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Unity/extreme-scooling/Library/PackageCache/com.unity.mobile.notifications@1.4.2/Samples~/NotificationsSamples/Scripts/GameNotificationsManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2cf5e94b2c4c43a6b4e1eb3ceb5995fd173e00/1c/492dc7bc/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2cf5e94b2c4c43a6b4e1eb3ceb5995fd173e00/3b/ae7c848c/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2cf5e94b2c4c43a6b4e1eb3ceb5995fd173e00/3d/827860a2/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2cf5e94b2c4c43a6b4e1eb3ceb5995fd173e00/75/f6a25d26/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2cf5e94b2c4c43a6b4e1eb3ceb5995fd173e00/ba/d0d09296/Debug.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/40/e5d6f9ab/Comparison`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/65/e1d4af97/IComparer`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9e2872442067422a87a1e5c736399ac2d400/1b/aed21675/NavMeshPath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9e2872442067422a87a1e5c736399ac2d400/5b/5660b831/NavMesh.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e705e4b65ac549178ec8062ad64483c694e400/30/9f90aab6/InspectorElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f646c7a159d243a7909d5204af0f0c56469200/90/7c5fb390/Environment.cs" root0="SKIP_HIGHLIGHTING" />
@@ -133,10 +126,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="58064">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="40114">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="58064" />
+      <option name="pid" value="40114" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -157,7 +150,8 @@
       <workItem from="1698695559796" duration="811000" />
       <workItem from="1698696457859" duration="3147000" />
       <workItem from="1698699622817" duration="28816000" />
-      <workItem from="1698863458085" duration="99173000" />
+      <workItem from="1698863458085" duration="99805000" />
+      <workItem from="1701887019191" duration="12845000" />
     </task>
     <task id="LOCAL-00001" summary="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs">
       <option name="closed" value="true" />
@@ -263,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699578406205</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Clean and Rename Movement system">
+      <option name="closed" value="true" />
+      <created>1699636271096</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699636271096</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +300,39 @@
     <MESSAGE value="Simple AI follow logic added" />
     <MESSAGE value="moveed path finding logic to separate class" />
     <MESSAGE value="Add one more NPC logic and add targeting system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add one more NPC logic and add targeting system" />
+    <MESSAGE value="Clean and Rename Movement system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean and Rename Movement system" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs</url>
+          <line>32</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" initialLine="34" containingFunctionPresentation="Method 'OnPathIsCalculated'">
+            <startOffsets>
+              <option value="1066" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1081" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs</url>
+          <line>42</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" initialLine="42" containingFunctionPresentation="Method 'FixedUpdate'">
+            <startOffsets>
+              <option value="963" />
+            </startOffsets>
+            <endOffsets>
+              <option value="994" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

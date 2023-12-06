@@ -2,7 +2,7 @@ using UnityEngine;
 namespace GellosGames
 {
     [RequireComponent(typeof(ConstantForce))]
-    public class SmartChase: NPCMode, ITarget<ClosestPlayerNavMeshPath>, IPathEvents
+    public class SmartChase : NPCMode, ITarget<ClosestPlayerNavMeshPath>, IPathEvents
     {
         private HeadToPath moveTo;
         private TargetRanking<ClosestPlayerNavMeshPath> targetingAct;
@@ -12,16 +12,14 @@ namespace GellosGames
         private float rotaionAngel;
         public override void OnNPCSpawn()
         {
-            ActionUpdateRate = 1f;
-            CurrentActionMode = IdleAction.Universal;
-            
-            var forceMover = GetComponent<ConstantForce>();
-            CurrentActionMode = targetingAct = new TargetRanking<ClosestPlayerNavMeshPath>(this);
-            CurrentMovementMode = moveTo = new HeadToPath(this, targetingAct.Closest.Player, Gain, rotaionAngel);
+            CurrentActionMode = Idle.Universal;
+
+            CurrentMovementMode = moveTo = new HeadToPath(this, Gain, rotaionAngel);
+            CurrentActionMode = targetingAct = new TargetRanking<ClosestPlayerNavMeshPath>(this, 1f);
         }
         public void TargetUpdate(ClosestPlayerNavMeshPath target)
         {
-            CurrentMovementMode = moveTo = new HeadToPath(this, target.Player, Gain, rotaionAngel);
+            moveTo.CalculatePath(target.Player);
         }
         public void OnPassedWaypoint(int waypointsLeft)
         {
@@ -34,6 +32,10 @@ namespace GellosGames
         {
             if (!reachable)
             {
+                Debug.Log("SMART NPC: Cant find Player!");
+                moveTo.ForceMover.enabled = false;
+                CurrentMovementMode = Idle.Universal;
+                
                 // TODO Try in 20 sek again?
             }
         }

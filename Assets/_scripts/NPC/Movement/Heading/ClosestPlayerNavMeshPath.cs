@@ -7,22 +7,23 @@ using UnityEngine;
 using UnityEngine.AI;
 namespace GellosGames
 {
-    public struct ClosestPlayerNavMeshPath : TargetLogic<ClosestPlayerNavMeshPath>, IComparer<ClosestPlayerNavMeshPath>
+    public struct ClosestPlayerNavMeshPath : TargetLogic<ClosestPlayerNavMeshPath>, IComparable<ClosestPlayerNavMeshPath>
     {
         public float DistanceToNextPlayer;
         public Transform Player;
+        private NavMeshPath path;
 
         public void GetDistanceObj(Transform player, Transform npc)
         {
             Player = player;
-            var path = new NavMeshPath();
+            path ??= new NavMeshPath();
             if (!NavMesh.CalculatePath(npc.position, player.position, NavMesh.AllAreas, path))
             {
                 DistanceToNextPlayer = 0f;
                 return;
             }
             var wayPoints = path.corners;
-            for (int i = 0; i < wayPoints.Length + 1; i++)
+            for (int i = 0; i < wayPoints.Length - 1; i++)
             {
                 DistanceToNextPlayer += Vector3.Distance(wayPoints[i], wayPoints[i + 1]);
             }
@@ -31,10 +32,7 @@ namespace GellosGames
         {
             return ((ClosestPlayerNavMeshPath)newUpdate).DistanceToNextPlayer < DistanceToNextPlayer;
         }
-        public int Compare(ClosestPlayerNavMeshPath x, ClosestPlayerNavMeshPath y)
-        {
-            return x.DistanceToNextPlayer.CompareTo(y.DistanceToNextPlayer);
-        }
+
         public void GetRanking(List<ClosestPlayerNavMeshPath> ranking, Transform npc)
         {
             ranking.Clear();
@@ -46,7 +44,7 @@ namespace GellosGames
             }
             ranking.Sort();
         }
-        public bool Update(List<ClosestPlayerNavMeshPath> ranking, Transform npc)
+        public bool CheckForTarget(List<ClosestPlayerNavMeshPath> ranking, Transform npc)
         {
             GetRanking(ranking, npc);
             if (this.IsCloserTo(ranking[0]))
@@ -55,6 +53,10 @@ namespace GellosGames
                 return true;
             }
             return false;
+        }
+        public int CompareTo(ClosestPlayerNavMeshPath other)
+        {
+            return DistanceToNextPlayer.CompareTo(other.DistanceToNextPlayer);
         }
     }
     

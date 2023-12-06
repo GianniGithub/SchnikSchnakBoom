@@ -314,7 +314,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   speed: 43.79
-  aimCrossGoal: {fileID: 0}
+  aimCrossTarget: {fileID: 0}
   RotationAngel: 0.4
   LiveTime: 5
   gain:

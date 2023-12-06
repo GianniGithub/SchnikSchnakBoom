@@ -17,7 +17,7 @@ namespace GellosGames
         public Transform aimCrossTarget;
         [SerializeField]
         float RotationAngel = 0.065f;
-        private MovementAndRotation pathFinding;
+        private MovementAndRotation pathFinder;
         [SerializeField]
         float LiveTime = 5f;
         [SerializeField]
@@ -25,7 +25,7 @@ namespace GellosGames
 
         void Update()
         {
-            pathFinding.Update();
+            pathFinder.Update();
             
             //if close enough
             if (Vector2.Distance(transform.position.ToVector2XZ(), aimCrossTarget.position.ToVector2XZ()) < 0.55f)
@@ -37,9 +37,9 @@ namespace GellosGames
             this.InvokeWait(0.35f, () => { rb.detectCollisions = true; });
             this.InvokeWait(LiveTime, () => { TriggerExplosion(); });
 
-            var path = new HeadToPath(this, aimCrossTarget, gain, RotationAngel);
-            path.CalculatePath();
-            pathFinding = path;
+            var path = new HeadToPath(this, gain, RotationAngel);
+            pathFinder = path;
+            path.CalculatePath(aimCrossTarget);
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -70,9 +70,9 @@ namespace GellosGames
             {
                 var path = new HeadToTarget(RotationAngel,this);
                 path.Target = aimCrossTarget;
-                pathFinding = path;
+                pathFinder = path;
             }
-            pathFinding.ForceMover.relativeForce = Vector3.forward * (rb.mass * speed);
+            pathFinder.ForceMover.relativeForce = Vector3.forward * (rb.mass * speed);
         }
     } 
 }

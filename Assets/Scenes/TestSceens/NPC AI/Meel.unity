@@ -7124,6 +7124,8 @@ GameObject:
   m_Component:
   - component: {fileID: 742403182}
   - component: {fileID: 742403181}
+  - component: {fileID: 742403183}
+  - component: {fileID: 742403184}
   m_Layer: 0
   m_Name: NPCSpowner
   m_TagString: Untagged
@@ -7162,6 +7164,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742403183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742403180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9053c34dd944cf342a1d82057d1f53ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCPrefap: {fileID: 1634170214405409792, guid: bb57a3ff4edfa4ab787b5b9b5a176fd1,
+    type: 3}
+  StartArena: {x: 28, y: 5, z: -66}
+  Amount: 1
+--- !u!114 &742403184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742403180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20239b867b0240c429a367b4f81d8169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Parent: {fileID: 902279031}
+  PlayerPrefap: {fileID: 2611073971819717115, guid: 0ff2530984a53164abc271a526f73ce8,
+    type: 3}
+  Spownpoints:
+  - {x: 21, y: 5, z: -56.1}
+  - {x: -32, y: 5, z: -56.1}
 --- !u!1 &754755328
 GameObject:
   m_ObjectHideFlags: 0
@@ -8001,6 +8037,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 902279031}
+  - component: {fileID: 902279032}
   m_Layer: 0
   m_Name: Players
   m_TagString: Untagged
@@ -8017,12 +8054,30 @@ Transform:
   m_GameObject: {fileID: 902279030}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.38, y: 4.58, z: -58.5}
+  m_LocalPosition: {x: -37.67, y: 8.48, z: -56.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &902279032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902279030}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20239b867b0240c429a367b4f81d8169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Parent: {fileID: 902279031}
+  PlayerPrefap: {fileID: 2611073971819717115, guid: 0ff2530984a53164abc271a526f73ce8,
+    type: 3}
+  Spownpoints:
+  - {x: 21, y: 5, z: -56.1}
+  - {x: -32, y: 5, z: -56.1}
 --- !u!1 &934346600
 GameObject:
   m_ObjectHideFlags: 0
@@ -10569,7 +10624,6 @@ GameObject:
   - component: {fileID: 1211440505}
   - component: {fileID: 1211440504}
   - component: {fileID: 1211440506}
-  - component: {fileID: 1211440507}
   - component: {fileID: 1211440508}
   m_Layer: 0
   m_Name: EventSystem
@@ -10649,26 +10703,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!114 &1211440507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211440502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20239b867b0240c429a367b4f81d8169, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Parent: {fileID: 902279031}
-  PlayerPrefap: {fileID: 2611073971819717115, guid: 4812905de106a4f84a2aa075548a17df,
-    type: 3}
-  Spownpoints:
-  - {x: -10, y: 5, z: -60}
-  - {x: 55.38, y: 5, z: -60}
-  - {x: -22, y: 0, z: -23}
-  - {x: -10, y: 0, z: -24}
 --- !u!114 &1211440508
 MonoBehaviour:
   m_ObjectHideFlags: 0
