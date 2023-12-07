@@ -50,6 +50,7 @@ namespace GellosGames
         protected void Update()
         {
             m_CurrentActionMode.Update();
+            m_CurrentBonusMode.Update();
         }
         protected void FixedUpdate()
         {

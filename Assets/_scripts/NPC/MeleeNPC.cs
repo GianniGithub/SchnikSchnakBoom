@@ -8,7 +8,7 @@ namespace GellosGames
     public class MeleeNPC : NPCMode, ITarget<ClosestPlayerDistances>
     {
         private HeadToTarget moveTo;
-        private TargetRanking<ClosestPlayerDistances> targetingAct;
+        private TargetSelection<ClosestPlayerDistances> targetingAct;
         [SerializeField]
         private float rotaionAngel;
         public override void OnNPCSpawn()
@@ -19,7 +19,7 @@ namespace GellosGames
             CurrentMovementMode = moveTo = new HeadToTarget(rotaionAngel, this);
             MovementState = NPCModeState.chasing;
             
-            CurrentActionMode = targetingAct = new TargetRanking<ClosestPlayerDistances>(this, 1f);
+            CurrentBonusMode = targetingAct = new TargetSelection<ClosestPlayerDistances>(this, 1f);
             BonusState = NPCModeState.playerSelection;
         }
         public void TargetUpdate(ClosestPlayerDistances target)

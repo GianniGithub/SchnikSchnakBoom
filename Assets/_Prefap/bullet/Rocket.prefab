@@ -318,9 +318,9 @@ MonoBehaviour:
   RotationAngel: 0.4
   LiveTime: 5
   gain:
-    P: 0.15
-    I: 0.1
-    D: 0.1
+    Proportional: 0.4
+    Integral: 0.1
+    Derivative: 0.1
 --- !u!54 &615446530976949118
 Rigidbody:
   m_ObjectHideFlags: 0

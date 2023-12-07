@@ -6,7 +6,7 @@ namespace GellosGames
     {
         private HeadToPath moveToPath;
         private HeadToTarget moveToPlayer;
-        private TargetRanking<ClosestPlayerNavMeshPath> targetingAct;
+        private TargetSelection<ClosestPlayerNavMeshPath> targetingAct;
         [SerializeField]
         private PID Gain;
         [SerializeField]
@@ -19,7 +19,7 @@ namespace GellosGames
             CurrentMovementMode = moveToPath = new HeadToPath(this, Gain, rotaionAngel);
             MovementState = NPCModeState.followPath;
             
-            CurrentBonusMode = targetingAct = new TargetRanking<ClosestPlayerNavMeshPath>(this, 1f);
+            CurrentBonusMode = targetingAct = new TargetSelection<ClosestPlayerNavMeshPath>(this, 1f);
             BonusState = NPCModeState.playerSelection;
         }
         public void TargetUpdate(ClosestPlayerNavMeshPath target)

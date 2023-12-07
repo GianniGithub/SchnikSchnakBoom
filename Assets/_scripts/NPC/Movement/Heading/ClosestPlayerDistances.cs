@@ -1,24 +1,25 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace GellosGames
 {
-    public struct ClosestPlayerDistances : TargetLogic<ClosestPlayerDistances>, IComparer<ClosestPlayerDistances>, IComparable<ClosestPlayerDistances>
+    public struct ClosestPlayerDistances : TargetLogic<ClosestPlayerDistances>, IComparable<ClosestPlayerDistances>
     {
         public float DistanceToNextPlayer;
         public Transform Player;
-        public void GetDistanceObj(Transform player, Transform npc)
+        void getDistanceObj(Transform player, Transform npc)
         {
             Player = player;
             DistanceToNextPlayer = Vector3.Distance(Player.position, npc.position);
         }
-        public bool IsCloserTo(TargetLogic<ClosestPlayerDistances> newUpdate)
+        bool isCloserTo(ClosestPlayerDistances newUpdate)
         {
-            return ((ClosestPlayerDistances)newUpdate).DistanceToNextPlayer < DistanceToNextPlayer;
-        }
-        public int Compare(ClosestPlayerDistances x, ClosestPlayerDistances y)
-        {
-            return x.DistanceToNextPlayer.CompareTo(y.DistanceToNextPlayer);
+            if (newUpdate.Player == Player)
+            {
+                return false;
+            }
+            return newUpdate.DistanceToNextPlayer < DistanceToNextPlayer;
         }
         public void GetRanking(List<ClosestPlayerDistances> ranking, Transform npc)
         {
@@ -26,7 +27,7 @@ namespace GellosGames
             foreach (var player in PlayerEvents.GetAllActivePlayerEvents())
             {
                 var dis = new ClosestPlayerDistances();
-                dis.GetDistanceObj(player.PlayerObject.transform, npc);
+                dis.getDistanceObj(player.PlayerObject.transform, npc);
                 ranking.Add(dis);
             }
             ranking.Sort();
@@ -34,12 +35,10 @@ namespace GellosGames
         public bool CheckForTarget(List<ClosestPlayerDistances> ranking, Transform npc)
         {
             GetRanking(ranking, npc);
-            if (this.IsCloserTo(ranking[0]))
-            {
-                this = ranking[0];
-                return true;
-            }
-            return false;
+            if (!isCloserTo(ranking[0]))
+                return false;
+            this = ranking[0];
+            return true;
         }
         public int CompareTo(ClosestPlayerDistances other)
         {
