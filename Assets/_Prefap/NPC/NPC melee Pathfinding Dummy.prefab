@@ -160,11 +160,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5b7e5d2432422c91ed27e86b85b93e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ActionState: 0
+  MovementState: 0
+  BonusState: 0
   Gain:
-    P: 0.3
-    I: 0.27
-    D: 0.12
-  rotaionAngel: 0.09
+    P: 1.34
+    I: 0.1
+    D: 0.1
+  rotaionAngel: 0.06
 --- !u!1 &7062766952624983456
 GameObject:
   m_ObjectHideFlags: 0
