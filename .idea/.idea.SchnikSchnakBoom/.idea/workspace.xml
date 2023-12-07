@@ -6,21 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="Clean and Rename Movement system">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/NPC/NPC smart Dummy.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/NPC/NPC smart Dummy.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Manager/SpawnPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/IdleAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/Idle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/IdleAction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/Idle.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetRanking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetRanking.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.scenetemplate" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.scenetemplate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main/NavMesh.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main/NavMesh.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/NavMesh.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/NavMesh.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest/NavMesh.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest/NavMesh.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest/RocketTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest/RocketTest.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerNavMeshPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerNavMeshPath.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/MovementAndRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/MovementAndRotation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCSpowner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCSpowner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +34,17 @@
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetRanking.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/NPC/Movement/Heading/HeadToPath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/NavMeshSurfaceVolumeUpdater.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/Test/ShootTestBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/Test/TestRocketNormal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@1.1.5/Runtime/NavMeshSurface.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.5/Runtime/Behaviours/CinemachineVirtualCamera.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.5/Runtime/Core/CameraState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@14.0.9/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Unity/extreme-scooling/Library/PackageCache/com.unity.mobile.notifications@1.4.2/Samples~/NotificationsSamples/Scripts/GameNotificationsManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2cf5e94b2c4c43a6b4e1eb3ceb5995fd173e00/1c/492dc7bc/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2cf5e94b2c4c43a6b4e1eb3ceb5995fd173e00/3b/ae7c848c/Transform.cs" root0="SKIP_HIGHLIGHTING" />
@@ -52,6 +57,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9e2872442067422a87a1e5c736399ac2d400/5b/5660b831/NavMesh.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e705e4b65ac549178ec8062ad64483c694e400/30/9f90aab6/InspectorElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f646c7a159d243a7909d5204af0f0c56469200/90/7c5fb390/Environment.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f646c7a159d243a7909d5204af0f0c56469200/a5/915b50cb/Array.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f646c7a159d243a7909d5204af0f0c56469200/aa/3af8358b/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f646c7a159d243a7909d5204af0f0c56469200/eb/44a73454/Thread.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
@@ -126,10 +132,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="40114">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="46711">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="40114" />
+      <option name="pid" value="46711" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -302,37 +308,5 @@
     <MESSAGE value="Add one more NPC logic and add targeting system" />
     <MESSAGE value="Clean and Rename Movement system" />
     <option name="LAST_COMMIT_MESSAGE" value="Clean and Rename Movement system" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs</url>
-          <line>32</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" initialLine="34" containingFunctionPresentation="Method 'OnPathIsCalculated'">
-            <startOffsets>
-              <option value="1066" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1081" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs</url>
-          <line>42</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" initialLine="42" containingFunctionPresentation="Method 'FixedUpdate'">
-            <startOffsets>
-              <option value="963" />
-            </startOffsets>
-            <endOffsets>
-              <option value="994" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

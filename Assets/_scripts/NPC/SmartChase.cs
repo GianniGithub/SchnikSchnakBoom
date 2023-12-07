@@ -4,7 +4,8 @@ namespace GellosGames
     [RequireComponent(typeof(ConstantForce))]
     public class SmartChase : NPCMode, ITarget<ClosestPlayerNavMeshPath>, IPathEvents
     {
-        private HeadToPath moveTo;
+        private HeadToPath moveToPath;
+        private HeadToTarget moveToPlayer;
         private TargetRanking<ClosestPlayerNavMeshPath> targetingAct;
         [SerializeField]
         private PID Gain;
@@ -13,28 +14,36 @@ namespace GellosGames
         public override void OnNPCSpawn()
         {
             CurrentActionMode = Idle.Universal;
-
-            CurrentMovementMode = moveTo = new HeadToPath(this, Gain, rotaionAngel);
-            CurrentActionMode = targetingAct = new TargetRanking<ClosestPlayerNavMeshPath>(this, 1f);
+            ActionState = NPCModeState.idle;
+            
+            CurrentMovementMode = moveToPath = new HeadToPath(this, Gain, rotaionAngel);
+            MovementState = NPCModeState.followPath;
+            
+            CurrentBonusMode = targetingAct = new TargetRanking<ClosestPlayerNavMeshPath>(this, 1f);
+            BonusState = NPCModeState.playerSelection;
         }
         public void TargetUpdate(ClosestPlayerNavMeshPath target)
         {
-            moveTo.CalculatePath(target.Player);
+            moveToPath.CalculatePath(target.Player);
         }
         public void OnPassedWaypoint(int waypointsLeft)
         {
         }
         public void OnEndOfWaypoints()
         {
-            // Kill him
+            moveToPlayer = new HeadToTarget(rotaionAngel, this);
+            moveToPlayer.Target = targetingAct.Closest.Player;
+            CurrentMovementMode = moveToPlayer;
+            MovementState = NPCModeState.chasing;
         }
         public void OnPathIsCalculated(bool reachable)
         {
             if (!reachable)
             {
                 Debug.Log("SMART NPC: Cant find Player!");
-                moveTo.ForceMover.enabled = false;
+                moveToPath.ForceMover.enabled = false;
                 CurrentMovementMode = Idle.Universal;
+                MovementState = NPCModeState.idle;
                 
                 // TODO Try in 20 sek again?
             }

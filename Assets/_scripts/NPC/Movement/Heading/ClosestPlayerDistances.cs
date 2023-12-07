@@ -1,8 +1,9 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 namespace GellosGames
 {
-    public struct ClosestPlayerDistances : TargetLogic<ClosestPlayerDistances>, IComparer<ClosestPlayerDistances>
+    public struct ClosestPlayerDistances : TargetLogic<ClosestPlayerDistances>, IComparer<ClosestPlayerDistances>, IComparable<ClosestPlayerDistances>
     {
         public float DistanceToNextPlayer;
         public Transform Player;
@@ -39,6 +40,10 @@ namespace GellosGames
                 return true;
             }
             return false;
+        }
+        public int CompareTo(ClosestPlayerDistances other)
+        {
+            return DistanceToNextPlayer.CompareTo(other.DistanceToNextPlayer);
         }
     }
 }

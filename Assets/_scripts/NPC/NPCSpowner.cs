@@ -30,12 +30,18 @@ namespace GellosGames
         private void SpownNPC()
         {
             Vector3 spownPoint = NPCRandomPatrols.GetRandomNavPoint(20f, StartArena);
-            spownPoint.y = StartArena.y;
+            
+            //spownPoint.y = StartArena.y;
             var nPCobj = Instantiate(NPCPrefap, spownPoint, Quaternion.identity);
             var pe = NPCEvents.AddNPC(null, nPCobj);
 
             var NPCe = new SpawnNPCArgs(null, nPCobj, pe);
             GameEvents.Instance.TriggerEvent(this, new GameEventArgs(GameActions.OnNPCAdded, NPCe));
+            
+            // Get Bottom Point on ground and not Pivot Center
+            var bounds = nPCobj.GetComponent<Collider>().bounds;
+            var bottom = bounds.center.y - bounds.extents.y;
+            nPCobj.transform.position += new Vector3(0f,nPCobj.transform.position.y - bottom, 0f);
         }
 
     }

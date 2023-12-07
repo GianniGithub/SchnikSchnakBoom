@@ -15,7 +15,6 @@ namespace GellosGames
         }
         protected void RotateWithDrag(Transform source, Quaternion lookRotation)
         {
-            // Add drag to rotation
             source.rotation = Quaternion.Slerp(source.rotation, lookRotation, rotationAngel);
         }
     }

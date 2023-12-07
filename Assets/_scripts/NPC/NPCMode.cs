@@ -1,29 +1,37 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
 namespace GellosGames
 {
-    public enum NPCMoveState
+    public enum NPCModeState
     {
         idle,
         chasing,
         hidde,
         retreat,
-        patrol
-    }
-    public enum NPCActionState
-    {
+        patrol,
         waitOfPlayer,
+        playerSelection,
+        followPath,
         attack,
         protecting
     }
     public abstract class NPCMode : NPCEvent
     {
+        [SerializeField][ReadOnly]
+        protected NPCModeState ActionState;
+        [SerializeField][ReadOnly]
+        protected NPCModeState MovementState;
+        [SerializeField][ReadOnly]
+        protected NPCModeState BonusState;
+        
         private Mode m_CurrentActionMode ;
         private Mode m_CurrentMovementMode ;
+        private Mode m_CurrentBonusMode ;
         protected Mode CurrentActionMode
         {
             get => m_CurrentActionMode;
@@ -33,6 +41,11 @@ namespace GellosGames
         {
             get => m_CurrentMovementMode;
             set => m_CurrentMovementMode = value;
+        }
+        protected Mode CurrentBonusMode
+        {
+            get => m_CurrentBonusMode;
+            set => m_CurrentBonusMode = value;
         }
         protected void Update()
         {

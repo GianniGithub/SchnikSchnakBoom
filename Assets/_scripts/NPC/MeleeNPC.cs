@@ -14,9 +14,13 @@ namespace GellosGames
         public override void OnNPCSpawn()
         {
             CurrentActionMode = Idle.Universal;
+            ActionState = NPCModeState.idle;
 
             CurrentMovementMode = moveTo = new HeadToTarget(rotaionAngel, this);
+            MovementState = NPCModeState.chasing;
+            
             CurrentActionMode = targetingAct = new TargetRanking<ClosestPlayerDistances>(this, 1f);
+            BonusState = NPCModeState.playerSelection;
         }
         public void TargetUpdate(ClosestPlayerDistances target)
         {
