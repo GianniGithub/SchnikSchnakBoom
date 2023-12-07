@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="Clean and Rename Movement system">
+    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="forwared">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.scenetemplate" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.scenetemplate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main/NavMesh.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main/NavMesh.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/NavMesh.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/NavMesh.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest/NavMesh.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest/NavMesh.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest/RocketTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest/RocketTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/MovementAndRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/MovementAndRotation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCSpowner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCSpowner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPath.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +17,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/Scenes/TestSceens/NPC AI/Meel.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/Scenes/TestSceens/NPC AI/Meel.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetRanking.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/NPC/Movement/Heading/HeadToPath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" root0="FORCE_HIGHLIGHTING" />
@@ -271,7 +260,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699636271096</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Now Pathfinding on AI NPCs works">
+      <option name="closed" value="true" />
+      <created>1701989429000</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701989429000</updated>
+    </task>
+    <task id="LOCAL-00016" summary="forwared">
+      <option name="closed" value="true" />
+      <created>1701989452826</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1701989452826</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,6 +312,8 @@
     <MESSAGE value="moveed path finding logic to separate class" />
     <MESSAGE value="Add one more NPC logic and add targeting system" />
     <MESSAGE value="Clean and Rename Movement system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean and Rename Movement system" />
+    <MESSAGE value="Now Pathfinding on AI NPCs works" />
+    <MESSAGE value="forwared" />
+    <option name="LAST_COMMIT_MESSAGE" value="forwared" />
   </component>
 </project>

@@ -2,6 +2,7 @@ using System;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 namespace GellosGames
 {
 [Serializable]
@@ -13,15 +14,9 @@ namespace GellosGames
         bool passedLastWaypoint;
         int reachedPoints = 1;
         private float winkelToLine;
-        [SerializeField]
-        private float proportionalGain;
-        [SerializeField]
-        private float derivativeGain;
         private float errorLast;
         private float integrationStored;
-        [SerializeField]
-        private float integralGain;
-        private float PID;
+        private float pid;
         private PID gain;
         private IPathEvents listener;
         private NavMeshPath pathToRun;
@@ -104,20 +99,20 @@ namespace GellosGames
             // this represents the rotation / angel between Orthogonal to Waypoint and the route course. 
             // 0 represent 90° drift from course and 1 heads to route  
             winkelToLine = Vector3.Dot(directionNextPoint, directionPointLineToRocket);
-            //PID Controller to pursuit rotation (winkelToLine) to 1
+            //pid Controller to pursuit rotation (winkelToLine) to 1
             float error = 1f - winkelToLine;
-            //P
-            float P = proportionalGain * error;
-            //D
+            //Proportional
+            float P = gain.Proportional * error;
+            //Derivative
             float errorRateOfChange = (error - errorLast) / Time.deltaTime;
             errorLast = error;
-            float D = derivativeGain * errorRateOfChange;
-            //I
+            float D = gain.Derivative * errorRateOfChange;
+            //Integral
             integrationStored += (error * Time.deltaTime);
-            float I = integralGain * integrationStored;
-            PID = P + I + D;
+            float I = gain.Integral * integrationStored;
+            pid = P + I + D;
             
-            lookRotation = Quaternion.LerpUnclamped(Quaternion.LookRotation(directionNextPoint),Quaternion.LookRotation(directionLineFromRocket), Mathf.Clamp(PID,0.1f,1.4f));
+            lookRotation = Quaternion.LerpUnclamped(Quaternion.LookRotation(directionNextPoint),Quaternion.LookRotation(directionLineFromRocket), Mathf.Clamp(pid,-0.8f,1.4f));
             RotateWithDrag(Source, lookRotation);
             
             // Debug
@@ -143,6 +138,11 @@ namespace GellosGames
     [Serializable]
     public struct PID
     {
-        public float P, I, D;
+        [FormerlySerializedAs("P")]
+        public float Proportional;
+        [FormerlySerializedAs("I")]
+        public float Integral;
+        [FormerlySerializedAs("D")]
+        public float Derivative;
     }
 }
