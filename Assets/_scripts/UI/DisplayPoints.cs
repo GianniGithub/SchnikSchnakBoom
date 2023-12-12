@@ -20,8 +20,8 @@ namespace GellosGames
             var args = (SpawnPlayerArgs)e.EventInfos;
             TextGui.gameObject.name += args.Pe.Name;
 
-            var point = args.PlayerObj.GetComponent<CollectHitPoint>();
-            point.DamageInfo = TextGui;
+            //var point = args.PlayerObj.GetComponent<CollectHitPoint>();
+            //point.DamageInfo = TextGui;
 
             var mesh = args.PlayerObj.GetComponent<MeshRenderer>();
             TextGui.color = mesh.material.color;

@@ -31,8 +31,10 @@ namespace GellosGames
         }
         public void OnEndOfWaypoints()
         {
-            moveToPlayer = new HeadToTarget(rotaionAngel, this);
-            moveToPlayer.Target = targetingAct.Closest.Player;
+            moveToPlayer = new HeadToTarget(rotaionAngel, this)
+            {
+                Target = targetingAct.Closest.Player
+            };
             CurrentMovementMode = moveToPlayer;
             MovementState = NPCModeState.chasing;
         }

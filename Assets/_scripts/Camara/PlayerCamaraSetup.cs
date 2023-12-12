@@ -13,11 +13,17 @@ namespace GellosGames
         public CinemachineVirtualCamera[] PlayerAimCamps;
 
 
-        PlayerCameraFinder[] PlayerPointer;
+        private PlayerCameraFinder[] playerPointer;
+        private CinemachineBrain[] brains;
         void Start()
         {
             GameEvents.Instance.StartListening(GameActions.OnPlayerAdded, OnPlayerAdded);
-            PlayerPointer = new PlayerCameraFinder[4];
+            playerPointer = new PlayerCameraFinder[4];
+            brains = new CinemachineBrain[ScreenCamps.Length];
+            for (int i = 0; i < ScreenCamps.Length; i++)
+            {
+                brains[i] = ScreenCamps[i].GetComponent<CinemachineBrain>();
+            }
         }
 
         private void OnPlayerAdded(MonoBehaviour sender, GameEventArgs e)
@@ -28,12 +34,14 @@ namespace GellosGames
             var layer = LayerMask.NameToLayer(player.Id.ToString());
 
             ScreenCamps[playerID].enabled = true;
-            PlayerCamp.enabled = true;
             PlayerCamp.gameObject.layer = layer;
+            PlayerCamp.gameObject.SetActive(true);
+            PlayerCamp.Priority = 0;
+            CinemachineBrain.SoloCamera = PlayerCamp;
 
             PlayerAimCamps[playerID].gameObject.layer = layer;
-            PlayerPointer[playerID] = player.PlayerObj.GetComponentInChildren<PlayerCameraFinder>();
-            PlayerCamp.Follow = PlayerPointer[playerID].transform; //player.PlayerObj.transform;
+            playerPointer[playerID] = player.PlayerObj.GetComponentInChildren<PlayerCameraFinder>();
+            PlayerCamp.Follow = playerPointer[playerID].transform; //player.PlayerObj.transform;
             player.Pe.StartListening(PlayerActions.OnAimModeChange, OnAimModeChange);
 
             SetUpSplittScreen(playerID);
@@ -51,7 +59,7 @@ namespace GellosGames
                     PlayerAimCamps[playerID].gameObject.SetActive(false);
                     break;
                 case AimMode.ControllerStickDirection:
-                    PlayerAimCamps[playerID].Follow = PlayerPointer[playerID].transform;
+                    PlayerAimCamps[playerID].Follow = playerPointer[playerID].transform;
                     PlayerAimCamps[playerID].gameObject.SetActive(true);
                     PlayerAimCamps[playerID].m_Lens.OrthographicSize = 10f;
                     break;

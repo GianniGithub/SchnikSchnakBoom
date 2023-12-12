@@ -8,7 +8,6 @@ namespace GellosGames
 {
     public class CollectHitPoint : PlayerEvent
     {
-        public TextMeshProUGUI DamageInfo;
         public float TotalDamage;
         public override void OnSpawn()
         {
@@ -29,7 +28,7 @@ namespace GellosGames
         public void AddDamage(float damage)
         {
             this.TotalDamage += damage;
-            DamageInfo.text = this.TotalDamage.ToString("N1");
+            //(TextMeshProUGUI)DamageInfo.text = this.TotalDamage.ToString("N1");
         }
 
     }
