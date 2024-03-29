@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="Fix Player selection targeting">
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC/simple.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC/simple.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefap/CameraSystem.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefap/CameraSystem.prefab.meta" afterDir="false" />
+    <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.scenetemplate" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.scenetemplate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Camara/PlayerCamaraSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Camara/PlayerCamaraSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Player/CollectHitPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Player/CollectHitPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/UI/DisplayPoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/UI/DisplayPoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +20,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/Camara/Camera Blends.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetSelection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" root0="FORCE_HIGHLIGHTING" />
@@ -74,34 +67,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/hans/Library/Application Support/JetBrains/Rider2023.2/resharper-host/DecompilerCache",
-      "/Users/hans/Library/Application Support/JetBrains/Rider2023.2/resharper-host/SourcesCache",
-      "/Users/hans/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/hans/Library/Application Support/JetBrains/Rider2023.2/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/hans/Library/Application Support/JetBrains/Rider2023.2/resharper-host/SourcesCache&quot;,
+      &quot;/Users/hans/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.12f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.22f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -109,7 +102,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.12f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.22f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -160,7 +153,8 @@
       <workItem from="1698699622817" duration="28816000" />
       <workItem from="1698863458085" duration="99805000" />
       <workItem from="1701887019191" duration="12845000" />
-      <workItem from="1702333717431" duration="4602000" />
+      <workItem from="1702333717431" duration="5861000" />
+      <workItem from="1711739664548" duration="97000" />
     </task>
     <task id="LOCAL-00001" summary="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs">
       <option name="closed" value="true" />
@@ -306,7 +300,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701992913112</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Camera Fixes, new prefabs (better for new scenes).">
+      <option name="closed" value="true" />
+      <created>1702340115488</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1702340115488</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,7 +349,8 @@
     <MESSAGE value="forwared" />
     <MESSAGE value="Fix in PID Controller" />
     <MESSAGE value="Fix Player selection targeting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Player selection targeting" />
+    <MESSAGE value="Camera Fixes, new prefabs (better for new scenes)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Camera Fixes, new prefabs (better for new scenes)." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
