@@ -1,17 +1,26 @@
+using System;
 using UnityEngine;
 namespace GellosGames
 {
-    public abstract class MovementAndRotation : Mode
+    [Serializable]
+    public abstract class Rotation : Mode
     {
-        public readonly ConstantForce ForceMover;
         public Transform Target;
         [SerializeField]
-        protected float rotationAngel = 0.065f;
-        protected Transform Source => Mother.transform;
-
-        protected MovementAndRotation(MonoBehaviour mother) : base(mother)
+        float rotationAngel = 0.065f;
+        public float RotationAngel
         {
-            ForceMover =  mother.GetComponent<ConstantForce>();
+            get => rotationAngel;
+            set => rotationAngel = value;
+        }
+        protected Rotation()
+        {
+        }
+        protected Transform Source => Mother.transform;
+        
+        protected Rotation(MonoBehaviour mother) : base(mother)
+        {
+           
         }
         protected void RotateWithDrag(Transform source, Quaternion lookRotation)
         {

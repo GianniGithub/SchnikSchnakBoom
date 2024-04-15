@@ -1,9 +1,9 @@
 using UnityEngine;
 namespace GellosGames
 {
-    public class IdleMovementAndRotation : MovementAndRotation
+    public class IdleRotation : Rotation
     {
-        public IdleMovementAndRotation(ConstantForce forceMover, MonoBehaviour mother) : base(mother)
+        public IdleRotation(ConstantForce forceMover, MonoBehaviour mother) : base(mother)
         {
             forceMover.enabled = false;
         }

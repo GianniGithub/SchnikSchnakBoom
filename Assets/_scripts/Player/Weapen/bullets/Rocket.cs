@@ -17,11 +17,12 @@ namespace GellosGames
         public Transform aimCrossTarget;
         [SerializeField]
         float RotationAngel = 0.065f;
-        private MovementAndRotation pathFinder;
+        private Rotation pathFinder;
         [SerializeField]
         float LiveTime = 5f;
         [SerializeField]
         private PID gain;
+        private ConstantForce forceMover;
 
         void Update()
         {
@@ -33,6 +34,7 @@ namespace GellosGames
         }
         void Start()
         {
+            forceMover =  GetComponent<ConstantForce>();
             rb.detectCollisions = false;
             this.InvokeWait(0.35f, () => { rb.detectCollisions = true; });
             this.InvokeWait(LiveTime, () => { TriggerExplosion(); });
@@ -59,7 +61,7 @@ namespace GellosGames
         }
         
         public void OnPassedWaypoint(int waypointsLeft) { }
-        public void OnEndOfWaypoints()
+        public void OnTargetReached()
         {
             // If pass set Destroy timer to 2 sec to avoid circle loop
             this.InvokeWait(1.3f, () => { TriggerExplosion(); });
@@ -68,11 +70,13 @@ namespace GellosGames
         {
             if (!reachable)
             {
-                var path = new HeadToTarget(RotationAngel,this);
+                var path = new HeadToTarget(this);
+                path.RotationAngel = RotationAngel;
                 path.Target = aimCrossTarget;
                 pathFinder = path;
             }
-            pathFinder.ForceMover.relativeForce = Vector3.forward * (rb.mass * speed);
+            
+            forceMover.relativeForce = Vector3.forward * (rb.mass * speed);
         }
     } 
 }

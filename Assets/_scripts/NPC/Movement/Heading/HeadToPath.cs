@@ -5,8 +5,8 @@ using UnityEngine.AI;
 using UnityEngine.Serialization;
 namespace GellosGames
 {
-[Serializable]
-    public class HeadToPath : MovementAndRotation
+    [Serializable]
+    public class HeadToPath : Rotation
     {
         [ReadOnly]
         public Vector3[] wayPoints;
@@ -17,15 +17,19 @@ namespace GellosGames
         private float errorLast;
         private float integrationStored;
         private float pid;
+        [SerializeField]
         private PID gain;
         private IPathEvents listener;
         private NavMeshPath pathToRun;
 
+        public HeadToPath(MonoBehaviour Mother) : base(Mother)
+        {
+            listener = (IPathEvents)Mother;
+        }
         public HeadToPath(MonoBehaviour Mother, PID gain, float rotationAngel) : base(Mother)
         {
             this.listener = (IPathEvents)Mother;
             this.gain = gain;
-            this.rotationAngel = rotationAngel;
         }
         public void CalculatePath(Transform target)
         {
@@ -67,7 +71,7 @@ namespace GellosGames
                     if (!passedLastWaypoint)
                     {
                         passedLastWaypoint = true;
-                        listener.OnEndOfWaypoints();
+                        listener.OnTargetReached();
                     }
                     
                     // aim now only to last waypoint
@@ -132,7 +136,7 @@ namespace GellosGames
     public interface IPathEvents
     {
         void OnPassedWaypoint(int waypointsLeft);
-        void OnEndOfWaypoints();
+        void OnTargetReached();
         void OnPathIsCalculated(bool reachable);
     }
     [Serializable]

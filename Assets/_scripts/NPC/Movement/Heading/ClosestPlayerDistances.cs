@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GellosGames
 {
-    public struct ClosestPlayerDistances : TargetLogic<ClosestPlayerDistances>, IComparable<ClosestPlayerDistances>
+    public struct ClosestPlayerDistances : TargetingLogic<ClosestPlayerDistances>, IComparable<ClosestPlayerDistances>
     {
         public float DistanceToNextPlayer;
         public Transform Player;

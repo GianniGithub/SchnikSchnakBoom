@@ -1,23 +1,26 @@
+using System;
 using UnityEngine;
 namespace GellosGames
 {
     [RequireComponent(typeof(ConstantForce))]
-    public class SmartChase : NPCMode, ITarget<ClosestPlayerNavMeshPath>, IPathEvents
+    public class SmartChase : ConstantForceMovement, ITarget<ClosestPlayerNavMeshPath>, IPathEvents
     {
+        [SerializeField]
         private HeadToPath moveToPath;
+        [SerializeField]
         private HeadToTarget moveToPlayer;
         private TargetSelection<ClosestPlayerNavMeshPath> targetingAct;
         [SerializeField]
         private PID Gain;
         [SerializeField]
-        private float rotaionAngel;
+        private float rotaionAngel = 0.2f;
         public override void OnNPCSpawn()
         {
             CurrentActionMode = Idle.Universal;
             ActionState = NPCModeState.idle;
             
-            CurrentMovementMode = moveToPath = new HeadToPath(this, Gain, rotaionAngel);
-            MovementState = NPCModeState.followPath;
+            CurrentRotationMode = moveToPath = new HeadToPath(this, Gain, rotaionAngel);
+            RotationState = NPCModeState.followPath;
             
             CurrentBonusMode = targetingAct = new TargetSelection<ClosestPlayerNavMeshPath>(this, 1f);
             BonusState = NPCModeState.playerSelection;
@@ -29,23 +32,23 @@ namespace GellosGames
         public void OnPassedWaypoint(int waypointsLeft)
         {
         }
-        public void OnEndOfWaypoints()
+        public void OnTargetReached()
         {
-            moveToPlayer = new HeadToTarget(rotaionAngel, this)
+            moveToPlayer = new HeadToTarget(this)
             {
                 Target = targetingAct.Closest.Player
             };
-            CurrentMovementMode = moveToPlayer;
-            MovementState = NPCModeState.chasing;
+            CurrentRotationMode = moveToPlayer;
+            RotationState = NPCModeState.chasing;
         }
         public void OnPathIsCalculated(bool reachable)
         {
             if (!reachable)
             {
                 Debug.Log("SMART NPC: Cant find Player!");
-                moveToPath.ForceMover.enabled = false;
-                CurrentMovementMode = Idle.Universal;
-                MovementState = NPCModeState.idle;
+                ActivateMoving(false);
+                CurrentRotationMode = Idle.Universal;
+                RotationState = NPCModeState.PathError;
                 
                 // TODO Try in 20 sek again?
             }

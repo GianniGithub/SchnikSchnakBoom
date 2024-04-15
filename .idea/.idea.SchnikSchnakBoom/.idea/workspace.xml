@@ -5,11 +5,86 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Helper.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/BackStack.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/BackStack.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/ColorExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/ColorExtension.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/CountDownTimer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/CountDownTimer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/GetFrameRate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/GetFrameRate.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/IdentifieComparerGameobject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/IdentifieComparerGameobject.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/ObjectInstanceIDEqualityComparer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/ObjectInstanceIDEqualityComparer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/OwnQueue.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/OwnQueue.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/RandomExtansion.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/RandomExtansion.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/SccrenConsole.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/SccrenConsole.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/SizeLimitedDictionary.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/SizeLimitedDictionary.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/SpatialHash.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/SpatialHash.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/SwapList.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/SwapList.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/ThreadSafeList.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/ThreadSafeList.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/TransformExtention.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/TransformExtention.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/Triangulator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/Triangulator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/UnityMainThreadDispatcher.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/UnityMainThreadDispatcher.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/UnityTestDetector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/UnityTestDetector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/Vector2extension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/Vector2extension.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/Vector4extension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/Vector4extension.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/VectorRandom.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/VectorRandom.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/emptyMonoBehavior.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/emptyMonoBehavior.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/ConstantForceMovement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/ConstantForceMovement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/WayPointCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/WayPointCollection.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/PassWaypoints.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/PassWaypoints.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/GlobalNamespace.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UIElements.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.Profiling.Editor.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.UI.Builder.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Experimental.GraphView.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Overlays.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.PackageManager.UI.Internal.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.ProBuilder.UI.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Rendering.LookDev.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Search.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.ShaderGraph.Drawing.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.ShortcutManagement.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.Debugger.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEngine.UIElements.xsd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetSelection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerDistances.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerNavMeshPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerNavMeshPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToTarget.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleMovementAndRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleRotation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleMovementAndRotation.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleRotation.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/MovementAndRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Rotation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/MovementAndRotation.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Rotation.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,20 +95,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/Camara/Camera Blends.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetSelection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/NPC/Movement/Heading/HeadToTarget.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/NavMeshSurfaceVolumeUpdater.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/Test/ShootTestBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/Test/TestRocketNormal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@1.1.5/Runtime/NavMeshSurface.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.5/Runtime/Behaviours/CinemachineBrain.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.5/Runtime/Behaviours/CinemachineVirtualCamera.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.5/Runtime/Core/CameraState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@14.0.9/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Unity/extreme-scooling/Library/PackageCache/com.unity.mobile.notifications@1.4.2/Samples~/NotificationsSamples/Scripts/GameNotificationsManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2cf5e94b2c4c43a6b4e1eb3ceb5995fd173e00/09/c9bedd5e/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2cf5e94b2c4c43a6b4e1eb3ceb5995fd173e00/1c/492dc7bc/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
@@ -155,6 +227,8 @@
       <workItem from="1701887019191" duration="12845000" />
       <workItem from="1702333717431" duration="5861000" />
       <workItem from="1711739664548" duration="97000" />
+      <workItem from="1711739812890" duration="2980000" />
+      <workItem from="1713197143418" duration="16819000" />
     </task>
     <task id="LOCAL-00001" summary="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs">
       <option name="closed" value="true" />
@@ -308,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702340115488</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="update to Unity 22.3.22f1">
+      <option name="closed" value="true" />
+      <created>1711739941978</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1711739941978</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,31 +432,7 @@
     <MESSAGE value="Fix in PID Controller" />
     <MESSAGE value="Fix Player selection targeting" />
     <MESSAGE value="Camera Fixes, new prefabs (better for new scenes)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Camera Fixes, new prefabs (better for new scenes)." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs</url>
-          <line>26</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" initialLine="26" containingFunctionPresentation="Method 'TargetUpdate'">
-            <startOffsets>
-              <option value="935" />
-            </startOffsets>
-            <endOffsets>
-              <option value="965" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetSelection.cs</url>
-          <line>28</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetRanking.cs" initialLine="28" containingFunctionPresentation="Method 'ScheduledUpdate'" />
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="update to Unity 22.3.22f1" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to Unity 22.3.22f1" />
   </component>
 </project>

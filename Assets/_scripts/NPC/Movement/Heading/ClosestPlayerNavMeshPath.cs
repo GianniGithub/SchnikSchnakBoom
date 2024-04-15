@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.AI;
 namespace GellosGames
 {
-    public struct ClosestPlayerNavMeshPath : TargetLogic<ClosestPlayerNavMeshPath>, IComparable<ClosestPlayerNavMeshPath>
+    public struct ClosestPlayerNavMeshPath : TargetingLogic<ClosestPlayerNavMeshPath>, IComparable<ClosestPlayerNavMeshPath>
     {
         public float DistanceToNextPlayer;
         public Transform Player;
@@ -28,7 +28,7 @@ namespace GellosGames
                 DistanceToNextPlayer += Vector3.Distance(wayPoints[i], wayPoints[i + 1]);
             }
         }
-        public bool IsCloserTo(TargetLogic<ClosestPlayerNavMeshPath> newUpdate)
+        public bool IsCloserTo(TargetingLogic<ClosestPlayerNavMeshPath> newUpdate)
         {
             return ((ClosestPlayerNavMeshPath)newUpdate).DistanceToNextPlayer < DistanceToNextPlayer;
         }

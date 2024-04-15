@@ -1,11 +1,16 @@
+using System;
 using UnityEngine;
 namespace GellosGames
 {
-    public class HeadToTarget : MovementAndRotation
+    [Serializable]
+    public class HeadToTarget : Rotation
     {
-        public HeadToTarget(float smoothAngel, MonoBehaviour mother) : base(mother)
+        public HeadToTarget()
         {
-            rotationAngel = smoothAngel;
+            
+        }
+        public HeadToTarget(MonoBehaviour mother) : base(mother)
+        {
         }
         public override void Update()
         {
