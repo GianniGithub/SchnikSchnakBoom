@@ -3,7 +3,7 @@ using UnityEngine;
 namespace GellosGames
 {
     [RequireComponent(typeof(ConstantForce))]
-    public class SmartChase : ConstantForceMovement, ITarget<ClosestPlayerNavMeshPath>, IPathEvents
+    public class SmartChase : ConstantForceMovementControl, ITarget<ClosestPlayerNavMeshPath>, IPathEvents
     {
         [SerializeField]
         private HeadToPath moveToPath;

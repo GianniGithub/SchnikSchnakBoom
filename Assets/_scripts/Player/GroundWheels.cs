@@ -19,7 +19,7 @@ namespace GellosGames
                 if(value != grounded)
                 {
                     grounded = value;
-                    IsGroundedEvent(value);
+                    IsGroundedEvent?.Invoke(value);
                 }
             }
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace GellosGames
 {
     [Serializable]
-    public class HeadToTarget : Rotation
+    public class HeadToTarget : RotationControl
     {
         public HeadToTarget()
         {

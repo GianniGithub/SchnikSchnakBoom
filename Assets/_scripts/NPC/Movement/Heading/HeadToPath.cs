@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 namespace GellosGames
 {
     [Serializable]
-    public class HeadToPath : Rotation
+    public class HeadToPath : RotationControl
     {
         [ReadOnly]
         public Vector3[] wayPoints;

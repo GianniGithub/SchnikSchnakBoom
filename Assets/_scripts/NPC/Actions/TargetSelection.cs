@@ -29,7 +29,7 @@ namespace GellosGames
             }
             catch (Exception e)
             {
-                Debug.LogWarning("No Player in Scene, No Target to Attack");
+                Debug.LogError("No Player in Scene, No Target to Attack");
                 throw;
             }
             

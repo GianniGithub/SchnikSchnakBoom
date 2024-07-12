@@ -17,7 +17,7 @@ namespace GellosGames
         public Transform aimCrossTarget;
         [SerializeField]
         float RotationAngel = 0.065f;
-        private Rotation pathFinder;
+        private RotationControl pathFinder;
         [SerializeField]
         float LiveTime = 5f;
         [SerializeField]

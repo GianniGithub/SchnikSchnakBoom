@@ -2,7 +2,7 @@ using Gianni.Helper;
 using UnityEngine;
 namespace GellosGames
 {
-    public class PassWaypoints : ConstantForceMovement, IPathEvents
+    public class PassWaypoints : ConstantForceMovementControl, IPathEvents
     {
         [SerializeField]
         private WayPointCollection WayPoints;

@@ -66,7 +66,7 @@ namespace DG.Tweening
         /// <summary>Tweens a Rigidbody's rotation to the given value.
         /// Also stores the rigidbody as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
-        /// <param name="mode">Rotation mode</param>
+        /// <param name="mode">RotationControl mode</param>
         public static TweenerCore<Quaternion, Vector3, QuaternionOptions> DORotate(this Rigidbody target, Vector3 endValue, float duration, RotateMode mode = RotateMode.Fast)
         {
             TweenerCore<Quaternion, Vector3, QuaternionOptions> t = DOTween.To(() => target.rotation, target.MoveRotation, endValue, duration);

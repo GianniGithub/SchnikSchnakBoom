@@ -5,17 +5,16 @@ using UnityEngine;
 namespace GellosGames
 {
     [RequireComponent(typeof(ConstantForce))]
-    public class MeleeNPC : ConstantForceMovement, ITarget<ClosestPlayerDistances>
+    public class MeleeNPC : ConstantForceMovementControl, ITarget<ClosestPlayerDistances>
     {
-        public Rotation moveToTarget;
+        public RotationControl headToTargetMode;
         private TargetSelection<ClosestPlayerDistances> targetingAct;
         public override void OnNPCSpawn()
         {
             CurrentActionMode = Idle.Universal;
             ActionState = NPCModeState.idle;
-
-            moveToTarget.Mother = this;
-            CurrentRotationMode = moveToTarget;
+            
+            CurrentRotationMode = headToTargetMode = new HeadToTarget(this);
             RotationState = NPCModeState.chasing;
             
             CurrentBonusMode = targetingAct = new TargetSelection<ClosestPlayerDistances>(this, 1f);
@@ -23,7 +22,7 @@ namespace GellosGames
         }
         public void TargetUpdate(ClosestPlayerDistances target)
         {
-            moveToTarget.Target = target.Player;
+            headToTargetMode.Target = target.Player;
         }
     }
 
