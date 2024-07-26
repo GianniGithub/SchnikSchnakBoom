@@ -1,13 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace GellosGames
 {
+    [Serializable]
     [RequireComponent(typeof(ConstantForce))]
     public class MeleeNPC : ConstantForceMovementControl, ITarget<ClosestPlayerDistances>
     {
-        public RotationControl headToTargetMode;
+        [SerializeReference]
+        private RotationControl headToTargetMode;
         private TargetSelection<ClosestPlayerDistances> targetingAct;
         public override void OnNPCSpawn()
         {

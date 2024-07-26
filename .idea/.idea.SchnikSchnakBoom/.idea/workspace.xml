@@ -5,31 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/Materials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/Materials/Can-color.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/Materials/Can-color.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/Materials/Lid-color.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/Materials/Lid-color.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/allcan.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/allcan.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/newcanLit.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/newcanLit.mat.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extensions/DOTween/Modules/DOTweenModulePhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extensions/DOTween/Modules/DOTweenModulePhysics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Helper/OwnQueue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Helper/OwnQueue.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/ConstantForceMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/ConstantForceMovementControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/ConstantForceMovement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/ConstantForceMovementControl.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToPath.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/HeadToTarget.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleRotationControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleRotation.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/IdleRotationControl.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Rotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/RotationControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Rotation.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/RotationControl.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/PassWaypoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/PassWaypoints.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Player/GroundWheels.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Player/GroundWheels.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,11 +17,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/Extensions/DOTween/Modules/DOTweenModulePhysics.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/Scenes/TestSceens/NPC AI/Meel.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/EventSystem/App/GameClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Helper/OwnQueue.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/Actions/TargetSelection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/NPC/MeleeNPC.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/NPC/Movement/Heading/HeadToPath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/NPC/NavMeshSurfaceVolumeUpdater.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/NPC/PassWaypoints.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/hans/Documents/Github/SchnikSchnakBoom/Assets/_scripts/Player/Weapen/bullets/Rocket.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/Test/ShootTestBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_scripts/Test/TestRocketNormal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@1.1.5/Runtime/NavMeshSurface.cs" root0="SKIP_HIGHLIGHTING" />
@@ -58,6 +42,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2cf5e94b2c4c43a6b4e1eb3ceb5995fd173e00/46/dc0ed2d5/Camera.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2cf5e94b2c4c43a6b4e1eb3ceb5995fd173e00/75/f6a25d26/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2cf5e94b2c4c43a6b4e1eb3ceb5995fd173e00/ba/d0d09296/Debug.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3c9ac2df4d3b4342b1d68f6a776f43a3175400/29/3a2b26ee/Debug.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/40/e5d6f9ab/Comparison`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/65/e1d4af97/IComparer`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9e2872442067422a87a1e5c736399ac2d400/1b/aed21675/NavMeshPath.cs" root0="SKIP_HIGHLIGHTING" />
@@ -146,10 +131,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="78904">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="78904" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -178,7 +163,8 @@
       <workItem from="1713197143418" duration="17546000" />
       <workItem from="1716315520447" duration="415000" />
       <workItem from="1717010704189" duration="597000" />
-      <workItem from="1720801101203" duration="3153000" />
+      <workItem from="1720801101203" duration="4673000" />
+      <workItem from="1721998916991" duration="598000" />
     </task>
     <task id="LOCAL-00001" summary="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs">
       <option name="closed" value="true" />
@@ -348,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713223930377</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added Procreate grafices; Simple Meele AI fix">
+      <option name="closed" value="true" />
+      <created>1720805737840</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1720805737840</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,20 +386,21 @@
     <MESSAGE value="Camera Fixes, new prefabs (better for new scenes)." />
     <MESSAGE value="update to Unity 22.3.22f1" />
     <MESSAGE value="Add more Helper;&#10;Refactor Enemy AI;&#10;New Waypoint follower for auto player" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add more Helper;&#10;Refactor Enemy AI;&#10;New Waypoint follower for auto player" />
+    <MESSAGE value="Added Procreate grafices; Simple Meele AI fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Procreate grafices; Simple Meele AI fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs</url>
-          <line>24</line>
+          <line>27</line>
           <properties documentPath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" initialLine="24" containingFunctionPresentation="Method 'TargetUpdate'">
             <startOffsets>
-              <option value="915" />
+              <option value="978" />
             </startOffsets>
             <endOffsets>
-              <option value="955" />
+              <option value="1018" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
