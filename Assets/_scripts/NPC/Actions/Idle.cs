@@ -1,7 +1,7 @@
 using UnityEngine;
 namespace GellosGames
 {
-    public class Idle : Mode
+    public class Idle : Node
     {
         public static Idle Universal
         {

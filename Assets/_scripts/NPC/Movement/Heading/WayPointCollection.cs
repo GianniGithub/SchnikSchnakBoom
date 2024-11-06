@@ -7,7 +7,7 @@ using UnityEngine;
 namespace GellosGames
 {
     [Serializable]
-    public class WayPointCollection : Mode
+    public class WayPointCollection : Node
     {
         [SerializeField]
         bool Loop;

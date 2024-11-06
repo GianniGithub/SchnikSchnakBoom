@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using Unity.Cinemachine;
 
 namespace GellosGames
 {
@@ -10,7 +10,7 @@ namespace GellosGames
     {
         static Camera P1;
         static Camera P2;
-        CinemachineVirtualCamera cvc;
+        CinemachineCamera cvc;
         public override void OnSpawn()
         {
             if (P1 == null || P2 == null)
@@ -30,7 +30,7 @@ namespace GellosGames
 
             SetUpSplittScreen();
 
-            cvc = GetComponent<CinemachineVirtualCamera>();
+            cvc = GetComponent<CinemachineCamera>();
             EventHandler.StartListening(PlayerActions.OnKilled, OnKilled);
             gameObject.layer = LayerMask.NameToLayer(EventHandler.id.ToString());
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace GellosGames
 {
     [Serializable]
-    public abstract class RotationControl : Mode
+    public abstract class RotationControl : Node
     {
         public Transform Target;
         [SerializeField]

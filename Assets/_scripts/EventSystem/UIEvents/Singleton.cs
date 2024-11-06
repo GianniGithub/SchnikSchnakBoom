@@ -12,7 +12,8 @@ namespace GellosGames
 
         private static T CreateSingleton()
         {
-            T instance = (T)FindObjectOfType(typeof(T));
+            T instance = (T)UnityEngine.Object.FindFirstObjectByType(typeof(T));
+          
 
             if (instance == null)
             {

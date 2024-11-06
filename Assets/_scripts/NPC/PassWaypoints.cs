@@ -15,7 +15,7 @@ namespace GellosGames
         }
         private void Start()
         {
-            CurrentActionMode = Idle.Universal;
+            CurrentActionNode = Idle.Universal;
             ActionState = NPCModeState.idle;
             WayPoints = new WayPointCollection(this);
             

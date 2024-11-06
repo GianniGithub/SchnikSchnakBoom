@@ -5,8 +5,114 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df4c5c30-b26a-4144-ba12-d6badefdbf67" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/DefaultVolumeProfile.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DefaultVolumeProfile.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Gamepad Mouse Cursor/GamepadMouseCursorSampleSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Gamepad Mouse Cursor/GamepadMouseCursorSampleSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingActionAssetSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingActionAssetSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingActionsSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingActionsSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingPlayerInputSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingPlayerInputSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingStateSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingStateSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Multiplayer/SimpleMultiplayerDemoSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Multiplayer/SimpleMultiplayerDemoSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/UI vs. Game Input/UIvsGameInputSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/UI vs. Game Input/UIvsGameInputSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Sequence.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Sequence.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/MultiplayerManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SchnikSchnakBoom/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Models/Materials/Material.001.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Models/Materials/Material.001.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Models/Materials/No Name.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Models/Materials/No Name.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Scenes/DemoScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extensions/MobileDepthWater/Scenes/DemoScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extensions/NaughtyAttributes/Assets/NaughtyAttributes/Samples/DemoScene/DemoScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extensions/NaughtyAttributes/Assets/NaughtyAttributes/Samples/DemoScene/DemoScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extensions/QuaternionController/Sample/Sample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extensions/QuaternionController/Sample/Sample.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/ArtilleriPath.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ArtilleriPath.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/ArtilleryAimCrossMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ArtilleryAimCrossMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Explosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Explosion.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Gianni.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Gianni.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/LineRenderer.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/LineRenderer.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Player1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Player1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Player2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Player2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Player3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Player3.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Player4.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Player4.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/ProbuilderDefault.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ProbuilderDefault.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Rock.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Rock.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Rocket.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Rocket.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Terrian.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Terrian.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/gott 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/gott 1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/gott.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/gott.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/maaaaaaa.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/maaaaaaa.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/testUVImage 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/testUVImage 1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Gamepad Mouse Cursor/GamepadMouseCursorSample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Gamepad Mouse Cursor/GamepadMouseCursorSample.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleControls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingActionAsset.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingActionAsset.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingActions.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingActions.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingPlayerInput.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingPlayerInput.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingState.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Demo/SimpleDemo_UsingState.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Multiplayer/SimpleMultiplayerDemo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/Simple Multiplayer/SimpleMultiplayerDemo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/UI vs. Game Input/UIvsGameInput.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.4.2/UI vs. Game Input/UIvsGameInput.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.scenetemplate" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.scenetemplate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/ArtilleriPath.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/ArtilleriPath.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/ArtilleryAimCrossMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/ArtilleryAimCrossMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Explosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Explosion.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/LineRenderer.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/LineRenderer.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Lit.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Lit.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Player1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Player1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Player2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Player2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Player3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Player3.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Player4.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Player4.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/ProbuilderDefault.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/ProbuilderDefault.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Rock.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Rock.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Rocket.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Rocket.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Terrian.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/Meel/Terrian.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/SceneTemplate.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC AI/SceneTemplate.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC/simple.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/NPC/simple.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest/RocketTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceens/RocketTest/RocketTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/CameraSystem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefap/CameraSystem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/Materials/Can-color.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/Materials/Can-color.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/Materials/Lid-color.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/Materials/Lid-color.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/allcan.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/allcan.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/newcanLit.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefap/Procreate/Soda_Can/newcanLit.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Camara/CamaraBrainInputHandling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Camara/CamaraBrainInputHandling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Camara/CinemaschineInputExtansion.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Camara/CinemaschineInputExtansion.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Camara/NewBehaviourScript.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Camara/NewBehaviourScript.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Camara/PlayerCamaraSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Camara/PlayerCamaraSetup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Camara/PlayerInputVcamProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Camara/PlayerInputVcamProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Camara/VirtualCamaraSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Camara/VirtualCamaraSetup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/EventSystem/UIEvents/Singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/EventSystem/UIEvents/Singleton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/Idle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Actions/Idle.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerNavMeshPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/ClosestPlayerNavMeshPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/WayPointCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/Heading/WayPointCollection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/RotationControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/Movement/RotationControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/NPCMode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/PassWaypoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/PassWaypoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/NPC/SmartChase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Player/VehicleControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Player/VehicleControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Test/ShootTestBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Test/ShootTestBullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Test/testRocket.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Test/testRocket.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/input/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/input/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +204,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.22f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/6000.0.25f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -106,7 +212,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.22f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/6000.0.25f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -164,7 +270,8 @@
       <workItem from="1716315520447" duration="415000" />
       <workItem from="1717010704189" duration="597000" />
       <workItem from="1720801101203" duration="4673000" />
-      <workItem from="1721998916991" duration="598000" />
+      <workItem from="1721998916991" duration="6668000" />
+      <workItem from="1730902507747" duration="2282000" />
     </task>
     <task id="LOCAL-00001" summary="upgrade project to unity 2022.3.12f on Mac with Rider integration 23.2.2 - Game runs">
       <option name="closed" value="true" />
@@ -397,10 +504,10 @@
           <line>27</line>
           <properties documentPath="$PROJECT_DIR$/Assets/_scripts/NPC/MeleeNPC.cs" initialLine="24" containingFunctionPresentation="Method 'TargetUpdate'">
             <startOffsets>
-              <option value="978" />
+              <option value="979" />
             </startOffsets>
             <endOffsets>
-              <option value="1018" />
+              <option value="1019" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />

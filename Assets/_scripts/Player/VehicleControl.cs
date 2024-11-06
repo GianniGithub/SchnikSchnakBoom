@@ -42,7 +42,7 @@ namespace GellosGames
         void Awake()
         {
             rb = GetComponent<Rigidbody>();
-            startDrag = rb.drag;
+            startDrag = rb.linearDamping;
         }
         public override void OnSpawn()
         {
@@ -71,7 +71,7 @@ namespace GellosGames
             if (!isGrounded)
             {
                 VehicleState = VehicleState.InAir;
-                rb.drag = 0f;
+                rb.linearDamping = 0f;
                 return;
             }
             else if (moveAction.inProgress)
@@ -79,7 +79,7 @@ namespace GellosGames
             else
                 VehicleState = VehicleState.Idle;
 
-            rb.drag = startDrag;
+            rb.linearDamping = startDrag;
             enabled = true;
         }
 

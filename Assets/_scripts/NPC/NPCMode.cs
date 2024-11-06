@@ -31,36 +31,36 @@ namespace GellosGames
         [SerializeField][ReadOnly]
         protected NPCModeState BonusState;
         
-        private Mode m_CurrentActionMode ;
-        private Mode m_CurrentRotationMode ;
-        private Mode m_CurrentBonusMode ;
-        protected Mode CurrentActionMode
+        private Node _mCurrentActionNode ;
+        private Node _mCurrentRotationNode ;
+        private Node _mCurrentTargetNode ;
+        protected Node CurrentActionNode
         {
-            get => m_CurrentActionMode;
-            set => m_CurrentActionMode = value;
+            get => _mCurrentActionNode;
+            set => _mCurrentActionNode = value;
         }
-        protected Mode CurrentRotationMode
+        protected Node CurrentRotationNode
         {
-            get => m_CurrentRotationMode;
-            set => m_CurrentRotationMode = value;
+            get => _mCurrentRotationNode;
+            set => _mCurrentRotationNode = value;
         }
-        protected Mode CurrentBonusMode
+        protected Node CurrentTargetNode
         {
-            get => m_CurrentBonusMode;
-            set => m_CurrentBonusMode = value;
+            get => _mCurrentTargetNode;
+            set => _mCurrentTargetNode = value;
         }
         protected void Update()
         {
-            m_CurrentActionMode.Update();
-            m_CurrentBonusMode.Update();
+            _mCurrentActionNode.Update();
+            _mCurrentTargetNode.Update();
         }
         protected void FixedUpdate()
         {
-            m_CurrentRotationMode.Update();
+            _mCurrentRotationNode.Update();
         }
     }
     [Serializable]
-    public abstract class Mode
+    public abstract class Node
     {
         MonoBehaviour mother;
         public MonoBehaviour Mother
@@ -69,15 +69,15 @@ namespace GellosGames
             set => mother = value;
         }
         public abstract void Update();
-        protected Mode(MonoBehaviour Mother)
+        protected Node(MonoBehaviour Mother)
         {
             this.Mother = Mother;
         }
-        protected Mode()
+        protected Node()
         {
         }
     }
-    public abstract class ScheduleUpdate : Mode
+    public abstract class ScheduleUpdate : Node
     {
         public float ActionUpdateRate;
         private float timeLeft;

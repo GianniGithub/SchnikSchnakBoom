@@ -1,4 +1,4 @@
-using Cinemachine;
+using Unity.Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,8 +9,8 @@ namespace GellosGames
     public class PlayerCamaraSetup : MonoBehaviour
     {
         public Camera[] ScreenCamps;
-        public CinemachineVirtualCamera[] PlayerCamps;
-        public CinemachineVirtualCamera[] PlayerAimCamps;
+        public CinemachineCamera[] PlayerCamps;
+        public CinemachineCamera[] PlayerAimCamps;
 
 
         private PlayerCameraFinder[] playerPointer;
@@ -37,7 +37,7 @@ namespace GellosGames
             PlayerCamp.gameObject.layer = layer;
             PlayerCamp.gameObject.SetActive(true);
             PlayerCamp.Priority = 0;
-            CinemachineBrain.SoloCamera = PlayerCamp;
+            //CinemachineBrain.SoloCamera = PlayerCamp;
 
             PlayerAimCamps[playerID].gameObject.layer = layer;
             playerPointer[playerID] = player.PlayerObj.GetComponentInChildren<PlayerCameraFinder>();
@@ -61,12 +61,12 @@ namespace GellosGames
                 case AimMode.ControllerStickDirection:
                     PlayerAimCamps[playerID].Follow = playerPointer[playerID].transform;
                     PlayerAimCamps[playerID].gameObject.SetActive(true);
-                    PlayerAimCamps[playerID].m_Lens.OrthographicSize = 10f;
+                    PlayerAimCamps[playerID].Lens.OrthographicSize = 10f;
                     break;
                 case AimMode.ControllerStickControlled:
                     PlayerAimCamps[playerID].Follow = weapon.AimCross;
                     PlayerAimCamps[playerID].gameObject.SetActive(true);
-                    PlayerAimCamps[playerID].m_Lens.OrthographicSize = 17f;
+                    PlayerAimCamps[playerID].Lens.OrthographicSize = 17f;
                     break;
             }
             

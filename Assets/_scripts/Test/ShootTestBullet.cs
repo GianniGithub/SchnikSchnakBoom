@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Gianni.Helper;
 using UnityEngine;
 using NaughtyAttributes;
-using Unity.VisualScripting;
 
 namespace GellosGames
 {
