@@ -15,10 +15,7 @@ namespace GellosGames
         public GameObject PlayerPrefap;
         public Vector3[] Spownpoints;
         Dictionary<InputDevice,PlayerDeviceConnection> GampadIDsInUse = new Dictionary<InputDevice, PlayerDeviceConnection>();
-        private void Awake()
-        {
-            
-        }
+    
         void Start()
         {
             // Temp
@@ -43,10 +40,14 @@ namespace GellosGames
             if (change == InputActionChange.ActionPerformed)
             {
                 var inputAction = (InputAction)obj;
+                
+                // Keybord
+                if(inputAction.id == Guid.Parse("7b549163-8aa2-475e-8a8f-a1e14dd2a5fd"))
+                    spawnPlayer(inputAction.activeControl.device);
+                
+                // Controller
                 if (inputAction.id != Guid.Parse("7607c7b6-cd76-4816-beef-bd0341cfe950"))
-                    return;
-
-                spawnPlayer(inputAction.activeControl.device);
+                    spawnPlayer(inputAction.activeControl.device);
             }
         }
         private void spawnPlayer(InputDevice gamepad)

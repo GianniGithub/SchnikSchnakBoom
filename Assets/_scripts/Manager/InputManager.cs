@@ -14,7 +14,7 @@ namespace GellosGames
         void Start()
         {
             AllController = new PlayerController();
-            AllController.devices = new[] { (InputDevice)Keyboard.current, Mouse.current };
+            //AllController.devices = new[] { (InputDevice)Keyboard.current, Mouse.current };
             AllController.Player1.Enable();
 
             var e = new InputManagerArgs() { AllController = AllController, Enabled = true };
